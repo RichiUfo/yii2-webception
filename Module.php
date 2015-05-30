@@ -6,9 +6,9 @@ class Module extends \frontend\components\Module
 {
     public $controllerNamespace = 'frontend\modules\accounting\controllers';
 
-	public $db_name;
-	public $db_username;
-	public $db_password;
+	//public $db_name;
+	//public $db_username;
+	//public $db_password;
 	
 	/**
      * Constructor.
@@ -38,9 +38,9 @@ class Module extends \frontend\components\Module
      */
     public function __construct($id, $parent = null, $config = [])
     {
-        $this->db_name = 'fullplanner2_accounting'
-        $this->db_username = 'accounting'
-        $this->db_password = 'lECwn3sqj3_dv-X37fpHxdntrR0m0fWx'
+        $this->db_name = 'fullplanner2_accounting';
+        $this->db_username = 'accounting';
+        $this->db_password = 'lECwn3sqj3_dv-X37fpHxdntrR0m0fWx';
 			
 		parent::__construct($id, $parent, $config);
 		
