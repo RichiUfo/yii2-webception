@@ -5,10 +5,6 @@ namespace frontend\modules\accounting\models;
 class ActiveRecord extends \frontend\components\ActiveRecord
 {
 	
-	public $db_name = 'fullplanner2_accounting';
-	public $db_username = 'accounting';
-	public $db_password = 'lECwn3sqj3_dv-X37fpHxdntrR0m0fWx';
-	
     public static function getDb()
 	{
         /*$db = new \yii\db\Connection([
@@ -17,7 +13,7 @@ class ActiveRecord extends \frontend\components\ActiveRecord
 			'password' => 'lECwn3sqj3_dv-X37fpHxdntrR0m0fWx',
 		]);
 		$db->open();*/
-		return $this->db;
+		return \Yii::app()->controller->module->db;
    	}
 
 }
