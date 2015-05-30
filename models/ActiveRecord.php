@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\_template\models;
+namespace frontend\modules\_template\models;
 
 class ActiveRecord extends \app\components\ActiveRecord
 {

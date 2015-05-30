@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\_template\controllers;
+namespace frontend\modules\_template\controllers;
 
 class DefaultController extends \app\components\Controller
 {

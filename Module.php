@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\_template;
+namespace frontend\modules\_template;
 
 class Module extends \app\components\Module
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\modules\_template\controllers;
+namespace frontend\modules\_template\controllers;
 
-use app\modules\_template\models\Sample;
+use frontend\modules\_template\models\Sample;
 
 class SampleController extends \app\components\Controller
 {
