@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\accounting\models;
+namespace frontend\modules\accounting\models;
 
 use Yii;
 
