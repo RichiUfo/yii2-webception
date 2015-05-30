@@ -1,0 +1,188 @@
+<?php
+
+namespace frontend\modules\accounting\controllers;
+
+use Yii;
+use yii\filters\AccessControl;
+
+use frontend\controllers\NotificationController;
+use frontend\controllers\LocalizationController;
+
+use app\modules\accounting\models\Transaction;
+use app\modules\accounting\models\Account;
+use app\modules\accounting\models\AccountPlus;
+use app\modules\accounting\models\AccountHierarchy;
+
+class TransactionController extends \frontend\components\Controller
+{
+        
+    /**
+     * @inheritdoc
+     */
+    public function behaviors() {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+        ];
+    }
+    public function actionCreate() {
+        $model = new Transaction();
+        
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+                
+                // Step 2 : Register the transaction
+                $debit = AccountController::updateAccountValue($model->account_debit_id, -1 * $model->value);
+                $credit = AccountController::updateAccountValue($model->account_credit_id, $model->value);
+
+                $model->save();
+
+                NotificationController::setNotification('success', 'Transaction Saved', 'The transaction has been saved !');
+
+                return 'Saved';
+            }
+        }
+        
+        // Step 1 : Request users inputs
+        $model->date_value = date('Y/m/d');
+        return $this->renderAjax('create', [
+            'model' => $model,
+            'accounts' => AccountController::getAccountList(true)
+        ]);
+        
+    }
+    
+    /**
+     * Private Functions
+     */
+    public function getTransactions($accountid, $start, $end){
+        
+        // Convert the id of the account hierarchy to a SQL compatible format
+        $account = AccountHierarchy::findOne($accountid);
+        $ids = $account->getChildrenIdList();
+        $strids = '(';
+        foreach ($ids as $id) {$strids .= $id.','; }
+        $strids = substr_replace($strids, ')', -1);
+        
+        // Time Query Management
+        if ($end === 'now') {
+            $time_query = "date_value > '".$start."'";
+        } else {
+            $time_query = "date_value between '".$start."' and '".$end." 23:59:59.999'";
+        }
+        
+        // Find the transactions
+        $transactions = Transaction::find()
+            ->where('account_credit_id IN '.$strids.' OR account_debit_id IN '.$strids)
+            ->andWhere($time_query)
+            ->orderBy(['date_value' => SORT_DESC])
+            ->all();
+        
+        // Check if the transaction is a debit or credit for this account
+        foreach($transactions as $transaction){
+            $transaction->credit = (in_array($transaction->account_credit_id, $ids))?true:false;       
+            $transaction->debit = (in_array($transaction->account_debit_id, $ids))?true:false;       
+        }
+        
+        return $transactions;
+    }
+    public function getMovements($accountid, $start, $end) {
+        
+        $transactions = TransactionController::getTransactions($accountid, $start, $end);
+        
+        $passed_credits = 0;
+        $future_credits = 0;
+        $passed_debits = 0;
+        $future_debits = 0;
+        
+        $now = new \DateTime("now", new \DateTimeZone(\Yii::$app->user->identity->acc_timezone));
+        
+        foreach($transactions as $transaction) {
+            $transaction_time = new \DateTime($transaction->date_value);
+            
+            if($transaction->debit) {
+                if($now >= $transaction_time) $passed_debits += $transaction->value;
+                else $future_debits += $transaction->value;
+            }
+        
+            if($transaction->credit){
+                if($now >= $transaction_time) $passed_credits += $transaction->value;
+                else $future_credits += $transaction->value;
+            }
+        }
+        
+        return array(
+            'passed_credits' => $passed_credits, 
+            'future_credits' => $future_credits,
+            'passed_debits' => $passed_debits,
+            'future_debits' => $future_debits,
+            // DEBUG
+            'now' => $now,
+            'transactions' => $transactions 
+        );
+    }
+    
+    /**
+     * AJAX Actions Section (Returns VIEW or JSON)
+     */
+    public function actionValidateAccountSelection($accountdebitid, $accountcreditid){
+    
+        \Yii::$app->response->format = 'json';
+        
+        $debit = AccountPlus::findOne($accountdebitid);
+        $debit = AccountPlus::findOne($accountcreditid);
+        
+        $valid = true;
+        $message = "";
+        
+        // 1. Check that accounts are different
+        if($accountdebitid == $accountcreditid){
+            $valid = false;
+            $message = "Error: The debit and credit accounts are same !";
+        }
+        
+        // X. Return the validation data
+        $ret['valid'] = $valid;
+        $ret['message'] = $message;
+        return $ret;
+    }
+    public function actionGetTransactionsView($accountid, $start, $end) {
+        
+        // Account Information
+        $account = AccountHierarchy::findOne(['id' => $accountid, 'owner_id' => Yii::$app->user->id]);
+        if ($account === null) throw new NotFoundHttpException;
+        
+        // Closing Balance
+        //$closing_balance = AccountController::getAccountBalance($account->id, date("Y-m-d")) * $account->sign;
+        $movements = AccountController::getMovementsSummary($accountid, $start, $end);
+        $closing_balance = $movements['closing_balance'];
+        
+        // Transactions
+        $transactions = $this->getTransactions($account->id, $start, $end);
+        
+        return $this->renderAjax('partial_transactions', [
+            'start' => $start,
+            'end' => $end,
+            'account' => $account,
+            'closing_balance' => $closing_balance,
+            'transactions' => $transactions
+        ]);
+    }
+    public function actionGetTransactionsJson($accountid, $start, $end) {
+        $transactions = $this->getTransactions($accountid, $start, $end);
+        return json_encode($transactions);
+    }
+    public function actionGetMovementsJson($accountid, $start, $end) {
+        
+        return json_encode($this->getMovements($accountid, $start, $end));
+    
+    }
+    
+}
