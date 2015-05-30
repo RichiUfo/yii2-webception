@@ -14,7 +14,7 @@ use Yii;
  * @property string $name
  * @property string $description
  */
-class Transaction extends ActiveRecord
+class Transaction extends \frontend\components\ActiveRecord
 {
     
     public $debit = false;  // Indicates if the transaction is a debit (true)

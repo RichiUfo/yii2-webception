@@ -18,7 +18,7 @@ use Yii;
  * @property string $currency
  * @property string $special_class
  */
-class Account extends ActiveRecord
+class Account extends \frontend\components\ActiveRecord
 {
     /**
      * @inheritdoc
