@@ -60,7 +60,7 @@ class DefaultController extends \frontend\components\Controller
 	public function actionTest() { 
 		$model = new ActiveRecord;
 		//$db = $model->getDb();
-		$db = \Yii::app()->controller->module->db;
+		$db = \Yii::$app->controller->module->db;
 		return $this->render('test', ['db' => $db]);
 	}
 }
