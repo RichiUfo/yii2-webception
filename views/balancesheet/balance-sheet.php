@@ -1,9 +1,9 @@
 <?php
 
 use yii\helpers\Url;
-use frontend\modules\accounting\assets\AccountingAsset;
+use frontend\modules\accounting\assets\BaseAsset;
 
-AccountingAsset::register($this);
+BaseAsset::register($this);
 
 function displayHierarchy($accounts){
     

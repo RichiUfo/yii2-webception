@@ -12,8 +12,8 @@ use frontend\widgets\rotatingcard\RotatingCardWidget;
 
 use frontend\controllers\LocalizationController;
 
-use frontend\modules\accounting\assets\AccountingAsset;
-AccountingAsset::register($this);
+use frontend\modules\accounting\assets\BaseAsset;
+BaseAsset::register($this);
 ?>
 
 <!-- LEFT PANEL -->
