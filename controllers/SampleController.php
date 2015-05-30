@@ -4,7 +4,7 @@ namespace frontend\modules\_template\controllers;
 
 use frontend\modules\_template\models\Sample;
 
-class SampleController extends \app\components\Controller
+class SampleController extends \frontend\components\Controller
 {
     public function actionIndex()
     {

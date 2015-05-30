@@ -2,7 +2,7 @@
 
 namespace frontend\modules\_template\controllers;
 
-class DefaultController extends \app\components\Controller
+class DefaultController extends \frontend\components\Controller
 {
     public function actionIndex()
     {

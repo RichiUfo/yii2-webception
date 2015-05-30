@@ -2,7 +2,7 @@
 
 namespace frontend\modules\_template\models;
 
-class ActiveRecord extends \app\components\ActiveRecord
+class ActiveRecord extends \frontend\components\ActiveRecord
 {
 
     public static function getDb()

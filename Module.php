@@ -2,7 +2,7 @@
 
 namespace frontend\modules\_template;
 
-class Module extends \app\components\Module
+class Module extends \frontend\components\Module
 {
     public $controllerNamespace = 'app\modules\_template\controllers';
 	
