@@ -6,6 +6,10 @@ class Module extends \frontend\components\Module
 {
     public $controllerNamespace = 'frontend\modules\accounting\controllers';
 
+	public $db_name;
+	public $db_username;
+	public $db_password;
+	
 	/**
      * Constructor.
      * @param string $id the ID of this module
