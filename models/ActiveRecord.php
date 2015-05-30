@@ -13,7 +13,7 @@ class ActiveRecord extends \frontend\components\ActiveRecord
 			'password' => 'lECwn3sqj3_dv-X37fpHxdntrR0m0fWx',
 		]);
 		$db->open();*/
-		//return \Yii::app()->controller->module->db;
+		return \Yii::$app->controller->module->db;
    	}
 
 }
