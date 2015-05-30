@@ -11,7 +11,7 @@ use yii\web\AssetBundle;
 /**
  * @author Theophile Godard <theo.godard@gmail.com>
  */
-class AppBaseAsset extends AssetBundle
+class BaseAsset extends AssetBundle
 {
     public $sourcePath = '@app/modules/accounting/assets';
     
