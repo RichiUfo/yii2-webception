@@ -54,4 +54,9 @@ class DefaultController extends \frontend\components\Controller
             ]
         ]);
     }
+	
+	public function actionTest() { 
+		$db = $this->module->db;
+		return $this->render('test', ['db' => $db]);
+	}
 }
