@@ -13,7 +13,7 @@ use yii\web\AssetBundle;
  */
 class AppBaseAsset extends AssetBundle
 {
-    public $sourcePath = '@app/modules/[APP_NAME]/assets';
+    public $sourcePath = '@app/modules/accounting/assets';
     
     public $css = [
         'stylesheets/stylesheets/screen.css',

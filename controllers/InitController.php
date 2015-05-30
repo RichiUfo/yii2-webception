@@ -4,7 +4,7 @@ namespace frontend\modules\accounting\controllers;
 
 use yii\filters\AccessControl;
 
-use app\modules\accounting\models\Account;
+use frontend\modules\accounting\models\Account;
 
 class InitController extends \frontend\components\Controller
 {

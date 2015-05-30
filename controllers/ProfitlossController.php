@@ -6,10 +6,10 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use yii\filters\AccessControl;
 
-use app\modules\accounting\models\Transaction;
-use app\modules\accounting\models\Account;
-use app\modules\accounting\models\AccountPlus;
-use app\modules\accounting\models\AccountHierarchy;
+use frontend\modules\accounting\models\Transaction;
+use frontend\modules\accounting\models\Account;
+use frontend\modules\accounting\models\AccountPlus;
+use frontend\modules\accounting\models\AccountHierarchy;
 
 class ProfitlossController extends \frontend\components\Controller
 {    

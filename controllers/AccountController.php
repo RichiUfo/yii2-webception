@@ -9,10 +9,10 @@ use yii\filters\AccessControl;
 use frontend\controllers\NotificationController;
 use frontend\controllers\LocalizationController;
 
-use app\modules\accounting\models\Transaction;
-use app\modules\accounting\models\Account;
-use app\modules\accounting\models\AccountPlus;
-use app\modules\accounting\models\AccountHierarchy;
+use frontend\modules\accounting\models\Transaction;
+use frontend\modules\accounting\models\Account;
+use frontend\modules\accounting\models\AccountPlus;
+use frontend\modules\accounting\models\AccountHierarchy;
 
 class AccountController extends \frontend\components\Controller
 {    
