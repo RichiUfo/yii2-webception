@@ -6,7 +6,7 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 
-use frontend\modules\accounting\models\ActiveRecord;
+use frontend\modules\accounting\models\Account;
 
 use frontend\modules\accounting\models\AccountHierarchy;
 
@@ -58,7 +58,7 @@ class DefaultController extends \frontend\components\Controller
     }
 	
 	public function actionTest() { 
-		$model = new ActiveRecord;
+		$model = new Account;
 		$db = $model->getDb();
 		//$db = \Yii::$app->controller->module->db;
 		return $this->render('test', ['db' => $db]);
