@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\modules\_template;
+namespace frontend\modules\accounting;
 
 class Module extends \frontend\components\Module
 {

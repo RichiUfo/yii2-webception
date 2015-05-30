@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\modules\_template\models;
+namespace frontend\modules\accounting\models;
 
 /**
  * This is the model class for table "leads".

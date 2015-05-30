@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\modules\_template\controllers;
+namespace frontend\modules\accounting\controllers;
 
 class DefaultController extends \frontend\components\Controller
 {

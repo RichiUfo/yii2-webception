@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\modules\_template\controllers;
+namespace frontend\modules\accounting\controllers;
 
 use frontend\modules\_template\models\Sample;
 

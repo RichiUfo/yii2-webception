@@ -4,7 +4,7 @@
  * @copyright Copyright (c) 20015 Theophile Godard
  */
 
-namespace frontend\modules\[APP_NAME]\assets;
+namespace frontend\modules\accounting\assets;
 
 use yii\web\AssetBundle;
 
