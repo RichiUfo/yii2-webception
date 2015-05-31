@@ -19,7 +19,8 @@ class BaseAsset extends AssetBundle
         'stylesheets/stylesheets/screen.css',
     ];
     public $js = [
-        'js/module_name.js',
+        'javascript/module_accounting.js',
+		'javascript/accounting_transaction_create.js',
     ];
     public $depends = [
         'frontend\assets\ThemeBaseAsset',
