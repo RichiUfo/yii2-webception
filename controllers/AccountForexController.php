@@ -35,7 +35,7 @@ class AccountForexController extends \frontend\components\Controller
     * Create a new account
     */
 	public function actionDisplayForexAccount() {
-		$forex = ForexAccount::find()
+		$forex = AccountForex::find()
 			->where(1)
 			->all();
 		return $this->render('diplay', ['forex' => $forex]);
