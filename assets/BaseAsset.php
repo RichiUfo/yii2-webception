@@ -23,6 +23,7 @@ class BaseAsset extends AssetBundle
 		'javascript/accounting_transaction_create.js',
     ];
     public $depends = [
+		'yii\angularjs\AngularAsset',
         'frontend\assets\ThemeBaseAsset',
     ];
 }
