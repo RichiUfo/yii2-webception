@@ -8,10 +8,10 @@ BaseAsset::register($this);
 ?>
 
 <!-- LEFT PANEL -->
-<?php $this->render('@app/views/partials/left_panel', [
+<!--?php $this->render('@app/views/partials/left_panel', [
     'back_button' => $back_button,
     'left_menus' => $left_menus
-]); ?>
+]); ?-->
 
 <!-- MAIN CONTENT -->
 <h2 class="text-center">Forex Accounts</h2>
