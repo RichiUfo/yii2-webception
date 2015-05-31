@@ -7,7 +7,7 @@ use frontend\widgets\stepform\StepFormWidget;
 
 ?>
 
-<div ng-app>
+<div ng-app class="fp-angular">
 	<?php $form = ActiveForm::begin([
 		'id' => 'create-transaction-form',
 		'enableClientValidation' => false
@@ -118,5 +118,6 @@ use frontend\widgets\stepform\StepFormWidget;
 	<?php ActiveForm::end(); ?>
 
 	<?php $this->registerJs('transaction_create_form_init()'); ?>
+	<?php $this->registerJs('angular_activator()'); ?>
 	
 </div>
