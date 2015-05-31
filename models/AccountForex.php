@@ -23,7 +23,7 @@ class AccountForex extends \frontend\components\ActiveRecord
             [['account_id'], 'required'],
             [['account_id'], 'integer'],
             [['forex_value'], 'number'],
-            [['forex_currency'], 'string', 'max' => 255]
+            [['forex_currency'], 'string', 'max' => 10]
         ];
     }
 
