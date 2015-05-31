@@ -38,6 +38,6 @@ class AccountForexController extends \frontend\components\Controller
 		$forex = AccountForex::find()
 			->where(1)
 			->all();
-		return $this->render('diplay', ['forex' => $forex]);
+		return $this->render('display', ['forex' => $forex]);
 	}
 }
