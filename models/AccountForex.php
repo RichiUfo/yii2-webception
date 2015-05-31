@@ -45,6 +45,6 @@ class AccountForex extends \frontend\components\ActiveRecord
      */
     public function getAccount()
     {
-        return $this->hasOne(Account::className(), ['account_id' => 'id']);
+        return $this->hasOne(Account::className(), ['id' => 'account_id']);
     }
 }
