@@ -104,7 +104,7 @@ use frontend\widgets\stepform\StepFormWidget;
 				</div>
 				<div class="col-sm-7 col-sm-offset-1">
 					 <div class="form-group">
-						<label>{{debitaccount}}</label>
+						<label>debitaccount</label>
 					  </div>
 				</div>
 				<div class="col-sm-3">
@@ -118,6 +118,6 @@ use frontend\widgets\stepform\StepFormWidget;
 	<?php ActiveForm::end(); ?>
 
 	<?php $this->registerJs('transaction_create_form_init()'); ?>
-	<?php $this->registerJs('angular_activator()'); ?>
+	<!--?php $this->registerJs('angular_activator()'); ?-->
 	
 </div>
