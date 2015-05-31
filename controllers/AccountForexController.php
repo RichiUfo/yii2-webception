@@ -38,7 +38,7 @@ class AccountForexController extends \frontend\components\Controller
 		$forex = AccountForex::find()
 			->where(1)
 			->one();
-		//$account = $forex->account;
+		$account = $forex->account;
 		return $this->render('display', [
 			'forex' => $forex,
 			//'account' => $account
