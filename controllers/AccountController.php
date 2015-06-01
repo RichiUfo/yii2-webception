@@ -78,7 +78,7 @@ class AccountController extends \frontend\components\Controller
                 if($child->special_class == 'others')
                     $others = true;
                 
-            if(in_array($parent->name, ['Assets', 'Liabilities', 'Equity', 'Cash'])){
+            if(in_array($parent->name, ['Assets', 'Liabilities', 'Equity', 'Cash', 'Forex Unrealized Profits and Losses'])){
                 $exclude = true;
             } else {
                 $exclude = false;
