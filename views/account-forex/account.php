@@ -15,5 +15,3 @@ BaseAsset::register($this);
 <?= Editable::widget([
     'text' => $account->account->alias,
 ]); ?>
-
-<?php var_dump($account->account); ?>
