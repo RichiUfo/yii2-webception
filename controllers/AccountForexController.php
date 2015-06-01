@@ -36,9 +36,8 @@ class AccountForexController extends \frontend\components\Controller
     */
 	public function actionDisplayForexAccount() {
 		$forex = AccountForex::find()
-			//->with('account')
 			->leftJoin('accounts', 'accounts.owner_id')
-			->where(['accounts.owner_id' => 2])
+			->where(['accounts.owner_id' => Yii::$app->user->id])
 			->all();
 		return $this->render('display-all', [
 			'forex' => $forex,
