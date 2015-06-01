@@ -45,3 +45,5 @@ BaseAsset::register($this);
         
     </div>
 </div>
+
+<?php var_dump($forex); ?>
