@@ -1,0 +1,53 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "mixins"; 
+
+.fp-editable {
+  
+    h1 {
+        padding: 0;
+    }
+    
+    #account-title-edit {
+        position: relative;
+        padding: 0;
+        margin: 20px 0px 10px 0px;
+        height: 33px;
+        
+        .form-field-invisible {
+            @include centererH;
+            margin: -4px 0px 0px 0px;
+            padding: 0px;
+            //height: 33px;
+            border: none;
+            background: transparent;
+            color: $text-color;
+            outline: 0px !important;
+            -webkit-appearance: none;
+            box-sizing: border-box;
+        }
+        
+        .buttons-line {
+            @include centererV;
+            right: 0;
+        }
+    }
+    
+    .editable {
+        .edit-button {
+            display: inline;
+            margin-left: 10px;
+            font-size: 16px;
+            color: transparent;
+            transition: $transition;
+        }
+        &:hover {
+            .edit-button {
+                color: #222; 
+            }
+        }
+    }
+}
