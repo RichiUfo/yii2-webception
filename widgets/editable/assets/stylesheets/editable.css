@@ -4,9 +4,14 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* line 11, ../sass/editable.scss */
 .fp-editable h1.editable {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
   padding: 0;
 }
-/* line 15, ../sass/editable.scss */
+/* line 16, ../sass/editable.scss */
 .fp-editable .form-field-invisible {
   position: absolute;
   left: 50%;
@@ -22,14 +27,14 @@
   -webkit-appearance: none;
   box-sizing: border-box;
 }
-/* line 28, ../sass/editable.scss */
+/* line 29, ../sass/editable.scss */
 .fp-editable #account-title-edit {
   position: relative;
   padding: 0;
   margin: 20px 0px 10px 0px;
   height: 33px;
 }
-/* line 34, ../sass/editable.scss */
+/* line 35, ../sass/editable.scss */
 .fp-editable #account-title-edit .buttons-line {
   position: absolute;
   top: 50%;
@@ -38,7 +43,7 @@
   transform: translateY(-50%);
   right: 0;
 }
-/* line 41, ../sass/editable.scss */
+/* line 42, ../sass/editable.scss */
 .fp-editable .editable .edit-button {
   display: inline;
   margin-left: 10px;
@@ -46,7 +51,7 @@
   color: transparent;
   transition: all 0.3s ease-in-out 0s;
 }
-/* line 49, ../sass/editable.scss */
+/* line 50, ../sass/editable.scss */
 .fp-editable .editable:hover .edit-button {
   color: #222;
 }

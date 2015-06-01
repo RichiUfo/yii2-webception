@@ -9,6 +9,7 @@
 .fp-editable {
   
     h1.editable {
+        @include centererH;
         padding: 0;
     }
     
