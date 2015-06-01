@@ -2,7 +2,7 @@
 
 namespace frontend\modules\accounting\widgets\editable;
 
-use yii\helper\Html;
+use yii\helpers\Html;
 
 class Editable extends \yii\base\Widget{
 
