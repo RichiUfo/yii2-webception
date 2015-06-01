@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\helpers\VarDumper;
 use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
@@ -46,7 +47,9 @@ BaseAsset::register($this);
 							<div class="name">{{account_debit.name}} 
 								<span class="pull-right">{{account_debit.display_value}} {{account_debit.currency.code}}</span>
 							</div>
-							<div class="root"><img src="{{account_debit.currency.img}}">{{account_debit.display_value}}</div>
+							<div class="root">
+								<img src="<?= Url::to('@web/img/flags/48/') ?>{{account_debit.currency.img}}">{{account_debit.display_value}}
+							</div>
 							<div class="value">Parent :  {{account_debit.currency.code}}</div>
 						</div>
 					</div>
