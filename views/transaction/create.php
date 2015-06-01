@@ -11,7 +11,7 @@ BaseAsset::register($this);
 ?>
 
 <div ng-app="createTransaction" class="fp-angular">
-	<div ng-controller="FormCtrl" class="fp-angular">
+	<div ng-controller="FormCtrl" class="transaction-form">
 		<?php $form = ActiveForm::begin([
 			'id' => 'create-transaction-form',
 			'enableClientValidation' => false
@@ -43,9 +43,11 @@ BaseAsset::register($this);
 								'prompt' => 'Select An Account'
 							]) ?>
 						<div class="account-summary">
-							<div class="value">Value : {{account_debit.display_value}} {{account_debit.currency.code}}</div>
-							<div class="root">Value : {{account_debit.display_value}}</div>
-							<div class="value">Parent : {{account_debit.display_value}} {{account_debit.currency.code}}</div>
+							<div class="name h3">{{account_debit.name}} 
+								<span class="pull-right">{{account_debit.display_value}} {{account_debit.currency.code}}</span>
+							</div>
+							<div class="root"><img src="{{account_debit.currency.}}">{{account_debit.display_value}}</div>
+							<div class="value">Parent :  {{account_debit.currency.code}}</div>
 						</div>
 					</div>
 					<div class="col-sm-5 acccount-select-group">
