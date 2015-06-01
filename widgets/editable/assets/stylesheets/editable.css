@@ -5,19 +5,21 @@
 /* line 11, ../sass/editable.scss */
 .fp-editable h1.editable {
   position: absolute;
+  top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   padding: 0;
 }
 /* line 16, ../sass/editable.scss */
 .fp-editable .form-field-invisible {
   position: absolute;
+  top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   margin: -4px 0px 0px 0px;
   padding: 0px;
   border: none;

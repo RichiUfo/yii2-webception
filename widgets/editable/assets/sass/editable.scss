@@ -9,12 +9,12 @@
 .fp-editable {
   
     h1.editable {
-        @include centererH;
+        @include centerer;
         padding: 0;
     }
     
     .form-field-invisible {
-        @include centererH;
+        @include centerer; 
         margin: -4px 0px 0px 0px;
         padding: 0px;
         //height: 33px;
