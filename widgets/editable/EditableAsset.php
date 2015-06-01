@@ -11,7 +11,7 @@ class EditableAsset extends \yii\web\AssetBundle
     public $sourcePath = '@app/modules/accounting/widgets/editable/assets';
     
     public $css = [
-        'stylesheet/editable.css',
+        'stylesheets/editable.css',
     ];
     public $js = [
         'js/editable.js',
