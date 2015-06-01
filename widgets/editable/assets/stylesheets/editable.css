@@ -7,14 +7,7 @@
   padding: 0;
 }
 /* line 15, ../sass/editable.scss */
-.fp-editable #account-title-edit {
-  position: relative;
-  padding: 0;
-  margin: 20px 0px 10px 0px;
-  height: 33px;
-}
-/* line 21, ../sass/editable.scss */
-.fp-editable #account-title-edit .form-field-invisible {
+.fp-editable .form-field-invisible {
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -28,6 +21,13 @@
   outline: 0px !important;
   -webkit-appearance: none;
   box-sizing: border-box;
+}
+/* line 28, ../sass/editable.scss */
+.fp-editable #account-title-edit {
+  position: relative;
+  padding: 0;
+  margin: 20px 0px 10px 0px;
+  height: 33px;
 }
 /* line 34, ../sass/editable.scss */
 .fp-editable #account-title-edit .buttons-line {

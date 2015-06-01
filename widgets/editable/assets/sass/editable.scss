@@ -12,24 +12,24 @@
         padding: 0;
     }
     
+    .form-field-invisible {
+        @include centererH;
+        margin: -4px 0px 0px 0px;
+        padding: 0px;
+        //height: 33px;
+        border: none;
+        background: transparent;
+        color: $text-color;
+        outline: 0px !important;
+        -webkit-appearance: none;
+        box-sizing: border-box;
+    }
+    
     #account-title-edit {
         position: relative;
         padding: 0;
         margin: 20px 0px 10px 0px;
         height: 33px;
-        
-        .form-field-invisible {
-            @include centererH;
-            margin: -4px 0px 0px 0px;
-            padding: 0px;
-            //height: 33px;
-            border: none;
-            background: transparent;
-            color: $text-color;
-            outline: 0px !important;
-            -webkit-appearance: none;
-            box-sizing: border-box;
-        }
         
         .buttons-line {
             @include centererV;
