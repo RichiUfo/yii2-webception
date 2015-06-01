@@ -39,5 +39,3 @@ BaseAsset::register($this);
         
     </div>
 </div>
-
-<?php var_dump(\Yii::$app->user->id); ?>
