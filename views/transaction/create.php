@@ -68,8 +68,6 @@ BaseAsset::register($this);
 				</div>
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1">
-						<p ng-if="account_credit.currency.code != account_debit.currency.code">Is Forex</p>
-						<p ng-if="account_credit.currency.code == account_debit.currency.code">Is NOT Forex</p>
 						<p class="feedback info-text text-center"></p>
 					</div>
 				</div>
@@ -103,10 +101,14 @@ BaseAsset::register($this);
 							'style'=>'margin-bottom:30px'
 						]]) ?>
 
-						<?= $form->field($model, 'value') ?>
-
-						<?= Html::input("text", "value_debit"); ?>
-						<?= Html::input("text", "value_credit"); ?>
+						<div ng-if="account_credit.currency.code == account_debit.currency.code">
+							<?= $form->field($model, 'value') ?>
+						</div>
+						
+						<div ng-if="account_credit.currency.code != account_debit.currency.code">
+							<?= Html::input("text", "value_debit"); ?>
+							<?= Html::input("text", "value_credit"); ?>
+						</div>
 					</div>
 				</div>
 
