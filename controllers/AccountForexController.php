@@ -31,15 +31,28 @@ class AccountForexController extends \frontend\components\Controller
     }
     
     /**
-    * initAccount($name, $parent, $display)
-    * Create a new account
+    * Displays all forex accounts of the logged user
     */
-	public function actionDisplayForexAccount() {
+	public function actionAccounts() {
 		$forex = AccountForex::find()
 			->joinWith('account')
 			->where(['accounts.owner_id' => Yii::$app->user->id])
 			->all();
-		return $this->render('display-all', [
+		return $this->render('accounts', [
+			'forex' => $forex,
+		]);
+	}
+	
+	/**
+    * Displays one forex accounts identified by its $id
+    */
+	public function actionAccount($id) {
+		$forex = AccountForex::find()
+			->joinWith('account')
+			->where(['accounts.owner_id' => Yii::$app->user->id])
+			->andWhere(['id' => $id])
+			->all();
+		return $this->render('account', [
 			'forex' => $forex,
 		]);
 	}
