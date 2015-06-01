@@ -33,6 +33,9 @@ class Editable extends \yii\base\Widget{
 	}
     public function run(){
 		
+		// Main Container
+		echo Html::beginTag('div', ['class' => 'fp-editable']);
+		
 		// Standard Display
 		$this->containerOptions['class'] .= ' editable';
 		echo Html::tag($this->container, Html::encode($this->text), $this->containerOptions);
@@ -59,6 +62,7 @@ class Editable extends \yii\base\Widget{
         echo Html::endTag('div');
         $form->end();
         
+        echo Html::endTag('div');
 		// Register the JS
 		//$this->getView()->registerJs('ajaxModalInit("'.$linkid.'","'.$modal->getId().'");'); 
 		
