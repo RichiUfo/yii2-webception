@@ -16,4 +16,4 @@ use frontend\modules\accounting\assets\BaseAsset;
 BaseAsset::register($this);
 ?>
 
-<?php var_dump($account); ?>
+<?php var_dump($account->account); ?>

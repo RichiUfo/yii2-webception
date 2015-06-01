@@ -58,7 +58,7 @@ class AccountForexController extends \frontend\components\Controller
 			->joinWith('account')
 			->where(['accounts.owner_id' => Yii::$app->user->id])
 			->andWhere(['accounts_forex.id' => $id])
-			->all();
+			->one();
 			
 		return $this->render('account', [
 			'account' => $account,
