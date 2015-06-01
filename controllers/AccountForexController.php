@@ -53,7 +53,7 @@ class AccountForexController extends \frontend\components\Controller
 			->andWhere(['accounts_forex.id' => $id])
 			->all();
 		return $this->render('account', [
-			'forex' => $forex,
+			'account' => $account,
 		]);
 	}
 }
