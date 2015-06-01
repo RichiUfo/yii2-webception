@@ -6,11 +6,6 @@ app.controller("FormCtrl", function($scope, $http) {
 	$scope.account_debit;
 	$scope.account_credit;
 	
-	// Detect Forex Transactions
-	if($scope.account_debit.currency.code !== undefined && $scope.account_credit.currency.code !== undefined){
-		$scope.isForex = ($scope.account_debit.currency.code != $scope.account_credit.currency.code);
-	}
-	
 	// Get the account information when changed
 	$scope.$watch('account_debit_id', function(value) {
 		$http.get('/accounting/account/get-account-summary', {

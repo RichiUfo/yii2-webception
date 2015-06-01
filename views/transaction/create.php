@@ -66,9 +66,10 @@ BaseAsset::register($this);
 						</div>
 					</div>
 				</div>
-{{isForex}}
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1">
+						<p ng-if="account_credit.currency.code != account_debit.currency.code">Is Forex</p>
+						<p ng-if="account_credit.currency.code == account_debit.currency.code">Is NOT Forex</p>
 						<p class="feedback info-text text-center"></p>
 					</div>
 				</div>
