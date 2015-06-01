@@ -26,7 +26,7 @@ BaseAsset::register($this);
 					<th></th>
 					<th></th>
 					<th></th>
-					<th></th>
+					<th>Value</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,7 +36,7 @@ BaseAsset::register($this);
 					<td></td>
 					<td></td>
 					<td></td>
-					<td></td>
+					<td><?= $account->account->display_value ?></td>
 				</tr>
 				<?php endforeach; ?>
 			</tbody>
@@ -45,5 +45,3 @@ BaseAsset::register($this);
         
     </div>
 </div>
-
-<?php var_dump($forex); ?>
