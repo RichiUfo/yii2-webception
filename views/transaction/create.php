@@ -66,7 +66,7 @@ BaseAsset::register($this);
 						</div>
 					</div>
 				</div>
-
+{{isForex}}
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1">
 						<p class="feedback info-text text-center"></p>

@@ -4,6 +4,7 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* line 4, ../sass/_transaction_form.scss */
 .transaction-form .account-summary {
+  margin: 25px 0px;
   font-size: 18px;
   font-weight: 300;
 }
