@@ -1,1 +1,1 @@
-<?php var_dump($account): ?>
+<?php var_dump($account); ?>
