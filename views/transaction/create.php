@@ -5,6 +5,9 @@ use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
 use frontend\widgets\stepform\StepFormWidget;
 
+use frontend\modules\accounting\assets\BaseAsset;
+BaseAsset::register($this);
+
 ?>
 
 <div ng-app class="fp-angular">

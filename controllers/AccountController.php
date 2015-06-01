@@ -34,10 +34,10 @@ class AccountController extends \frontend\components\Controller
     }
     
     /**
-    * initAccount($name, $parent, $display)
+    * createAccount($name, $parent, $display)
     * Create a new account
     */
-    public function initAccount($name, $parentid, $display){
+    public function createAccount($name, $parentid, $display){
         
         // Check (by name) if the account is already existing    
         $check = Account::findOne([
