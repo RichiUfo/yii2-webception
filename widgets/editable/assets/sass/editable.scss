@@ -25,31 +25,4 @@
         -webkit-appearance: none;
         box-sizing: border-box;
     }
-    
-    #account-title-edit {
-        position: relative;
-        padding: 0;
-        margin: 20px 0px 10px 0px;
-        height: 33px;
-        
-        .buttons-line {
-            @include centererV;
-            right: 0;
-        }
-    }
-    
-    .editable {
-        .edit-button {
-            display: inline;
-            margin-left: 10px;
-            font-size: 16px;
-            color: transparent;
-            transition: $transition;
-        }
-        &:hover {
-            .edit-button {
-                color: #222; 
-            }
-        }
-    }
 }
