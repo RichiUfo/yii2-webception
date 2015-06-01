@@ -37,7 +37,7 @@ class AccountForexController extends \frontend\components\Controller
 	public function actionDisplayForexAccount() {
 		$forex = AccountForex::find()
 			//->with('account')
-			->where(1)
+			->where(['account' => ])
 			->all();
 		return $this->render('display', [
 			'forex' => $forex,
