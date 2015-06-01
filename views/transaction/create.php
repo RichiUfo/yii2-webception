@@ -56,7 +56,7 @@ BaseAsset::register($this);
 
 			<div class="row">
 				<div class="col-sm-10 col-sm-offset-1">
-					<p class="feedback info-text text-center"></p>
+					<p class="feedback info-text text-center">{{1+1}}</p>
 				</div>
 			</div>
 		</div>
