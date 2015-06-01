@@ -47,11 +47,12 @@ class AccountForexController extends \frontend\components\Controller
     * Displays one forex accounts identified by its $id
     */
 	public function actionAccount($id) {
-		$forex = AccountForex::find()
+		$account = AccountForex::find()
 			->joinWith('account')
 			->where(['accounts.owner_id' => Yii::$app->user->id])
 			->andWhere(['accounts_forex.id' => $id])
 			->all();
+			
 		return $this->render('account', [
 			'account' => $account,
 		]);
