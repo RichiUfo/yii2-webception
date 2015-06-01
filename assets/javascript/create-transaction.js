@@ -9,7 +9,7 @@ app.controller("FormCtrl", function($scope, $http) {
 	// Get the account information when changed
 	$scope.$watch('account_debit_id', function(value) {
 		$http.get('/accounting/account/get-account-summary', {
-			params: { accountid: account_debit_id }
+			params: { accountid: $scope.account_debit_id }
 		})
 		.success(function(data, status, headers, config) {
 			$scope.account_debit = data;
