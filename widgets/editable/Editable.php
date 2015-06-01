@@ -1,5 +1,8 @@
 <?php
+
 namespace frontend\modules\accounting\widgets\editable;
+
+use yii\helper\Html;
 
 class Editable extends \yii\base\Widget{
 
