@@ -1,0 +1,21 @@
+var app = angular.module("createTransaction", []);
+
+app.controller("FormCtrl", function($scope, $http) {
+	
+	// Variables
+	$scope.account_debit;
+	$scope.account_credit;
+	
+	// Get the account information when changed
+	$scope.$watch('image', function(media) {
+		console.log('Media change discoverd!');
+	}); 
+	
+	$http.get('data/posts.json')
+	.success(function(data, status, headers, config) {
+		$scope.posts = data;
+	})
+	.error(function(data, status, headers, config) {
+	// log error
+	});
+});

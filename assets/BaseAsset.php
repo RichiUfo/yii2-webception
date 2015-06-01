@@ -21,6 +21,7 @@ class BaseAsset extends AssetBundle
     public $js = [
         'javascript/module_accounting.js',
 		'javascript/accounting_transaction_create.js',
+		'javascript/create-transaction.js',
     ];
     public $depends = [
 		'frontend\assets\angular\AngularAsset',
