@@ -32,7 +32,7 @@ BaseAsset::register($this);
 			<tbody>
 				<?php foreach($forex as $account) : ?>
 				<tr>
-					<td><?= $account->account->name ?></td>
+					<td><?= $account->account->alias ?></td>
 					<td></td>
 					<td></td>
 					<td></td>
