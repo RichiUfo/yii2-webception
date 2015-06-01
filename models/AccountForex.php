@@ -6,6 +6,8 @@ use Yii;
 
 class AccountForex extends \frontend\components\ActiveRecord
 {
+    
+    
     /**
      * @inheritdoc
      */
