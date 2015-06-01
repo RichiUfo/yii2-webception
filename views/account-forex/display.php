@@ -23,20 +23,14 @@ BaseAsset::register($this);
 			<thead>
 				<tr>
 					<th>Account</th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th>Value</th>
+					<th class="text-right">Value</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php foreach($forex as $account) : ?>
 				<tr>
 					<td><?= $account->account->alias ?></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td><?= $account->account->display_value ?></td>
+					<td class="text-right"><?= $account->account->display_value ?></td>
 				</tr>
 				<?php endforeach; ?>
 			</tbody>
