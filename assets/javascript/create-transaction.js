@@ -7,15 +7,20 @@ app.controller("FormCtrl", function($scope, $http) {
 	$scope.account_credit;
 	
 	// Get the account information when changed
-	$scope.$watch('image', function(media) {
-		console.log('Media change discoverd!');
-	}); 
+	$scope.$watch(
+		function(scope){
+			return {account_debit_id: scope.account_debit_id, account_credit_id: scope.account_credit_id};	
+		}
+		,function(media) {
+			console.log('Account Change Detected !');
+		}
+	); 
 	
-	$http.get('data/posts.json')
+	/*$http.get('data/posts.json')
 	.success(function(data, status, headers, config) {
 		$scope.posts = data;
 	})
 	.error(function(data, status, headers, config) {
 	// log error
-	});
+	});*/
 });
