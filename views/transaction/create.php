@@ -87,6 +87,9 @@ use frontend\widgets\stepform\StepFormWidget;
 					]]) ?>
 
 					<?= $form->field($model, 'value') ?>
+					
+					<?= echo Html::input("text", "value_debit"); ?>
+					<?= echo Html::input("text", "value_credit"); ?>
 				</div>
 			</div>
 
