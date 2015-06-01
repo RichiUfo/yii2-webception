@@ -43,10 +43,10 @@ BaseAsset::register($this);
 								'prompt' => 'Select An Account'
 							]) ?>
 						<div class="account-summary">
-							<div class="name h3">{{account_debit.name}} 
+							<div class="name">{{account_debit.name}} 
 								<span class="pull-right">{{account_debit.display_value}} {{account_debit.currency.code}}</span>
 							</div>
-							<div class="root"><img src="{{account_debit.currency.}}">{{account_debit.display_value}}</div>
+							<div class="root"><img src="{{account_debit.currency.img}}">{{account_debit.display_value}}</div>
 							<div class="value">Parent :  {{account_debit.currency.code}}</div>
 						</div>
 					</div>
