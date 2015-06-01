@@ -133,7 +133,7 @@ BaseAsset::register($this);
 			<?php StepFormWidget::end(); ?>
 		<?php ActiveForm::end(); ?>
 
-		<?php $this->registerJs('transaction_create_form_init()'); ?>
+		<!--?php $this->registerJs('transaction_create_form_init()'); ?-->
 		<!--?php $this->registerJs('angular_activator()'); ?-->
 	</div>
 </div>
