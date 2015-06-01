@@ -42,7 +42,11 @@ BaseAsset::register($this);
 								'ng-model' => 'account_debit_id',
 								'prompt' => 'Select An Account'
 							]) ?>
-						<div class="account-summary"></div>
+						<div class="account-summary">
+							<div class="value">Value : {{account_debit.display_value}} {{account_debit.currency.code}}</div>
+							<div class="root">Value : {{account_debit.display_value}}</div>
+							<div class="value">Parent : {{account_debit.display_value}} {{account_debit.currency.code}}</div>
+						</div>
 					</div>
 					<div class="col-sm-5 acccount-select-group">
 						<?= $form
@@ -52,13 +56,16 @@ BaseAsset::register($this);
 								'ng-model' => 'account_credit_id',
 								'prompt' => 'Select An Account'
 							]) ?>
-						<div class="account-summary"></div>
+						<div class="account-summary">
+							<div class="value">Value : {{account_credit.display_value}} {{account_credit.currency.code}}</div>
+							<div class="root">Value : {{account_credit.display_value}}</div>
+							<div class="value">Parent : {{account_credit.display_value}} {{account_credit.currency.code}}</div>
+						</div>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1">
-						<p>Debit {{account_debit_id}} | Credit {{account_credit_id}}</p>
 						<p class="feedback info-text text-center"></p>
 					</div>
 				</div>
