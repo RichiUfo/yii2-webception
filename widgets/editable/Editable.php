@@ -3,6 +3,7 @@
 namespace frontend\modules\accounting\widgets\editable;
 
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 class Editable extends \yii\base\Widget{
 
