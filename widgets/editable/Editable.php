@@ -46,7 +46,7 @@ class Editable extends \yii\base\Widget{
 		    'class' => 'form-inline'
 	    ]); 
         echo Html::input('hidden', 'id', $this->element['id']);
-        echo Html::input('text', 'value', $this->element['id'], [
+        echo Html::input('text', 'value', Html::encode($this->text), [
             'id' => 'account-title-edit-form-field',
             'class' => 'form-field-invisible text-center h1',
         ]);
