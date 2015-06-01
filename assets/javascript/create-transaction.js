@@ -7,7 +7,8 @@ app.controller("FormCtrl", function($scope, $http) {
 	$scope.account_credit;
 	
 	// Get the account information when changed
-	$scope.$watch('[account_debit_id, account_credit_id]'
+	$scope.$watch(
+		function() { return account_debit_id; }
 		,function(media) {
 			console.log('Account Change Detected !');
 		}
