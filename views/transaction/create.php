@@ -58,7 +58,8 @@ BaseAsset::register($this);
 
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1">
-						<p class="feedback info-text text-center">Debit {{account_debit_id}} | Credit {{account_credit_id}}</p>
+						<p>Debit {{account_debit_id}} | Credit {{account_credit_id}}</p>
+						<p class="feedback info-text text-center"></p>
 					</div>
 				</div>
 			</div>
