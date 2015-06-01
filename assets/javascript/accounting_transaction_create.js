@@ -23,14 +23,14 @@ var transaction_create_form_init = function() {
     
      /**
      * Account Selection Change
-     */
+     *
     $('.account-select').on('change', function(){
         $('input.btn-next').attr('disabled','disabled');
         
         var caller = $(this);
         /* 
         * Get The Account Summary 
-        */
+        *
         if($(this).val()===''){
             caller.closest('.acccount-select-group').find('.account-summary').html('');
         }

@@ -30,8 +30,19 @@ class AccountForexController extends \frontend\components\Controller
         ];
     }
     
+	/**
+    * Methods
+    */
+	public function createForexAccount($name, $parentid, $display, $currency) {
+		$account = AccountController::createAccount($name, $parentid, $display);
+		$forex = new AccountForex;
+		$forex->forex_currency = $currency;
+		$forex->account_id = $account->id; 
+		$forex->save();
+	}
+	
     /**
-    * Displays all forex accounts of the logged user
+    * Actions
     */
 	public function actionAccounts() {
 		$forex = AccountForex::find()
@@ -42,10 +53,6 @@ class AccountForexController extends \frontend\components\Controller
 			'forex' => $forex,
 		]);
 	}
-	
-	/**
-    * Displays one forex accounts identified by its $id
-    */
 	public function actionAccount($id) {
 		$account = AccountForex::find()
 			->joinWith('account')
