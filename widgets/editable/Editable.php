@@ -5,7 +5,9 @@ class Editable extends \yii\base\Widget{
 
 	// Widgets Parameters
     public $container = 'h1';
-    public $containerOptions = [];
+    public $containerOptions = [
+        'class' => '',    
+    ];
     public $text = '';
     public $action = '#';
     public $element = [
