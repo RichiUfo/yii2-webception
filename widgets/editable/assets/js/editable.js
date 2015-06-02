@@ -38,6 +38,7 @@ app.controller("editableCtrl", function($scope, $http) {
 	// Variables
 	$scope.account_debit;
 	$scope.account_credit;
+	$scope.count = 1; 
 	
 	$scope.inc = function(){
 	    $scope.count += 1; 

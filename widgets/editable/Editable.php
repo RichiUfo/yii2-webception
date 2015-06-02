@@ -66,7 +66,7 @@ class Editable extends \yii\base\Widget{
         ]);
         echo Html::endTag('div');
         
-        echo Html::tag('div', '1', [
+        echo Html::tag('div', '', [
             'ng-model' => 'inc',     
         ]);
         
