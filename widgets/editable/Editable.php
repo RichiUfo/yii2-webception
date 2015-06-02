@@ -34,7 +34,11 @@ class Editable extends \yii\base\Widget{
     public function run(){
 		
 		// Main Container
-		echo Html::beginTag('div', ['class' => 'fp-editable']);
+		echo Html::beginTag('div', [
+		    'class' => 'fp-editable',
+		    'ng-app' => 'editableApp',
+		    'ng-controller' => 'editableCtrl'
+	    ]);
 		
 		// Standard Display
 		$this->containerOptions['class'] .= ' editable';
@@ -60,6 +64,9 @@ class Editable extends \yii\base\Widget{
             'class' => 'btn btn-xs btn-primary'
         ]);
         echo Html::endTag('div');
+        
+        echo '{{1+1}}';
+        
         $form->end();
         
         echo Html::endTag('div');

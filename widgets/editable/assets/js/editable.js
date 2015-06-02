@@ -29,3 +29,29 @@ $('#account-title-edit-form-button').on('click', function(event) {
 $('#account-title-edit-form-reset-button').on('click', function(event) {
     $('#account-title-edit-form-field').val('".$account->name."');
 });
+
+  
+var app = angular.module("editableApp", []);
+
+app.controller("editableCtrl", function($scope, $http) {
+	
+	// Variables
+	$scope.account_debit;
+	$scope.account_credit;
+	
+	// Get the account information when changed
+	/*$scope.$watch('account_debit_id', function(value) {
+		$http.get('/accounting/account/get-account-summary', {
+			params: { accountid: $scope.account_debit_id }
+		})
+		.success(function(data, status, headers, config) { $scope.account_debit = data; });
+	}); 
+	$scope.$watch('account_credit_id', function(value) {
+		$http.get('/accounting/account/get-account-summary', {
+			params: { accountid: $scope.account_credit_id }
+		})
+		.success(function(data, status, headers, config) { $scope.account_credit = data; });
+	}); 
+	*/
+	
+});

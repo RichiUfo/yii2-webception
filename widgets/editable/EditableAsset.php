@@ -18,5 +18,6 @@ class EditableAsset extends \yii\web\AssetBundle
     ];
     public $depends = [
         'frontend\assets\ThemeBaseAsset',
+        'yii\angularjs\AngularAsset',
     ];
 }
