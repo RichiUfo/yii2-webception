@@ -66,7 +66,7 @@ class Editable extends \yii\base\Widget{
         echo Html::button('Save', [
             'id' => 'account-title-edit-form-button',
             'class' => 'btn btn-xs btn-primary',
-            'ng-click' => 'incr()'
+            'ng-click' => 'save()'
         ]);
         echo Html::endTag('div');
         
