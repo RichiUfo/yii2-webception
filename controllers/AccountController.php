@@ -300,9 +300,15 @@ class AccountController extends \frontend\components\Controller
         \Yii::$app->response->format = 'json';
         return $_GET;
         
-        
-        $post_data = json_decode(utf8_encode(file_get_contents("php://input")), false);
-        
+        // Different handling depending on ANGULAR or CLASSIC post request
+        if(Yii::$app->request->post()){
+            $post_data = Yii::$app->request->post();
+        }
+        else {
+            $post_data = json_decode(utf8_encode(file_get_contents("php://input")), false);
+        }
+        return $post_data;
+    
         $id = (int)$post_data->id;
         $property = $post_data->property;
         $value = $post_data->value; 
