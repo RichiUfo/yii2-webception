@@ -36,6 +36,7 @@ var app = angular.module("editableApp", []);
 app.controller("editableCtrl", function($scope, $http) {
 	
 	// Variables
+	$scope.editionMode = false;
 	//$scope.account_debit;
 	//$scope.account_credit;
 	$scope.count = 1; 
