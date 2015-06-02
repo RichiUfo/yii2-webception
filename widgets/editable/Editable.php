@@ -50,7 +50,7 @@ class Editable extends \yii\base\Widget{
 		    'class' => 'form-inline'
 	    ]); 
         echo Html::input('hidden', 'id', $this->element['id']);
-        echo Html::input('text', 'value', Html::encode($this->text), [
+        echo Html::input('text', 'value', '', [
             'id' => 'account-title-edit-form-field',
             'class' => 'form-field-invisible text-center h1',
             'ng-show' => 'editionMode',
@@ -71,8 +71,9 @@ class Editable extends \yii\base\Widget{
         $form->end();
         
         echo Html::endTag('div');
+        
 		// Register the JS
-		//$this->getView()->registerJs('ajaxModalInit("'.$linkid.'","'.$modal->getId().'");'); 
+	    $this->getView()->registerJs('window.fpEditableInitial = '.$this->text.';', POS_HEAD); 
 		
 		return ob_get_clean();
     }

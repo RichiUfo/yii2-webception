@@ -33,10 +33,11 @@ $('#account-title-edit-form-reset-button').on('click', function(event) {
   
 var app = angular.module("editableApp", []);
 
-app.controller("EditableController", function($scope, $http) {
+app.controller("EditableController", function($scope, $http, $window) {
 	
 	// Variables
 	$scope.editionMode = false;
+	$scope.value = $window.fpEditableInitial;
 	
 	$scope.save = function(){
 	    $http.post('/accounting/account/update', {
