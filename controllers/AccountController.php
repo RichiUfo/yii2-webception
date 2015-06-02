@@ -298,7 +298,6 @@ class AccountController extends \frontend\components\Controller
     public function actionUpdate() {
         
         \Yii::$app->response->format = 'json';
-        return $_GET;
         
         // Different handling depending on ANGULAR or CLASSIC post request
         if(Yii::$app->request->post()){
