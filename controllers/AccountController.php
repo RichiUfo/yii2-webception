@@ -306,7 +306,7 @@ class AccountController extends \frontend\components\Controller
         else {
             $post_data = json_decode(utf8_encode(file_get_contents("php://input")), false);
         }
-        return $post_data;
+        
     
         $id = (int)$post_data->id;
         $property = $post_data->property;
