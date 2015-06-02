@@ -15,9 +15,8 @@
     
     .form-field-invisible {
         @include centererH; 
-        margin: -4px 0px 0px 0px;
+        margin: 20px 0px 10px 0px;
         padding: 0px;
-        //height: 33px;
         border: none;
         background: transparent;
         color: $text-color;
