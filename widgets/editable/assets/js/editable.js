@@ -1,5 +1,5 @@
 // Use Case : User click on the editable title
-$('#account-title').on('click', function(event) {
+/*$('#account-title').on('click', function(event) {
     $('#account-title').hide();
     $('#account-title-edit').show();
 });
@@ -29,7 +29,7 @@ $('#account-title-edit-form-button').on('click', function(event) {
 $('#account-title-edit-form-reset-button').on('click', function(event) {
     $('#account-title-edit-form-field').val('".$account->name."');
 });
-
+*/
   
 var app = angular.module("editableApp", []);
 
