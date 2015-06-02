@@ -39,6 +39,10 @@ app.controller("editableCtrl", function($scope, $http) {
 	$scope.account_debit;
 	$scope.account_credit;
 	
+	var $scope.inc = function(){
+	    $scope.count += 1; 
+	}
+	
 	// Get the account information when changed
 	/*$scope.$watch('account_debit_id', function(value) {
 		$http.get('/accounting/account/get-account-summary', {

@@ -55,17 +55,20 @@ class Editable extends \yii\base\Widget{
             'class' => 'form-field-invisible text-center h1',
         ]);
         echo Html::beginTag('div', ['class' => 'buttons-line pull-right form-inline']);
-        Html::button('Default', [
+        echo Html::button('Default', [
             'id' => 'account-title-edit-form-reset-button',
             'class' => 'btn btn-xs'
         ]); 
-        Html::button('Save', [
+        echo Html::button('Save', [
             'id' => 'account-title-edit-form-button',
-            'class' => 'btn btn-xs btn-primary'
+            'class' => 'btn btn-xs btn-primary',
+            'ng-click' => 'inc()'
         ]);
         echo Html::endTag('div');
         
-        echo Html::tag('div', '{{1+1}}');
+        echo Html::tag('div', '', [
+            'ng-model' => 'inc',     
+        ]);
         
         $form->end();
         
