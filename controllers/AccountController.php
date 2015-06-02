@@ -25,6 +25,10 @@ class AccountController extends \frontend\components\Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
+                        'actions' => ['update'],
+                        'allow' => true,
+                    ],
+                    [
                         'allow' => true,
                         'roles' => ['@'],
                     ],
