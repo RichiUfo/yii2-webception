@@ -302,7 +302,7 @@ class AccountController extends \frontend\components\Controller
             $account = Account::findOne(100);
             $account->alias = $value;
             $account->save();
-            return $account->alias;//$account->save();
+            return array($id, $property, $value); //$account->save();
         }
         else {
             return false;
