@@ -42,7 +42,7 @@ app.controller("editableCtrl", function($scope, $http) {
 	    $http.post('/accounting/account/update', {
 	        id: '100',
 	        property: 'alias',
-	        value: 'New Alias'
+	        value: 'New Alias',
 	    })
 	    .success(function(data, status, headers, config) {
             console.log('Account Alias Update', data);
