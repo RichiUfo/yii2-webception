@@ -13,11 +13,9 @@ class Editable extends \yii\base\Widget{
         'class' => '', 
     ];
     public $text = '';
-    public $action = '#';
     public $element = [
         'id' => 0,
         'property' => '',
-        'value' => '',
         'action' => '#'
     ];
     
