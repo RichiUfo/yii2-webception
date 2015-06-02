@@ -73,7 +73,7 @@ class Editable extends \yii\base\Widget{
         echo Html::endTag('div');
         
 		// Register the JS
-	    $this->getView()->registerJs('window.fpEditableInitial = '.$this->text.';', 1); 
+	    $this->getView()->registerJs('window.fpEditableInitial = "'.$this->text.'";', 1); 
 		
 		return ob_get_clean();
     }
