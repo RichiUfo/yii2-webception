@@ -40,7 +40,7 @@ app.controller("editableCtrl", function($scope, $http) {
 	
 	$scope.save = function(){
 	    $http.post('/accounting/account/update', {
-	        id: '3',
+	        id: 100,
 	        property: 'alias',
 	        value: $scope.value
 	    })
