@@ -297,7 +297,7 @@ class AccountController extends \frontend\components\Controller
         $value = Yii::$app->request->post('value'); 
         
         \Yii::$app->response->format = 'json';
-        return array($id, $property, $value);
+        return Yii::$app->request->post();
         if($property == 'alias'){
             $account = Account::findOne(100);
             $account->alias = $value;
