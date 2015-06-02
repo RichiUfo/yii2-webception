@@ -36,14 +36,14 @@ var app = angular.module("editableApp", []);
 app.controller("editableCtrl", function($scope, $http) {
 	
 	// Variables
-	$scope.account_debit;
+	/*$scope.account_debit;
 	$scope.account_credit;
 	$scope.count = 1; 
 	
 	$scope.inc = function(){
 	    $scope.count += 1; 
 	    console.log('inc', $scope.count);
-	}
+	}*/
 	
 	// Get the account information when changed
 	/*$scope.$watch('account_debit_id', function(value) {
