@@ -67,7 +67,7 @@ class Editable extends \yii\base\Widget{
         echo Html::endTag('div');
         
         echo Html::tag('div', 'Value {{scope.inc}}');
-        echo Html::input('text', 'value', '', [
+        echo Html::input('text', 'yo', null, [
             'ng-model' => 'inc',
         ]);
         
