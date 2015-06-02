@@ -297,14 +297,13 @@ class AccountController extends \frontend\components\Controller
     }
     public function actionUpdate() {
         
-        //\Yii::$app->response->format = 'json';
-        $data =  json_decode(utf8_encode(file_get_contents("php://input")), false);
-        return json_encode($data);
+        \Yii::$app->response->format = 'json';
+        $post_data =  json_decode(utf8_encode(file_get_contents("php://input")), false);
         
-        $id = (int)Yii::$app->request->post('id');
-        $property = Yii::$app->request->post('property');
-        $value = Yii::$app->request->post('value'); 
-        
+        $id = (int)$post_data['id'];
+        $property = $post_data['property'];
+        $value = $post_data['value']; 
+        return array($id, $property, $value);
         if($property == 'alias'){
             $account = Account::findOne(100);
             $account->alias = $value;
