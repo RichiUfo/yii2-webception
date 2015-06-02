@@ -300,10 +300,12 @@ class AccountController extends \frontend\components\Controller
         \Yii::$app->response->format = 'json';
         $post_data =  json_decode(utf8_encode(file_get_contents("php://input")), false);
         
-        $id = (int)$post_data['id'];
-        $property = $post_data['property'];
-        $value = $post_data['value']; 
+        $id = (int)$post_data->id;
+        $property = $post_data->property;
+        $value = $post_data->value; 
+        
         return array($id, $property, $value);
+        
         if($property == 'alias'){
             $account = Account::findOne(100);
             $account->alias = $value;
