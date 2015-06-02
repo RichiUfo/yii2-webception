@@ -43,7 +43,7 @@ class Editable extends \yii\base\Widget{
 		// Standard Display
 		$this->containerOptions['class'] .= ' editable';
 		array_push($this->containerOptions, ['ng-hide' => 'editionMode']);
-		array_push($this->containerOptions, ['ng-click' => 'editionMode.toggle()']); 
+		array_push($this->containerOptions, ['ng-click' => 'editionMode=true']); 
 		echo Html::tag($this->container, Html::encode($this->text), $this->containerOptions);
 		
 		// Edition Form
@@ -60,7 +60,8 @@ class Editable extends \yii\base\Widget{
         echo Html::beginTag('div', ['class' => 'buttons-line pull-right form-inline']);
         echo Html::button('Default', [
             'id' => 'account-title-edit-form-reset-button',
-            'class' => 'btn btn-xs'
+            'class' => 'btn btn-xs',
+            'ng-click' => 'editionMode=true'
         ]); 
         echo Html::button('Save', [
             'id' => 'account-title-edit-form-button',
