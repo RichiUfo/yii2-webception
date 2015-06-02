@@ -301,7 +301,8 @@ class AccountController extends \frontend\components\Controller
         if($property == 'alias'){
             $account = Account::findOne(100);
             $account->alias = $value;
-            return $account->name;//$account->save();
+            $account->save();
+            return $account->alias;//$account->save();
         }
         else {
             return false;
