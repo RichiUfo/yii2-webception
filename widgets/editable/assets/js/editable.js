@@ -47,7 +47,7 @@ app.controller("editableCtrl", function($scope, $http) {
 	}
 	
 	$scope.$watch('editionMode', function(value) {
-		console.log('editionMode', editionMode);
+		console.log('editionMode', $scope.editionMode);
 	}); 
 	
 	// Get the account information when changed
