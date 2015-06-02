@@ -299,7 +299,7 @@ class AccountController extends \frontend\components\Controller
         \Yii::$app->response->format = 'json';
         
         if($property == 'alias'){
-            $account = Account::findOne($id);
+            $account = Account::findOne(100);
             $account->alias = $value;
             $account->save();
             return true;
