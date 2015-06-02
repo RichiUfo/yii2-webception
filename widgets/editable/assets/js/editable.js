@@ -33,7 +33,7 @@ $('#account-title-edit-form-reset-button').on('click', function(event) {
   
 var app = angular.module("editableApp", []);
 
-app.controller("editableCtrl", function($scope, $http) {
+app.controller("EditableController", function($scope, $http) {
 	
 	// Variables
 	$scope.editionMode = false;

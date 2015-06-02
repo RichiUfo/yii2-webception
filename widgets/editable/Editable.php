@@ -35,7 +35,7 @@ class Editable extends \yii\base\Widget{
 		echo Html::beginTag('div', [
 		    'class' => 'fp-editable',
 		    'ng-app' => 'editableApp',
-		    'ng-controller' => 'editableCtrl'
+		    'ng-controller' => 'EditableController'
 	    ]);
 		
 		// Standard Display
