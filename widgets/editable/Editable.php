@@ -55,7 +55,8 @@ class Editable extends \yii\base\Widget{
         echo Html::input('text', 'value', Html::encode($this->text), [
             'id' => 'account-title-edit-form-field',
             'class' => 'form-field-invisible text-center h1',
-            'ng-show' => 'editionMode'
+            'ng-show' => 'editionMode',
+            'ng-model' => 'value'
         ]);
         echo Html::beginTag('div', ['class' => 'buttons-line pull-right form-inline']);
         echo Html::button('Default', [
@@ -68,11 +69,6 @@ class Editable extends \yii\base\Widget{
             'ng-click' => 'incr()'
         ]);
         echo Html::endTag('div');
-        
-        echo Html::tag('div', 'Value {{inc}}');
-        echo Html::input('text', 'yo', null, [
-            'ng-model' => 'inc',
-        ]);
         
         $form->end();
         

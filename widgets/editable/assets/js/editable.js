@@ -37,32 +37,16 @@ app.controller("editableCtrl", function($scope, $http) {
 	
 	// Variables
 	$scope.editionMode = false;
-	//$scope.account_debit;
-	//$scope.account_credit;
-	$scope.count = 1; 
 	
-	$scope.incr = function(){
-	    $scope.inc = 1*$scope.inc+1; 
-	    console.log('inc', $scope.inc);
+	$scope.save = function(){
+	    $http.post('/accounting/account/update', {
+	        id: '3',
+	        property: 'alias',
+	        value: $scope.value
+	    })
+	    .success(function(data, status, headers, config) {
+            console.log('Account Alias Update', data);
+        });
 	}
-	
-	$scope.$watch('editionMode', function(value) {
-		console.log('editionMode', $scope.editionMode);
-	}); 
-	
-	// Get the account information when changed
-	/*$scope.$watch('account_debit_id', function(value) {
-		$http.get('/accounting/account/get-account-summary', {
-			params: { accountid: $scope.account_debit_id }
-		})
-		.success(function(data, status, headers, config) { $scope.account_debit = data; });
-	}); 
-	$scope.$watch('account_credit_id', function(value) {
-		$http.get('/accounting/account/get-account-summary', {
-			params: { accountid: $scope.account_credit_id }
-		})
-		.success(function(data, status, headers, config) { $scope.account_credit = data; });
-	}); 
-	*/
 	
 });

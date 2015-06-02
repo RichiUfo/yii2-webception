@@ -14,4 +14,10 @@ BaseAsset::register($this);
 
 <?= Editable::widget([
     'text' => $account->account->alias,
+    'element' => [
+        'id' => $account->account->id,
+        'property' => 'alias',
+        'value' => $account->account->alias,
+        'action' => '/accounting/account/update',    
+    ]
 ]); ?>
