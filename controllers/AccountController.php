@@ -308,9 +308,9 @@ class AccountController extends \frontend\components\Controller
             $post_data = ArrayHelper::toArray($post_data);
         }
     
-        $id = (int)$post_data->id;
-        $property = $post_data->property;
-        $value = $post_data->value; 
+        $id = (int)$post_data['id'];
+        $property = $post_data['property'];
+        $value = $post_data['value']; 
         
         if($property == 'alias'){
             $account = Account::findOne(100);
