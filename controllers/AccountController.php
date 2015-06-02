@@ -304,13 +304,11 @@ class AccountController extends \frontend\components\Controller
         $property = $post_data->property;
         $value = $post_data->value; 
         
-        return array($id, $property, $value);
-        
         if($property == 'alias'){
             $account = Account::findOne(100);
             $account->alias = $value;
             $account->save();
-            return array($id, $property, $value); //$account->save();
+            return $account->save(); //$account->save();
         }
         else {
             return false;
