@@ -41,6 +41,7 @@ app.controller("editableCtrl", function($scope, $http) {
 	
 	var $scope.inc = function(){
 	    $scope.count += 1; 
+	    console.log('inc', $scope.count);
 	}
 	
 	// Get the account information when changed
