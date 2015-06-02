@@ -33,6 +33,11 @@ class AccountController extends \frontend\components\Controller
         ];
     }
     
+    public function beforeAction($action) {
+        $this->enableCsrfValidation = false;
+        return parent::beforeAction($action);
+    }
+
     /**
     * createAccount($name, $parent, $display)
     * Create a new account
