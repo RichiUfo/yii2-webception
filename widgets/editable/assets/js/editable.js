@@ -41,7 +41,7 @@ app.controller("editableCtrl", function($scope, $http) {
 	$scope.count = 1; 
 	
 	$scope.incr = function(){
-	    $scope.inc = 1*($scope.inc+1); 
+	    $scope.inc = 1*$scope.inc+1; 
 	    console.log('inc', $scope.inc);
 	}
 	
