@@ -298,7 +298,7 @@ class AccountController extends \frontend\components\Controller
     public function actionUpdate() {
         
         //\Yii::$app->response->format = 'json';
-        return json_encode(Yii::$app->request->post());
+        return json_encode($_POST);
         
         $id = (int)Yii::$app->request->post('id');
         $property = Yii::$app->request->post('property');
