@@ -39,7 +39,7 @@ app.controller("editableCtrl", function($scope, $http) {
 	$scope.account_debit;
 	$scope.account_credit;
 	
-	var $scope.inc = function(){
+	var inc = function(){
 	    $scope.count += 1; 
 	    console.log('inc', $scope.count);
 	}
