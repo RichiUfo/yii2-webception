@@ -29,7 +29,7 @@ app.controller("EditableController", function($scope, $http, $window, $timeout) 
     	    .success(function(data, status, headers, config) {
                 console.log('Create a Notification here', data);
             });
-	    }, 1);
+	    }, 10);
 	}
 	
 });
