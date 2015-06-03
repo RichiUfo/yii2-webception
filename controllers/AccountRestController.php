@@ -87,7 +87,7 @@ class AccountRestController extends ActiveController
     public function actionUpdateAlias($id) {
         $modelClass = $this->modelClass;
         $model = $modelClass::findOne($id);
-        $model->alias = 'new alias';
+        $model->alias = \Yii::$app->getRequest()->getBodyParam('alias', '');
         return $model->save();
     }
 }
