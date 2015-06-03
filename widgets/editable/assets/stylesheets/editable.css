@@ -16,12 +16,16 @@
   transform: translateY(-50%);
   right: 0;
 }
-/* line 18, ../sass/editable.scss */
+/* line 16, ../sass/editable.scss */
+.fp-editable .buttons-line button {
+  margin: 0px 5px;
+}
+/* line 21, ../sass/editable.scss */
 .fp-editable h1.editable {
   text-align: center;
   padding: 0;
 }
-/* line 23, ../sass/editable.scss */
+/* line 26, ../sass/editable.scss */
 .fp-editable .form-field-invisible {
   position: absolute;
   left: 50%;
