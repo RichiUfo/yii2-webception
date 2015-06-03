@@ -17,6 +17,6 @@ BaseAsset::register($this);
     'element' => [
         'id' => $account->account->id,
         'property' => 'alias',
-        'action' => '/accounting/account/update',    
+        'action' => '/accounting/rest/account/rename',    
     ]
 ]); ?>
