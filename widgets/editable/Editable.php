@@ -53,7 +53,7 @@ class Editable extends \yii\base\Widget{
                     'id' => 'account-title-edit-form-field',
                     'class' => 'form-field-invisible text-center h1',
                     'ng-focus' => 'editionMode=true',
-                    'ng-blur' => 'editionMode=false',
+                    'ng-blur' => 'save()',
                     'ng-model' => 'value'
                 ]);
                 echo Html::beginTag('div', ['class' => 'buttons-line pull-right form-inline']);
@@ -63,12 +63,12 @@ class Editable extends \yii\base\Widget{
                         'ng-click' => 'reset()',
                         'ng-show' => 'editionMode',
                     ]); 
-                    echo Html::button('Save', [
+                    /*echo Html::button('Save', [
                         'id' => 'account-title-edit-form-button',
                         'class' => 'btn btn-xs btn-primary',
                         'ng-click' => 'save()',
                         'ng-show' => 'editionMode',
-                    ]);
+                    ]);*/
                 echo Html::endTag('div');
             echo Html::endTag('div');
         $form->end();
