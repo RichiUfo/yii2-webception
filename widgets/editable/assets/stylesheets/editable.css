@@ -18,11 +18,7 @@
 }
 /* line 18, ../sass/editable.scss */
 .fp-editable h1.editable {
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  text-align: center;
   padding: 0;
 }
 /* line 23, ../sass/editable.scss */
