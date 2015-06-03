@@ -12,11 +12,12 @@ use frontend\modules\accounting\assets\BaseAsset;
 BaseAsset::register($this);
 ?>
 
+<!-- Account Name Edition -->
 <?= Editable::widget([
+    'identifer' => $account->account->id,
     'text' => $account->account->alias,
-    'element' => [
-        'id' => $account->account->id,
-        'property' => 'alias',
-        'action' => '/accounting/rest/account/rename',    
-    ]
+    'property' => 'alias',
+    'default' => $account->account->name,
+    'action' => '/accounting/rest/account/rename',    
 ]); ?>
+

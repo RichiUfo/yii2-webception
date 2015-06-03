@@ -12,13 +12,15 @@ class Editable extends \yii\base\Widget{
     public $containerOptions = [
         'class' => '', 
     ];
-    public $text = '';
-    public $element = [
-        'id' => 0,
-        'property' => '',
-        'action' => '#'
-    ];
     
+    // Element to be modified
+    public $identifier = 0;
+    public $property = '';
+    public $default = null;
+    public $text = '';
+    public $action = '#';
+    
+    // Initialize the widget
     public function init(){
         parent::init();
         
@@ -29,6 +31,8 @@ class Editable extends \yii\base\Widget{
         ob_start();
         ob_implicit_flush(false);
 	}
+	
+	// Render
     public function run(){
 		
 		// Main Container
@@ -49,7 +53,7 @@ class Editable extends \yii\base\Widget{
 		    'id' => 'account-title-edit-form', 
 		    'class' => 'form-inline'
 	    ]); 
-        echo Html::input('hidden', 'id', $this->element['id']);
+        echo Html::input('hidden', 'id', $this->identifier);
         echo Html::input('text', 'value', '', [
             'id' => 'account-title-edit-form-field',
             'class' => 'form-field-invisible text-center h1',
@@ -73,8 +77,8 @@ class Editable extends \yii\base\Widget{
         echo Html::endTag('div');
         
 		// Register the initial values to be passed to the angular app
-	    $this->getView()->registerJs('window.fpEditableId = "'.$this->element['id'].'";', 1); 
-	    $this->getView()->registerJs('window.fpEditableAction = "'.$this->element['action'].'";', 1); 
+	    $this->getView()->registerJs('window.fpEditableId = "'.$this->identifier.'";', 1); 
+	    $this->getView()->registerJs('window.fpEditableAction = "'.$this->action.'";', 1); 
 	    $this->getView()->registerJs('window.fpEditableInitial = "'.$this->text.'";', 1); 
 		
 		return ob_get_clean();
