@@ -10,7 +10,7 @@ app.controller("EditableController", function($scope, $http, $window) {
 	$scope.default_value = $window.fpEditableDefault;
 	
 	$scope.reset = function(){
-	    
+	    $scope.value = $scope.default_value;
 	}
 	
 	$scope.save = function(){

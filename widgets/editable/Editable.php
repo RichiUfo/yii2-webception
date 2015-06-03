@@ -64,6 +64,7 @@ class Editable extends \yii\base\Widget{
         echo Html::button('Default', [
             'id' => 'account-title-edit-form-reset-button',
             'class' => 'btn btn-xs',
+            'ng-click' => 'reset()'
         ]); 
         echo Html::button('Save', [
             'id' => 'account-title-edit-form-button',
