@@ -6,8 +6,9 @@
 .fp-editable .form-container {
   height: auto;
   width: 100%;
+  position: relative;
 }
-/* line 15, ../sass/editable.scss */
+/* line 16, ../sass/editable.scss */
 .fp-editable .form-container .buttons-line.pull-right.form-inline {
   position: absolute;
   top: 50%;
@@ -15,7 +16,7 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 20, ../sass/editable.scss */
+/* line 21, ../sass/editable.scss */
 .fp-editable h1.editable {
   position: absolute;
   left: 50%;
@@ -24,7 +25,7 @@
   transform: translateX(-50%);
   padding: 0;
 }
-/* line 25, ../sass/editable.scss */
+/* line 26, ../sass/editable.scss */
 .fp-editable .form-field-invisible {
   position: absolute;
   left: 50%;

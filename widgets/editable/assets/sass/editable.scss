@@ -11,6 +11,7 @@
     .form-container {
         height: auto;
         width: 100%;
+        position: relative;
         
         .buttons-line.pull-right.form-inline {
             @include centererV;
