@@ -3,7 +3,7 @@
 namespace frontend\modules\accounting\widgets\editable;
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 
 class Editable extends \yii\base\Widget{
 
@@ -46,7 +46,7 @@ class Editable extends \yii\base\Widget{
 		$form = ActiveForm::begin([
 		    'id' => 'account-title-edit-form', 
 		    'class' => 'form-inline',
-		    'ng-blur' => 'save()',
+		    'options' => ['ng-blur' => 'save()'],
 	    ]); 
     	    echo Html::beginTag('div', ['class' => 'form-container']);
                 echo Html::input('hidden', 'id', $this->identifier);
