@@ -53,6 +53,7 @@ class Editable extends \yii\base\Widget{
                     'id' => 'account-title-edit-form-field',
                     'class' => 'form-field-invisible text-center h1',
                     'ng-focus' => 'editionMode=true',
+                    'ng-blur' => 'editionMode=false',
                     'ng-model' => 'value'
                 ]);
                 echo Html::beginTag('div', ['class' => 'buttons-line pull-right form-inline']);
