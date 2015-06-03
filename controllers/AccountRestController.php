@@ -83,4 +83,11 @@ class AccountRestController extends ActiveController
         $modelClass = $this->modelClass;
         return $modelClass::findOne($id);
     }
+    
+    public function actionUpdateAlias($id) {
+        $modelClass = $this->modelClass;
+        $model = $modelClass::findOne($id);
+        $model->alias = 'new alias';
+        return $model->save();
+    }
 }
