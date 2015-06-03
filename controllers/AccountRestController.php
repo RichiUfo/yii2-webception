@@ -93,7 +93,7 @@ class AccountRestController extends ActiveController
     }
     
     public function actionAuth() {
-        return \Yii::$app->user;
+        return \Yii::$app->user->id;
     }
     
 }
