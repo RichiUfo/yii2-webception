@@ -79,7 +79,8 @@ class AccountRestController extends ActiveController
     /**
      * Custom Actions
      */
-    public function actionView() {
-        return $this->model;
+    public function actionView($id) {
+        $modelClass = $this->modelClass;
+        return $modelClass::find($id);
     }
 }
