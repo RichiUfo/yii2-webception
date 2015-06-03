@@ -13,11 +13,13 @@ app.controller("EditableController", function($scope, $http, $window, $timeout) 
 	$scope.reset = function(){
 	    $scope.resetting = true;
 	    $scope.value = $scope.default_value;
+	    //$scope.resetting = false;
 	}
 	
 	$scope.save = function(){
-	    $scope.resetting = false;
+	    //$scope.resetting = false;
 	    $timeout(function () {          // will be executed after ngClick function in case of click
+            
             if ($scope.clicked) {
                 return;
             }
