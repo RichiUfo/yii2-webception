@@ -14,7 +14,7 @@ BaseAsset::register($this);
 
 <!-- Account Name Edition -->
 <?= Editable::widget([
-    'identifer' => $account->account->id,
+    'identifier' => $account->account->id,
     'text' => $account->account->alias,
     'property' => 'alias',
     'default' => $account->account->name,
