@@ -93,7 +93,12 @@ class AccountRestController extends ActiveController
     }
     
     public function actionAuth() {
-        return \Yii::$app->user->id;
+        if(\Yii::$app->user->id) {
+            return \Yii::$app->user->id;
+        }
+        else {
+            return 'Authentication Failed';
+        }
     }
     
 }
