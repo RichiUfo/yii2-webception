@@ -47,7 +47,7 @@ class Editable extends \yii\base\Widget{
 		$this->containerOptions['ng-hide'] = 'editionMode';
 		$this->containerOptions['ng-click'] = 'editionMode=true'; 
 		$this->containerOptions['ng-model'] = 'value';
-		echo Html::tag($this->container, Html::encode({{value}}), $this->containerOptions);
+		echo Html::tag($this->container, Html::encode('{{value}}'), $this->containerOptions);
 		
 		// Edition Form
 		$form = ActiveForm::begin([
