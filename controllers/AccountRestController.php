@@ -87,6 +87,7 @@ class AccountRestController extends ActiveController
     public function actionRename() {
         // Get the model to modify
         $id = \Yii::$app->getRequest()->getBodyParam('id', '');
+        return $id;
         $modelClass = $this->modelClass;
         $model = $modelClass::findOne($id);
         
