@@ -12,7 +12,7 @@ app.controller("EditableController", function($scope, $http, $window) {
 	        alias: $scope.value,
 	    })
 	    .success(function(data, status, headers, config) {
-            console.log('Account Alias Update', data);
+            console.log('Create a Notification here', data);
         });
 	}
 	
