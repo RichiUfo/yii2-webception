@@ -10,7 +10,7 @@ app.controller("EditableController", function($scope, $http, $window) {
 	    // Build the update data
 	    $scope.data = {};
 	    $scope.data['id'] = 100;
-	    $scope.data['alias'] = 'Updated Alias';
+	    $scope.data['alias'] = $scope.value;
 	    console.log($scope.data);
 	    
 	    // Send the update request
