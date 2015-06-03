@@ -14,7 +14,7 @@ app.controller("EditableController", function($scope, $http, $window) {
 	}
 	
 	$scope.save = function(){
-	    //$scope.editionMode = false;
+	    $scope.editionMode = false;
 	    
 	    // Build the update data
 	    $scope.data = {};
