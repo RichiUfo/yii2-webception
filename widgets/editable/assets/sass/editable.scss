@@ -9,6 +9,7 @@
 .fp-editable {
     position: relative;
     height: auto;
+    text-align: center;
     
     .buttons-line {
         @include centererV;
