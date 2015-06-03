@@ -2,13 +2,20 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 11, ../sass/editable.scss */
-.fp-editable form, .fp-editable .form-container {
-  height: auto;
-  width: 100%;
+/* line 9, ../sass/editable.scss */
+.fp-editable {
   position: relative;
 }
-/* line 21, ../sass/editable.scss */
+/* line 12, ../sass/editable.scss */
+.fp-editable .buttons-line {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 0;
+}
+/* line 17, ../sass/editable.scss */
 .fp-editable h1.editable {
   position: absolute;
   left: 50%;
@@ -17,7 +24,7 @@
   transform: translateX(-50%);
   padding: 0;
 }
-/* line 26, ../sass/editable.scss */
+/* line 22, ../sass/editable.scss */
 .fp-editable .form-field-invisible {
   position: absolute;
   left: 50%;
