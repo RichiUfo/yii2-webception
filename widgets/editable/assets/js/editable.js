@@ -1,6 +1,6 @@
 var app = angular.module("editableApp", []);
 
-app.controller("EditableController", function($scope, $http, $window) {
+app.controller("EditableController", function($scope, $http, $window, $timeout) {
 	
 	// Variables
 	$scope.editionMode = false;
