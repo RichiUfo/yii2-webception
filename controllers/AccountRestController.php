@@ -91,7 +91,7 @@ class AccountRestController extends ActiveController
         $model = $modelClass::findOne($id);
         
         // Load the updated values
-        $model->display_position = \Yii::$app->getRequest()->getBodyParam('display_position', $model->display_position);
+        //$model->display_position = \Yii::$app->getRequest()->getBodyParam('display_position', $model->display_position);
         $model->alias = \Yii::$app->getRequest()->getBodyParam('alias', $model->alias);
         
         // Save the update in database
