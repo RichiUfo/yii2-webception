@@ -32,4 +32,5 @@
   outline: 0px !important;
   -webkit-appearance: none;
   box-sizing: border-box;
+  width: 100%;
 }
