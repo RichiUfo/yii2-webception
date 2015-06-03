@@ -8,14 +8,6 @@
   width: 100%;
   position: relative;
 }
-/* line 16, ../sass/editable.scss */
-.fp-editable .form-container .buttons-line.pull-right.form-inline {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
 /* line 21, ../sass/editable.scss */
 .fp-editable h1.editable {
   position: absolute;
