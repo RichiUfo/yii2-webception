@@ -17,14 +17,9 @@
             margin: 0px 5px;
         }
     }
-  
-    h1.editable {
-        text-align: center;
-        padding: 0;
-    }
     
     .form-field-invisible {
-        @include centererH; 
+        text-align: center;
         margin: 16px 0px 14px 0px;
         padding: 0px;
         border: none;

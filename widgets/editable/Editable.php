@@ -42,13 +42,6 @@ class Editable extends \yii\base\Widget{
 		    'ng-controller' => 'EditableController'
 	    ]);
 		
-		// Standard Display
-		$this->containerOptions['class'] .= ' editable';
-		$this->containerOptions['ng-hide'] = 'editionMode';
-		$this->containerOptions['ng-click'] = 'editionMode=true'; 
-		$this->containerOptions['ng-model'] = 'value';
-		//echo Html::tag($this->container, Html::encode('{{value}}'), $this->containerOptions);
-		
 		// Edition Form
 		$form = ActiveForm::begin([
 		    'id' => 'account-title-edit-form', 
@@ -59,7 +52,6 @@ class Editable extends \yii\base\Widget{
                 echo Html::input('text', 'value', '', [
                     'id' => 'account-title-edit-form-field',
                     'class' => 'form-field-invisible text-center h1',
-                    //'ng-show' => 'editionMode',
                     'ng-click' => 'editionMode=true',
                     'ng-model' => 'value'
                 ]);

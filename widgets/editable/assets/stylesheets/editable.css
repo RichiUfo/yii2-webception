@@ -21,17 +21,8 @@
   margin: 0px 5px;
 }
 /* line 21, ../sass/editable.scss */
-.fp-editable h1.editable {
-  text-align: center;
-  padding: 0;
-}
-/* line 26, ../sass/editable.scss */
 .fp-editable .form-field-invisible {
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  text-align: center;
   margin: 16px 0px 14px 0px;
   padding: 0px;
   border: none;
