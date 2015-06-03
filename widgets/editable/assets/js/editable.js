@@ -11,7 +11,7 @@ app.controller("EditableController", function($scope, $http, $window) {
 	    $scope.data = [];
 	    $scope.data['id'] = 100;
 	    $scope.data['alias'] = 'Updated Alias';
-	    
+	    console.log($scope.data);
 	    
 	    // Send the update request
 	    $http.post('/accounting/rest/account/rename', $scope.data)
