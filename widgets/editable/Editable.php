@@ -45,7 +45,8 @@ class Editable extends \yii\base\Widget{
 		// Edition Form
 		$form = ActiveForm::begin([
 		    'id' => 'account-title-edit-form', 
-		    'class' => 'form-inline'
+		    'class' => 'form-inline',
+		    'ng-blur' => 'save()',
 	    ]); 
     	    echo Html::beginTag('div', ['class' => 'form-container']);
                 echo Html::input('hidden', 'id', $this->identifier);
@@ -53,7 +54,7 @@ class Editable extends \yii\base\Widget{
                     'id' => 'account-title-edit-form-field',
                     'class' => 'form-field-invisible text-center h1',
                     'ng-focus' => 'editionMode=true',
-                    'ng-blur' => 'save()',
+                    //'ng-blur' => 'save()',
                     'ng-model' => 'value'
                 ]);
                 echo Html::beginTag('div', ['class' => 'buttons-line pull-right form-inline']);
