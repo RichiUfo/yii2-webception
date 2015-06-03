@@ -91,4 +91,9 @@ class AccountRestController extends ActiveController
         $model->alias = \Yii::$app->getRequest()->getBodyParam('alias', '');
         return $model->save();
     }
+    
+    public function actionAuth() {
+        return \Yii::$app->user->id;
+    }
+    
 }
