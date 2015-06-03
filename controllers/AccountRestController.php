@@ -75,4 +75,11 @@ class AccountRestController extends ActiveController
     {
         
     }
+    
+    /**
+     * Custom Actions
+     */
+    public function actionView() {
+        return $this->model;
+    }
 }
