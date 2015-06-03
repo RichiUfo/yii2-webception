@@ -15,7 +15,7 @@ app.controller("EditableController", function($scope, $http, $window, $timeout) 
 	
 	$scope.save = function(){
 	    //$scope.resetting = false;
-	    $timeout(function () {          // will be executed after ngClick function in case of click
+	    $timeout(function () {
     	    $scope.editionMode = false;
     	    
     	    // Build the update data
@@ -29,7 +29,7 @@ app.controller("EditableController", function($scope, $http, $window, $timeout) 
     	    .success(function(data, status, headers, config) {
                 console.log('Create a Notification here', data);
             });
-	    }, 1000);
+	    }, 1);
 	}
 	
 });
