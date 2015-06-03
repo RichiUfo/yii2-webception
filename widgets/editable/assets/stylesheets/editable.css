@@ -3,7 +3,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* line 11, ../sass/editable.scss */
-.fp-editable .form-container {
+.fp-editable form, .fp-editable .form-container {
   height: auto;
   width: 100%;
   position: relative;
