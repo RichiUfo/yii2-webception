@@ -92,13 +92,4 @@ class AccountRestController extends ActiveController
         return $model->save();
     }
     
-    public function actionAuth() {
-        if(!\Yii::$app->user->isGuest) {
-            return 'User is logged in (ID => '.\Yii::$app->user->id.')';
-        }
-        else {
-            return 'Guest User';
-        }
-    }
-    
 }

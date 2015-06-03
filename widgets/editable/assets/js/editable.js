@@ -9,8 +9,7 @@ app.controller("EditableController", function($scope, $http, $window) {
 	$scope.save = function(){
 	    $http.post('/accounting/rest/account/auth', {
 	        id: '100',
-	        property: 'alias',
-	        value: $scope.value,
+	        alias: $scope.value,
 	    })
 	    .success(function(data, status, headers, config) {
             console.log('Account Alias Update', data);
