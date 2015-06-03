@@ -19,8 +19,8 @@ app.controller("EditableController", function($scope, $http, $window, $timeout) 
 	$scope.save = function(){
 	    //$scope.resetting = false;
 	    $timeout(function () {          // will be executed after ngClick function in case of click
-            
-            if ($scope.clicked) {
+            $scope.resetting = false;
+            if ($scope.resetting) {
                 return;
             }
 	    
