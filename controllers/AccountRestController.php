@@ -19,11 +19,11 @@ class AccountRestController extends ActiveController
                 'modelClass' => $this->modelClass,
                 'checkAccess' => [$this, 'checkAccess'],
             ],
-            'view' => [
+            /*'view' => [
                 'class' => 'yii\rest\ViewAction',
                 'modelClass' => $this->modelClass,
                 'checkAccess' => [$this, 'checkAccess'],
-            ],
+            ],*/
             'create' => [
                 'class' => 'yii\rest\CreateAction',
                 'modelClass' => $this->modelClass,
@@ -53,7 +53,7 @@ class AccountRestController extends ActiveController
     {
         return [
             'index' => ['GET', 'HEAD'],
-            //'view' => ['GET', 'HEAD'],
+            'view' => ['GET', 'HEAD'],
             'create' => ['POST'],
             'update' => ['PUT', 'PATCH'],
             'delete' => ['DELETE'],
