@@ -7,10 +7,14 @@ app.controller("EditableController", function($scope, $http, $window) {
 	$scope.value = $window.fpEditableInitial;
 	
 	$scope.save = function(){
-	    $http.post('/accounting/rest/account/rename', {
-	        id: '100',
-	        alias: $scope.value,
-	    })
+	    // Build the update data
+	    $scope.data = [];
+	    $scope.data['id'] = 100;
+	    $scope.data['alias'] = 'Updated Alias';
+	    
+	    
+	    // Send the update request
+	    $http.post('/accounting/rest/account/rename', $scope.data)
 	    .success(function(data, status, headers, config) {
             console.log('Create a Notification here', data);
         });

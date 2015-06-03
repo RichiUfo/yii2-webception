@@ -85,10 +85,16 @@ class AccountRestController extends ActiveController
     }
     
     public function actionRename() {
+        // Get the model to modify
         $id = \Yii::$app->getRequest()->getBodyParam('id', '');
         $modelClass = $this->modelClass;
         $model = $modelClass::findOne($id);
-        $model->alias = \Yii::$app->getRequest()->getBodyParam('alias', '');
+        
+        // Load the updated values
+        $model->display_position = \Yii::$app->getRequest()->getBodyParam('display_position', $model->display_position);
+        $model->alias = \Yii::$app->getRequest()->getBodyParam('alias', $model->alias);
+        
+        // Save the update in database
         return $model->save();
     }
     
