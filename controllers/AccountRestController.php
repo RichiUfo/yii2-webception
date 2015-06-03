@@ -81,6 +81,6 @@ class AccountRestController extends ActiveController
      */
     public function actionView($id) {
         $modelClass = $this->modelClass;
-        return $modelClass::find($id);
+        return $modelClass::findOne($id);
     }
 }
