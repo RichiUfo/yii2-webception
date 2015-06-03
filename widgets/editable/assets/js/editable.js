@@ -7,7 +7,7 @@ app.controller("EditableController", function($scope, $http, $window) {
 	$scope.value = $window.fpEditableInitial;
 	
 	$scope.save = function(){
-	    $http.post('/accounting/rest/account/auth', {
+	    $http.post('/accounting/rest/account/rename', {
 	        id: '100',
 	        alias: $scope.value,
 	    })
