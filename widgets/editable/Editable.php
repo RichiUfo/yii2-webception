@@ -72,7 +72,9 @@ class Editable extends \yii\base\Widget{
         
         echo Html::endTag('div');
         
-		// Register the JS
+		// Register the initial values to be passed to the angular app
+	    $this->getView()->registerJs('window.fpEditableId = "'.$this->element['id'].'";', 1); 
+	    $this->getView()->registerJs('window.fpEditableAction = "'.$this->element['action'].'";', 1); 
 	    $this->getView()->registerJs('window.fpEditableInitial = "'.$this->text.'";', 1); 
 		
 		return ob_get_clean();
