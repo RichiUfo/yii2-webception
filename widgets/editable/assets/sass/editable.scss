@@ -7,6 +7,15 @@
 @import "variables";
 
 .fp-editable {
+    
+    .form-container {
+        height: auto;
+        width: 100%;
+        
+        .buttons-line.pull-right.form-inline {
+            @include centererV;
+        }
+    }
   
     h1.editable {
         @include centererH;
