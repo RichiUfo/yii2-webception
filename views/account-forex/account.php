@@ -6,7 +6,7 @@ use yii\bootstrap\ActiveField;
 use yii\helpers\Html;
 use yii\web\View;
 
-use frontend\modules\accounting\widgets\editable\Editable;
+use frontend\widgets\editable\Editable;
 
 use frontend\modules\accounting\assets\BaseAsset;
 BaseAsset::register($this);
