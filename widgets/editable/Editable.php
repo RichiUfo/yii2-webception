@@ -47,7 +47,7 @@ class Editable extends \yii\base\Widget{
 		$this->containerOptions['ng-hide'] = 'editionMode';
 		$this->containerOptions['ng-click'] = 'editionMode=true'; 
 		$this->containerOptions['ng-model'] = 'value';
-		echo Html::tag($this->container, Html::encode('{{value}}'), $this->containerOptions);
+		//echo Html::tag($this->container, Html::encode('{{value}}'), $this->containerOptions);
 		
 		// Edition Form
 		$form = ActiveForm::begin([
@@ -59,19 +59,22 @@ class Editable extends \yii\base\Widget{
                 echo Html::input('text', 'value', '', [
                     'id' => 'account-title-edit-form-field',
                     'class' => 'form-field-invisible text-center h1',
-                    'ng-show' => 'editionMode',
+                    //'ng-show' => 'editionMode',
+                    'ng-click' => 'editionMode=true',
                     'ng-model' => 'value'
                 ]);
                 echo Html::beginTag('div', ['class' => 'buttons-line pull-right form-inline']);
                     echo Html::button('Default', [
                         'id' => 'account-title-edit-form-reset-button',
                         'class' => 'btn btn-xs',
-                        'ng-click' => 'reset()'
+                        'ng-click' => 'reset()',
+                        'ng-show' => 'editionMode',
                     ]); 
                     echo Html::button('Save', [
                         'id' => 'account-title-edit-form-button',
                         'class' => 'btn btn-xs btn-primary',
-                        'ng-click' => 'save()'
+                        'ng-click' => 'save()',
+                        'ng-show' => 'editionMode',
                     ]);
                 echo Html::endTag('div');
             echo Html::endTag('div');
