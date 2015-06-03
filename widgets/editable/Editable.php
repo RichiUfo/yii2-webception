@@ -32,7 +32,7 @@ class Editable extends \yii\base\Widget{
         ob_implicit_flush(false);
 	}
 	
-	// Render
+	// Rendering
     public function run(){
 		
 		// Main Container
@@ -80,6 +80,7 @@ class Editable extends \yii\base\Widget{
 	    $this->getView()->registerJs('window.fpEditableId = "'.$this->identifier.'";', 1); 
 	    $this->getView()->registerJs('window.fpEditableAction = "'.$this->action.'";', 1); 
 	    $this->getView()->registerJs('window.fpEditableInitial = "'.$this->text.'";', 1); 
+	    $this->getView()->registerJs('window.fpEditableDefault = "'.($this->default?$this->default:$this->text).'";', 1);
 		
 		return ob_get_clean();
     }

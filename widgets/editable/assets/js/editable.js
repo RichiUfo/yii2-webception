@@ -7,6 +7,11 @@ app.controller("EditableController", function($scope, $http, $window) {
 	$scope.id = $window.fpEditableId;
 	$scope.action = $window.fpEditableAction;
 	$scope.value = $window.fpEditableInitial;
+	$scope.default_value = $window.fpEditableDefault;
+	
+	$scope.reset = function(){
+	    
+	}
 	
 	$scope.save = function(){
 	    // Build the update data
