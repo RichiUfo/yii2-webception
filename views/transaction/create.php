@@ -4,7 +4,7 @@ use yii\helpers\Url;
 use yii\helpers\VarDumper;
 use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
-use frontend\widgets\stepform\StepFormWidget;
+use frontend\widgets\stepform\StepForm;
 
 use frontend\modules\accounting\assets\BaseAsset;
 BaseAsset::register($this);
