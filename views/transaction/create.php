@@ -140,6 +140,6 @@ BaseAsset::register($this);
 		<?php ActiveForm::end(); ?>
 
 		<!--?php $this->registerJs('transaction_create_form_init()'); ?-->
-		<?php $this->registerJs('angular_activator("trans-create-app", "")'); >
+		<?php $this->registerJs('angular_activator("trans-create-app", "")'); ?>
 	</div>
 </div>
