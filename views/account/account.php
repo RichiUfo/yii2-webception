@@ -9,6 +9,7 @@ use yii\web\View;
 use \fruppel\googlecharts\GoogleCharts;
 use dosamigos\datepicker\DateRangePicker;
 use frontend\widgets\rotatingcard\RotatingCardWidget;
+use frontend\widgets\editable\Editable;
 
 use frontend\controllers\LocalizationController;
 
@@ -58,6 +59,16 @@ BaseAsset::register($this);
 <!-----------------------
 -- EDITABLE PAGE TITLE --
 ------------------------>
+
+<!-- Account Name Edition -->
+<?= Editable::widget([
+    'identifier' => $account->id,
+    'text' => $account->alias,
+    'property' => 'alias',
+    'default' => $account->name,
+    'action' => '/accounting/rest/account/rename',    
+]); ?>
+
 <div class="editable-page-title">
     
     <!-- Default Display -->
