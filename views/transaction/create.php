@@ -130,14 +130,14 @@ BaseAsset::register($this);
 				<h4 class="info-text">Confirm the transaction ?</h4>
 			</div>
 			<div class="col-sm-7 col-sm-offset-1">
-				 <div class="form-group">
+				<div class="form-group">
 					<label>debitaccount</label>
-				  </div>
+				</div>
 			</div>
 			<div class="col-sm-3">
-				 <div class="form-group">
+				<div class="form-group">
 					<label>Some info</label>
-				  </div>
+				</div>
 			</div>
 		</div>
 	</div>

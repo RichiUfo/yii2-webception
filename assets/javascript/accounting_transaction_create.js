@@ -23,4 +23,8 @@ app.controller("FormController", function($scope, $http) {
 		.success(function(data, status, headers, config) { $scope.account_credit = data; });
 	});
 	
+	$scope.submit = function() {
+	    
+	};
+	
 });
