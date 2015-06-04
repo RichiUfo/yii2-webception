@@ -11,7 +11,7 @@ BaseAsset::register($this);
 
 ?>
 
-<div ng-app="createTransaction" class="fp-angular">
+<div id="trans-create-app" class="fp-angular">
 	<div ng-controller="FormCtrl" class="transaction-form">
 		<?php $form = ActiveForm::begin([
 			'id' => 'create-transaction-form',
@@ -140,6 +140,6 @@ BaseAsset::register($this);
 		<?php ActiveForm::end(); ?>
 
 		<!--?php $this->registerJs('transaction_create_form_init()'); ?-->
-		<!--?php $this->registerJs('angular_activator()'); ?-->
+		<?php $this->registerJs('angular_activator("trans-create-app", "")'); >
 	</div>
 </div>
