@@ -50,7 +50,7 @@ BaseAsset::register($this);
 					<div class="name">{{account_debit.name}} 
 						<span class="pull-right">{{account_debit.display_value}} {{account_debit.currency.code}}</span>
 					</div>
-					<div class="root"><img ng-if="account_debit.currency.img!=''" src="<?= Url::to('@web/img/flags/48/') ?>{{account_debit.currency.img}}"></div>
+					<div class="root"><img ng-show="account_debit.currency.img" src="<?= Url::to('@web/img/flags/48/') ?>{{account_debit.currency.img}}"></div>
 				</div>
 			</div>
 			<div class="col-sm-5 acccount-select-group">
