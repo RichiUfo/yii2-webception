@@ -46,11 +46,11 @@ BaseAsset::register($this);
 						'ng-model' => 'account_debit_id',
 						'prompt' => 'Select An Account'
 					]) ?>
-				<div class="account-summary">
+				<div class="account-summary" ng-show="account_debit">
 					<div class="name">{{account_debit.name}} 
 						<span class="pull-right">{{account_debit.display_value}} {{account_debit.currency.code}}</span>
 					</div>
-					<div class="root"><img ng-show="account_debit.currency.img" src="<?= Url::to('@web/img/flags/48/') ?>{{account_debit.currency.img}}"></div>
+					<div class="root"><img src="<?= Url::to('@web/img/flags/48/') ?>{{account_debit.currency.img}}"></div>
 				</div>
 			</div>
 			<div class="col-sm-5 acccount-select-group">
@@ -61,7 +61,7 @@ BaseAsset::register($this);
 						'ng-model' => 'account_credit_id',
 						'prompt' => 'Select An Account'
 					]) ?>
-				<div class="account-summary">
+				<div class="account-summary" ng-show="account_credit">
 					<div class="name">{{account_credit.name}} 
 						<span class="pull-right">{{account_credit.display_value}} {{account_credit.currency.code}}</span>
 					</div>
