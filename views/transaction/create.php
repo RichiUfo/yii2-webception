@@ -37,7 +37,7 @@ BaseAsset::register($this);
 	<!-- STEP 1 -->
 	<div class="tab-pane" id="accounts">
 		<div class="row">
-			<h4 class="info-text">Pick the accounts</h4>
+			<!--h4 class="info-text">Pick the accounts</h4-->
 			<div class="col-sm-5 col-sm-offset-1 acccount-select-group">
 				<?= $stepform->form
 					->field($model, 'account_debit_id')
