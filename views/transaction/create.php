@@ -12,7 +12,7 @@ BaseAsset::register($this);
 ?>
 
 <div id="trans-create-app" class="fp-angular">
-	<div ng-controller="FormCtrl" class="transaction-form">
+	<div ng-controller="FormController" class="transaction-form">
 		<?php $form = ActiveForm::begin([
 			'id' => 'create-transaction-form',
 			'enableClientValidation' => false
