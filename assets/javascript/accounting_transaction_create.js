@@ -33,11 +33,11 @@ app.controller("FormController", function($scope, $http) {
 	$scope.checkAccounts = function() {
 		if($scope.account_credit_id == $scope.account_debit_id) {
 			//$scope.error.error = true;
-			$scope.error = 'Please choose different accounts';	
+			$scope.error.msg = 'Please choose different accounts';	
 		}
 		else {
 			//$scope.error.error = false;
-			$scope.error = 'All Good !';
+			$scope.error.msg = 'All Good !';
 		}
 	}
 	
