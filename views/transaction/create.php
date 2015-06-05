@@ -59,6 +59,7 @@ BaseAsset::register($this);
 					->dropDownList($accounts, [
 						'class' => 'form-control account-select', 
 						'ng-model' => 'account_credit_id',
+						'ng-disabled' => '{{error.valid}}',
 						'prompt' => 'Select An Account'
 					]) ?>
 				<div class="account-summary" ng-show="account_credit">
