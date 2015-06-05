@@ -22,8 +22,8 @@ BaseAsset::register($this);
 		],
 		'header' => [
 			'title_strong' => 'NEW',
-			'title' => 'ACCOUNTING TRANSACTION',
-			'subtitle' => 'Use this form to report a general accounting transaction'
+			'title' => 'TRANSACTION',
+			'subtitle' => 'General Accounting Transaction'
 			],
 		'steps' => [
 			'accounts' => 'Accounts',
