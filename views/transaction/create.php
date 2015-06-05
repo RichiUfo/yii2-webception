@@ -13,7 +13,7 @@ BaseAsset::register($this);
 
 <div id="transaction-create-app" ng-controller="FormController" class="transaction-form">
 	
-	<?php 
+	<?php
 	$stepform = StepForm::begin([
 		'id' => 'formtest',
 		'activeFormOptions' => [
@@ -31,8 +31,8 @@ BaseAsset::register($this);
 			'summary' => 'Summary'
 			]
 		]
-	); 
-	?>  
+	);
+	?>
 	
 	<!-- STEP 1 -->
 	<div class="tab-pane" id="accounts">
