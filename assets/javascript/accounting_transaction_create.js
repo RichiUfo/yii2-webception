@@ -8,6 +8,7 @@ app.controller("FormController", function($scope, $http) {
 	// Variables
 	$scope.account_debit;
 	$scope.account_credit;
+	$scope.error;
 	
 	// Get the account information when changed
 	$scope.$watch('account_debit_id', function(value) {
@@ -23,8 +24,15 @@ app.controller("FormController", function($scope, $http) {
 		.success(function(data, status, headers, config) { $scope.account_credit = data; });
 	});
 	
-	$scope.submit = function() {
-	    
-	};
+	$scope.checkAccounts = function() {
+		if($scope.account_credit_id == $scope.account_debit_id) {
+			$scope.error.error = true;
+			$scope.error.msg = 'Please choose different accounts';	
+		}
+		else {
+			$scope.error.error = false;
+			$scope.error.msg = '';
+		}
+	}
 	
 });
