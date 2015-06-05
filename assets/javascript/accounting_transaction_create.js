@@ -38,7 +38,7 @@ app.controller("FormController", function($scope, $http) {
 		}
 		else {
 			$scope.error.exists = false;
-			$scope.error.msg = 'All Good !';
+			$scope.error.msg = '';
 		}
 	}
 	
