@@ -8,7 +8,7 @@ app.controller("FormController", function($scope, $http) {
 	// Variables
 	$scope.account_debit;
 	$scope.account_credit;
-	$scope.error = {exists:false, msg:'Initial'};
+	$scope.error = {valid:false, msg:'Initial'};
 	
 	// Get the account information when changed
 	$scope.$watch('account_debit_id', function(value) {
@@ -32,17 +32,21 @@ app.controller("FormController", function($scope, $http) {
 	
 	$scope.checkAccounts = function() {
 		if($scope.account_credit_id == $scope.account_debit_id) {
-			$scope.error.exists = true;
+			$scope.error.valid = false;
 			$scope.error.msg = 'Please choose different accounts';	
 		}
 		else if ($scope.account_credit_id == null || $scope.account_debit_id == null) {
-			$scope.error.exists = true;
+			$scope.error.valid = false;
 			$scope.error.msg = '';
 		}
 		else {
-			$scope.error.exists = false;
+			$scope.error.valid = tru;
 			$scope.error.msg = '';
 		}
+		
+		// Activate or desactivate the next button
+		angular.element( document.querySelector( '.btn-next' ) );
+		
 	}
 	
 });
