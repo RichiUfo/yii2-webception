@@ -35,10 +35,10 @@ app.controller("FormController", function($scope, $http) {
 			$scope.error.valid = false;
 			$scope.error.msg = 'Please choose different accounts';	
 		}
-		/*else if ($scope.account_credit_id == null || $scope.account_debit_id == null) {
+		else if ($scope.account_credit_id == null) {
 			$scope.error.valid = false;
-			$scope.error.msg = '';
-		}*/
+			$scope.error.msg = 'Select a credit account';
+		}
 		else {
 			$scope.error.valid = true;
 			$scope.error.msg = '';
