@@ -71,7 +71,7 @@ BaseAsset::register($this);
 		</div>
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<p class="feedback info-text text-center">{{account_credit_id}}<br>{{error.msg}}</p>
+				<p class="feedback info-text text-center">{{error.msg}}</p>
 			</div>
 		</div>
 	</div>
