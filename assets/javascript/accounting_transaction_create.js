@@ -8,7 +8,7 @@ app.controller("FormController", function($scope, $http) {
 	// Variables
 	$scope.account_debit;
 	$scope.account_credit;
-	$scope.error = {valid:false, msg:'Initial'};
+	$scope.error = {valid:false, msg:''};
 	
 	// Get the account information when changed
 	$scope.$watch('account_debit_id', function(value) {
