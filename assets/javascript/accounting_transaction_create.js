@@ -18,21 +18,26 @@ app.controller("FormController", function($scope, $http) {
 			})
 			.success(function(data, status, headers, config) { 
 				$scope.account_debit = data; 
-				$scope.checkAccounts();
 			});
 		}
 		else {
 			$scope.account_debit = null; 
 		}
+		$scope.checkAccounts();
 	}); 
 	$scope.$watch('account_credit_id', function(value) {
-		$http.get('/accounting/account/get-account-summary', {
-			params: { accountid: $scope.account_credit_id }
-		})
-		.success(function(data, status, headers, config) { 
-			$scope.account_credit = data; 
-			$scope.checkAccounts();
-		});
+		if($scope.account_credit_id != ''){
+			$http.get('/accounting/account/get-account-summary', {
+				params: { accountid: $scope.account_credit_id }
+			})
+			.success(function(data, status, headers, config) { 
+				$scope.account_credit = data; 
+			});
+		}
+		else {
+			$scope.account_credit = null;
+		}
+		$scope.checkAccounts();
 	});
 	
 	$scope.checkAccounts = function() {
