@@ -47,11 +47,11 @@ app.controller("FormController", function($scope, $http) {
 		}
 		else if ($scope.account_credit == null || $scope.account_debit == null) {
 			$scope.error.invalid = true;
-			$scope.error.msg = '';
+			$scope.error.msg = 'One of the accounts is null';
 		}
 		else {
 			$scope.error.invalid = false;
-			$scope.error.msg = '';
+			$scope.error.msg = 'All Good';
 		}
 		
 		// Activate or desactivate the next button
