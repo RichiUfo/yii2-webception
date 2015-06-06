@@ -36,7 +36,7 @@ app.controller("FormController", function($scope, $http) {
 			$scope.error.msg = 'Please choose different accounts';	
 		}
 		else if ($scope.account_credit == null || $scope.account_debit == null) {
-			$scope.error.invalid = false;
+			$scope.error.invalid = true;
 			$scope.error.msg = '';
 		}
 		else {
