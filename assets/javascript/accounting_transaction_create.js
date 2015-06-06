@@ -6,8 +6,8 @@ var app = angular.module("transactionCreateApp", []);
 app.controller("FormController", function($scope, $http) {
 	
 	// Variables
-	$scope.account_debit;
-	$scope.account_credit;
+	$scope.account_debit = null;
+	$scope.account_credit = null;
 	$scope.error = {invalid:true, msg:''};
 	
 	// Get the account information when changed
@@ -35,10 +35,10 @@ app.controller("FormController", function($scope, $http) {
 			$scope.error.invalid = true;
 			$scope.error.msg = 'Please choose different accounts';	
 		}
-		/*else if ($scope.account_credit_id == null || $scope.account_debit_id == null) {
+		else if ($scope.account_credit == null || $scope.account_debit == null) {
 			$scope.error.invalid = false;
-			$scope.error.msg = 'Select a credit account';
-		}*/
+			$scope.error.msg = '';
+		}
 		else {
 			$scope.error.invalid = false;
 			$scope.error.msg = '';
