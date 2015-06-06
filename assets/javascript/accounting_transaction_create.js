@@ -12,13 +12,18 @@ app.controller("FormController", function($scope, $http) {
 	
 	// Get the account information when changed
 	$scope.$watch('account_debit_id', function(value) {
-		$http.get('/accounting/account/get-account-summary', {
-			params: { accountid: $scope.account_debit_id }
-		})
-		.success(function(data, status, headers, config) { 
-			$scope.account_debit = data; 
-			$scope.checkAccounts();
-		});
+		if($scope.account_debit_id != ''){
+			$http.get('/accounting/account/get-account-summary', {
+				params: { accountid: $scope.account_debit_id }
+			})
+			.success(function(data, status, headers, config) { 
+				$scope.account_debit = data; 
+				$scope.checkAccounts();
+			});
+		}
+		else {
+			$scope.account_debit = null; 
+		}
 	}); 
 	$scope.$watch('account_credit_id', function(value) {
 		$http.get('/accounting/account/get-account-summary', {
