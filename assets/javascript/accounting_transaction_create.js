@@ -56,9 +56,6 @@ app.controller("FormController", function($scope, $http) {
 			$scope.error.msg = 'All Good';
 		}
 		
-		// Activate or desactivate the next button
-		angular.element( document.querySelector( '.btn-next' ) );
-		
 	}
 	
 });
