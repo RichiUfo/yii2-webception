@@ -105,7 +105,10 @@ BaseAsset::register($this);
 
 				<?= $stepform->form->field($model, 'description', ['options' => [
 					'style'=>'margin-bottom:30px',
-					'placeholder' => 'Comment (optional)',
+					'enableLabel' => false,
+					'inputOptions' => [
+						'placeholder' => 'Comment (optional)',
+					]
 				]]) ?>
 
 				<div ng-if="account_credit.currency.code == account_debit.currency.code">
