@@ -32,7 +32,7 @@ app.controller("FormController", function($scope, $http) {
 	
 	$scope.checkAccounts = function() {
 		if($scope.account_credit_id == $scope.account_debit_id) {
-			$scope.error.invalid = false;
+			$scope.error.invalid = true;
 			$scope.error.msg = 'Please choose different accounts';	
 		}
 		/*else if ($scope.account_credit_id == null || $scope.account_debit_id == null) {
@@ -40,7 +40,7 @@ app.controller("FormController", function($scope, $http) {
 			$scope.error.msg = 'Select a credit account';
 		}*/
 		else {
-			$scope.error.invalid = true;
+			$scope.error.invalid = false;
 			$scope.error.msg = '';
 		}
 		
