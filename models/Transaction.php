@@ -51,7 +51,7 @@ class Transaction extends \frontend\components\ActiveRecord
             'account_debit_id' => 'Debit',
             'account_credit_id' => 'Credit',
             'date_value' => 'Transaction Date',
-            'name' => 'Name',
+            'name' => 'Description',
             'description' => 'Comment (optional)',
             'value' => 'Value',
         ];
