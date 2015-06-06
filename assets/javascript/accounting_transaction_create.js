@@ -53,7 +53,7 @@ app.controller("FormController", function($scope, $http) {
 		}
 		else {
 			$scope.error.invalid = false;
-			$scope.error.msg = 'All Good';
+			$scope.error.msg = '';
 		}
 		
 	}
