@@ -104,8 +104,8 @@ BaseAsset::register($this);
 				]]) ?>
 
 				<?= $stepform->form->field($model, 'description', [
-					'style'=>'margin-bottom:30px',
 					'enableLabel' => false,
+					'options' => ['style'=>'margin-bottom:30px'],
 					'inputOptions' => [
 						'placeholder' => 'Comment (optional)',
 					]
