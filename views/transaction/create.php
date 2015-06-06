@@ -118,8 +118,8 @@ BaseAsset::register($this);
 				</div>
 				
 				<div ng-if="account_credit.currency.code != account_debit.currency.code">
-					<?= Html::input("text", "value_debit", ['class' => 'form-control']); ?>
-					<?= Html::input("text", "value_credit", ['class' => 'form-control']); ?>
+					<?= Html::input("text", "value_debit", '0', ['class' => 'form-control']); ?>
+					<?= Html::input("text", "value_credit", '0', ['class' => 'form-control']); ?>
 				</div>
 			</div>
 		</div>
