@@ -17,13 +17,15 @@ app.controller("FormController", function($scope, $http) {
 				params: { accountid: $scope.account_debit_id }
 			})
 			.success(function(data, status, headers, config) { 
-				$scope.account_debit = data; 
+				$scope.account_debit = data;
+
+				$scope.checkAccounts();
 			});
 		}
 		else {
 			$scope.account_debit = null; 
+			$scope.checkAccounts();	
 		}
-		$scope.checkAccounts();
 	}); 
 	$scope.$watch('account_credit_id', function(value) {
 		if($scope.account_credit_id != ''){
@@ -32,12 +34,13 @@ app.controller("FormController", function($scope, $http) {
 			})
 			.success(function(data, status, headers, config) { 
 				$scope.account_credit = data; 
+				$scope.checkAccounts();
 			});
 		}
 		else {
 			$scope.account_credit = null;
+			$scope.checkAccounts();
 		}
-		$scope.checkAccounts();
 	});
 	
 	$scope.checkAccounts = function() {
