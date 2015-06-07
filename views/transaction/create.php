@@ -119,7 +119,10 @@ BaseAsset::register($this);
 				
 				<div ng-if="account_credit.currency.code != account_debit.currency.code">
 					<?= Html::label('Value', 'fp-sf-tr-vd', ['class'=>'control-label']); ?>
-					<?= Html::input("text", "value_debit", '0', ['id'=>'fp-sf-tr-vd', 'class'=>'form-control']); ?>
+					<div class="input-group">
+      					<div class="input-group-addon">$</div>
+      					<?= Html::input("text", "value_debit", '0', ['id'=>'fp-sf-tr-vd', 'class'=>'form-control']); ?>
+      				</div>
 					<?= Html::input("text", "value_credit", '0', ['class'=>'form-control']); ?>
 				</div>
 			</div>
