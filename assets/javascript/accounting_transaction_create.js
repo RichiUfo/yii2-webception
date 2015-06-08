@@ -3,7 +3,7 @@
  */
 var app = angular.module("transactionCreateApp", []);
 
-app.controller("FormController", function($scope, $http) {
+app.controller("FormController", function($scope, $http, $filters) {
 	
 	// Variables
 	$scope.account_debit = null;
@@ -57,5 +57,10 @@ app.controller("FormController", function($scope, $http) {
 		}
 		
 	}
+	
+	// Input formatting
+	$scope.$watch('credit_value', function(value) {
+		console.log('credit_value', value);
+	});
 	
 });
