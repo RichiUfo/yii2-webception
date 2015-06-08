@@ -11,7 +11,7 @@ BaseAsset::register($this);
 
 ?>
 
-<div id="transaction-create-app" ng-app="transactionCreateApp" ng-controller="FormController" class="transaction-form">
+<div id="transaction-create-app" ng-controller="FormController" class="transaction-form">
 	
 	<?php
 	$stepform = StepForm::begin([
