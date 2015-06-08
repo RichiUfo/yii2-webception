@@ -1,9 +1,9 @@
 /**
  * Form Controller (AngularJS Based)
  */
-var app = angular.module("transactionCreateApp", []);
+var app = angular.module("transactionCreateApp", ['filters']);
 
-app.controller("FormController", [$scope, $http, 'filters', function($scope, $http, 'filters) {
+app.controller("FormController", [$scope, $http, 'filters', function($scope, $http, filters) {
 	
 	// Variables
 	$scope.account_debit = null;
