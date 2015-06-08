@@ -142,7 +142,8 @@ BaseAsset::register($this);
       				<div class="input-group m-b">
 						<?= Html::input("text", "value_credit", '', [
 							'class'=>'form-control', 
-      						'placeholder' => 'Credit {{account_credit.name}}'
+      						'placeholder' => 'Credit {{account_credit.name}}',
+      						'ng-model' => 'credit_value',
       					]); ?>
 						<div class="input-group-addon right">
 							{{account_credit.currency.code}}&nbsp;
@@ -150,6 +151,9 @@ BaseAsset::register($this);
 						</div>
 					</div>
 				</div>
+				
+				{{ credit_value | currency:account_debit.currency.code }}
+				
 			</div>
 		</div>
 
