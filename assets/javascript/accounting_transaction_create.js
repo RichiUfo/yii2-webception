@@ -15,7 +15,7 @@ app.directive('format', ['$filter', function ($filter) {
 
             ctrl.$parsers.unshift(function (viewValue) {
                 var plainNumber = viewValue.replace(/[^\d|\-+|\.+]/g, '');
-                elem.val($filter(attrs.format)(plainNumber, 2));
+                elem.val($filter(attrs.format)(plainNumber));
                 return plainNumber;
             });
         }
