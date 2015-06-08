@@ -117,7 +117,7 @@ BaseAsset::register($this);
 					<div class="form-group field-transaction-value required">
 						<label class="control-label" for="transaction-value">Value</label>
 						<div class="input-group m-b">
-	      					<input type="text" id="transaction-value" class="form-control" name="Transaction[value]">
+	      					<input type="text" id="transaction-value" class="form-control" name="Transaction[value]" placeholder="Name">
 	      					<div class="input-group-addon right">
 	      						{{account_debit.currency.code}}&nbsp;
 	      						<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_debit.currency.img}}">
@@ -142,7 +142,7 @@ BaseAsset::register($this);
       				<div class="input-group m-b">
 						<?= Html::input("text", "value_credit", '0', [
 							'class'=>'form-control', 
-      						'placeholder' => '{{account_credit.name}}'
+      						'placeholder' => 'Credit {{account_credit.name}}'
       					]); ?>
 						<div class="input-group-addon right">
 							{{account_credit.currency.code}}&nbsp;
