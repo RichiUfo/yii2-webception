@@ -24,7 +24,7 @@ class BaseAsset extends AssetBundle
     ];
     public $depends = [
 		'frontend\assets\angular\AngularAsset',
-		'frontend\assets\angular\AngularAccountingAsset',
+		'frontend\assets\angularaccounting\AngularAccountingAsset',
         'frontend\assets\ThemeBaseAsset',
     ];
 }
