@@ -1,9 +1,9 @@
 /**
  * Form Controller (AngularJS Based)
  */
-var app = angular.module("transactionCreateApp", [$filterProvider]);
+var app = angular.module("transactionCreateApp", []);
 
-app.controller("FormController", function($scope, $http, $filters) {
+app.controller("FormController", [$filters, function($scope, $http, $filters) {
 	
 	// Variables
 	$scope.account_debit = null;
@@ -63,4 +63,4 @@ app.controller("FormController", function($scope, $http, $filters) {
 		console.log('credit_value', value);
 	});
 	
-});
+}]);
