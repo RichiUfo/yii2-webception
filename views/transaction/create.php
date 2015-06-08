@@ -186,5 +186,5 @@ BaseAsset::register($this);
 	
 	<?php StepForm::end(); ?>
 
-	<?php $this->registerJs('fp_angular_bootstrap("transaction-create-app", ["transactionCreateApp"])'); ?>
+	<?php $this->registerJs('fp_angular_bootstrap("transaction-create-app", ["transactionCreateApp", "filters"])'); ?>
 </div>
