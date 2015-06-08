@@ -156,7 +156,7 @@ BaseAsset::register($this);
 
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<p class="feedback info-text text-center">{{credit_value}}</p>
+				<p class="feedback info-text text-center">credit_value {{credit_value}}</p>
 			</div>
 		</div>
 	</div>
