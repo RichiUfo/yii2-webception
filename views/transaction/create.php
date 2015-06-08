@@ -114,7 +114,17 @@ BaseAsset::register($this);
 				]) ?>
 
 				<div ng-if="account_credit.currency.code == account_debit.currency.code">
-					<?= $stepform->form->field($model, 'value') ?>
+					<div class="form-group field-transaction-value required">
+						<label class="control-label" for="transaction-value">Value</label>
+						<input type="text" id="transaction-value" class="form-control" name="Transaction[value]">
+						<div class="input-group m-b">
+	      					<input type="text" id="transaction-value" class="form-control" name="Transaction[value]">
+	      					<div class="input-group-addon right">
+	      						{{account_debit.currency.code}}&nbsp;
+	      						<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_debit.currency.img}}">
+	  						</div>
+      					</div>
+					</div>
 				</div>
 				
 				<div ng-if="account_credit.currency.code != account_debit.currency.code">
