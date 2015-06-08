@@ -132,7 +132,9 @@ BaseAsset::register($this);
       					<?= Html::input("text", "value_debit", '', [
       						'id'=>'fp-sf-tr-vd', 
       						'class'=>'form-control', 
-      						'placeholder' => 'Debit {{account_debit.name}}'
+      						'placeholder' => 'Debit {{account_debit.name}}',
+      						'ng-model' => '$parent.debit_value',
+      						'format' => 'number'
   						]); ?>
       					<div class="input-group-addon right">
       						{{account_debit.currency.code}}&nbsp;
