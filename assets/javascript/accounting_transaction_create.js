@@ -1,7 +1,7 @@
 /**
  * Form Controller (AngularJS Based)
  */
-var app = angular.module('transactionCreateApp', ['fpfilters']);
+var app = angular.module('transactionCreateApp', []);
 
 app.controller("FormController", ['$scope', '$http', 'fpfilters', function($scope, $http, fpfilters) {
 	
