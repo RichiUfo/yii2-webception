@@ -41,6 +41,10 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 			$scope.checkAccounts();
 		}
 	});
+	// Input formatting
+	/*$scope.$watch('credit_value', function(value) {
+		console.log('credit_value', value);
+	});*/
 	
 	$scope.checkAccounts = function() {
 		if($scope.account_credit_id == $scope.account_debit_id) {
@@ -58,9 +62,6 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 		
 	}
 	
-	// Input formatting
-	$scope.$watch('credit_value', function(value) {
-		console.log('credit_value', value);
-	});
+	
 	
 }]);
