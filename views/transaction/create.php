@@ -134,7 +134,7 @@ BaseAsset::register($this);
       						'class'=>'form-control', 
       						'placeholder' => 'Debit {{account_debit.name}}',
       						'ng-model' => '$parent.debit_value',
-      						'format' => 'number:2'
+      						'format' => 'number'
   						]); ?>
       					<div class="input-group-addon right">
       						{{account_debit.currency.code}}&nbsp;
@@ -146,7 +146,7 @@ BaseAsset::register($this);
 							'class'=>'form-control', 
       						'placeholder' => 'Credit {{account_credit.name}}',
       						'ng-model' => '$parent.credit_value',
-      						'format' => 'number:'
+      						'format' => 'number'
       					]); ?>
 						<div class="input-group-addon right">
 							{{account_credit.currency.code}}&nbsp;
