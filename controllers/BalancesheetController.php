@@ -53,7 +53,7 @@ class BalancesheetController extends Controller
         $equity = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Equity']);
         $liabilities = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Liabilities']);
         
-        $this->layout = '@app/views/layouts/three-columns';
+        $this->layout = '@app/views/layouts/two-columns-left';
         return $this->render('balance-sheet', [
             'assets' => $assets, 
             'equity' => $equity, 
