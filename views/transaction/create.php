@@ -145,6 +145,7 @@ BaseAsset::register($this);
       						'placeholder' => 'Credit {{account_credit.name}}',
       						'ng-model' => 'credit_value',
       					]); ?>
+      					<input type="text" ng-model="yourName" placeholder="Enter a name here">
 						<div class="input-group-addon right">
 							{{account_credit.currency.code}}&nbsp;
 							<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_credit.currency.img}}">
@@ -157,7 +158,7 @@ BaseAsset::register($this);
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
 				<p class="feedback info-text text-center">
-					<input type="text" ng-model="yourName" placeholder="Enter a name here">
+					
 					credit_value = {{yourName}}</p>
 			</div>
 		</div>
