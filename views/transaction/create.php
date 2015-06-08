@@ -153,7 +153,7 @@ BaseAsset::register($this);
 				</div>
 				
 				Credit : {{credit_value}}<br>
-				{{ creditvalue | currency:account_debit.currency.code }}
+				{{ credit_value | currency:account_debit.currency.code }}
 				
 			</div>
 		</div>
