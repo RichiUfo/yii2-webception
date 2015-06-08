@@ -121,9 +121,18 @@ BaseAsset::register($this);
 					<?= Html::label('Value', 'fp-sf-tr-vd', ['class'=>'control-label']); ?>
 					<div class="input-group m-b">
       					<?= Html::input("text", "value_debit", '0', ['id'=>'fp-sf-tr-vd', 'class'=>'form-control']); ?>
-      					<div class="input-group-addon right">$</div>
+      					<div class="input-group-addon right">
+      						{{account_debit.currency.code}}&nbsp;
+      						<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_debit.currency.img}}">
+  						</div>
       				</div>
-					<?= Html::input("text", "value_credit", '0', ['class'=>'form-control']); ?>
+      				<div class="input-group m-b">
+						<?= Html::input("text", "value_credit", '0', ['class'=>'form-control']); ?>
+						<div class="input-group-addon right">
+							{{account_credit.currency.code}}&nbsp;
+							<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_credit.currency.img}}">
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
