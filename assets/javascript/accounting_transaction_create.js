@@ -25,6 +25,7 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 			$scope.account_debit = null; 
 			$scope.checkAccounts();	
 		}
+		$scope.transaction_title = 'Debit '+$scope.account_debit.name+' Credit '+$scope.account_credit.name;
 	}); 
 	$scope.$watch('account_credit_id', function(value) {
 		if($scope.account_credit_id != ''){
@@ -40,6 +41,7 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 			$scope.account_credit = null;
 			$scope.checkAccounts();
 		}
+		$scope.transaction_title = 'Debit '+$scope.account_debit.name+' Credit '+$scope.account_credit.name;
 	});
 	// Input formatting
 	/*$scope.$watch('credit_value', function(value) {

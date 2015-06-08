@@ -102,6 +102,7 @@ BaseAsset::register($this);
 					//'options' => ['style'=>'margin-bottom:30px'],
 					'inputOptions' => [
 						'placeholder' => 'Transaction Title',
+						'ng-model' => 'transaction_tit'
 					]
 				]) ?>
 
