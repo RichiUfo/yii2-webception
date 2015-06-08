@@ -144,6 +144,7 @@ BaseAsset::register($this);
 							'class'=>'form-control', 
       						'placeholder' => 'Credit {{account_credit.name}}',
       						'ng-model' => '$parent.credit_value',
+      						'format' => 'number'
       					]); ?>
 						<div class="input-group-addon right">
 							{{account_credit.currency.code}}&nbsp;
