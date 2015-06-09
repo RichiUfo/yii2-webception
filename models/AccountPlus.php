@@ -19,12 +19,11 @@ class AccountPlus extends Account
         
         parent::afterFind();
 
-        if($this){
-            $this->root_account = $this;
-            while($this->root_account->parent_id != 0) {
-                $this->root_account = AccountPlus::findOne($this->root_account->parent_id);
-            }
+        $this->root_account = $this;
+        while($this->root_account->parent_id != 0) {
+            $this->root_account = AccountPlus::findOne($this->root_account->parent_id);
         }
+   
         $rootname = $this->root_account->name;
         if (($rootname == "Assets") or ($rootname == "Equity") or ($rootname == "Liabilities")){
             $this->statement = "balance_sheet";
