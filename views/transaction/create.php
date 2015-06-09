@@ -99,7 +99,6 @@ BaseAsset::register($this);
 			</div>
 			<div class="col-sm-5">
 				<?= $stepform->form->field($model, 'name', [
-					//'options' => ['style'=>'margin-bottom:30px'],
 					'inputOptions' => [
 						'placeholder' => 'Transaction Title',
 						'ng-model' => 'transaction_title'

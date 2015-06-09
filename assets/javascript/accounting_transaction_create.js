@@ -58,8 +58,7 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 			$scope.error.invalid = false;
 			$scope.error.msg = '';
 		}
-		
-	}
+	};
 	
 	
 	

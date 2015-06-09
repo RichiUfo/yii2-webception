@@ -38,13 +38,18 @@ class TransactionController extends \frontend\components\Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()) {
                 
-                // Step 2 : Register the transaction
-                $debit = AccountController::updateAccountValue($model->account_debit_id, -1 * $model->value);
-                $credit = AccountController::updateAccountValue($model->account_credit_id, $model->value);
-
-                $model->save();
-
-                NotificationController::setNotification('success', 'Transaction Saved', 'The transaction has been saved !');
+                // Prepare the transaction creation
+                $accounting_currency = \Yii::$app->user->identity->acc_currency;
+                $accound_debit = AccountPlus::findOne($model->account_debit_id);
+                $accound_credit = AccountPlus::findOne($model->account_credit_id);
+                
+                if($accound_debit->currency === $accounting_currency and $accound_credit->currency === $accounting_currency){
+                    $this->createTransaction($model);
+                    NotificationController::setNotification('success', 'Transaction Saved', 'The transaction has been saved !');
+                }
+                else {
+                    NotificationController::setNotification('success', 'Forex Transaction Saved', 'The transaction has been saved !');
+                }
 
                 return 'Saved';
             }
@@ -137,6 +142,17 @@ class TransactionController extends \frontend\components\Controller
             'transactions' => $transactions 
         );
     }
+    private function createTransaction() {
+
+        $debit = AccountController::updateAccountValue($model->account_debit_id, -1 * $model->value);
+        $credit = AccountController::updateAccountValue($model->account_credit_id, $model->value);
+
+        return $model->save();
+    }
+    private function createTransactionForex($model) {
+        
+    }
+    
     
     /**
      * AJAX Actions Section (Returns VIEW or JSON)
