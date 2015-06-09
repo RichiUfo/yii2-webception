@@ -81,9 +81,10 @@ class TransactionController extends \frontend\components\Controller
                     $forex->save();
                     
                     // Update the accounts values
-                    //$trad_acc->account->value += 
-                    AccountController::updateAccountValue($deb->id, -1 * $value_debit);
-                    AccountController::updateAccountValue($cre->id, $value_credit);
+                    $trad_acc->forex_value += $value_debit;     $trad_acc->save();                          // Credit Trading    
+                    AccountController::updateAccountValue($trad_acc->account->id, -1 * $value_credit);      // Debit Trading
+                    AccountController::updateAccountValue($deb->id, -1 * $value_debit);                     // Debit Foreign Account
+                    AccountController::updateAccountValue($cre->id, $value_credit);                         // Credit Local Account
                     
                 }
                 if($deb->currency === $cur and $cre->currency !== $cur){
