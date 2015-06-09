@@ -20,7 +20,7 @@ class AccountPlus extends Account
         parent::afterFind();
 
         $this->root_account = $this;
-        if ($this->root_account->parent_id != 0) {
+        while ($this->root_account->parent_id != 0) {
             $this->root_account = AccountPlus::findOne($this->root_account->parent_id);
         }
    
