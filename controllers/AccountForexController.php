@@ -50,7 +50,7 @@ class AccountForexController extends \frontend\components\Controller
 		if(!$trad_acc) {
 			$parent = Account::find()
 				->where(['owner_id' => Yii::$app->user->id])
-				->andWhere(['special_class' => 'forex_root'])
+				->andWhere(['name' => 'Forex Unrealized Profits and Losses'])
 				->one();
 			$name = $currency;
 			$trad_acc = $this->createForexAccount($name, $parent->id, 1, $currency);

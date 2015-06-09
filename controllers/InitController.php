@@ -51,6 +51,7 @@ class InitController extends \frontend\components\Controller
         $equity = AccountController::createAccount('Equity', 0, 1);
             $capital = AccountController::createAccount('Capital', $equity->id, 1);
             $capital = AccountController::createAccount('Retained Earnings', $equity->id, 2);
+            $capital = AccountController::createAccount('Forex Unrealized Profits and Losses', $equity->id, 3);
             
         
         $liabilities = AccountController::createAccount('Liabilities', 0, 1);
