@@ -70,14 +70,14 @@ class TransactionController extends \frontend\components\Controller
                     $reg->account_credit_id = $cre->id;
                     $reg->date_value = $model->date_value;
                     $reg->name = $model->name;
-                    $reg->value = $value_debit;
+                    $reg->value = $value_credit;
                     $reg->save();
                     
                     // Create the forex transaction
                     $forex = new TransactionForex;
                     $forex->account_forex_id = $trad_acc->id;
                     $forex->transaction_id = $reg->id;
-                    $forex->forex_value = $value_credit;
+                    $forex->forex_value = $value_debit;
                     $forex->save();
                     
                     // Update the accounts values
