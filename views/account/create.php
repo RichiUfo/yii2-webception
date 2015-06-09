@@ -9,7 +9,7 @@ use frontend\widgets\stepform\StepForm;
 
 ?>
 
-<div id="account-create-app" ng-controller="FormController" class="transaction-form">
+<div id="account-create-app" ng-controller="FormController" class="account-form">
     <?php
     $stepform = StepForm::begin([
     	'id' => 'create-account',
