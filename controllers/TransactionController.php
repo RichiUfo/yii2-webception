@@ -9,6 +9,7 @@ use frontend\controllers\NotificationController;
 use frontend\controllers\LocalizationController;
 
 use frontend\modules\accounting\models\Transaction;
+use frontend\modules\accounting\models\TransactionForex;
 use frontend\modules\accounting\models\Account;
 use frontend\modules\accounting\models\AccountPlus;
 use frontend\modules\accounting\models\AccountHierarchy;
