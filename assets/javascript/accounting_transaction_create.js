@@ -8,7 +8,7 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 	// Variables
 	$scope.account_debit = null;
 	$scope.account_credit = null;
-	$scope.transaction_title = 'Initial';
+	$scope.transaction_title = '';
 	$scope.error = {invalid:true, msg:''};
 	
 	// Get the account information when changed
