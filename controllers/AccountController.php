@@ -73,7 +73,7 @@ class AccountController extends \frontend\components\Controller
         }
         
         // Create the "Others" account if necessary 
-        $this->createOtherAccount($parentid);
+        AccountController::createOtherAccount($parentid);
         
         // Return the created account
         return $ret;
