@@ -36,48 +36,48 @@ class TransactionController extends \frontend\components\Controller
         $model = new Transaction();
         
         if ($model->load(Yii::$app->request->post())) {
-            if ($model->validate()) {
-                
-                // Prepare the transaction creation
-                $cur = \Yii::$app->user->identity->acc_currency;
-                $deb = AccountPlus::findOne($model->account_debit_id);
-                $cre = AccountPlus::findOne($model->account_credit_id);
-                
-                // Regular Transaction
-                if($deb->currency === $cur and $cre->currency === $cur){
+            
+            // Prepare the transaction creation
+            $cur = \Yii::$app->user->identity->acc_currency;
+            $deb = AccountPlus::findOne($model->account_debit_id);
+            $cre = AccountPlus::findOne($model->account_credit_id);
+            
+            // Regular Transaction
+            if($deb->currency === $cur and $cre->currency === $cur){
+                if ($model->validate()) {
                     $this->createTransaction($model);
                     NotificationController::setNotification('success', 'Transaction Saved', 'The transaction has been saved !');
                 }
-                
-                // Forex Transaction
-                else {
-                    if($deb->currency !== $cur and $cre->currency !== $cur){
-                        
-                    }
-                    if($deb->currency !== $cur and $cre->currency === $cur){
-                        // Find the trading account or create it if not found
-                        $trad_acc = AccountForexController::getForexAccount($deb->currency);
-                        
-                        // Create the regular transaction
-                        $reg = new Transaction;
-                        $reg->account_debit_id = $trad_acc->id;
-                        $reg->account_credit_id = $cre->id;
-                        $reg->date_value = $model->date_value;
-                        $reg->name = $model->name;
-                        $reg->value = $model->value;
-                        $reg->save();
-                        
-                        // Create the forex transaction
-                        
-                    }
-                    if($deb->currency === $cur and $cre->currency !== $cur){
-                        
-                    }
-                    NotificationController::setNotification('success', 'Forex Transaction Saved', 'The transaction has been saved !');
-                }
-
-                return 'Saved';
             }
+            
+            // Forex Transaction
+            else {
+                if($deb->currency !== $cur and $cre->currency !== $cur){
+                    
+                }
+                if($deb->currency !== $cur and $cre->currency === $cur){
+                    // Find the trading account or create it if not found
+                    $trad_acc = AccountForexController::getForexAccount($deb->currency);
+                    
+                    // Create the regular transaction
+                    $reg = new Transaction;
+                    $reg->account_debit_id = $trad_acc->id;
+                    $reg->account_credit_id = $cre->id;
+                    $reg->date_value = $model->date_value;
+                    $reg->name = $model->name;
+                    $reg->value = $model->value;
+                    $reg->save();
+                    
+                    // Create the forex transaction
+                    
+                }
+                if($deb->currency === $cur and $cre->currency !== $cur){
+                    
+                }
+                NotificationController::setNotification('success', 'Forex Transaction Saved', 'The transaction has been saved !');
+            }
+
+            return 'Saved';
         }
         
         // Step 1 : Request users inputs
