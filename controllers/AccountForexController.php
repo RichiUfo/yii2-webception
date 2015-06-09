@@ -6,6 +6,8 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use yii\filters\AccessControl;
 
+use frontend\modules\accounting\models\Account;
+
 use frontend\controllers\NotificationController;
 use frontend\controllers\LocalizationController;
 
