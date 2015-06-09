@@ -72,7 +72,7 @@ BaseAsset::register($this);
 		</div>
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<p class="feedback info-text text-center">{{error.msg}}</p>
+				<p class="feedback info-text text-center">{{error.msg}} {{transaction_title}}</p>
 			</div>
 		</div>
 	</div>
