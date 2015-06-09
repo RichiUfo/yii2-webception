@@ -65,4 +65,4 @@ $stepform = StepForm::begin([
             </div>
         </div>
     </div>
-<?php StepFormWidget::end() ?>
+<?php $stepform->end() ?>
