@@ -40,6 +40,25 @@ class AccountForexController extends \frontend\components\Controller
 		$forex->account_id = $account->id; 
 		$forex->save();
 	}
+	public function getForexAccount($currency) {
+		$trad_acc = AccountForex::find()
+			->joinWith('account')
+			->where(['accounts.owner_id' => Yii::$app->user->id])
+			->andWhere(['forex_currency' => $currency])
+			->one();
+		
+		if(!$trad_acc) {
+			$parent = Account::find()
+				->where(['owner_id' => Yii::$app->user->id])
+				->andWhere(['special_class' => 'forex_root'])
+				->one();
+			$name = $currency;
+			$trad_acc = $this->createForexAccount($name, $parent->id, 1, $currency);
+		}
+			
+		return $trad_acc;
+		
+	}
 	
     /**
     * Actions

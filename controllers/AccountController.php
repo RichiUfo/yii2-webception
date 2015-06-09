@@ -275,7 +275,7 @@ class AccountController extends \frontend\components\Controller
         // Step 1 : Request users inputs
         return $this->renderAjax('create', [
             'model' => $model,
-            'accounts' => AccountController::getAccountList(false)
+            'accounts' => $this->getAccountList(false)
         ]);
     }
     public function actionRename() {
