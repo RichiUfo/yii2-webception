@@ -22,7 +22,7 @@ class TransactionForex extends \frontend\components\ActiveRecord
     public function rules()
     {
         return [
-            [['transaction_id', 'forex_currency', 'forex_amount'], 'required'],
+            [['transaction_id', 'account_forex_id', 'forex_value'], 'required'],
             [['transaction_id', 'account_forex_id'], 'integer'],
             [['forex_value'], 'number']
         ];
