@@ -80,7 +80,9 @@ class TransactionController extends \frontend\components\Controller
                     $forex->save();
                     
                     // Update the accounts values
-                    $trad_acc->account->value += 
+                    //$trad_acc->account->value += 
+                    $deb = AccountController::updateAccountValue($deb->id, -1 * $value_debit);
+                    $cre = AccountController::updateAccountValue($cre->id, $value_credit);
                     
                 }
                 if($deb->currency === $cur and $cre->currency !== $cur){
