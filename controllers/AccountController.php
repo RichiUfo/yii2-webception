@@ -265,7 +265,7 @@ class AccountController extends \frontend\components\Controller
                 
                 // Step 2 : Register the new account
                 $model->save();
-                $this->createOtherAccount($model->parent_id);
+                AccountController::createOtherAccount($model->parent_id);
                 NotificationController::setNotification('info', 'New Account Created', 'The action creation was successful.');
                 return;
                 
