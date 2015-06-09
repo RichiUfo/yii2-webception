@@ -72,7 +72,7 @@ BaseAsset::register($this);
 		</div>
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<p class="feedback info-text text-center">{{error.msg}} {{transaction_title}}</p>
+				<p class="feedback info-text text-center">{{error.msg}}</p>
 			</div>
 		</div>
 	</div>
@@ -102,7 +102,7 @@ BaseAsset::register($this);
 					//'options' => ['style'=>'margin-bottom:30px'],
 					'inputOptions' => [
 						'placeholder' => 'Transaction Title',
-						'ng-model' => 'transaction_tit'
+						'ng-model' => 'transaction_title'
 					]
 				]) ?>
 
