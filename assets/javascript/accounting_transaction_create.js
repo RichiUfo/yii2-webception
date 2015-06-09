@@ -20,13 +20,13 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 			.success(function(data, status, headers, config) { 
 				$scope.account_debit = data;
 				$scope.checkAccounts();
+				$scope.transaction_title = 'Debit '+$scope.account_debit.name+', Credit '+$scope.account_credit.name;
 			});
 		}
 		else {
 			$scope.account_debit = null; 
 			$scope.checkAccounts();	
 		}
-		$scope.transaction_title = 'Debit';
 	}); 
 	$scope.$watch('account_credit_id', function(value) {
 		if($scope.account_credit_id != ''){
@@ -36,18 +36,14 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 			.success(function(data, status, headers, config) { 
 				$scope.account_credit = data; 
 				$scope.checkAccounts();
+				$scope.transaction_title = 'Debit '+$scope.account_debit.name+', Credit '+$scope.account_credit.name;
 			});
 		}
 		else {
 			$scope.account_credit = null;
 			$scope.checkAccounts();
 		}
-		$scope.transaction_title = 'Credit';
 	});
-	// Input formatting
-	/*$scope.$watch('credit_value', function(value) {
-		console.log('credit_value', value);
-	});*/
 	
 	$scope.checkAccounts = function() {
 		if($scope.account_credit_id == $scope.account_debit_id) {
