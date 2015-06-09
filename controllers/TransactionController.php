@@ -142,7 +142,7 @@ class TransactionController extends \frontend\components\Controller
             'transactions' => $transactions 
         );
     }
-    private function createTransaction() {
+    private function createTransaction($model) {
 
         $debit = AccountController::updateAccountValue($model->account_debit_id, -1 * $model->value);
         $credit = AccountController::updateAccountValue($model->account_credit_id, $model->value);
