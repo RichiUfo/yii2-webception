@@ -65,7 +65,7 @@ class TransactionController extends \frontend\components\Controller
                     $reg->account_credit_id = $cre->id;
                     $reg->date_value = $model->date_value;
                     $reg->name = $model->name;
-                    $reg->value = $model->value;
+                    $reg->value = 10.00;
                     $reg->save();
                     
                     // Create the forex transaction
