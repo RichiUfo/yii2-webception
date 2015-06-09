@@ -22,9 +22,9 @@ $stepform = StepForm::begin([
 		'subtitle' => 'General Account Creation'
 		],
 	'steps' => [
-		'accounts' => 'Parent',
-		'details' => 'Account',
-		'summary' => 'Summary'
+		'step1' => 'Parent',
+		'step2' => 'Account',
+		'step3' => 'Summary'
 		]
 	]
 );
