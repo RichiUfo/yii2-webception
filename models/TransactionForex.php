@@ -23,9 +23,8 @@ class TransactionForex extends \frontend\components\ActiveRecord
     {
         return [
             [['transaction_id', 'forex_currency', 'forex_amount'], 'required'],
-            [['transaction_id'], 'integer'],
-            [['forex_value'], 'number'],
-            [['forex_currency'], 'string', 'max' => 10]
+            [['transaction_id', 'account_forex_id'], 'integer'],
+            [['forex_value'], 'number']
         ];
     }
 
@@ -37,7 +36,7 @@ class TransactionForex extends \frontend\components\ActiveRecord
         return [
             'id' => 'ID',
             'transaction_id' => 'Transaction ID',
-            'forex_currency' => 'Forex Currency',
+            'account_forex_id' => 'Forex Account ID',
             'forex_value' => 'Forex Value',
         ];
     }

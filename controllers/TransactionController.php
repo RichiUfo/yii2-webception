@@ -52,11 +52,15 @@ class TransactionController extends \frontend\components\Controller
             
             // Forex Transaction
             else {
+                $value_debit = Yii::$app->request->post('value_debit');
+                $value_credit = Yii::$app->request->post('value_credit');
+                
                 if($deb->currency !== $cur and $cre->currency !== $cur){
                     
                 }
                 if($deb->currency !== $cur and $cre->currency === $cur){
                     // Find the trading account or create it if not found
+                    
                     $trad_acc = AccountForexController::getForexAccount($deb->currency);
                     
                     // Create the regular transaction
@@ -65,10 +69,18 @@ class TransactionController extends \frontend\components\Controller
                     $reg->account_credit_id = $cre->id;
                     $reg->date_value = $model->date_value;
                     $reg->name = $model->name;
-                    $reg->value = Yii::$app->request->post('value_debit');
+                    $reg->value = $value_debit;
                     $reg->save();
                     
                     // Create the forex transaction
+                    $forex = new TransactionForex;
+                    $forex->account_forex_id = $trad_acc->id;
+                    $forex->transaction_id = $reg->id;
+                    $forex->forex_value = $value_credit;
+                    $forex->save();
+                    
+                    // Update the accounts values
+                    $trad_acc->account->value += 
                     
                 }
                 if($deb->currency === $cur and $cre->currency !== $cur){
