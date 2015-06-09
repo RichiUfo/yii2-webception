@@ -82,8 +82,8 @@ class TransactionController extends \frontend\components\Controller
                     
                     // Update the accounts values
                     //$trad_acc->account->value += 
-                    $deb = AccountController::updateAccountValue($deb->id, -1 * $value_debit);
-                    $cre = AccountController::updateAccountValue($cre->id, $value_credit);
+                    AccountController::updateAccountValue($deb->id, -1 * $value_debit);
+                    AccountController::updateAccountValue($cre->id, $value_credit);
                     
                 }
                 if($deb->currency === $cur and $cre->currency !== $cur){
