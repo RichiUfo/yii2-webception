@@ -55,7 +55,7 @@ class AccountForexController extends \frontend\components\Controller
 				->andWhere(['name' => 'Forex Unrealized Profits and Losses'])
 				->one();
 			$name = $currency;
-			$trad_acc = $this->createForexAccount($name, $parent->id, 1, $currency);
+			$trad_acc = AccountForexController::createForexAccount($name, $parent->id, 1, $currency);
 		}
 			
 		return $trad_acc;
