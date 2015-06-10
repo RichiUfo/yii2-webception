@@ -6,8 +6,9 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 
-use frontend\modules\accounting\models\Account;
+use frontend\components\ExchangeController;
 
+use frontend\modules\accounting\models\Account;
 use frontend\modules\accounting\models\AccountHierarchy;
 
 class DefaultController extends \frontend\components\Controller
