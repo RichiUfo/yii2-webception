@@ -60,7 +60,8 @@ class DefaultController extends \frontend\components\Controller
 	
 	public function actionTest() { 
 		
-		$rate = ExchangeController::get('finance','forex-rate', [
+		$rate = ExchangeController::get('finance','currency-conversion', [
+		    'value' => '1500',
 		    'from' => 'EUR',    
 		    'to' => 'KRW',    
 	    ]);
