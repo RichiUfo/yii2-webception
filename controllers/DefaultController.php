@@ -62,8 +62,8 @@ class DefaultController extends \frontend\components\Controller
 		
 		$rate = ExchangeController::get('finance','currency-conversion', [
 		    'value' => '1500',
-		    'from' => 'EUR',    
-		    'to' => 'KRW',    
+		    'from' => 'KRW',    
+		    'to' => 'EUR',    
 	    ]);
 		
 		return $this->render('test', ['rate' => $rate]);
