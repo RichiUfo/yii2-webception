@@ -58,9 +58,13 @@ class DefaultController extends \frontend\components\Controller
     }
 	
 	public function actionTest() { 
-		$model = new Account;
-		$db = $model->getDb();
-		//$db = \Yii::$app->controller->module->db;
-		return $this->render('test', ['db' => $db]);
+		
+		$rate = ExchangeController::get('finance','forex-rate', [
+		    'date' => '2015-05-01',    
+		    'from' => 'EUR',    
+		    'to' => 'KRW',    
+	    ]);
+		
+		return $this->render('test', ['rate' => $rate]);
 	}
 }

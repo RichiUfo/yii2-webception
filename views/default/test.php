@@ -1,1 +1,1 @@
-<?php var_dump($db); ?>
+<?php var_dump($rate); ?>
