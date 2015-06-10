@@ -201,10 +201,10 @@ class TransactionController extends \frontend\components\Controller
             
             // STEP 2 - Create the regular transaction
             if($credit_currency === $system_currency) {
-                $transaction = createTransactionRegular($trading->account, $credit, $value, $date, $name, $description);
+                $transaction = TransactionController::createTransactionRegular($trading->account, $credit, $value, $date, $name, $description);
             }
             else if($debit_currency === $system_currency) {
-                $transaction = createTransactionRegular($debit, $trading->account, $value, $date, $name, $description);
+                $transaction = TransactionController::createTransactionRegular($debit, $trading->account, $value, $date, $name, $description);
             }
             
             // STEP 3 - Create the forex account
