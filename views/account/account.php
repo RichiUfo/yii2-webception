@@ -90,7 +90,6 @@ BaseAsset::register($this);
                         </div>
                         <div class="card-content">
                             Value <span class="money" value="<?= $account->display_value ?>" currency=""></span><br>
-                            Converted <span class="money" value="<?= $account->converted_display_value ?>" currency=""></span>
                         </div>
                     </div>
                 </div>

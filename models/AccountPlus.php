@@ -16,7 +16,6 @@ class AccountPlus extends Account
     public $statement;
     public $sign;
     public $display_value;
-    public $converted_display_value;
     
     public function afterFind(){
         
@@ -40,10 +39,18 @@ class AccountPlus extends Account
         
         $this->alias = ($this->alias=='')?$this->name:$this->alias;
         
-        $this->converted_display_value = ExchangeController::get('finance', 'currency-conversion', [
-            'value' => $this->display_value,
-            'from' => $this->currency,
-            'to' => \Yii::$app->user->identity->acc_currency,
-        ]);
+        // Account Values (in original and system currencies)
+        $this->display_value = $this->sign * $this->value;
+        if ($this->currency !== Yii::$app->user->identity->acc_currency){
+            
+            $this->display_value = ExchangeController::get('finance', 'currency-conversion', [
+                'value' => $this->display_value,
+                'from' => $this->currency,
+                'to' => \Yii::$app->user->identity->acc_currency,
+            ]);
+            
+        }
+        
+            
     }
 }
