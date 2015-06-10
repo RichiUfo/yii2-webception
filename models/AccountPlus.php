@@ -34,12 +34,15 @@ class AccountPlus extends Account
             $this->statement = "profits_and_losses";
         }
         
-        $this->sign = ( ($this->root_account->name=='Assets') ) ? -1:1;
-        $this->display_value = $this->sign * $this->value;
-        
+        /* 
+        * Account Name
+        */
         $this->alias = ($this->alias=='')?$this->name:$this->alias;
         
-        // Account Values (in original and system currencies)
+        /* 
+        * Account Values (in original and system currencies)
+        */
+        $this->sign = ( ($this->root_account->name=='Assets') ) ? -1:1;
         $this->display_value = $this->sign * $this->value;
         if ($this->currency !== Yii::$app->user->identity->acc_currency){
             

@@ -53,43 +53,16 @@ class TransactionController extends \frontend\components\Controller
             
             // Forex Transaction
             else {
-                $value_debit = Yii::$app->request->post('value_debit');
-                $value_credit = Yii::$app->request->post('value_credit');
                 
-                if($deb->currency !== $cur and $cre->currency !== $cur){
-                    
+                if ($cur !== $deb->currency) {
+                    $value_forex = Yii::$app->request->post('value_debit');
+                    $value = Yii::$app->request->post('value_credit');
                 }
-                if($deb->currency !== $cur and $cre->currency === $cur){
-                    // Find the trading account or create it if not found
-                    
-                    $trad_acc = AccountForexController::getForexAccount($deb->currency);
-                    
-                    // Create the regular transaction
-                    $reg = new Transaction;
-                    $reg->account_debit_id = $trad_acc->id;
-                    $reg->account_credit_id = $cre->id;
-                    $reg->date_value = $model->date_value;
-                    $reg->name = $model->name;
-                    $reg->value = $value_credit;
-                    $reg->save();
-                    
-                    // Create the forex transaction
-                    $forex = new TransactionForex;
-                    $forex->account_forex_id = $trad_acc->id;
-                    $forex->transaction_id = $reg->id;
-                    $forex->forex_value = $value_debit;
-                    $forex->save();
-                    
-                    // Update the accounts values
-                    $trad_acc->forex_value += $value_debit;     $trad_acc->save();                          // Credit Trading    
-                    AccountController::updateAccountValue($trad_acc->account->id, -1 * $value_credit);      // Debit Trading
-                    AccountController::updateAccountValue($deb->id, -1 * $value_debit);                     // Debit Foreign Account
-                    AccountController::updateAccountValue($cre->id, $value_credit);                         // Credit Local Account
-                    
+                else if ($cur !== $cre->currency) {
+                    $value = Yii::$app->request->post('value_debit');
+                    $value_forex = Yii::$app->request->post('value_credit');
                 }
-                if($deb->currency === $cur and $cre->currency !== $cur){
-                    
-                }
+                TransactionController::createTransactionForex($deb, $cre, $value, $value_forex, $model->date_value, $model->name, $model->description);
                 NotificationController::setNotification('success', 'Forex Transaction Saved', 'The transaction has been saved !');
             }
 
@@ -188,8 +161,71 @@ class TransactionController extends \frontend\components\Controller
 
         return $model->save();
     }
-
     
+    private function createTransactionRegular($debit, $credit, $value, $date, $name, $description) {
+        // Register the transaction in the database
+        $transaction = new Transaction;
+        $transaction->account_debit_id = $debit->id;
+        $transaction->account_credit_id = $credit->id;
+        $transaction->date_value = $date;
+        $transaction->name = $name;
+        $transaction->description = $description;
+        $transaction->value = $value;
+        $transaction->save();
+        
+        // Update the accouts values 
+        $debit = AccountController::updateAccountValue($debit->id, -1 * $value);
+        $credit = AccountController::updateAccountValue($credit->id, $value);
+        
+        // Return the created transaction
+        return $transaction;
+    }
+    private function createTransactionForex($debit, $credit, $value, $value_forex, $date, $name, $description) {
+        
+        $system_currency = \Yii::$app->user->identity->acc_currency;;
+        $debit_currency = $debit->currency;
+        $credit_currency = $credit->currency;
+        
+        /*
+        * CASE 1 - One foreign currency
+        */
+        if(($system_currency === $debit_currency or $system_currency === $credit_currency) and ($debit_currency !== $credit_currency)){
+            
+            // STEP 1 - Get the foreign currency & associated trading account
+            if($system_currency !== $debit_currency){
+                $foreign_currency = $debit_currency;
+            } else {
+                $foreign_currency = $credit_currency;
+            }
+            $trading = AccountForexController::getForexAccount($foreign_currency);
+            
+            // STEP 2 - Create the regular transaction
+            if($credit_currency === $system_currency) {
+                $transaction = createTransactionRegular($trading->account, $credit, $value, $date, $name, $description);
+            }
+            else if($debit_currency === $system_currency) {
+                $transaction = createTransactionRegular($debit, $trading->account, $value, $date, $name, $description);
+            }
+            
+            // STEP 3 - Create the forex account
+            $forex_transaction = new TransactionForex;
+            $forex_transaction->transaction_id = $transaction->id;
+            $forex_transaction->account_forex_id = $trading->id;
+            $forex_transaction->forex_value = $value_forex;
+            $forex_transaction->save();
+            // Foreign account is credit
+            if($credit_currency !== $system_currency) {
+                $trading->forex_value -= $value_forex;
+                $credit->value += $value_forex;
+            }
+            // Foreign account is debit
+            else {
+                $trading->forex_value += $value_forex;
+                $debit->value -= $value_forex;
+            }
+        }
+        return true;
+    }
     
     /**
      * AJAX Actions Section (Returns VIEW or JSON)

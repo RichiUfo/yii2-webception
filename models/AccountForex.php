@@ -6,7 +6,7 @@ use Yii;
 
 class AccountForex extends \frontend\components\ActiveRecord
 {
-    
+    public $value;
     
     /**
      * @inheritdoc
@@ -39,6 +39,21 @@ class AccountForex extends \frontend\components\ActiveRecord
             'forex_currency' => 'Forex Currency',
             'forex_value' => 'Forex Value',
         ];
+    }
+    /**
+     * Model Specific Calculations
+     */
+    public function afterFind(){
+        
+        parent::afterFind();
+        
+        // Current Value Calculation
+        $currency_main = $this->account->currency;
+        $currency_foreign = $this->forex_currency;
+        $value_main = $this->account->value;
+        $value_forex = $this->forex_value;
+        
+        
     }
     
     /**
