@@ -4,6 +4,8 @@ namespace frontend\modules\accounting\models;
 
 use Yii;
 
+use frontend\components\ExchangeController;
+
 /**
  * This is the model class for table "acc_accounts" supercharged with extra functionnalities
  */
@@ -14,6 +16,7 @@ class AccountPlus extends Account
     public $statement;
     public $sign;
     public $display_value;
+    public $converted_display_value;
     
     public function afterFind(){
         
@@ -37,5 +40,11 @@ class AccountPlus extends Account
         
         $this->alias = ($this->alias=='')?$this->name:$this->alias;
         
+        $this->converted_display_value = ExchangeController::get('', '', [
+            'value' => '',
+            'from' => '',
+            'to' => '',
+            'date' => new DateTime(''),
+        ]);
     }
 }

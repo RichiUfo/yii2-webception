@@ -61,7 +61,6 @@ class DefaultController extends \frontend\components\Controller
 	public function actionTest() { 
 		
 		$rate = ExchangeController::get('finance','forex-rate', [
-		    'date' => '2015-05-25',    
 		    'from' => 'EUR',    
 		    'to' => 'KRW',    
 	    ]);
