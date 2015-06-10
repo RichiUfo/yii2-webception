@@ -40,11 +40,10 @@ class AccountPlus extends Account
         
         $this->alias = ($this->alias=='')?$this->name:$this->alias;
         
-        $this->converted_display_value = ExchangeController::get('', '', [
-            'value' => '',
-            'from' => '',
-            'to' => '',
-            'date' => new DateTime(''),
+        $this->converted_display_value = ExchangeController::get('finance', 'currency-conversion', [
+            'value' => $this->display_value,
+            'from' => $this->currency,
+            'to' => \Yii::$app->user->identity->acc_currency,
         ]);
     }
 }
