@@ -207,7 +207,7 @@ class TransactionController extends \frontend\components\Controller
                 $transaction = TransactionController::createTransactionRegular($debit, $trading->account, $value, $date, $name, $description);
             }
             
-            // STEP 3 - Create the forex account
+            // STEP 3 - Create the forex transaction
             $forex_transaction = new TransactionForex;
             $forex_transaction->transaction_id = $transaction->id;
             $forex_transaction->account_forex_id = $trading->id;
@@ -217,12 +217,15 @@ class TransactionController extends \frontend\components\Controller
             if($credit_currency !== $system_currency) {
                 $trading->forex_value -= $value_forex;
                 $credit->value += $value_forex;
+                $credit->save();
             }
             // Foreign account is debit
             else {
                 $trading->forex_value += $value_forex;
                 $debit->value -= $value_forex;
+                $debit->save();
             }
+            $trading->save();
         }
         return true;
     }
