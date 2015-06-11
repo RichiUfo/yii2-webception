@@ -338,7 +338,7 @@ class AccountController extends \frontend\components\Controller
         $ret['root'] = $account->root_account->name;
         $ret['sign'] = $account->sign;
         $ret['value'] = $account->value;
-        $ret['display_value'] = $account->display_value;
+        $ret['display_value'] = $account->sign*$account->value;
         $ret['currency']['code'] = $account->currency;
         $ret['currency']['name'] = $currency['name'];
         $ret['currency']['img'] = $currency['img'].'.png';
