@@ -38,11 +38,11 @@ class BalancesheetController extends Controller
         $equity = AccountPlus::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Equity']);
         $liabilities = AccountPlus::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Liabilities']);
         
-        $ret['total_assets'] = $assets->display_value;
-        $ret['total_equity'] = $equity->display_value;
-        $ret['total_liabilities'] = $liabilities->display_value;
+        $ret['total_assets'] = $assets->sign * $assets->value;
+        $ret['total_equity'] = $equity->sign * $equity->value;
+        $ret['total_liabilities'] = $liabilities->sign * $liabilities->value;
         
-        $ret['debt_ratio'] = round(($assets->display_value!=0)?(100 * $liabilities->display_value / $assets->display_value):0, 1);    
+        $ret['debt_ratio'] = round(($ret['total_assets']!=0)?(100 * $ret['total_liabilities'] / $ret['total_assets']):0, 1);    
         
         return $ret;
     }
