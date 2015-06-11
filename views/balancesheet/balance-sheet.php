@@ -16,11 +16,10 @@ function displayHierarchy($accounts){
         
         echo '<li>
                 <a href="'.Url::to(['account/account', 'id' => $account->id]).'">';
-        //echo '<i class="fa fa-chevron-'.($account->children != null)?'down':'right'.'"></i>&nbsp;&nbsp;';
         echo $account->alias.$currency.'</a>
                 <span class="pull-right">
                     <span class="money" 
-                          value="'.$account->display_value.'" 
+                          value="'.$account->sign*$account->value_converted.'" 
                           currency="'.'">
                     </span>
                 </span>
@@ -56,7 +55,7 @@ function displayHierarchy($accounts){
                 <div class="banner-subtitle">
                     <p>
                         <span class="money" 
-                              value="<?= $assets->display_value ?>" 
+                              value="<?= $assets->sign*$assets->value_converted ?>" 
                               currency="<?= $assets->currency ?>&nbsp;">
                         </span>
                     </p>
@@ -81,7 +80,7 @@ function displayHierarchy($accounts){
                 <div class="banner-subtitle">
                     <p>
                         <span class="money" 
-                              value="<?= $equity->display_value ?>" 
+                              value="<?= $equity->sign*$equity->value_converted ?>" 
                               currency="<?= $equity->currency ?>&nbsp;">
                         </span>
                     </p>
@@ -102,7 +101,7 @@ function displayHierarchy($accounts){
                 <div class="banner-subtitle">
                     <p>
                         <span class="money" 
-                              value="<?= $liabilities->display_value ?>" 
+                              value="<?= $liabilities->sign*$liabilities->value_converted ?>" 
                               currency="<?= $liabilities->currency ?>&nbsp;">
                         </span>
                     </p>
