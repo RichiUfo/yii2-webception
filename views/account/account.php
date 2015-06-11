@@ -117,7 +117,7 @@ BaseAsset::register($this);
                                     <td><?= $child->name ?></td>
                                     <td class="text-right">
                                         <span class="money" 
-                                              value="<?= $child->display_value ?>" 
+                                              value="<?= $child->sign*$child->value_converted ?>" 
                                               currency=""></span>
                                     </td>
                                 </tr>
