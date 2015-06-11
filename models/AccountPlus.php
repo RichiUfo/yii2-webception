@@ -17,6 +17,8 @@ class AccountPlus extends Account
     public $sign;
     public $value_converted;
     
+    public $children;
+    
     public function afterFind(){
         
         parent::afterFind();
@@ -28,7 +30,8 @@ class AccountPlus extends Account
         }
         
         $children = AccountPlus::find()->where(['parent_id' => $this->id])->all();
-        if(!empty($children)) {
+        $this->children = $children;
+        /*if(!empty($children)) {
             $this->has_children = true;
             $this->value = 0;
             $this->currency = \Yii::$app->user->identity->acc_currency; 
@@ -38,7 +41,7 @@ class AccountPlus extends Account
         }
         else {
             $this->has_children = false;
-        }
+        }*/
         
    
         $rootname = $this->root_account->name;

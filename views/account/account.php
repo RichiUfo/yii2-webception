@@ -136,3 +136,5 @@ BaseAsset::register($this);
         </div>
     </div>
 </div>
+
+<?php var_dump($account->children); ?>
