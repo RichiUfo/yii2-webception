@@ -54,14 +54,6 @@ class AccountPlus extends Account
         // Values of special accounts
         else {
             if($this->accountForex) $this->value = $this->accountForex->value;
-            
-            /*switch ($this->special_class) {
-                case 'forex_trading' :   
-                    $this->value = $this->accountForex->value; 
-                    break;
-                default :
-                    $this->value = $this->value;
-            }*/
         }
         
         // Convert the value to the system currency
