@@ -24,7 +24,7 @@ class AccountPlus extends Account
         parent::afterFind();
 
         // Hierarchy
-        //$this->root_account = $this;
+        $this->root_account = $this;
         //while ($this->root_account->parent_id != 0) {
         //    $this->root_account = Account::findOne($this->root_account->parent_id);
         //}
