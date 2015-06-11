@@ -4,6 +4,8 @@ namespace frontend\modules\accounting\models;
 
 use Yii;
 
+use frontend\components\ExchangeController;
+
 class AccountForex extends \frontend\components\ActiveRecord
 {
     public $value;
@@ -53,7 +55,13 @@ class AccountForex extends \frontend\components\ActiveRecord
         $value_main = $this->account->value;
         $value_forex = $this->forex_value;
         
+        $value_forex_converted = ExchangeController::get('finance', 'currency-conversion', [
+            'value' => $value_forex,
+            'from' => $currency_foreign,
+            'to' => $currency_main,
+        ]);
         
+        $this->value = $value_main - $value_forex_converted;
     }
     
     /**
