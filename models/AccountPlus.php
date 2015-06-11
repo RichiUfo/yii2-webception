@@ -26,12 +26,12 @@ class AccountPlus extends Account
         // Hierarchy
         $this->root_account = $this;
         while ($this->root_account->parent_id != 0) {
-            $this->root_account = AccountPlus::findOne($this->root_account->parent_id);
+            $this->root_account = Account::findOne($this->root_account->parent_id);
         }
         
         $children = AccountPlus::find()->where(['parent_id' => 147])->all();
         $this->childrenap = $children;
-        /*if(!empty($children)) {
+        if(!empty($children)) {
             $this->has_children = true;
             $this->value = 0;
             $this->currency = \Yii::$app->user->identity->acc_currency; 
@@ -41,7 +41,7 @@ class AccountPlus extends Account
         }
         else {
             $this->has_children = false;
-        }*/
+        }
         
    
         $rootname = $this->root_account->name;
