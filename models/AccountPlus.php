@@ -29,7 +29,7 @@ class AccountPlus extends Account
             $this->root_account = AccountPlus::findOne($this->root_account->parent_id);
         }
         
-        $children = null; //AccountPlus::find()->where(['parent_id' => $this->id])->all();
+        $children = AccountPlus::find()->where(['parent_id' => 147])->all();
         $this->childrenap = $children;
         /*if(!empty($children)) {
             $this->has_children = true;
