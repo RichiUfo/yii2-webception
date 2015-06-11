@@ -56,7 +56,7 @@ class AccountPlus extends Account
             switch ($this->special_class) {
                 case 'forex_trading' :   
                     $acc = AccountForex::findOne(['account_id' => $this->id]);
-                    $this->value = $acc->value;
+                    //$this->value = $acc->value;
                     break;
                 default :
                     $this->value = $this->value;
