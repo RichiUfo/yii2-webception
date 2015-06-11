@@ -61,7 +61,7 @@ class AccountForex extends \frontend\components\ActiveRecord
             'to' => $currency_main,
         ]);
         
-        $this->value = $value_forex_converted - $value_main;
+        $this->value = $value_forex_converted  $value_main;
     }
     
     /**
