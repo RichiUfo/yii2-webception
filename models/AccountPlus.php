@@ -28,7 +28,7 @@ class AccountPlus extends Account
         }
         
         $children = AccountPlus::find()->where(['parent_id' => $this->id])->all();
-        if($children) {
+        if(!empty($children)) {
             $this->has_children = true;
             $this->value = 0;
             $this->currency = \Yii::$app->user->identity->acc_currency; 
