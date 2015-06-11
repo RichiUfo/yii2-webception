@@ -21,10 +21,25 @@ class AccountPlus extends Account
         
         parent::afterFind();
 
+        // Hierarchy
         $this->root_account = $this;
         while ($this->root_account->parent_id != 0) {
             $this->root_account = AccountPlus::findOne($this->root_account->parent_id);
         }
+        
+        $children = AccountPlus::find()->where(['parent_id' => $this->id])->all();
+        if($children) {
+            $this->has_children = true;
+            $this->value = 0;
+            $this->currency = \Yii::$app->user->identity->acc_currency
+            foreach($children as $child) {
+                $this->value += $child->value_converted;
+            }
+        }
+        else {
+            $this->has_children = false;
+        }
+        
    
         $rootname = $this->root_account->name;
         if (($rootname == "Assets") or ($rootname == "Equity") or ($rootname == "Liabilities")){
@@ -42,6 +57,7 @@ class AccountPlus extends Account
         /* 
         * Account Values (in original and system currencies)
         */
+        
         $this->sign = ($this->root_account->name=='Assets')?-1:1;
         $this->value_converted = $this->value;
         if ($this->currency !== Yii::$app->user->identity->acc_currency) {
