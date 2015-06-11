@@ -45,7 +45,7 @@ class AccountForex extends \frontend\components\ActiveRecord
     /**
      * Model Specific Calculations
      */
-    public function afterFind(){
+    public function afterFind() {
         
         parent::afterFind();
         

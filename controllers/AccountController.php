@@ -47,7 +47,7 @@ class AccountController extends \frontend\components\Controller
     * createAccount($name, $parent, $display)
     * Create a new account
     */
-    public function createAccount($name, $parentid, $display){
+    public function createAccount($name, $parentid, $display, $specialClass=''){
         
         // Check (by name) if the account is already existing    
         $check = Account::findOne([
@@ -65,6 +65,7 @@ class AccountController extends \frontend\components\Controller
             $account->system = 1;
             $account->value = 0;
             $account->currency = 'EUR';
+            $account->special_class = $specialClass;
             $account->save();
             $ret = $account;
         }

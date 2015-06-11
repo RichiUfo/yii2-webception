@@ -51,6 +51,17 @@ class AccountPlus extends Account
             foreach($children as $child) 
                 $this->value += $child->value_converted;
         }
+        // Values of special accounts
+        else {
+            switch ($this->special_class) {
+                case 'forex_trading' :   
+                    $acc = AccountForex::findOne(['account_id' => $this->id]);
+                    $this->value = $acc->value;
+                    break;
+                default :
+                    $this->value = $this->value;
+            }
+        }
         
         // Convert the value to the system currency
         $this->value_converted = $this->value;
