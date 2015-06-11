@@ -34,6 +34,7 @@ class AccountPlus extends Account
      *      - value
      *      - sign
      *      - value_converted
+     *      - has_children
      * Prerequisites :
      *      - root_account
      * Requires the finance module for currency conversion
