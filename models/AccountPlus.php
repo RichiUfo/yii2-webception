@@ -17,7 +17,7 @@ class AccountPlus extends Account
     public $sign;
     public $value_converted;
     
-    public $children;
+    public $childrenap;
     
     public function afterFind(){
         
@@ -30,7 +30,7 @@ class AccountPlus extends Account
         }
         
         $children = null; //AccountPlus::find()->where(['parent_id' => $this->id])->all();
-        $this->children = $children;
+        $this->childrenap = $children;
         /*if(!empty($children)) {
             $this->has_children = true;
             $this->value = 0;

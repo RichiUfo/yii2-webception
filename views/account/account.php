@@ -137,4 +137,4 @@ BaseAsset::register($this);
     </div>
 </div>
 
-<?php var_dump($account->children); ?>
+<?php var_dump($account->childrenap); ?>
