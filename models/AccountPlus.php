@@ -11,6 +11,7 @@ use frontend\components\ExchangeController;
  */
 class AccountPlus extends Account
 {
+    public $has_children;
     public $root_account;
     public $statement;
     public $sign;
@@ -41,7 +42,9 @@ class AccountPlus extends Account
         
         // If the account has children, its value is the sum of its children
         $children = AccountPlus::find()->where(['parent_id' => $this->id])->all();
+        $this->has_children = false;
         if(!empty($children)) {
+            $this->has_children = true;
             $this->value = 0;
             $this->currency = \Yii::$app->user->identity->acc_currency; 
             foreach($children as $child) 
