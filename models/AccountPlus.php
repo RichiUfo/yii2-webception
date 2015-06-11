@@ -24,12 +24,12 @@ class AccountPlus extends Account
         parent::afterFind();
 
         // Hierarchy
-        /*$this->root_account = $this;
-        while ($this->root_account->parent_id != 0) {
-            $this->root_account = Account::findOne($this->root_account->parent_id);
-        }*/
+        //$this->root_account = $this;
+        //while ($this->root_account->parent_id != 0) {
+        //    $this->root_account = Account::findOne($this->root_account->parent_id);
+        //}
         
-        $children = AccountPlus::find()->where(['parent_id' => 147])->all();
+        $children = AccountPlus::find()->where(['parent_id' => $this->id])->all();
         $this->childrenap = $children;
         if(!empty($children)) {
             $this->has_children = true;
