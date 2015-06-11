@@ -55,9 +55,9 @@ class AccountPlus extends Account
         else {
             switch ($this->special_class) {
                 case 'forex_trading' :   
-                    $acc = $this->accountForex;
+                    /*$acc = $this->accountForex;
                     $this->value = $acc->value;
-                    break;
+                    break;*/
                 default :
                     $this->value = $this->value;
             }

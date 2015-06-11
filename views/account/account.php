@@ -136,3 +136,7 @@ BaseAsset::register($this);
         </div>
     </div>
 </div>
+
+<?php var_dump($account); ?>
+<br><br><br>
+<?php var_dump($account->accountForex); ?>
