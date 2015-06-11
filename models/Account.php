@@ -74,6 +74,6 @@ class Account extends \frontend\components\ActiveRecord
     }
     public function getAccountForex()
     {
-        $this->hasOne(AccountForex::className(), ['account_id' => 'id']); //->inverseOf('account');
+        return $this->hasOne(AccountForex::className(), ['account_id' => 'id']); //->inverseOf('account');
     }
 }
