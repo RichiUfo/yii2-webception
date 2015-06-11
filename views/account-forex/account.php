@@ -21,3 +21,11 @@ BaseAsset::register($this);
     'action' => '/accounting/rest/account/rename',    
 ]); ?>
 
+<p>
+Value in system currency = <?= $account->account->value ?> <?= $account->account->currency ?><br>
+Value in foreign currency = <?= $account->forex_value ?> <?= $account->forex_currency ?><br>
+Trading Account Value = <?= $account->value ?> <?= $account->account->currency ?>
+</p>
+
+<?php var_dump($account); ?>
+
