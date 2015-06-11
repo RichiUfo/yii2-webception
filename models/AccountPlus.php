@@ -31,7 +31,7 @@ class AccountPlus extends Account
         if($children) {
             $this->has_children = true;
             $this->value = 0;
-            $this->currency = \Yii::$app->user->identity->acc_currency
+            $this->currency = \Yii::$app->user->identity->acc_currency; 
             foreach($children as $child) {
                 $this->value += $child->value_converted;
             }
