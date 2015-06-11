@@ -29,3 +29,6 @@ Trading Account Value = <?= $account->value ?> <?= $account->account->currency ?
 
 <?php var_dump($account); ?>
 
+
+<?php var_dump($account->account); ?>
+
