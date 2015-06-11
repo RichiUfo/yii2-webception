@@ -226,9 +226,13 @@ class AccountController extends \frontend\components\Controller
             $back_button = ['text' => 'Profits &amp; Losses', 'route' => '/accounting/profitloss'];
         }
         
+        // Check
+        $test = $account->accountForex;
+        
         $this->layout = '@app/views/layouts/three-columns';
         return $this->render('account', [
             'account' => $account,
+            'test' => $test,
             'transactions' => $transactions,
             'movements' => $movements,
             'closing_balance' => $closing_balance,
