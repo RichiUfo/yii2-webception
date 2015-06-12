@@ -71,7 +71,7 @@ class AccountForexController extends \frontend\components\Controller
 			->where(['account_forex_id' => $account->id])
 			->all();
 		
-		// Amount of foreign currency sold AND Revenue from currency sales RFCS)
+		// SALES -- Amount of foreign currency sold AND Revenue from currency sales RFCS)
 		$sold_forex_amount = 0;
 		$rfcs = 0;
 		foreach($operations as $op) {
@@ -81,11 +81,18 @@ class AccountForexController extends \frontend\components\Controller
 			}
 		}
 	
-		// Cost of currency sold (COCS)
+		// PURCHASES -- Cost of currency sold (COCS)
+		$purchased_forex_amount = 0;
 		$cocs = 0;
 		foreach($operations as $op) {
 			if($op->transaction->accountDebit->id === $account->account->id) {
-				$cocs = $op->transaction->value;
+				if ($purchased_forex_amount < $sold_forex_amount + $op->forex_value){
+					$cocs += $op->transaction->value;
+					$purchased_forex_amount += $op->forex_value;
+				}
+				else {
+					$cocs += ($sold_forex_amount - $purchased_forex_amount) * $op->transaction->value / $op->forex_value;
+				}
 			}
 		}
 		
