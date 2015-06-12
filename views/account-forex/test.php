@@ -1,3 +1,2 @@
-<?php foreach($res as $r) {
-echo $r.'<br>';
-} ?>
+
+echo $res.'<br>';
