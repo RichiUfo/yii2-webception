@@ -25,7 +25,7 @@ class AccountForex extends \frontend\components\ActiveRecord
     public function rules()
     {
         return [
-            [['account_id', 'forex_currency', 'realized'], 'required'],
+            [['account_id', 'forex_currency'], 'required'],
             [['account_id'], 'integer'],
             [['forex_value', 'realized'], 'number'],
         ];
