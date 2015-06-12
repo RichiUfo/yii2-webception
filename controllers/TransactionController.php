@@ -213,13 +213,20 @@ class TransactionController extends \frontend\components\Controller
             $forex_transaction->account_forex_id = $trading->id;
             $forex_transaction->forex_value = $value_forex;
             $forex_transaction->save();
-            // Foreign account is credit
+            // Foreign account is credit (Selling Foreign Currency)
             if($credit_currency !== $system_currency) {
                 $trading->forex_value -= $value_forex;
                 $credit->value += $value_forex;
                 $credit->save();
+                
+                // Update the realized profit
+                $foreign_currency_balance = $trading->forex_value;
+                
+                // Find The Latest Buy Transactions
+                while
+                
             }
-            // Foreign account is debit
+            // Foreign account is debit (Buying Foreign Currency)
             else {
                 $trading->forex_value += $value_forex;
                 $debit->value -= $value_forex;

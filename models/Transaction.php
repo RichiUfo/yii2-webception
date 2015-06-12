@@ -56,4 +56,16 @@ class Transaction extends \frontend\components\ActiveRecord
             'value' => 'Value',
         ];
     }
+    
+    /**
+     * Relations
+     */
+    public function getAccountCredit()
+    {
+        return $this->hasOne(Account::className(), ['id' => 'account_credit_id']);
+    }
+    public function getAccountDebit()
+    {
+        return $this->hasOne(Account::className(), ['id' => 'account_debit_id']);
+    }
 }

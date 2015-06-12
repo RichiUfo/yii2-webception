@@ -61,6 +61,30 @@ class AccountForexController extends \frontend\components\Controller
 		return $trad_acc;
 		
 	}
+	public function updateRealizedProfits($account, $transaction) {
+		
+		// Useful Variables
+		$account->forex_value;
+		
+		$operations = TransactionForex::find()
+			->where(['account_forex_id' => $account->id])
+			->all();
+		
+		$ope = [];
+		foreach($operations as $op){
+			if($op->transaction->accountDebit == $account->account->id){
+				array_push($ope, [$op->id.' is buy']);
+			}
+			else {
+				array_push($op->id.' is sell');
+			}
+		}
+		return $ope;
+		
+		// Update the realized value AND save in database
+		$account->realized = 0;
+		$account->save();
+	}
 	
     /**
     * Actions
@@ -85,4 +109,12 @@ class AccountForexController extends \frontend\components\Controller
 			'account' => $account,
 		]);
 	}
+	
+	public function actionTest($accid, $traid) {
+		$acc = AccountForex::findOne($id);
+		$tra = TransactionForex::findOne($transaction);
+		$res = AccountForexController::updateRealizedProfits($acc, $tra);
+		return $this->render('test', ['res' => $res]);
+	}
+	
 }
