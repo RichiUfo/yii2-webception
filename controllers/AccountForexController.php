@@ -71,20 +71,28 @@ class AccountForexController extends \frontend\components\Controller
 			->where(['account_forex_id' => $account->id])
 			->all();
 		
-		$ope = [];
-		foreach($operations as $op){
-			if($op->transaction->accountDebit->id === $account->account->id){
-				array_push($ope, $op->id.' is buy');
-			}
-			else {
-				array_push($ope, $op->id.' is sell');
+		// Amount of foreign currency sold AND Revenue from currency sales RFCS)
+		$sold_forex_amount = 0;
+		$rfcs = 0;
+		foreach($operations as $op) {
+			if($op->transaction->accountCredit->id === $account->account->id) {
+				$sold_forex_amount += $op->forex_value;		// In foreign currency
+				$rfcs += $op->transaction->value;			// In base currency
 			}
 		}
-		return $ope;
+	
+		// Cost of currency sold (COCS)
+		$cocs = 0;
+		foreach($operations as $op) {
+			if($op->transaction->accountDebit->id === $account->account->id) {
+				$cocs = $op->transaction->value;
+			}
+		}
 		
 		// Update the realized value AND save in database
-		$account->realized = 0;
+		$account->realized = $rfcs - $cocs; 		// Revenue - Cost
 		$account->save();
+		return $account->realized;
 	}
 	
     /**
