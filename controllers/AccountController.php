@@ -116,13 +116,13 @@ class AccountController extends \frontend\components\Controller
     * Use the function to update the account value and all the parent accounts
     */
     public function updateAccountValue($accountid, $amount) {
-        $account = AccountPlus::findOne($accountid);
-        while($account != null){
+        $account = Account::findOne($accountid);
+        //while($account != null){
             $account->value += $amount;
-            $account->save();
-            $account = AccountPlus::findOne($account->parent_id);
-        }
-        return true;    // Need to add exception management
+            //$account->save();
+            //$account = AccountPlus::findOne($account->parent_id);
+        //}
+        return $account->save();   // Need to add exception management
     }
 
     /**
