@@ -117,12 +117,8 @@ class AccountController extends \frontend\components\Controller
     */
     public function updateAccountValue($accountid, $amount) {
         $account = Account::findOne($accountid);
-        //while($account != null){
-            $account->value += $amount;
-            //$account->save();
-            //$account = AccountPlus::findOne($account->parent_id);
-        //}
-        return $account->save();   // Need to add exception management
+        $account->value += $amount;
+        return $account->save();
     }
 
     /**
@@ -205,11 +201,11 @@ class AccountController extends \frontend\components\Controller
         
     }
     public function actionAccount($id) {
+        
         // Account Information
         $account = AccountHierarchy::findOne(['id' => $id, 'owner_id' => Yii::$app->user->id]);
-        if ($account === null) {
+        if ($account === null)
             throw new NotFoundHttpException;
-        }
         
         // Closing Balance
         $closing_balance = $this->getAccountBalance($account->id, date("Y-m-d")) * $account->sign;
