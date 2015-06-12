@@ -9,7 +9,6 @@ use frontend\components\ExchangeController;
 class AccountForex extends \frontend\components\ActiveRecord
 {
     public $value;
-    public $realized;
     public $unrealized;
     
     /**
