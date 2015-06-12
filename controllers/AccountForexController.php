@@ -111,8 +111,8 @@ class AccountForexController extends \frontend\components\Controller
 	}
 	
 	public function actionTest($accid, $traid) {
-		$acc = AccountForex::findOne($id);
-		$tra = TransactionForex::findOne($transaction);
+		$acc = AccountForex::findOne($accid);
+		$tra = TransactionForex::findOne($traid);
 		$res = AccountForexController::updateRealizedProfits($acc, $tra);
 		return $this->render('test', ['res' => $res]);
 	}
