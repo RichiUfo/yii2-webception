@@ -9,6 +9,8 @@ use frontend\components\ExchangeController;
 class AccountForex extends \frontend\components\ActiveRecord
 {
     public $value;
+    public $realized;
+    public $unrealized;
     
     /**
      * @inheritdoc
@@ -40,6 +42,7 @@ class AccountForex extends \frontend\components\ActiveRecord
             'account_id' => 'Account ID',
             'forex_currency' => 'Forex Currency',
             'forex_value' => 'Forex Value',
+            'realized' => 'Realized P and L',
         ];
     }
     /**
@@ -62,6 +65,8 @@ class AccountForex extends \frontend\components\ActiveRecord
         ]);
         
         $this->value = $value_forex_converted + $value_main; 
+        $this->unrealized = $this->value - $this->realized;
+        
     }
     
     /**

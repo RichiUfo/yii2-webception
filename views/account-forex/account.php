@@ -24,7 +24,9 @@ BaseAsset::register($this);
 <p>
 Value in system currency = <?= $account->account->value ?> <?= $account->account->currency ?><br>
 Value in foreign currency = <?= $account->forex_value ?> <?= $account->forex_currency ?><br>
-Trading Account Value = <?= $account->value ?> <?= $account->account->currency ?>
+Trading Account Value = <?= $account->value ?> <?= $account->account->currency ?><br><br>
+Realized Profits = <?= $account->realized ?> <?= $account->account->currency ?><br>
+Unrealized Profits = <?= $account->unrealized ?> <?= $account->account->currency ?>
 </p>
 
 

@@ -7,6 +7,15 @@ use Yii;
 class TransactionForex extends \frontend\components\ActiveRecord
 {
     
+    public $rate;
+    
+    public function afterFind(){
+        
+        parent::afterFind();
+
+        $this->rate = $this->forex_value / $this->transaction->value;
+
+    }
     
     /**
      * @inheritdoc
