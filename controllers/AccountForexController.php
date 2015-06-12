@@ -73,7 +73,7 @@ class AccountForexController extends \frontend\components\Controller
 		
 		$ope = [];
 		foreach($operations as $op){
-			if($op->transaction->accountDebit == $account->account->id){
+			if($op->transaction->accountDebit->id === $account->account->id){
 				array_push($ope, [$op->id.' is buy']);
 			}
 			else {
