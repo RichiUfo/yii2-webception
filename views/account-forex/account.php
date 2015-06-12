@@ -28,6 +28,3 @@ Trading Account Value = <?= $account->value ?> <?= $account->account->currency ?
 Realized Profits = <?= $account->realized ?> <?= $account->account->currency ?><br>
 Unrealized Profits = <?= $account->unrealized ?> <?= $account->account->currency ?>
 </p>
-
-
-<?php var_dump($account); ?>
