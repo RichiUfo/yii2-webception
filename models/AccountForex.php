@@ -28,7 +28,7 @@ class AccountForex extends \frontend\components\ActiveRecord
         return [
             [['account_id', 'forex_currency'], 'required'],
             [['account_id'], 'integer'],
-            [['forex_value'], 'number'],
+            [['forex_value', 'realized'], 'number'],
         ];
     }
 
