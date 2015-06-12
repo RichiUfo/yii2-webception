@@ -30,3 +30,4 @@ Unrealized Profits = <?= $account->unrealized ?> <?= $account->account->currency
 </p>
 
 
+<?php var_dump($account); ?>
