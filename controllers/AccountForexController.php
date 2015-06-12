@@ -90,7 +90,7 @@ class AccountForexController extends \frontend\components\Controller
 					$cocs += $op->transaction->value;
 					$purchased_forex_amount += $op->forex_value;
 				}
-				else {
+				else if ($purchased_forex_amount < $sold_forex_amount) {
 					$cocs += ($sold_forex_amount - $purchased_forex_amount) * $op->transaction->value / $op->forex_value;
 				}
 			}
