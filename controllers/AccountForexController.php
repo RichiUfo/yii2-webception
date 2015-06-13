@@ -78,7 +78,6 @@ class AccountForexController extends \frontend\components\Controller
 			if($op->transaction->accountCredit->id === $account->account->id) {
 				$sold_forex_amount += $op->forex_value;		// In foreign currency
 				$rfcs += $op->transaction->value;			// In base currency
-				$sales_volume += 
 			}
 		}
 	
