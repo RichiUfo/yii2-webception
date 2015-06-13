@@ -78,6 +78,7 @@ class AccountForexController extends \frontend\components\Controller
 			if($op->transaction->accountCredit->id === $account->account->id) {
 				$sold_forex_amount += $op->forex_value;		// In foreign currency
 				$rfcs += $op->transaction->value;			// In base currency
+				$sales_volume += 
 			}
 		}
 	
@@ -99,7 +100,7 @@ class AccountForexController extends \frontend\components\Controller
 		// Update the realized value AND save in database
 		$account->realized = $rfcs - $cocs; 		// Revenue - Cost
 		$account->save();
-		return [$account->realized, $rfcs,$cocs];
+		return [$account->realized, $rfcs, $cocs, $sold_forex_amount];
 	}
 	
     /**
