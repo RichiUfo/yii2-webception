@@ -99,7 +99,7 @@ class AccountForexController extends \frontend\components\Controller
 		// Update the realized value AND save in database
 		$account->realized = $rfcs - $cocs; 		// Revenue - Cost
 		$account->save();
-		return $account->realized;
+		return [$account->realized, $rfcs,$cocs];
 	}
 	
     /**
