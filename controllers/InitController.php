@@ -76,9 +76,8 @@ class InitController extends \frontend\components\Controller
         
         // Remove all transactions for the accounts belonging to the current user
         $transactions = Transaction::find()
-            ->innerJoin('accounts', '`accounts`.`id` = `transactions`.')
+            ->innerJoin('accounts', '`accounts`.`id` = `transactions`.`account_debit_id` OR `accounts`.`id` = `transactions`.`account_credit_id`')
 			->where(['accounts.owner_id' => Yii::$app->user->id])
-			->andWhere(['accounts_forex.id' => $id])
             ->all();
             
         return $this->render('reset', [
