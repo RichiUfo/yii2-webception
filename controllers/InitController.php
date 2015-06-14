@@ -36,8 +36,7 @@ class InitController extends \frontend\components\Controller
         $this->initializeModule();
     } 
      
-    public function initializeModule()
-    {
+    public function initializeModule() {
         
         // Chart Of Acccounts - Personal Finance
         $assets = AccountController::createAccount('Assets', 0, 1);
@@ -71,5 +70,23 @@ class InitController extends \frontend\components\Controller
             $non_operating_expenses = AccountController::createAccount('Non-Operating Expenses And Losses', $expenses->id, 2);
         
         return $this->render('index');
+    }
+    
+    public function actionReset () {
+        
+        // Remove all transactions for the accounts belonging to the current user
+        $transactions = Transaction::find()
+            ->innerJoin('accounts', '`accounts`.`id` = `transactions`.')
+			->where(['accounts.owner_id' => Yii::$app->user->id])
+			->andWhere(['accounts_forex.id' => $id])
+            ->all();
+            
+        return $this->render('reset', [
+            'transactions' => $transactions
+        ]);
+        
+        // Delete all accounts for the logged user
+        Account::deleteAll(['owner_id' => \Yii::$app->user->id]);
+        
     }
 }
