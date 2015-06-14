@@ -3,17 +3,18 @@ Transactions to be removed<br>
     <thead>
         <tr>
             <th>#</th>
-            <th></th>
-            <th></th>
+            <th>Debit</th>
+            <th>Credit</th>
+            <th>Name</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach($transactions as $t) : ?>
         <tr>
             <td><?= $t->id ?></td>
-            <td><?= $t-> ?></td>
-            <td><?= $t-> ?></td>
-            <td><?= $t-> ?></td>   
+            <td><?= $t->account_debit_id ?></td>
+            <td><?= $t->account_credit_id ?></td>
+            <td><?= $t->name ?></td>   
         </tr>
         <?php endforeach; ?>
     </tbody>
