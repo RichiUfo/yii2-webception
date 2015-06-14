@@ -1,4 +1,4 @@
-Transactions to be removed<br>
+<h1>Transactions to be removed</h1>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -19,3 +19,5 @@ Transactions to be removed<br>
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<?php var_dump($transactions[1]); ?>
