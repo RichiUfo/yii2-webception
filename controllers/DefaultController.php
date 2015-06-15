@@ -50,7 +50,7 @@ class DefaultController extends \frontend\components\Controller
                 ],
                 [
                     'title' => 'Accounting', 'items' => [
-                        ['icon' => 'plus', 'text' => 'Transaction', 'type' => 'modal_preload', 'route' => 'transaction/create'],
+                        ['icon' => 'plus', 'text' => 'Transaction', 'type' => 'modal_preload', 'route' => '//accountingtransaction/create'],
                         ['icon' => 'plus', 'text' => 'Account', 'type' => 'modal_preload', 'route' => 'account/create'],
                     ]
                 ]
