@@ -77,4 +77,3 @@
         <?php endforeach; ?>
     </tbody>
 </table>
-<?php var_dump($transactions[1]); ?>
