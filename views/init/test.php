@@ -20,7 +20,7 @@ BaseAsset::register($this);
 ?>
 
 
-<h1>Chart of accounts</h1>
+<h1>Chart of accounts <small><?= $chart ?></small></h1>
 
 <ul>
 <?php 
