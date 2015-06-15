@@ -10,6 +10,7 @@ function rec_disp($acc) {
         echo '<li>'.$a['name'].'</li>';
         
         // Recursive
+        if (is_array($a['account']))
         var_dump($a['account']); echo '<br><br>';
         //if (is_array($a['account'])) rec_disp($a['account']);
 
