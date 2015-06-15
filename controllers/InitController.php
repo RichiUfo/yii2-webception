@@ -76,22 +76,29 @@ class InitController extends \frontend\components\Controller
     
     public function actionReset () {
         
-        // transactions cleaning
         $transactions = Transaction::find()
             ->innerJoin('accounts', '`accounts`.`id` = `transactions`.`account_debit_id` OR `accounts`.`id` = `transactions`.`account_credit_id`')
 			->where(['accounts.owner_id' => \Yii::$app->user->id])
             ->all();
         
-        // transactions_forex cleaning
         $transactions_forex = TransactionForex::find()
             ->innerJoin('transactions', '`transactions`.`id` = `transactions_forex`.`transaction_id`')
             ->innerJoin('accounts', '`accounts`.`id` = `transactions`.`account_debit_id` OR `accounts`.`id` = `transactions`.`account_credit_id`')
             ->where(['accounts.owner_id' => \Yii::$app->user->id])
             ->all(); 
-            
+        
+        $accounts = Account::findAll(['owner_id' => \Yii::$app->user->id]);
+        
+        $accounts_forex = AccountForex::find()
+            ->innerJoin('accounts', '`accounts`.`id` = `accounts_forex`.`account_id`')
+            ->where(['accounts.owner_id' => \Yii::$app->user->id])
+            ->all();
+        
         return $this->render('reset', [
             'transactions' => $transactions,
-            'transactions_forex' => $transactions_forex
+            'transactions_forex' => $transactions_forex,
+            'accounts' => $accounts,
+            'accounts_forex' => $accounts_forex
         ]);
         
         // Delete all accounts for the logged user
