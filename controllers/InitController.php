@@ -75,10 +75,10 @@ class InitController extends \frontend\components\Controller
         return $this->render('index');
     }
     
-    public function initializeModule($chart) {
+    public function actionTest($chart) {
         
-        $accounts = ;
-        
+        $accounts = simplexml_load_file("");
+        $this->render('test', ['accounts' => $accounts]);
     }
     
     public function actionReset () {
