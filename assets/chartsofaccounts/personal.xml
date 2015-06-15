@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <account>
     <name>Assets</name>
     <number></number>
+    
     <account>
         <name>Fixed Assets</name>
         <number></number>
@@ -12,10 +12,28 @@
     <account>
         <name>Current Assets</name>
         <number></number>
+        
         <account>
             <name>Trading Accounts</name>
             <number></number>
         </account>
+        
+    </account>
+
+</account>
+
+<account>
+    <name>Equity</name>
+    <number></number>
+    
+    <account>
+        <name>Capital</name>
+        <number></number>
+    </account>
+        
+    <account>
+        <name>Retained Earnings</name>
+        <number></number>
     </account>
 
 </account>

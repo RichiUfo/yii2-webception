@@ -9,9 +9,9 @@ function rec_disp($acc) {
     echo '<li>'.$acc->name.'</li>';
     
     // Recursive
-    if ($acc->accounts) {
+    if ($acc->account) {
         echo '<ul>';
-        foreach($acc->accounts as $a)
+        foreach($acc->account as $a)
             rec_disp($a);
         echo '</ul>';
     }
