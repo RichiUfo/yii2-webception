@@ -5,7 +5,7 @@ Realized = (Revenue from currency sales) - (Cost of currency sold)<br>
 
 Account ID : <?= $res[0]->account->id ?><br><br>
 
-// Operations
+<h1>Operations</h1>
 <table class="table table-striped">
     <thead>
         <tr>
