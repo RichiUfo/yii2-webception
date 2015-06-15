@@ -8,10 +8,8 @@ function rec_disp($acc) {
     echo '<ul>';
     foreach($acc as $a){
         $test = isset($a['children'])?'True':'False';
-        echo '<li>'.$a['name'].' => '.$test.'</li>'; 
-        
-        var_dump($a); echo '<br><br>'; //var_dump($a['children']);
-        
+        echo '<li>'.$a['name'].'</li>'; 
+
         // Recursive
         if (isset($a['children']))
             rec_disp($a['children']);
