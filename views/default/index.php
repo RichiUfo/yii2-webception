@@ -22,7 +22,7 @@ BaseAsset::register($this);
 
         <!-- Balance Sheet -->
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-            <div class="card informative-block">
+            <div class="card informative-block transparent">
                 <div class="card-header">
                     <div class="banner-title">
                         <p>
