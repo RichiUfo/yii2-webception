@@ -42,7 +42,7 @@ BaseAsset::register($this);
 
         <!-- Income -->
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-            <div class="card informative-block">
+            <div class="card informative-block transparent">
                 <div class="card-header">
                     <div class="banner-title">
                         <p>
@@ -62,7 +62,7 @@ BaseAsset::register($this);
 
         <!-- Cash Flow -->
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-            <div class="card informative-block">
+            <div class="card informative-block transparent">
                 <div class="card-header">
                     <div class="banner-title">
                         <p>
@@ -83,7 +83,7 @@ BaseAsset::register($this);
   <div class="row">
         <!-- Assets -->
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-            <div class="card informative-block">
+            <div class="card informative-block transparent">
                 <div class="card-header">
                     <div class="banner-title">
                         <p>
@@ -103,7 +103,7 @@ BaseAsset::register($this);
 
         <!-- Operating Expenses -->
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-            <div class="card informative-block">
+            <div class="card informative-block transparent">
                 <div class="card-header">
                     <div class="banner-title">
                         <p>
@@ -123,7 +123,7 @@ BaseAsset::register($this);
 
         <!-- Contracts -->
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-            <div class="card informative-block">
+            <div class="card informative-block transparent">
                 <div class="card-header">
                     <div class="banner-title">
                         <p>
