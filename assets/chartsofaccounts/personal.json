@@ -1,47 +1,47 @@
 [
-    {"name":"Assets", "children": [
-        {"name":"Fixed Assets", "children": [
-            {"name":"Intangible Assets", "children": [
-                {"name":"Education"},
-                {"name":"Accumulated Amortization"}
+    {"number": 10000, "name":"Assets", "children": [
+        {"number": 17000, "name":"Fixed Assets", "children": [
+            {"number": 19000, "name":"Intangible Assets", "children": [
+                {"number": 19600, "name":"Education"},
+                {"number": 19700, "name":"Accumulated Amortization"}
             ]},
-            {"name":"Land"},
-            {"name":"Real Estate", "children": [
-                {"name":"Real Estate - Book Value"},
-                {"name":"Real Estate - Accumulated Depreciation"}
+            {"number": 18300, "name":"Land"},
+            {"number": 17600, "name":"Real Estate", "children": [
+                {"number": 17500, "name":"Real Estate - Book Value"},
+                {"number": 17400, "name":"Real Estate - Accumulated Depreciation"}
             ]}
         ]},
-        {"name":"Current Assets", "children": [
-            {"name":"Trading Accounts"},
-            {"name":"Savings Accounts"},
-            {"name":"Checking Accounts"},
-            {"name":"Cash"}
+        {"number": 13000, "name":"Current Assets", "children": [
+            {"number": 10500, "name":"Trading Accounts"},
+            {"number": 10400, "name":"Savings Accounts"},
+            {"number": 10300, "name":"Checking Accounts"},
+            {"number": 10200, "name":"Cash"}
         ]}
     ]},
-    {"name":"Liabilities", "children": [
-        {"name":"Long-Term Liabilities", "children": [
-            {"name":"Mortgages"},
-            {"name":"Other Loans"}
+    {"number": 20000, "name":"Liabilities", "children": [
+        {"number": 25000, "name":"Long-Term Liabilities", "children": [
+            {"number": 25300, "name":"Mortgages"},
+            {"number": 25100, "name":"Other Loans"}
         ]},
-        {"name":"Current Liabilities", "children": [
-            {"name":"Accounts Payable"},
-            {"name":"Credits Cards"}
+        {"number": 22000, "name":"Current Liabilities", "children": [
+            {"number": 20100, "name":"Accounts Payable"},
+            {"number": 20300, "name":"Credits Cards"}
         ]}
     ]},
-    {"name":"Equity", "children": [
-        {"name":"Capital"},
-        {"name":"Retained Earnings"},
-        {"name":"Unrealized Profits and Losses", "children": [
-            {"name":"Investing Activity"},
-            {"name":"Foreign Exchange"}
+    {"number": 30000, "name":"Equity", "children": [
+        {"number": 30100, "name":"Capital"},
+        {"number": 31000, "name":"Retained Earnings"},
+        {"number": 32000, "name":"Unrealized Profits and Losses", "children": [
+            {"number": 32300, "name":"Investing Activity"},
+            {"number": 32100, "name":"Foreign Exchange"}
         ]}
     ]},
-    {"name":"Revenues", "children": [
-        {"name":"Operating Revenues"},
-        {"name":"Non-Operating Revenues and Gains"}
+    {"number": 40000, "name":"Revenues", "children": [
+        {"number": 43000, "name":"Operating Revenues"},
+        {"number": 41000, "name":"Non-Operating Revenues and Gains"}
     ]},
-    {"name":"Expenses", "children": [
-        {"name":"Operating Expenses"},
-        {"name":"Non-Operating Expenses and Losses"}
+    {"number": 50000, "name":"Expenses", "children": [
+        {"number": 53000, "name":"Operating Expenses"},
+        {"number": 51000, "name":"Non-Operating Expenses and Losses"}
     ]}
 ]

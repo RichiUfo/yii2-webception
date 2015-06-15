@@ -78,14 +78,29 @@ class InitController extends \frontend\components\Controller
     
     public function actionTest($chart) {
         
-        // Open the JSON chart
+        function create_rec($accounts, $parent_id = 0) {
+            foreach($accounts as $account){
+                $parent = AccountController::createAccount($account['number'], $account['name'], $parent_id);
+                if (isset($account['children'])) 
+                    create_rec($account['children'], $parent->id);
+            }
+        }
+        
+        // Check the availability of the charts of accounts template
         $file = "http://www.fullplanner.com/assets/dcd1142a/chartsofaccounts/".$chart.".json";
         $headers = @get_headers($file);
         if($headers[0] == 'HTTP/1.0 404 Not Found')
             throw new NotFoundHttpException;
 
+        // Get the charts of accounts
         $data = file_get_contents ($file);
         $accounts = json_decode($data, true);
+        
+        // Check that the module has not been initialized with another charts of accounts
+        /* TO BE IMPLEMENTED */
+        
+        // Create or update the accounts
+        create_rec($accounts);
         
         return $this->render('test', [
             'chart' => $chart,

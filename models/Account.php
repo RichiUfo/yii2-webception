@@ -34,8 +34,8 @@ class Account extends \frontend\components\ActiveRecord
     public function rules()
     {
         return [
-            [['owner_id', 'parent_id', 'name', 'value', 'currency'], 'required'],
-            [['owner_id', 'parent_id', 'system', 'display_position'], 'integer'],
+            [['number', 'owner_id', 'parent_id', 'name', 'value', 'currency'], 'required'],
+            [['number', 'owner_id', 'parent_id', 'system', 'display_position'], 'integer'],
             [['value'], 'number'],
             [['name', 'alias', 'special_class'], 'string', 'max' => 255],
             [['currency'], 'string', 'max' => 10]
@@ -51,6 +51,7 @@ class Account extends \frontend\components\ActiveRecord
             'id' => 'ID',
             'owner_id' => 'Owner ID',
             'parent_id' => 'Parent Account',
+            'number' => 'Account Number',
             'system' => 'System',
             'display_position' => 'Display Position',
             'name' => 'Name',
