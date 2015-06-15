@@ -6,11 +6,11 @@ BaseAsset::register($this);
 function rec_disp($acc) {
     // Display <ul><li>
     echo '<ul>';
-    foreach($acc->account as $a){
-        echo '<li>'.$a->name.'</li>';
+    foreach($acc as $a){
+        echo '<li>'.$a['name'].'</li>';
         
         // Recursive
-        if (isset($a->account)) rec_disp($a->account);
+        if (isset($a['account'])) rec_disp($a['account']);
 
     }
     echo '</ul>';
@@ -23,8 +23,8 @@ function rec_disp($acc) {
 <ul>
 <?php 
 
-rec_disp($accounts); 
+rec_disp($accounts['account']); 
 
-var_dump($accounts);
+var_dump($accounts['account']);
 ?>
 </ul>
