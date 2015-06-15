@@ -33,7 +33,7 @@
         {"number": 31000, "name":"Retained Earnings"},
         {"number": 32000, "name":"Unrealized Profits and Losses", "children": [
             {"number": 32300, "name":"Investing Activity"},
-            {"number": 32100, "name":"Foreign Exchange"} /* DONT */
+            {"number": 32100, "name":"Foreign Exchange"}
         ]}
     ]},
     {"number": 40000, "name":"Revenues", "children": [
