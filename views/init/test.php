@@ -7,7 +7,8 @@ function rec_disp($acc) {
    
     echo '<ul>';
     foreach($acc as $a){
-        echo '<li>'.$a['name'].' => '.empty($a['children'])?'True':'False'.'</li>';
+        $test = isset($a['children'])?'True':'False';
+        echo '<li>'.$a['name'].' => '.tes.'</li>';
         
         // Recursive
         if (isset($a['children']))
