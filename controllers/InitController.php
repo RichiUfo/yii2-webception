@@ -84,7 +84,7 @@ class InitController extends \frontend\components\Controller
             throw new NotFoundHttpException;
 
         $data = file_get_contents ($file);
-        $accounts = json_decode($data);
+        $accounts = json_decode($data, true);
         
         return $this->render('test', [
             'chart' => $chart,
