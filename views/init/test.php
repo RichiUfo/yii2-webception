@@ -13,7 +13,7 @@ function rec_disp($acc) {
         if (isset($a['account'])){
             var_dump($a['account']); 
             echo '<br><br>';
-            rec_disp($a['account'])
+            rec_disp($a['account']);
         }
         //if (is_array($a['account'])) rec_disp($a['account']);
 
