@@ -7,7 +7,7 @@ function rec_disp($acc) {
     // Display <ul><li>
     echo '<ul>';
     foreach($acc as $a){
-        var_dump($a);
+        var_dump($a['name']);
         echo "<br><br>";
         /*echo '<li>'.$a['name'].'</li>';
         
