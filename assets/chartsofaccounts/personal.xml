@@ -1,11 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <accounts>
+    
     <account>
         <name>Assets</name>
         <number></number>
         <accounts>
             
+            <account>
+                <name>Fixed Assets</name>
+                <number></number>
+                <accounts>
+                    
+                    <account>
+                    
+                    </account>
+                    
+                </accounts>
+            </account>
+            
+            <account>
+                <name>Current Assets</name>
+                <number></number>
+                <accounts>
+                    
+                    <account>
+                        <name>Trading Accounts</name>
+                        <number></number>
+                        <accounts>
+                            
+                            <account>
+                            
+                            </account>
+                            
+                        </accounts>
+                    </account>
+                    
+                </accounts>
+            </account>
         </accounts>
     </account>
+    
 </accounts>
