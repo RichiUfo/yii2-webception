@@ -70,7 +70,16 @@ class AccountController extends \frontend\components\Controller
             ->orderBy('`number` DESC')
             ->one();
         
-        return [$base_min, $base_max, $last_account->number];
+        // Get the base number (without the zeros)
+        $base = $last_account->number;
+        while(!is_float($base/10))
+            $base /= 10;
+        
+        $base += 1;
+        while($base * 10 < 99999) 
+            $base *= 10;
+            
+        return $base;
     }
     public function createAccount($number, $name, $parentid, $display=0, $specialClass='') {
         
