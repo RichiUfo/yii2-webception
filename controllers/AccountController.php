@@ -78,7 +78,7 @@ class AccountController extends \frontend\components\Controller
             $base += 1;
         }
         else {
-            $base = $base*10+!
+            $base = $base*10+1; 
         }
         while($base * 10 < 99999) 
             $base *= 10;
