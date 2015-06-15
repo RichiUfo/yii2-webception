@@ -1,5 +1,8 @@
 <?php 
 
+use frontend\modules\accounting\assets\BaseAsset;
+BaseAsset::register($this);
+
 $rec_disp = function ($acc) {
     
     // Display <li>
