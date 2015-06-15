@@ -47,7 +47,7 @@ function displayHierarchy($accounts){
     <div class="col-lg-6">
         
         <!-- ASSETS -->
-        <div class="card informative-block">
+        <div class="card informative-block transparent">
             <div class="card-header">
                 <div class="banner-title">
                     <p><a href="<?php echo Url::to(['account/account', 'id' => $assets->id]) ?>"><?= $assets->alias ?></a></p>
@@ -72,7 +72,7 @@ function displayHierarchy($accounts){
     <div class="col-lg-6">
         
         <!-- EQUITY -->
-        <div class="card informative-block">
+        <div class="card informative-block transparent">
             <div class="card-header">
                 <div class="banner-title">
                     <p><a href="<?php echo Url::to(['account/account', 'id' => $equity->id]) ?>"><?= $equity->alias ?></a></p>
@@ -93,7 +93,7 @@ function displayHierarchy($accounts){
         <!-- END OF EQUITY -->
         
         <!-- LIABILITIES -->
-        <div class="card informative-block">
+        <div class="card informative-block transparent">
             <div class="card-header">
                 <div class="banner-title">
                     <p><a href="<?php echo Url::to(['account/account', 'id' => $liabilities->id]) ?>"><?= $liabilities->alias ?></a></p>
