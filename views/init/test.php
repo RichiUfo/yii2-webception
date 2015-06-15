@@ -10,7 +10,7 @@ function rec_disp($acc) {
         $test = isset($a['children'])?'True':'False';
         echo '<li>'.$a['name'].' => '.$test.'</li>'; 
         
-        var_dump($a); echo '<br><br>'; var_dump($a['children']);
+        var_dump($a); echo '<br><br>'; //var_dump($a['children']);
         
         // Recursive
         if (isset($a['children']))
