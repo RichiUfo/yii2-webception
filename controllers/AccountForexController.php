@@ -37,7 +37,12 @@ class AccountForexController extends \frontend\components\Controller
     * Methods
     */
 	public function createForexAccount($name, $parentid, $display, $currency) {
-		$account = AccountController::createAccount($name, $parentid, $display, 'forex_trading');
+		
+		// Create an account number
+		
+		$number = 0;
+		
+		$account = AccountController::createAccount($number, $name, $parentid, $display, 'forex_trading');
 		$forex = new AccountForex;
 		$forex->forex_currency = $currency;
 		$forex->account_id = $account->id; 
@@ -53,7 +58,7 @@ class AccountForexController extends \frontend\components\Controller
 		if(!$trad_acc) {
 			$parent = Account::find()
 				->where(['owner_id' => Yii::$app->user->id])
-				->andWhere(['name' => 'Forex Unrealized Profits and Losses'])
+				->andWhere(['number' => 32100])
 				->one();
 			$name = $currency;
 			$trad_acc = AccountForexController::createForexAccount($name, $parent->id, 1, $currency);

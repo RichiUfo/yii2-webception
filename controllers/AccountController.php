@@ -47,7 +47,30 @@ class AccountController extends \frontend\components\Controller
     * createAccount($name, $parent, $display)
     * Create a new account
     */
-    public function createAccount($number, $name, $parentid, $display=0, $specialClass=''){
+    public function getNextAvailableNumber($parent_id) {
+        $parent = Account::findOne($parent_id);
+        
+        // Get the base number (without the zeros)
+        $base = $parent->number;
+        while(!is_float($base/10))
+            $base /= 10;
+        
+        // Minimum
+        $base_min = $base
+        while($base_min < 99999) $base_min *= 10;
+        $base_max = $base*10+9
+        while($base_max < 99999) $base_max *= 10;
+        
+        // Find the child account with the highest number
+        $last_account = Account::find()
+            ->where(['parent_id' => $parent->id])
+            ->andWhere('`number` > '.$base_min.' AND `number` < '$base_max)
+            ->orderBy('`number` DESC')
+            ->one();
+        
+        return $last_account->number;
+    }
+    public function createAccount($number, $name, $parentid, $display=0, $specialClass='') {
         
         // Check (by name) if the account is already existing    
         $check = Account::findOne([
@@ -320,6 +343,10 @@ class AccountController extends \frontend\components\Controller
         else {
             return false;
         }
+    }
+    public function actionGetChildNumber($parent) {
+        \Yii::$app->response->format = 'json';
+        return AccountController::getNextAvailableNumber($parent);
     }
     
     /**
