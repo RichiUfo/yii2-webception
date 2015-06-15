@@ -1,6 +1,6 @@
 [
-    {"name":"Assets", "chidren": [
-        {"name":"Fixed Assets", "chidren": [
+    {"name":"Assets", "children": [
+        {"name":"Fixed Assets", "children": [
             {"name":"Intangible Assets", "children": [
                 {"name":"Education"},
                 {"name":"Accumulated Amortization"}
@@ -11,24 +11,24 @@
                 {"name":"Real Estate - Accumulated Depreciation"}
             ]}
         ]},
-        {"name":"Current Assets", "chidren": [
+        {"name":"Current Assets", "children": [
             {"name":"Trading Accounts"},
             {"name":"Savings Accounts"},
             {"name":"Checking Accounts"},
             {"name":"Cash"}
         ]}
     ]},
-    {"name":"Liabilities", "chidren": [
-        {"name":"Long-Term Liabilities", "chidren": [
+    {"name":"Liabilities", "children": [
+        {"name":"Long-Term Liabilities", "children": [
             {"name":"Mortgages"},
             {"name":"Other Loans"}
         ]},
-        {"name":"Current Liabilities", "chidren": [
+        {"name":"Current Liabilities", "children": [
             {"name":"Accounts Payable"},
             {"name":"Credits Cards"}
         ]}
     ]},
-    {"name":"Equity", "chidren": [
+    {"name":"Equity", "children": [
         {"name":"Capital"},
         {"name":"Retained Earnings"},
         {"name":"Unrealized Profits and Losses", "children": [
@@ -36,11 +36,11 @@
             {"name":"Foreign Exchange"}
         ]}
     ]},
-    {"name":"Revenues", "chidren": [
+    {"name":"Revenues", "children": [
         {"name":"Operating Revenues"},
         {"name":"Non-Operating Revenues and Gains"}
     ]},
-    {"name":"Expenses", "chidren": [
+    {"name":"Expenses", "children": [
         {"name":"Operating Expenses"},
         {"name":"Non-Operating Expenses and Losses"}
     ]}
