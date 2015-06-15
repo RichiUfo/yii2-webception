@@ -10,7 +10,7 @@ function rec_disp($acc) {
         echo '<li>'.$a->name.'</li>';
         
         // Recursive
-        if (isset($a->children))
+        if (property_exists($a->children))
             rec_disp($a->children);
 
     }
