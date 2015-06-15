@@ -25,24 +25,3 @@ Account ID : <?= $res[0]->account->id ?><br><br>
         <?php endforeach; ?>
     </tbody>
 </table>
-
-<?php
-libxml_use_internal_errors(true);
-$myXMLData =
-"<?xml version='1.0' encoding='UTF-8'?> 
-<document> 
-<user>John Doe</user> 
-<email>john@example.com</email> 
-</document>"; 
-
-$xml = simplexml_load_string($myXMLData);
-if ($xml === false) {
-    echo "Failed loading XML: ";
-    foreach(libxml_get_errors() as $error) {
-        echo "<br>", $error->message;
-    }
-} else {
-    //var_dump($xml);
-    print_r($xml);
-}
-?>
