@@ -11,7 +11,7 @@ function rec_disp($acc) {
         
         // Recursive
         if (isset($a->account)) {
-            if (is_array($a->account)) {
+            if (!is_object($a->account)) {
                 rec_disp($a->account);
             }
             else {
