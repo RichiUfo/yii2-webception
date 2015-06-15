@@ -80,7 +80,8 @@ class InitController extends \frontend\components\Controller
         
         // Open the JSON chart
         $file = "http://www.fullplanner.com/assets/dcd1142a/chartsofaccounts/".$chart.".json";
-        if(@get_headers($filename)[0] == 'HTTP/1.0 404 Not Found')
+        $headers = @get_headers($file);
+        if($headers[0] == 'HTTP/1.0 404 Not Found')
             throw new NotFoundHttpException;
 
         $data = file_get_contents ($file);
