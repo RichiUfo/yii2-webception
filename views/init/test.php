@@ -10,7 +10,7 @@ function rec_disp($acc) {
         echo '<li>'.$a['name'].'</li>';
         
         // Recursive
-        /*if (isset($a['account'])) rec_disp($a['account']);*/
+        if ($a['account']) rec_disp($a['account']);
 
     }
     echo '</ul>';
