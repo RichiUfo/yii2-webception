@@ -36,7 +36,7 @@ class DefaultController extends \frontend\components\Controller
     {
         $data = BalancesheetController::getFinancialData();
     
-        $this->layout = '@app/views/layouts/three-columns';
+        $this->layout = '@app/views/layouts/two-columns-left';
         return $this->render('index' , [
             'data' => $data,
             'back_button' => ['text' => 'Home', 'route' => '/'],
