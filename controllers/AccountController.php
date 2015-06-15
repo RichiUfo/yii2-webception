@@ -66,8 +66,8 @@ class AccountController extends \frontend\components\Controller
         // Find the child account with the highest number
         $last_account = Account::find()
             ->where(['parent_id' => $parent->id])
-            ->andWhere('`number` > '.$base_min.' AND `number` < '.$base_max)
-            ->orderBy('`number` DESC')
+            //->andWhere('`number` > '.$base_min.' AND `number` < '.$base_max)
+            //->orderBy('`number` DESC')
             ->one();
         
         return $last_account->number;
