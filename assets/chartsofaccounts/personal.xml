@@ -26,16 +26,5 @@
     <account>
         <name>Equity</name>
         <number></number>
-        
-        <account>
-            <name>Capital</name>
-            <number></number>
-        </account>
-            
-        <account>
-            <name>Retained Earnings</name>
-            <number></number>
-        </account>
-    
     </account>
 </accounts>
