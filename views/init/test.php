@@ -20,9 +20,7 @@ function rec_disp($acc) {
 ?>
 <h1>Chart of accounts <small><?= $chart ?></small></h1>
 
-<ul>
+
 <?php 
 rec_disp($accounts);
-var_dump($accounts);
 ?>
-</ul>
