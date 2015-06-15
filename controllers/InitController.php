@@ -95,6 +95,12 @@ class InitController extends \frontend\components\Controller
             ->where(['accounts.owner_id' => \Yii::$app->user->id])
             ->all();
         
+        // Remove All
+        foreach ($transactions as $e) $e->delete();
+        foreach ($transactions_forex as $e) $e->delete();
+        foreach ($accounts as $e) $e->delete();
+        foreach ($accounts_forex as $e) $e->delete();
+        
         return $this->render('reset', [
             'transactions' => $transactions,
             'transactions_forex' => $transactions_forex,
