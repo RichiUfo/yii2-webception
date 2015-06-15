@@ -21,6 +21,6 @@ function rec_disp($acc) {
 
 <ul>
 <?php 
-rec_disp($accounts->account); 
+rec_disp($accounts); 
 ?>
 </ul>
