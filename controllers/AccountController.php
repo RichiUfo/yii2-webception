@@ -67,7 +67,7 @@ class AccountController extends \frontend\components\Controller
         $last_account = Account::find()
             ->where(['parent_id' => $parent->id])
             //->andWhere('`number` > '.$base_min.' AND `number` < '.$base_max)
-            //->orderBy('`number` DESC')
+            ->orderBy('`number` DESC')
             ->one();
         
         return $last_account->number;
