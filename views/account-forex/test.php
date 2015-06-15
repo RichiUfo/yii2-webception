@@ -17,8 +17,8 @@ Account ID : <?= $res[0]->account->id ?><br><br>
     <tbody>
         <?php foreach($res[4] as $op) :?>
         <tr>
-            <td>$op->transaction->accountDebit->id</td>
-            <td>$op->transaction->accountCredit->id</td>
+            <td><?= $op->transaction->accountDebit->id ?></td>
+            <td><?= $op->transaction->accountCredit->id ?></td>
             <td></td>
         </tr>
         <?php endforeach; ?>
