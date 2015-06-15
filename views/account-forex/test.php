@@ -42,7 +42,7 @@ if ($xml === false) {
         echo "<br>", $error->message;
     }
 } else {
-    var_dump($xml);
+    //var_dump($xml);
     print_r($xml);
 }
 ?>
