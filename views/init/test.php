@@ -4,18 +4,15 @@ use frontend\modules\accounting\assets\BaseAsset;
 BaseAsset::register($this);
 
 function rec_disp($acc) {
-    
-    // Display <li>
-    echo '<li>'.$acc->name.'</li>';
-    
-    // Recursive
-    if ($acc->account) {
-        echo '<ul>';
-        foreach($acc->account as $a)
-            rec_disp($a);
-        echo '</ul>';
+    // Display <ul><li>
+    echo '<ul>';
+    foreach($acc->account as $a){
+        echo '<li>'.$a->name.'</li>';
+        
+        // Recursive
+        if ($a->account) rec_disp($a->account);
     }
-    
+    echo '</ul>';
 }
 ?>
 
