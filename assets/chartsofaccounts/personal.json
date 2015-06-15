@@ -1,13 +1,47 @@
 [
-    {"name":"Assets", "number":10000, "chidren": [
-        {"name":"Fixed Assets", "number":17000, "chidren": [
-        
+    {"name":"Assets", "chidren": [
+        {"name":"Fixed Assets", "chidren": [
+            {"name":"Intangible Assets", "children": [
+                {"name":"Education"},
+                {"name":"Accumulated Amortization"}
+            ]},
+            {"name":"Land"},
+            {"name":"Real Estate", "children": [
+                {"name":"Real Estate - Book Value"},
+                {"name":"Real Estate - Accumulated Depreciation"}
+            ]}
         ]},
-        {"name":"Current Assets", "number":17000, "chidren": [
-            {"name":"Trading Accounts", "number":},
-            {"name":"Savings Accounts", "number":},
-            {"name":"Checking Accounts", "number":},
-            {"name":"Cash", "number":}
+        {"name":"Current Assets", "chidren": [
+            {"name":"Trading Accounts"},
+            {"name":"Savings Accounts"},
+            {"name":"Checking Accounts"},
+            {"name":"Cash"}
         ]}
+    ]},
+    {"name":"Liabilities", "chidren": [
+        {"name":"Long-Term Liabilities", "chidren": [
+            {"name":"Mortgages"},
+            {"name":"Other Loans"}
+        ]},
+        {"name":"Current Liabilities", "chidren": [
+            {"name":"Accounts Payable"},
+            {"name":"Credits Cards"}
+        ]}
+    ]},
+    {"name":"Equity", "chidren": [
+        {"name":"Capital"},
+        {"name":"Retained Earnings"},
+        {"name":"Unrealized Profits and Losses", "children": [
+            {"name":"Investing Activity"},
+            {"name":"Foreign Exchange"}
+        ]}
+    ]},
+    {"name":"Revenues", "chidren": [
+        {"name":"Operating Revenues"},
+        {"name":"Non-Operating Revenues and Gains"}
+    ]},
+    {"name":"Expenses", "chidren": [
+        {"name":"Operating Expenses"},
+        {"name":"Non-Operating Expenses and Losses"}
     ]}
 ]

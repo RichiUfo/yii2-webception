@@ -3,6 +3,7 @@
 namespace frontend\modules\accounting\controllers;
 
 use yii\filters\AccessControl;
+use yii\web\NotFoundHttpException;
 
 use frontend\modules\accounting\models\Account;
 use frontend\modules\accounting\models\AccountForex;
@@ -77,8 +78,14 @@ class InitController extends \frontend\components\Controller
     
     public function actionTest($chart) {
         
-        $accounts = simplexml_load_file("http://www.fullplanner.com/assets/dcd1142a/chartsofaccounts/".$chart.".xml") or die('Chart of accounts not found !');
-        $accounts = json_decode(json_encode((array) $accounts), 1);
+        // Open the JSON chart
+        $file = "http://www.fullplanner.com/assets/dcd1142a/chartsofaccounts/".$chart.".json";
+        if(!file_exists($file)) 
+            throw new NotFoundHttpException;
+            
+        $data = file_get_contents ($file);
+        $accounts = json_decode($data);
+        
         return $this->render('test', [
             'chart' => $chart,
             'accounts' => $accounts
