@@ -11,8 +11,12 @@ function rec_disp($acc) {
         
         // Recursive
         if (isset($a->account)) {
-            if (is_array($a->account)) rec_disp($a->account);
-            else echo '<ul><li>'.$a->name.'</li></ul>';
+            if (is_array($a->account)) {
+                rec_disp($a->account);
+            }
+            else {
+                echo '<ul><li>'.$a->account->name.'</li></ul>';
+            }
         }
     }
     echo '</ul>';
