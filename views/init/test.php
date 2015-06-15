@@ -3,7 +3,7 @@
 use frontend\modules\accounting\assets\BaseAsset;
 BaseAsset::register($this);
 
-$rec_disp = function ($acc) {
+function rec_disp($acc) {
     
     // Display <li>
     echo '<li>'.$acc->name.'</li>';
