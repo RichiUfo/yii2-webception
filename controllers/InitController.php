@@ -5,6 +5,7 @@ namespace frontend\modules\accounting\controllers;
 use yii\filters\AccessControl;
 
 use frontend\modules\accounting\models\Account;
+use frontend\modules\accounting\models\AccountForex;
 use frontend\modules\accounting\models\Transaction;
 use frontend\modules\accounting\models\TransactionForex;
 
@@ -100,9 +101,6 @@ class InitController extends \frontend\components\Controller
             'accounts' => $accounts,
             'accounts_forex' => $accounts_forex
         ]);
-        
-        // Delete all accounts for the logged user
-        Account::deleteAll(['owner_id' => \Yii::$app->user->id]);
         
     }
 }
