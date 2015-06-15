@@ -39,7 +39,7 @@ class InitController extends \frontend\components\Controller
         $this->initializeModule();
     } 
      
-    public function initializeModule() {
+    public function initializeModule2() {
         
         // Chart Of Acccounts - Personal Finance
         $assets = AccountController::createAccount('Assets', 0, 1);
@@ -73,6 +73,12 @@ class InitController extends \frontend\components\Controller
             $non_operating_expenses = AccountController::createAccount('Non-Operating Expenses And Losses', $expenses->id, 2);
         
         return $this->render('index');
+    }
+    
+    public function initializeModule($chart) {
+        
+        $accounts = ;
+        
     }
     
     public function actionReset () {
