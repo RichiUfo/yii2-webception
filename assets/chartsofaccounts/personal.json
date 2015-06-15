@@ -1,0 +1,13 @@
+[
+    {"name":"Assets", "number":10000, "chidren": [
+        {"name":"Fixed Assets", "number":17000, "chidren": [
+        
+        ]},
+        {"name":"Current Assets", "number":17000, "chidren": [
+            {"name":"Trading Accounts", "number":},
+            {"name":"Savings Accounts", "number":},
+            {"name":"Checking Accounts", "number":},
+            {"name":"Cash", "number":}
+        ]}
+    ]}
+]
