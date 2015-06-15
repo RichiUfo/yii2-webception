@@ -10,9 +10,9 @@ Account ID : <?= $res[0]->account->id ?><br><br>
 <table class="table table-striped">
     <thead>
         <tr>
-            <td>Debit</td>
-            <td>Credit</td>
-            <td></td>
+            <th>Debit</th>
+            <th>Credit</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
