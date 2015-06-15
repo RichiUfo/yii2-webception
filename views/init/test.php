@@ -7,10 +7,11 @@ function rec_disp($acc) {
     // Display <ul><li>
     echo '<ul>';
     foreach($acc as $a){
-        echo '<li>'.$a['name'].'</li>';
+        var_dump($a);
+        /*echo '<li>'.$a['name'].'</li>';
         
         // Recursive
-        if (isset($a['account'])) rec_disp($a['account']);
+        if (isset($a['account'])) rec_disp($a['account']);*/
 
     }
     echo '</ul>';
