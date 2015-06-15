@@ -1,3 +1,4 @@
+<h1>Realized P&L</h1>
 Amount of currency sold : <?= $res[3] ?> XYZ <br><br>
 
 Realized = (Revenue from currency sales) - (Cost of currency sold)<br>
