@@ -83,8 +83,9 @@ class InitController extends \frontend\components\Controller
         
         // transactions_forex cleaning
         $transactions_forex = TransactionForex::find()
-            ->innerJoin('transactions', '`transactions`.`id` = `transactions_forex`.`transaction_id`');
-            ->where([]);
+            ->innerJoin('transactions', '`transactions`.`id` = `transactions_forex`.`transaction_id`')
+            ->innerJoin('accounts', '`accounts`.`id` = `transactions`.`account_debit_id` OR `accounts`.`id` = `transactions`.`account_credit_id`')
+            ->where(['accounts.owner_id' => \Yii::$app->user->id]);
             ->all();
             
         return $this->render('reset', [
