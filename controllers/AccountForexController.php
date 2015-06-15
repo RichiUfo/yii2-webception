@@ -75,7 +75,7 @@ class AccountForexController extends \frontend\components\Controller
 		$sold_forex_amount = 0;
 		$rfcs = 0;
 		foreach($operations as $op) {
-			if($op->transaction->accountCredit->id === $account->account->id) {
+			if($op->transaction->accountDebit->id === $account->account->id) {
 				$sold_forex_amount += $op->forex_value;		// In foreign currency
 				$rfcs += $op->transaction->value;			// In base currency
 			}
@@ -85,7 +85,7 @@ class AccountForexController extends \frontend\components\Controller
 		$purchased_forex_amount = 0;
 		$cocs = 0;
 		foreach($operations as $op) {
-			if($op->transaction->accountDebit->id === $account->account->id) {
+			if($op->transaction->accountCredit->id === $account->account->id) {
 				if ($purchased_forex_amount < $sold_forex_amount + $op->forex_value){
 					$cocs += $op->transaction->value;
 					$purchased_forex_amount += $op->forex_value;
