@@ -12,10 +12,6 @@
                 <number></number>
                 <accounts>
                     
-                    <account>
-                    
-                    </account>
-                    
                 </accounts>
             </account>
             
@@ -28,10 +24,6 @@
                         <name>Trading Accounts</name>
                         <number></number>
                         <accounts>
-                            
-                            <account>
-                            
-                            </account>
                             
                         </accounts>
                     </account>
