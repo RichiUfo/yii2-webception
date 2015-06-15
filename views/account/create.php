@@ -50,6 +50,7 @@ use frontend\widgets\stepform\StepForm;
             <h4 class="info-text">Give it a name</h4>
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1">
+                    <?= $stepform->form->field($model, 'number') ?>
                     <?= $stepform->form->field($model, 'name') ?>
                     <?= $stepform->form->field($model, 'currency') ?>
                 </div>
