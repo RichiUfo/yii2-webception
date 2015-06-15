@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<account>
-    <name>Assets</name>
-    <number></number>
-    <accounts>
-        
-    </accounts>
-</account>
+<accounts>
+    <account>
+        <name>Assets</name>
+        <number></number>
+        <accounts>
+            
+        </accounts>
+    </account>
+</accounts>
