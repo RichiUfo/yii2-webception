@@ -78,7 +78,7 @@ class AccountController extends \frontend\components\Controller
             $base += 1;
         }
         else {
-            $base = $base*10+1; 
+            $base = $base*10+1;
         }
         while($base * 10 < 99999) 
             $base *= 10;
@@ -359,7 +359,7 @@ class AccountController extends \frontend\components\Controller
             return false;
         }
     }
-    public function actionGetChildNumber($parent) {
+    public function actionTestGetChildNumber($parent) {
         \Yii::$app->response->format = 'json';
         return AccountController::getNextAvailableNumber($parent);
     }

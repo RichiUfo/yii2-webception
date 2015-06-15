@@ -39,8 +39,7 @@ class AccountForexController extends \frontend\components\Controller
 	public function createForexAccount($name, $parentid, $display, $currency) {
 		
 		// Create an account number
-		
-		$number = 0;
+		$number = AccountController::getNextAvailableNumber($parentid);
 		
 		$account = AccountController::createAccount($number, $name, $parentid, $display, 'forex_trading');
 		$forex = new AccountForex;
