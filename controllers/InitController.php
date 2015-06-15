@@ -6,6 +6,7 @@ use yii\filters\AccessControl;
 
 use frontend\modules\accounting\models\Account;
 use frontend\modules\accounting\models\Transaction;
+use frontend\modules\accounting\models\TransactionForex;
 
 class InitController extends \frontend\components\Controller
 {
