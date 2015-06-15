@@ -71,11 +71,15 @@ class AccountController extends \frontend\components\Controller
             ->one();
         
         // Get the base number (without the zeros)
-        $base = $last_account->number;
-        while(!is_float($base/10))
-            $base /= 10;
-        
-        $base += 1;
+        if(isset($last_account->number)){
+            $base = $last_account->number;
+            while(!is_float($base/10))
+                $base /= 10;
+            $base += 1;
+        }
+        else {
+            $base = $base*10+!
+        }
         while($base * 10 < 99999) 
             $base *= 10;
             
