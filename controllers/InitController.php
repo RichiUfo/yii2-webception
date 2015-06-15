@@ -77,7 +77,7 @@ class InitController extends \frontend\components\Controller
     
     public function actionTest($chart) {
         
-        $accounts = simplexml_load_file("/assets/dcd1142a/chartsofaccounts/".$chart.".xml") or die('Chart of accounts not found !');
+        $accounts = simplexml_load_file("http://www.fullplanner.com/assets/dcd1142a/chartsofaccounts/".$chart.".xml") or die('Chart of accounts not found !');
         return $this->render('test', [
             'chart' => $chart,
             'accounts' => $accounts
