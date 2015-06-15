@@ -38,7 +38,7 @@
     </tbody>
 </table>
 
-<h1>Transactions to be removed</h1>
+<h1>Transactions Deleted</h1>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -60,7 +60,7 @@
     </tbody>
 </table>
 
-<h1>Forex Transactions to be removed</h1>
+<h1>Forex Transactions Deleted</h1>
 <table class="table table-striped">
     <thead>
         <tr>
