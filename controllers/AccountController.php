@@ -56,15 +56,17 @@ class AccountController extends \frontend\components\Controller
             $base /= 10;
         
         // Minimum
-        $base_min = $base
-        while($base_min < 99999) $base_min *= 10;
-        $base_max = $base*10+9
-        while($base_max < 99999) $base_max *= 10;
+        $base_min = $base;
+        while($base_min < 99999) 
+            $base_min *= 10;
+        $base_max = $base*10+9;
+        while($base_max < 99999) 
+            $base_max *= 10;
         
         // Find the child account with the highest number
         $last_account = Account::find()
             ->where(['parent_id' => $parent->id])
-            ->andWhere('`number` > '.$base_min.' AND `number` < '$base_max)
+            ->andWhere('`number` > '.$base_min.' AND `number` < '.$base_max)
             ->orderBy('`number` DESC')
             ->one();
         
