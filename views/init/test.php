@@ -23,5 +23,7 @@ $rec_disp = function ($acc) {
 <h1>Chart of accounts</h1>
 
 <ul>
-<?php rec_disp($account); ?>
+<?php 
+//rec_disp($account); 
+?>
 </ul>
