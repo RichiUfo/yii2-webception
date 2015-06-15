@@ -1,4 +1,26 @@
 Amount of currency sold : <?= $res[3] ?> XYZ <br><br>
 
 Realized = (Revenue from currency sales) - (Cost of currency sold)<br>
-<?= $res[0] ?> = <?= $res[1] ?> - <?= $res[2] ?>
+<?= $res[0]->realized ?> = <?= $res[1] ?> - <?= $res[2] ?><br><br>
+
+Account ID : <?= $res[0]->account->id ?><br><br>
+
+// Operations
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Debit</td>
+            <td>Credit</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($res[4] as $op) :?>
+        <tr>
+            <td>$op->transaction->accountDebit->id</td>
+            <td>$op->transaction->accountCredit->id</td>
+            <td></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
