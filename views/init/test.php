@@ -8,6 +8,7 @@ function rec_disp($acc) {
     echo '<ul>';
     foreach($acc as $a){
         var_dump($a);
+        echo "<br><br>";
         /*echo '<li>'.$a['name'].'</li>';
         
         // Recursive
