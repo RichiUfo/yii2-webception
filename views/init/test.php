@@ -17,8 +17,6 @@ function rec_disp($acc) {
     echo '</ul>';
 }
 ?>
-
-
 <h1>Chart of accounts <small><?= $chart ?></small></h1>
 
 <ul>
