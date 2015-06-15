@@ -60,6 +60,7 @@ class AccountController extends \frontend\components\Controller
             $account = new Account();
             $account->owner_id = Yii::$app->user->id;
             $account->parent_id = $parentid;
+            $account->number = $number;
             $account->name = $name;
             $account->display_position = $display;
             $account->system = 1;
