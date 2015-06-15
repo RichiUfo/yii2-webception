@@ -24,6 +24,6 @@ function rec_disp($acc) {
 
 <ul>
 <?php 
-rec_disp($accounts->account); 
+var_dump($accounts->account); 
 ?>
 </ul>
