@@ -10,14 +10,8 @@ function rec_disp($acc) {
         echo '<li>'.$a->name.'</li>';
         
         // Recursive
-        if (isset($a->account)) {
-            if (!is_object($a->account)) {
-                rec_disp($a->account);
-            }
-            else {
-                echo '<ul><li>'.$a->account->name.'</li></ul>';
-            }
-        }
+        if (isset($a->account)) rec_disp($a->account);
+
     }
     echo '</ul>';
 }
@@ -28,7 +22,8 @@ function rec_disp($acc) {
 
 <ul>
 <?php 
-//rec_disp($accounts); 
+
+rec_disp($accounts); 
 
 var_dump($accounts);
 ?>
