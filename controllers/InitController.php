@@ -78,7 +78,7 @@ class InitController extends \frontend\components\Controller
     public function actionTest($chart) {
         
         //$accounts = simplexml_load_file("");
-        $this->render('test', [
+        return$this->render('test', [
     //        'accounts' => $accounts
         ]);
     }
