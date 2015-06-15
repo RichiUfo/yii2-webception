@@ -31,8 +31,8 @@ libxml_use_internal_errors(true);
 $myXMLData =
 "<?xml version='1.0' encoding='UTF-8'?> 
 <document> 
-<user>John Doe</wronguser> 
-<email>john@example.com</wrongemail> 
+<user>John Doe</user> 
+<email>john@example.com</email> 
 </document>"; 
 
 $xml = simplexml_load_string($myXMLData);
