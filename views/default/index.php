@@ -72,7 +72,6 @@ BaseAsset::register($this);
 <!-- JAVASCRIPT -->
 <?php
 $js = "
-$(document).ready(function() {
     function refresh() {
     
         console.log('In the refresh function');
@@ -86,7 +85,7 @@ $(document).ready(function() {
             }
         });
     };
-});
+
 ";
 $this->registerJs($js, $this::POS_END);
 ?>
