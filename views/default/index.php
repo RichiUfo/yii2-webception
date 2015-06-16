@@ -20,10 +20,9 @@ BaseAsset::register($this);
 <div class="fp-acc-page">
     
     <div class="container-fluid header time-range">
-
         <div class="row">
             <div class="col-lg-6">
-                <h1 class="text-center">Accounting</h1>
+                <h1>Accounting</h1>
             </div>
             <div class="col-lg-6">
                 <?= DateRangePicker::widget([
