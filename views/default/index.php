@@ -35,20 +35,22 @@ BaseAsset::register($this);
                 ],
             ]); ?>
             
-            <?= DateRangePicker::widget([
-                'name' => 'date_from',
-                'size' => 'sm',
-                'value' => date("Y-m-d", strtotime(date("Y-m-d").' -1 months')),
-                'nameTo' => 'name_to',
-                'valueTo' => date("Y-m-d"),
-                'clientOptions' => [
-                    'format' => 'yyyy-mm-dd',
-                    'autoclose' => true
-                ],
-                'clientEvents' => [
-                    'changeDate' => 'function ev(){timePeriodChangeHandler();}'
-                ]
-            ]); ?>
+            <div class="input-daterange-container">
+                <?= DateRangePicker::widget([
+                    'name' => 'date_from',
+                    'size' => 'sm',
+                    'value' => date("Y-m-d", strtotime(date("Y-m-d").' -1 months')),
+                    'nameTo' => 'name_to',
+                    'valueTo' => date("Y-m-d"),
+                    'clientOptions' => [
+                        'format' => 'yyyy-mm-dd',
+                        'autoclose' => true
+                    ],
+                    'clientEvents' => [
+                        'changeDate' => 'function ev(){timePeriodChangeHandler();}'
+                    ]
+                ]); ?>
+            </div>
         </div>
     </div>
     
