@@ -4,6 +4,7 @@ use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Pjax;
+use yii\bootstrap\ButtonDropdown;
 use dosamigos\datepicker\DateRangePicker;
 
 use frontend\modules\accounting\assets\BaseAsset;
@@ -23,6 +24,17 @@ BaseAsset::register($this);
         <h1>Accounting</h1>
     
         <div class="right-menu">
+            
+            <?= ButtonDropdown::widget([
+                'label' => 'Action',
+                'dropdown' => [
+                    'items' => [
+                        ['label' => 'DropdownA', 'url' => '/'],
+                        ['label' => 'DropdownB', 'url' => '#'],
+                    ],
+                ],
+            ]); ?>
+            
             <?= DateRangePicker::widget([
                 'name' => 'date_from',
                 'size' => 'sm',
