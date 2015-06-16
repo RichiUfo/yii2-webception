@@ -52,7 +52,7 @@ BaseAsset::register($this);
                         'autoclose' => true
                     ],
                     'clientEvents' => [
-                        'changeDate' => 'function ev(){refresh();}'
+                        'changeDate' => 'function ev(){acc_sum_refresh();}'
                     ]
                 ]); ?>
             </div>
@@ -74,24 +74,6 @@ BaseAsset::register($this);
 
 <!-- JAVASCRIPT -->
 <?php
-$js = "
-    function refresh() {
-    
-        console.log('In the refresh function');
-    
-        var start = moment($('#account-period-selection input[name=".'"date_from"'."]').datepicker('getDate')).format('YYYY-MM-DD');
-        var end = moment($('#account-period-selection input[name=".'"date_to"'."]').datepicker('getDate')).format('YYYY-MM-DD');
-    
-        $.ajax({
-            url: '/accounting/default/index',
-            type: 'GET',
-            data: {start: start, end: end},
-            success: function(result){
-                $('#accounting-summary-container').html(result);
-                $(document).trigger('domupdated');
-            }
-        });
-    };
-";
-$this->registerJs($js, $this::POS_END);
+//$js = "";
+//$this->registerJs($js, $this::POS_END);
 ?>

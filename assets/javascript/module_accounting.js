@@ -1,14 +1,23 @@
-// listen click, open modal and .load content
-$('#modalNewTransactionButton').click(function (){
-    $('#modalNewTransaction').modal('show')
-        .find('#modalNewTransactionContent')
-        .load($(this).attr('value'));
-});
- 
-// serialize form, render response and close modal
-$('#create-transaction-form').on("submit", function(event) {
-    console.log('submitNewTransactionForm($form) started');
-});    
+/**************************
+* Accounting Summary Page *
+**************************/
+function acc_sum_refresh() {
+    
+    console.log('In the refresh function');
+
+    var start = moment($("#account-period-selection input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
+    var end = moment($("#account-period-selection input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
+
+    $.ajax({
+        url: '/accounting/default/index',
+        type: 'GET',
+        data: {start: start, end: end},
+        success: function(result){
+            $('#accounting-summary-container').html(result);
+            $(document).trigger('domupdated');
+        }
+    });
+};
 
 /*********************
 * Balance Sheet Page *
@@ -20,7 +29,7 @@ $('#create-transaction-form').on("submit", function(event) {
 ***************/
 
 /* Date Picker Right Panel */
-$(document).ready(function(){
+var accountPageInit = function(){
     
     // Account Page, Load the last 30 days transactions
     var start = moment().subtract(1, 'months').format('YYYY-MM-DD');
@@ -29,7 +38,7 @@ $(document).ready(function(){
     $.ajax({
         url: '/accounting/transaction/get-transactions-view',
         data: {accountid: accountid, start: start, end: end},
-        success: function(result){
+        success: function(result) {
             $('#account-transactions-ajax').html(result);
             $(document).trigger('domupdated');
         }
@@ -37,11 +46,11 @@ $(document).ready(function(){
     $.ajax({
         url: '/accounting/account/get-movements-summary-view',
         data: {accountid: accountid, start: start, end: end},
-        success: function(result){
+        success: function(result) {
             $('#movements-summary-ajax').html(result);
             $(document).trigger('domupdated');
         }
-});
+    });
     
 });
 $('.btn-account-period').click(function(){
@@ -79,7 +88,6 @@ $('.btn-account-period').click(function(){
     
     // 5 - Update the transactions section
     timePeriodChangeHandler();
-    
 });
 function timePeriodChangeHandler(){
     
