@@ -29,8 +29,12 @@
             .input-daterange {
                 width: 200px;
                 display: inline-table;
-                input {
+                > input {
                     border: none;
+                }
+                > span {
+                    border: none;
+                    background: transparent;
                 }
             }
         }

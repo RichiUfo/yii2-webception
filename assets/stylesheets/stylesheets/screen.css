@@ -50,8 +50,13 @@
   display: inline-table;
 }
 /* line 32, ../sass/_page_layout.scss */
-.fp-acc-page .header .input-daterange-container .input-daterange input {
+.fp-acc-page .header .input-daterange-container .input-daterange > input {
   border: none;
+}
+/* line 35, ../sass/_page_layout.scss */
+.fp-acc-page .header .input-daterange-container .input-daterange > span {
+  border: none;
+  background: transparent;
 }
 
 /* Index Page Accounting */
