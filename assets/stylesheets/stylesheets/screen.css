@@ -1,144 +1,95 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 4, ../sass/_transaction_form.scss */
-.transaction-form .account-summary {
-  margin: 25px 0px;
-  font-size: 18px;
-  font-weight: 300;
-}
+/*
+Error: Invalid CSS after "            width:": expected expression (e.g. 1px, bold), was ";"
+        on line 9 of /home/ubuntu/fp2-acc/assets/stylesheets/sass/_page_layout.scss
+        from line 13 of /home/ubuntu/fp2-acc/assets/stylesheets/sass/screen.scss
 
-/* line 2, ../sass/_page_layout.scss */
-.fp-acc-page .header {
-  position: relative;
-  border-bottom: 1px solid #F5F5F5;
-  margin-bottom: 20px;
-}
-/* line 6, ../sass/_page_layout.scss */
-.fp-acc-page .header .right-menu {
-  position: absolute;
-  height: 30px;
-  bottom: 10px;
-  right: 0px;
-}
-/* line 12, ../sass/_page_layout.scss */
-.fp-acc-page .header button {
-  top: 0;
-  background: transparent;
-  height: 30px;
-}
-/* line 16, ../sass/_page_layout.scss */
-.fp-acc-page .header button .ui-button-text {
-  font-weight: 400;
-}
-/* line 20, ../sass/_page_layout.scss */
-.fp-acc-page .header .input-daterange-container {
-  display: inline;
-}
-/* line 22, ../sass/_page_layout.scss */
-.fp-acc-page .header .input-daterange-container .input-daterange {
-  width: 200px;
-  display: inline-table;
-}
+4:         border-bottom: 1px solid #F5F5F5;
+5:         margin-bottom: 20px;
+6:         .right-menu {
+7:             position: absolute;
+8:             height: 30px;
+9:             width:;
+10:             bottom: 10px;
+11:             right: 0px;
+12:         }
+13:         button {
+14:             top: 0;
 
-/* Index Page Accounting */
-/* line 16, ../sass/screen.scss */
-#accounting-index {
-  text-align: center;
-}
-/* line 19, ../sass/screen.scss */
-#accounting-index .header {
-  height: 150px;
-  position: relative;
-}
-/* line 23, ../sass/screen.scss */
-#accounting-index .header i, #accounting-index .header p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-/* line 27, ../sass/screen.scss */
-#accounting-index .header > i {
-  font-size: 100px;
-  color: #F5F5F5;
-  transition: all 0.3s ease-in-out 0s;
-}
-/* line 33, ../sass/screen.scss */
-#accounting-index .header p, #accounting-index .header a {
-  font-size: 18px;
-  line-height: 24px;
-  color: #222;
-  transition: all 0.3s ease-in-out 0s;
-}
-/* line 41, ../sass/screen.scss */
-#accounting-index .content {
-  margin-top: 0px;
-  color: #222;
-}
-/* line 46, ../sass/screen.scss */
-#accounting-index .accounting-index-summary-row {
-  margin-bottom: 75px;
-}
-/* line 49, ../sass/screen.scss */
-#accounting-index .accounting-index-summary-row > .column {
-  border-right: 1px solid #F5F5F5;
-}
-/* line 52, ../sass/screen.scss */
-#accounting-index .accounting-index-summary-row > .column:last-child {
-  border-right: none;
-}
-/* line 55, ../sass/screen.scss */
-#accounting-index .accounting-index-summary-row:last-of-type {
-  margin-bottom: 25px;
-}
-
-/* Balance Sheet */
-/* line 64, ../sass/screen.scss */
-#balance-sheet ul li {
-  list-style-type: none;
-  padding-bottom: 3px;
-}
-
-/* Profits and Losses */
-/* line 72, ../sass/screen.scss */
-#profit-loss ul li {
-  list-style-type: none;
-  padding-bottom: 3px;
-}
-
-/* Account Page */
-/* line 81, ../sass/screen.scss */
-#account-display ul li {
-  list-style-type: none;
-}
-/* line 85, ../sass/screen.scss */
-#account-display .account-create-li-button {
-  transition: all 0.3s ease-in-out 0s;
-}
-/* line 87, ../sass/screen.scss */
-#account-display .account-create-li-button:hover {
-  color: #205081;
-  cursor: pointer;
-}
-/* line 93, ../sass/screen.scss */
-#account-display .currency-group {
-  display: inline-block;
-}
-/* line 95, ../sass/screen.scss */
-#account-display .currency-group img {
-  display: inline-block;
-  margin-right: 10px;
-}
-/* line 98, ../sass/screen.scss */
-#account-display .currency-group img:last-child {
-  margin-right: 0px;
-}
-/* line 102, ../sass/screen.scss */
-#account-display .currency-group p {
-  display: none;
-  font-size: 14px;
-}
+Backtrace:
+/home/ubuntu/fp2-acc/assets/stylesheets/sass/_page_layout.scss:9
+/home/ubuntu/fp2-acc/assets/stylesheets/sass/screen.scss:13
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:1165:in `expected'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/script/lexer.rb:220:in `expected!'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/script/parser.rb:573:in `assert_expr'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/script/parser.rb:62:in `parse'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:1027:in `sass_script'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:880:in `value!'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:753:in `block in try_declaration'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:1141:in `call'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:1141:in `rethrow'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:766:in `try_declaration'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:696:in `declaration_or_ruleset'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:661:in `block_child'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:653:in `block_contents'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:642:in `block'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:711:in `declaration_or_ruleset'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:661:in `block_child'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:653:in `block_contents'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:642:in `block'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:711:in `declaration_or_ruleset'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:661:in `block_child'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:650:in `block_contents'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:642:in `block'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:635:in `ruleset'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:660:in `block_child'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:650:in `block_contents'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:117:in `stylesheet'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:42:in `parse'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/engine.rb:393:in `_to_tree'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/engine.rb:299:in `to_tree'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:323:in `block in visit_import'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/stack.rb:88:in `block in with_import'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/stack.rb:88:in `with_import'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/stack.rb:79:in `with_base'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/root_node.rb:20:in `render'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/engine.rb:268:in `render'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:209:in `each'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/listener.rb:252:in `call'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/adapter.rb:254:in `call'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
+/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"            width:\": expected expression (e.g. 1px, bold), was \";\"\A         on line 9 of /home/ubuntu/fp2-acc/assets/stylesheets/sass/_page_layout.scss\A         from line 13 of /home/ubuntu/fp2-acc/assets/stylesheets/sass/screen.scss\A \A 4:         border-bottom: 1px solid #F5F5F5;\A 5:         margin-bottom: 20px;\A 6:         .right-menu {\A 7:             position: absolute;\A 8:             height: 30px;\A 9:             width:;\A 10:             bottom: 10px;\A 11:             right: 0px;\A 12:         }\A 13:         button {\A 14:             top: 0;"; }
