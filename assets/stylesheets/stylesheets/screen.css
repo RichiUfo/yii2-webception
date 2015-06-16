@@ -28,7 +28,14 @@
   position: absolute;
   right: 200px;
 }
-/* line 17, ../sass/_page_layout.scss */
+/* line 16, ../sass/_page_layout.scss */
+.fp-acc-page .header .right-menu button, .fp-acc-page .header .right-menu input, .fp-acc-page .header .right-menu span {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 15;
+}
+/* line 23, ../sass/_page_layout.scss */
 .fp-acc-page .header button {
   top: 0;
   background: transparent;
@@ -36,24 +43,24 @@
   border: none;
   border-right: 1px solid #F5F5F5;
 }
-/* line 23, ../sass/_page_layout.scss */
+/* line 29, ../sass/_page_layout.scss */
 .fp-acc-page .header button .ui-button-text {
   font-weight: 400;
 }
-/* line 27, ../sass/_page_layout.scss */
+/* line 33, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange-container {
   display: inline;
 }
-/* line 29, ../sass/_page_layout.scss */
+/* line 35, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange-container .input-daterange {
   width: 200px;
   display: inline-table;
 }
-/* line 32, ../sass/_page_layout.scss */
+/* line 38, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange-container .input-daterange > input {
   border: none;
 }
-/* line 35, ../sass/_page_layout.scss */
+/* line 41, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange-container .input-daterange > span {
   border: none;
   background: transparent;
