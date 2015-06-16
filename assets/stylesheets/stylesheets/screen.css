@@ -25,7 +25,7 @@
 }
 /* line 12, ../sass/_page_layout.scss */
 .fp-acc-page .header .right-menu .btn-group {
-  position: abs;
+  position: absolute;
   right: 200px;
 }
 /* line 17, ../sass/_page_layout.scss */
