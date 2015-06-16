@@ -37,7 +37,7 @@ BaseAsset::register($this);
                 ],
             ]); ?-->
             
-            <i class="fa fa-calendar"></i>
+            <span class="icon"><i class="fa fa-calendar"></i></span>
             
             <div class="input-daterange-container">
                 <?= DateRangePicker::widget([
