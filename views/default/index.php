@@ -30,9 +30,11 @@ BaseAsset::register($this);
                 ['label' => 'Week'],
                 ['label' => 'Quarter'],
                 ['label' => 'Year']
-            ], $options = [] ); ?>
+            ], $options = [
+                ['class' => 'btn-group']
+            ] ); ?>
             
-            <?= ButtonDropdown::widget([
+            <!--?= ButtonDropdown::widget([
                 'label' => 'Period',
                 'dropdown' => [
                     'items' => [
@@ -42,7 +44,7 @@ BaseAsset::register($this);
                         ['label' => 'Year', 'url' => '#'],
                     ],
                 ],
-            ]); ?>
+            ]); ?-->
             
             <div class="input-daterange-container">
                 <?= DateRangePicker::widget([
