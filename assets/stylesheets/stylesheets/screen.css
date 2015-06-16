@@ -33,7 +33,7 @@
   font-family: 'Open Sans';
   font-size: 14px;
   font-weight: 400;
-  line-height: 15;
+  line-height: 15px;
 }
 /* line 23, ../sass/_page_layout.scss */
 .fp-acc-page .header button {
