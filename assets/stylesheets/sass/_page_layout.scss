@@ -13,31 +13,35 @@
                 position: absolute;
                 right: 220px;
             }
+            
+            // Menu Items Commons
             button, input, span {
                 font-family: 'Open Sans', helvetica, arial, sans-serif;
                 font-size: 14px;
                 font-weight: 400;
                 line-height: 15px;
-                background: tran;
+                background: transparent;
                 &:hover {
                     color: #000;
                 }
             }
-        }
-        button {
-            top: 0;
-            background: transparent;
-            height: 30px;
-            border: none;
-            border-right: 1px solid #F5F5F5;
-            .ui-button-text {
-                font-weight: 400;
-            } 
-            &:active {
-                box-shadow: none;
-                
+            
+            // Dropdown Specifics
+            button {
+                top: 0;
+                height: 30px;
+                border: none;
+                border-right: 1px solid #F5F5F5;
+                .ui-button-text {
+                    font-weight: 400;
+                } 
+                &:active {
+                    box-shadow: none;
+                    
+                }
             }
         }
+        
         .input-daterange-container {
             display: inline;
             .input-daterange {
