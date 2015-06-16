@@ -2,7 +2,10 @@
     .header {
         border-bottom: 1px solid #F5F5F5;
         margin-bottom: 20px;
-        
+        .col-full-height {
+            position: relative;
+            height: 100%;
+        }
         .input-daterange {
             position: absolute;
             right: 0px;

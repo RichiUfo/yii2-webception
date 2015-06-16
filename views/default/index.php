@@ -21,10 +21,10 @@ BaseAsset::register($this);
     
     <div class="container-fluid header time-range">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-full-height">
                 <h1>Accounting</h1>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-full-height">
                 <?= DateRangePicker::widget([
                     'name' => 'date_from',
                     'size' => 'sm',
