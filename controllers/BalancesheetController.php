@@ -68,7 +68,7 @@ class BalancesheetController extends Controller
                     ]
                 ],
                 [
-                    'title' => 'Accounting', 'items' => [
+                    'title' => 'Operations', 'items' => [
                         ['icon' => 'plus', 'text' => 'Transaction', 'type' => 'modal_preload', 'route' => 'transaction/create'], 
                         ['icon' => 'plus', 'text' => 'Account', 'type' => 'modal_preload', 'route' => 'account/create'],
                     ]
