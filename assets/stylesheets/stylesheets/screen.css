@@ -53,7 +53,7 @@
 }
 /* line 35, ../sass/_page_layout.scss */
 .fp-acc-page .header button:active {
-  border: none;
+  box-shadow: none;
 }
 /* line 40, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange-container {
