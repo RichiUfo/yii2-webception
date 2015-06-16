@@ -25,16 +25,7 @@ BaseAsset::register($this);
     
         <div class="right-menu">
             
-            <?= Html::dropDownList('period', $selection = null, $items = [
-                ['label' => 'Day'],
-                ['label' => 'Week'],
-                ['label' => 'Quarter'],
-                ['label' => 'Year']
-            ], $options = [
-                ['class' => 'btn-group']
-            ] ); ?>
-            
-            <!--?= ButtonDropdown::widget([
+            <?= ButtonDropdown::widget([
                 'label' => 'Period',
                 'dropdown' => [
                     'items' => [
@@ -44,7 +35,7 @@ BaseAsset::register($this);
                         ['label' => 'Year', 'url' => '#'],
                     ],
                 ],
-            ]); ?-->
+            ]); ?>
             
             <div class="input-daterange-container">
                 <?= DateRangePicker::widget([
