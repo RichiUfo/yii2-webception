@@ -44,6 +44,7 @@ BaseAsset::register($this);
                     'value' => date("Y-m-d", strtotime(date("Y-m-d").' -1 months')),
                     'nameTo' => 'name_to',
                     'valueTo' => date("Y-m-d"),
+                    'labelTo' => '->',
                     'clientOptions' => [
                         'format' => 'yyyy-mm-dd',
                         'autoclose' => true
