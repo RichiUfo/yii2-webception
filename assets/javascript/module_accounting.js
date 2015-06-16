@@ -16,7 +16,7 @@ function acc_sum_refresh() {
         data: {start: start, end: end},
         success: function(result){
             $('#accounting-summary-container').html(result);
-            $(document).trigger('domupdated');
+            //$(document).trigger('domupdated');
         }
     });
 };
