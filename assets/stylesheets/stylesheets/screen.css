@@ -44,7 +44,7 @@
 .fp-acc-page .header .right-menu button.icon, .fp-acc-page .header .right-menu input.icon, .fp-acc-page .header .right-menu span.icon {
   position: relative;
   top: -7px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 30px;
 }
 /* line 36, ../sass/_page_layout.scss */
