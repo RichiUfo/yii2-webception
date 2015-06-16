@@ -25,6 +25,13 @@ BaseAsset::register($this);
     
         <div class="right-menu">
             
+            <?= Html::dropDownList('period', $selection = null, $items = [
+                ['label' => 'Day'],
+                ['label' => 'Week'],
+                ['label' => 'Quarter'],
+                ['label' => 'Year']
+            ], $options = [] ); ?>
+            
             <?= ButtonDropdown::widget([
                 'label' => 'Period',
                 'dropdown' => [
