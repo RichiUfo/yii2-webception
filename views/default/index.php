@@ -79,10 +79,13 @@ $js = "
     
         console.log('In the refresh function');
     
+        var start = moment($('#account-period-selection input[name='date_from']').datepicker('getDate')).format('YYYY-MM-DD');
+        var end = moment($('#account-period-selection input[name='name_to']'').datepicker('getDate')).format('YYYY-MM-DD');
+    
         $.ajax({
             url: '/accounting/default/index',
             type: 'GET',
-            data: {start:'starting', end:'ending'},
+            data: {start: start, end: end},
             success: function(result){
                 $('#accounting-summary-container').html(result);
                 $(document).trigger('domupdated');
