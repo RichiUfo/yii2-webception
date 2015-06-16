@@ -4,6 +4,7 @@ use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Pjax;
+use dosamigos\datepicker\DateRangePicker;
 
 use frontend\modules\accounting\assets\BaseAsset;
 BaseAsset::register($this);
