@@ -60,7 +60,10 @@ BaseAsset::register($this);
     </div>
     
     <div id="accounting-summary-container">
-        <?= $this->renderAjax('partial_summary'); ?>
+        <?= $this->renderAjax('partial_summary', [
+            'start' => $start,
+            'end' => $end
+        ]); ?>
     </div>
     
 </div>

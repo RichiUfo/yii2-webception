@@ -62,7 +62,9 @@ class DefaultController extends \frontend\components\Controller
                             ['icon' => 'plus', 'text' => 'Account', 'type' => 'modal_preload', 'route' => 'account/create'],
                         ]
                     ]
-                ]
+                ],
+                'start' => $start,
+                'end' => $end
             ]);
         }
     }
