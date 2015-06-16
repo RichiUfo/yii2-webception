@@ -18,6 +18,9 @@
                 font-size: 14px;
                 font-weight: 400;
                 line-height: 15px;
+                &:hover {
+                    color: #000;
+                }
             }
         }
         button {
@@ -29,6 +32,10 @@
             .ui-button-text {
                 font-weight: 400;
             } 
+            &:active {
+                border: none;
+                
+            }
         }
         .input-daterange-container {
             display: inline;
