@@ -26,7 +26,7 @@ BaseAsset::register($this);
         <div class="right-menu">
             
             <?= ButtonDropdown::widget([
-                'label' => 'One Month',
+                'label' => 'Period',
                 'dropdown' => [
                     'items' => [
                         ['label' => 'One Day', 'url' => '#'],
