@@ -39,7 +39,7 @@ BaseAsset::register($this);
             
             <span class="icon"><i class="fa fa-calendar"></i></span>
             
-            <div class="input-daterange-container">
+            <div id="input-daterange-container">
                 <?= DateRangePicker::widget([
                     'name' => 'date_from',
                     'size' => 'sm',
@@ -52,7 +52,7 @@ BaseAsset::register($this);
                         'autoclose' => true
                     ],
                     'clientEvents' => [
-                        'changeDate' => 'function ev(){timePeriodChangeHandler();}'
+                        'changeDate' => 'function ev(){refresh();}'
                     ]
                 ]); ?>
             </div>
@@ -75,8 +75,13 @@ BaseAsset::register($this);
 // Loading the view blocks when the document is ready
 $js = "
 var refresh = function(){
+
+    var start = moment($('#input-daterange-container input[name='date_from']').datepicker('getDate')).format('YYYY-MM-DD');
+    var end = moment($('#input-daterange-container input[name='name_to']').datepicker('getDate')).format('YYYY-MM-DD');
+
     $.ajax({
         url: '/accounting/default/index',
+        data: '',
         success: function(result){
             $('#accounting-summary-container').html(result);
             $(document).trigger('domupdated');
