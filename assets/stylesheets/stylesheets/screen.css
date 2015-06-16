@@ -30,7 +30,7 @@
 }
 /* line 16, ../sass/_page_layout.scss */
 .fp-acc-page .header .right-menu button, .fp-acc-page .header .right-menu input, .fp-acc-page .header .right-menu span {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', helvetica, arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 15px;
