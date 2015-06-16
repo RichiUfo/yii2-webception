@@ -73,7 +73,7 @@ BaseAsset::register($this);
 <?php
 $js = "
 $(document).ready(function() {
-    var refresh = function(){
+     function refresh() {
     
         console.log('In the refresh function');
     
