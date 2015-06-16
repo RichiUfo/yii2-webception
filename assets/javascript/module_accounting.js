@@ -52,7 +52,7 @@ var accountPageInit = function(){
         }
     });
     
-});
+};
 $('.btn-account-period').click(function(){
     
     // 1 - Set the active state
