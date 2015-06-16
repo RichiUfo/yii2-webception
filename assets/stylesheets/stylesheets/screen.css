@@ -19,8 +19,9 @@
 .fp-acc-page .header .right-menu {
   position: absolute;
   bottom: 0px;
+  right: 0px;
 }
-/* line 10, ../sass/_page_layout.scss */
+/* line 11, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange {
   position: absolute;
   right: 0px;
