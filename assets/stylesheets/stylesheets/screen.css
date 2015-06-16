@@ -72,6 +72,9 @@
 .fp-acc-page .header .input-daterange-container .input-daterange > span {
   border: none;
   background: transparent;
+  width: 10px;
+  height: 22px;
+  padding: 4px 5;
 }
 
 /* Index Page Accounting */
