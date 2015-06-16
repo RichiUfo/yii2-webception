@@ -19,25 +19,30 @@
 .fp-acc-page .header .right-menu {
   position: absolute;
   height: 30px;
-  minwidth: 300px;
+  width: auto;
   bottom: 10px;
   right: 0px;
 }
-/* line 13, ../sass/_page_layout.scss */
+/* line 12, ../sass/_page_layout.scss */
+.fp-acc-page .header .right-menu .btn-group {
+  position: abs;
+  right: 200px;
+}
+/* line 17, ../sass/_page_layout.scss */
 .fp-acc-page .header button {
   top: 0;
   background: transparent;
   height: 30px;
 }
-/* line 17, ../sass/_page_layout.scss */
+/* line 21, ../sass/_page_layout.scss */
 .fp-acc-page .header button .ui-button-text {
   font-weight: 400;
 }
-/* line 21, ../sass/_page_layout.scss */
+/* line 25, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange-container {
   display: inline;
 }
-/* line 23, ../sass/_page_layout.scss */
+/* line 27, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange-container .input-daterange {
   width: 200px;
   display: inline-table;
