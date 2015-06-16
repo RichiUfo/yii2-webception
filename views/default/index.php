@@ -46,7 +46,7 @@ BaseAsset::register($this);
                     'valueTo' => date("Y-m-d"),
                     'labelTo' => '<i class="fa fa-chevron-right"></i>',
                     'clientOptions' => [
-                        'format' => 'm dd, YY', //'yyyy-mm-dd',
+                        'format' => 'yyyy-mm-dd',
                         'autoclose' => true
                     ],
                     'clientEvents' => [
