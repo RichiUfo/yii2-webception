@@ -18,23 +18,24 @@
 /* line 6, ../sass/_page_layout.scss */
 .fp-acc-page .header .right-menu {
   position: absolute;
+  height: 30px;
   bottom: 10px;
   right: 0px;
 }
-/* line 11, ../sass/_page_layout.scss */
+/* line 12, ../sass/_page_layout.scss */
 .fp-acc-page .header button {
   background: transparent;
   height: 30px;
 }
-/* line 14, ../sass/_page_layout.scss */
+/* line 15, ../sass/_page_layout.scss */
 .fp-acc-page .header button .ui-button-text {
   font-weight: 400;
 }
-/* line 18, ../sass/_page_layout.scss */
+/* line 19, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange-container {
   display: inline;
 }
-/* line 20, ../sass/_page_layout.scss */
+/* line 21, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange-container .input-daterange {
   width: 200px;
   display: inline-table;
