@@ -32,30 +32,36 @@ class DefaultController extends \frontend\components\Controller
         ];
     }
     
-    public function actionIndex()
+    public function actionIndex($start = '', $end ='')
     {
         $data = BalancesheetController::getFinancialData();
     
         $this->layout = '@app/views/layouts/two-columns-left';
-        return $this->render('index' , [
-            'data' => $data,
-            'back_button' => ['text' => 'Home', 'route' => '/'],
-            'left_menus' => [
-                [
-                    'title' => 'Reporting', 'items' => [
-                        ['icon' => 'pie-chart', 'text' => 'Balance Sheet', 'type' => 'regular', 'route' => '/accounting/balancesheet'],
-                        ['icon' => 'bar-chart', 'text' => 'Income', 'type' => 'regular', 'route' => '/accounting/profitloss'],
-                        ['icon' => 'random', 'text' => 'Cash Flow', 'type' => 'regular', 'route' => '/accounting'],
-                    ]
-                ],
-                [
-                    'title' => 'Accounting', 'items' => [
-                        ['icon' => 'plus', 'text' => 'Transaction', 'type' => 'modal_preload', 'route' => 'transaction/create'], 
-                        ['icon' => 'plus', 'text' => 'Account', 'type' => 'modal_preload', 'route' => 'account/create'],
+        
+        if(\Yii::$app->request->isAjax) {
+            return $this->renderAjax('partial_summary');
+        }
+        else{
+            return $this->render('index' , [
+                'data' => $data,
+                'back_button' => ['text' => 'Home', 'route' => '/'],
+                'left_menus' => [
+                    [
+                        'title' => 'Reporting', 'items' => [
+                            ['icon' => 'pie-chart', 'text' => 'Balance Sheet', 'type' => 'regular', 'route' => '/accounting/balancesheet'],
+                            ['icon' => 'bar-chart', 'text' => 'Income', 'type' => 'regular', 'route' => '/accounting/profitloss'],
+                            ['icon' => 'random', 'text' => 'Cash Flow', 'type' => 'regular', 'route' => '/accounting'],
+                        ]
+                    ],
+                    [
+                        'title' => 'Accounting', 'items' => [
+                            ['icon' => 'plus', 'text' => 'Transaction', 'type' => 'modal_preload', 'route' => 'transaction/create'], 
+                            ['icon' => 'plus', 'text' => 'Account', 'type' => 'modal_preload', 'route' => 'account/create'],
+                        ]
                     ]
                 ]
-            ]
-        ]);
+            ]);
+        }
     }
 	
 	public function actionTest() { 
