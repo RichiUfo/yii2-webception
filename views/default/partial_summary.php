@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="card-content">
-                
+                <?= $start ?><br><?= $end ?>
             </div>
         </div>
     </div>

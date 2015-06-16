@@ -78,14 +78,14 @@ $js = "
     
         $.ajax({
             url: '/accounting/default/index',
-            data: '',
+            type: 'GET',
+            data: {start:'starting', end:'ending'},
             success: function(result){
                 $('#accounting-summary-container').html(result);
                 $(document).trigger('domupdated');
             }
         });
     };
-
 ";
 $this->registerJs($js, $this::POS_END);
 ?>
