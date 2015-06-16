@@ -29,10 +29,10 @@ BaseAsset::register($this);
                 'label' => 'Period',
                 'dropdown' => [
                     'items' => [
-                        ['label' => 'One Day', 'url' => '#'],
-                        ['label' => 'One Week', 'url' => '#'],
-                        ['label' => 'One Quarter', 'url' => '#'],
-                        ['label' => 'One Year', 'url' => '#'],
+                        ['label' => 'Day', 'url' => '#'],
+                        ['label' => 'Week', 'url' => '#'],
+                        ['label' => 'Quarter', 'url' => '#'],
+                        ['label' => 'Year', 'url' => '#'],
                     ],
                 ],
             ]); ?>
