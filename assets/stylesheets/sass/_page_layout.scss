@@ -25,6 +25,8 @@
                     color: #000;
                 }
                 &.icon {
+                    position: relative;
+                    top: -7px;
                     font-size: 20px;
                     line-height: 30px;
                 }
