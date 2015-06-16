@@ -18,8 +18,12 @@
             top: 0;
             background: transparent;
             height: 30px;
+            border: none;
             .ui-button-text {
                 font-weight: 400;
+            }
+            &:last-child {
+                border-right: 1px solid #F5F5F5;
             }
         }
         .input-daterange-container {
@@ -27,6 +31,9 @@
             .input-daterange {
                 width: 200px;
                 display: inline-table;
+                input {
+                    border: none;
+                }
             }
         }
     }
