@@ -34,25 +34,22 @@
   background: transparent;
   height: 30px;
   border: none;
+  border-right: 1px solid #F5F5F5;
 }
-/* line 22, ../sass/_page_layout.scss */
+/* line 23, ../sass/_page_layout.scss */
 .fp-acc-page .header button .ui-button-text {
   font-weight: 400;
 }
-/* line 25, ../sass/_page_layout.scss */
-.fp-acc-page .header button:last-child {
-  border-right: 1px solid #F5F5F5;
-}
-/* line 29, ../sass/_page_layout.scss */
+/* line 27, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange-container {
   display: inline;
 }
-/* line 31, ../sass/_page_layout.scss */
+/* line 29, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange-container .input-daterange {
   width: 200px;
   display: inline-table;
 }
-/* line 34, ../sass/_page_layout.scss */
+/* line 32, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange-container .input-daterange input {
   border: none;
 }

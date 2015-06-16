@@ -19,11 +19,9 @@
             background: transparent;
             height: 30px;
             border: none;
+            border-right: 1px solid #F5F5F5;
             .ui-button-text {
                 font-weight: 400;
-            }
-            &:last-child {
-                border-right: 1px solid #F5F5F5;
             }
         }
         .input-daterange-container {
