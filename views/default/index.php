@@ -20,6 +20,22 @@ BaseAsset::register($this);
     
     <div class="header time-range">
         <h1 class="text-center">Accounting</h1>
+        <div id="account-period-selection" class="right-col-item" style="margin: 10px">
+            <?= DateRangePicker::widget([
+                'name' => 'date_from',
+                'size' => 'sm',
+                'value' => date("Y-m-d", strtotime(date("Y-m-d").' -1 months')),
+                'nameTo' => 'name_to',
+                'valueTo' => date("Y-m-d"),
+                'clientOptions' => [
+                    'format' => 'yyyy-mm-dd',
+                    'autoclose' => true
+                ],
+                'clientEvents' => [
+                    'changeDate' => 'function ev(){timePeriodChangeHandler();}'
+                ]
+            ]); ?>
+        </div>
     </div>
     
     <div id="accounting-index">
