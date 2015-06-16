@@ -37,6 +37,8 @@ BaseAsset::register($this);
                 ],
             ]); ?-->
             
+            <i class="fa fa-calendar"></i>
+            
             <div class="input-daterange-container">
                 <?= DateRangePicker::widget([
                     'name' => 'date_from',
