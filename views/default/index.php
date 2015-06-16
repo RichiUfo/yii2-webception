@@ -21,24 +21,26 @@ BaseAsset::register($this);
     
     <div class="container-fluid header time-range">
         <div class="row">
-            <div class="col-lg-6 col-full-height">
+            <div class="col-lg-6">
                 <h1>Accounting</h1>
             </div>
-            <div class="col-lg-6 col-full-height">
-                <?= DateRangePicker::widget([
-                    'name' => 'date_from',
-                    'size' => 'sm',
-                    'value' => date("Y-m-d", strtotime(date("Y-m-d").' -1 months')),
-                    'nameTo' => 'name_to',
-                    'valueTo' => date("Y-m-d"),
-                    'clientOptions' => [
-                        'format' => 'yyyy-mm-dd',
-                        'autoclose' => true
-                    ],
-                    'clientEvents' => [
-                        'changeDate' => 'function ev(){timePeriodChangeHandler();}'
-                    ]
-                ]); ?>
+            <div class="col-lg-6">
+                <div class="right-menu">
+                    <?= DateRangePicker::widget([
+                        'name' => 'date_from',
+                        'size' => 'sm',
+                        'value' => date("Y-m-d", strtotime(date("Y-m-d").' -1 months')),
+                        'nameTo' => 'name_to',
+                        'valueTo' => date("Y-m-d"),
+                        'clientOptions' => [
+                            'format' => 'yyyy-mm-dd',
+                            'autoclose' => true
+                        ],
+                        'clientEvents' => [
+                            'changeDate' => 'function ev(){timePeriodChangeHandler();}'
+                        ]
+                    ]); ?>
+                </div>
             </div>
         </div>
     </div>
