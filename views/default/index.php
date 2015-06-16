@@ -74,25 +74,23 @@ BaseAsset::register($this);
 
 // Loading the view blocks when the document is ready
 $js = "
-var refresh = function(){
-
-    console.log('In the refresh function');
-
-    var start = moment($('#input-daterange-container input[name='date_from']').datepicker('getDate')).format('YYYY-MM-DD');
-    var end = moment($('#input-daterange-container input[name='name_to']').datepicker('getDate')).format('YYYY-MM-DD');
-
-    $.ajax({
-        url: '/accounting/default/index',
-        data: '',
-        success: function(result){
-            $('#accounting-summary-container').html(result);
-            $(document).trigger('domupdated');
-        }
-    });
-};
-
 $(document).ready(function() {
-
+    var refresh = function(){
+    
+        console.log('In the refresh function');
+    
+        var start = moment($('#input-daterange-container input[name='date_from']').datepicker('getDate')).format('YYYY-MM-DD');
+        var end = moment($('#input-daterange-container input[name='name_to']').datepicker('getDate')).format('YYYY-MM-DD');
+    
+        $.ajax({
+            url: '/accounting/default/index',
+            data: '',
+            success: function(result){
+                $('#accounting-summary-container').html(result);
+                $(document).trigger('domupdated');
+            }
+        });
+    };
 });
 ";
 $this->registerJs($js, $this::POS_END);
