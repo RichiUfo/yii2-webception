@@ -79,8 +79,8 @@ $(document).ready(function() {
     
         console.log('In the refresh function');
     
-        var start = moment($('#input-daterange-container input[name=''date_from'']').datepicker('getDate')).format('YYYY-MM-DD');
-        var end = moment($('#input-daterange-container input[name=''name_to'']').datepicker('getDate')).format('YYYY-MM-DD');
+        var start = moment($('#input-daterange-container input[name='date_from']').datepicker('getDate')).format('YYYY-MM-DD');
+        var end = moment($('#input-daterange-container input[name='name_to']').datepicker('getDate')).format('YYYY-MM-DD');
     
         $.ajax({
             url: '/accounting/default/index',
