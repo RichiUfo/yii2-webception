@@ -24,12 +24,13 @@
 /* line 11, ../sass/_page_layout.scss */
 .fp-acc-page .header button {
   background: transparent;
+  height: 30px;
 }
-/* line 13, ../sass/_page_layout.scss */
+/* line 14, ../sass/_page_layout.scss */
 .fp-acc-page .header button .ui-button-text {
   font-weight: 400;
 }
-/* line 17, ../sass/_page_layout.scss */
+/* line 18, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange {
   width: 200px;
   display: inline-table;

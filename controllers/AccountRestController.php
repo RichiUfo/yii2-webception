@@ -36,11 +36,11 @@ class AccountRestController extends ActiveController
                 'checkAccess' => [$this, 'checkAccess'],
                 'scenario' => $this->updateScenario,
             ],
-            'delete' => [
+            /*'delete' => [
                 'class' => 'yii\rest\DeleteAction',
                 'modelClass' => $this->modelClass,
                 'checkAccess' => [$this, 'checkAccess'],
-            ],
+            ],*/
             'options' => [
                 'class' => 'yii\rest\OptionsAction',
             ],
