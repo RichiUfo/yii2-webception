@@ -61,7 +61,6 @@ BaseAsset::register($this);
     
     
     <div id="accounting-summary-container">
-        <img src="/img/ajax-loader.gif">
         <?= $this->renderAjax('partial_summary', [
             'start' => $start,
             'end' => $end
