@@ -18,14 +18,11 @@
 /* line 6, ../sass/_page_layout.scss */
 .fp-acc-page .header .right-menu {
   position: absolute;
-  bottom: 0px;
+  bottom: 10px;
   right: 0px;
 }
 /* line 11, ../sass/_page_layout.scss */
 .fp-acc-page .header .input-daterange {
-  position: absolute;
-  right: 0px;
-  bottom: 10px;
   width: 200px;
 }
 
