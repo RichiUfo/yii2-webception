@@ -2,11 +2,12 @@
     .header {
         border-bottom: 1px solid #F5F5F5;
         margin-bottom: 20px;
-        > h1 {
-            text-align: left;
-        }
-        &.time-range {
-            
+        
+        .input-daterange {
+            position: absolute;
+            right: 0px;
+            bottom: 10px;
+            width: 200px;
         }
     }
 }

@@ -14,9 +14,12 @@
   border-bottom: 1px solid #F5F5F5;
   margin-bottom: 20px;
 }
-/* line 5, ../sass/_page_layout.scss */
-.fp-acc-page .header > h1 {
-  text-align: left;
+/* line 6, ../sass/_page_layout.scss */
+.fp-acc-page .header .input-daterange {
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+  width: 200px;
 }
 
 /* Index Page Accounting */
