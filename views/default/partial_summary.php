@@ -16,10 +16,10 @@ use dosamigos\chartjs\ChartJs;
        <?= ChartJs::widget([
             'type' => 'Line',
             'options' => [
-                'scaleShowGridLines' => false,
-                'scaleShowLabels' => false,
-                'responsive' => true,
-                'showTooltips' => false,
+                'scaleShowGridLines' => 'false',
+                'scaleShowLabels' => 'false',
+                'responsive' => 'true',
+                'showTooltips' => 'false',
             ],
             'data' => [
                 'labels' => ["January", "February", "March", "April", "May", "June", "July"],
