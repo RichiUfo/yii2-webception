@@ -25,7 +25,7 @@
         <div class="card informative-block transparent">
             <div class="card-header">
                 <div class="banner-title">
-                    <p>
+                    <p> 
                         <i class="fa fa-pie-chart"></i>
                         <a href="<?= yii\helpers\Url::toRoute('/accounting/balancesheet') ?>">Profits &amp; Losses</a>
                     </p>
