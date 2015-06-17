@@ -15,7 +15,7 @@ use dosamigos\chartjs\ChartJs;
        <h2 class="text-center">Profits &amp; Losses</h2>
        <?= ChartJs::widget([
             'type' => 'Line',
-            'options' => [
+            'clientOptions' => [
                 'scaleShowGridLines' => false,
                 'scaleShowLabels' => false,
                 'responsive' => true,
