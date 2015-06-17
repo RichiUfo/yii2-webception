@@ -39,7 +39,7 @@ class DefaultController extends \frontend\components\Controller
         $this->layout = '@app/views/layouts/two-columns-left';
         
         if(\Yii::$app->request->isAjax) {
-            return $this->renderPartial('partial_summary', [
+            return $this->renderAjax('partial_summary', [
                 'start' => $start,
                 'end' => $end
             ]);
