@@ -73,7 +73,7 @@
 
     .content {
         position: relative;
-        @include calc("min-height", "100% - 100px") ;
+        min-height: 30px;
         .ajaxloader{
             @include centerer;
         }
