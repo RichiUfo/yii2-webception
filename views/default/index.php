@@ -59,7 +59,7 @@ BaseAsset::register($this);
         </div>
     </div>
     
-    <div id="accounting-summary-container"></div>
+    <div id="accounting-summary-container" class="content"></div>
     
     
 </div>
