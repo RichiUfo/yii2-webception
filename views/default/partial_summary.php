@@ -21,7 +21,6 @@ use dosamigos\chartjs\ChartJs;
                 'responsive' => true,
                 'showTooltips' => false,
                 'pointDot' => false,
-                'showXAxisLabel' => false
             ],
             'data' => [
                 'labels' => ["January", "February", "March", "April", "May", "June", "July"],
