@@ -48,7 +48,7 @@ use dosamigos\chartjs\ChartJs;
     <!-- Cash Flow -->
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
         <h2 class="text-center">Cash Flow</h2>
-        <?= ChartJs::widget([
+        <? ChartJs::widget([
             'type' => 'Radar', 
             'clientOptions' => [
                 'responsive' => true,
