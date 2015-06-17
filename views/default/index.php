@@ -40,7 +40,7 @@ BaseAsset::register($this);
             <span class="icon"><i class="fa fa-calendar"></i></span>
             
             <div id="input-daterange-container">
-                ?= DateRangePicker::widget([
+                <!--?= DateRangePicker::widget([
                     'name' => 'date_from',
                     'size' => 'sm',
                     'value' => date("Y-m-d", strtotime(date("Y-m-d").' -1 months')),
@@ -54,7 +54,7 @@ BaseAsset::register($this);
                     'clientEvents' => [
                         'changeDate' => 'function ev(){acc_sum_refresh();}'
                     ]
-                ]); ?
+                ]); ?--
             </div>
         </div>
     </div>
