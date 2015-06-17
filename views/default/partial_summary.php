@@ -4,8 +4,8 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
         <div class="card informative-block transparent">
             <div class="card-header">
-                <div class="banner-title h3">
-                    Balance Sheer
+                <div class="banner-title h2">
+                    Balance Sheet
                     <!--p>
                         <i class="fa fa-pie-chart"></i>
                         <a href="?= yii\helpers\Url::toRoute('/accounting/balancesheet') ?">Balance Sheet</a>
