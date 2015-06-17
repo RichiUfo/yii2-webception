@@ -16,6 +16,7 @@ use dosamigos\chartjs\ChartJs;
        <?= ChartJs::widget([
             'type' => 'Line',
             'clientOptions' => [
+                'showScale' => false,
                 'scaleShowGridLines' => false,
                 'scaleShowLabels' => false,
                 'responsive' => true,
