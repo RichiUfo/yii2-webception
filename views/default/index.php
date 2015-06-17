@@ -69,13 +69,5 @@ BaseAsset::register($this);
     
     
 </div>
-
-
-
-
-
 <!-- JAVASCRIPT -->
-<?php
-//$js = "";
-//$this->registerJs($js, $this::POS_END);
-?>
+<?php $this->registerJs("acc_sum_init()", $this::POS_READY); ?>

@@ -2,7 +2,7 @@
 * Accounting Summary Page *
 **************************/
 function acc_sum_init() {
-    
+    acc_sum_refresh();
 }
 function acc_sum_refresh() {
     
