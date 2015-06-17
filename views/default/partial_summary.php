@@ -1,5 +1,5 @@
 <?php
-use dosamigos\chartjs\ChartJs;
+use frontend\widgets\chartjs\ChartJs;
 ?>
 
 <div class="row">
