@@ -14,7 +14,7 @@ use frontend\widgets\chartjs\ChartJs;
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
        <h2 class="text-center">Profits &amp; Losses</h2>
        
-        <?= \frontend\widgets\chartjs\ChartJs::widget([
+        <?= ChartJs::widget([
             'type' => 'Line',
             'clientOptions' => [
                 'showScale' => false,
