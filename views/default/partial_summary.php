@@ -20,6 +20,7 @@ use dosamigos\chartjs\ChartJs;
                 'scaleShowLabels' => false,
                 'responsive' => true,
                 'showTooltips' => false,
+                'pointDot' => false
             ],
             'data' => [
                 'labels' => ["January", "February", "March", "April", "May", "June", "July"],
