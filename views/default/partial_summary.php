@@ -15,6 +15,9 @@ use dosamigos\chartjs\ChartJs;
        <h2 class="text-center">Profits &amp; Losses</h2>
        <?= ChartJs::widget([
             'type' => 'Line',
+            'options' => [
+                'scaleShowGridLines' => false,    
+            ],
             'data' => [
                 'labels' => ["January", "February", "March", "April", "May", "June", "July"],
                 'datasets' => [
