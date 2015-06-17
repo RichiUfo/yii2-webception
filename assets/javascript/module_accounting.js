@@ -1,6 +1,9 @@
 /**************************
 * Accounting Summary Page *
 **************************/
+function acc_sum_init() {
+    
+}
 function acc_sum_refresh() {
     
     $('#accounting-summary-container').html('<img src="/img/ajax-loader.gif">');
