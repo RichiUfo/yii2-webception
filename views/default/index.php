@@ -25,18 +25,6 @@ BaseAsset::register($this);
     
         <div class="right-menu">
             
-            <!--?= ButtonDropdown::widget([
-                'label' => 'Period',
-                'dropdown' => [
-                    'items' => [
-                        ['label' => 'Day', 'url' => '#'],
-                        ['label' => 'Week', 'url' => '#'],
-                        ['label' => 'Quarter', 'url' => '#'],
-                        ['label' => 'Year', 'url' => '#'],
-                    ],
-                ],
-            ]); ?-->
-            
             <span class="icon"><i class="fa fa-calendar"></i></span> 
             
             <div id="input-daterange-container">
