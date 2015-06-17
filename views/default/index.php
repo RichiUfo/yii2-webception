@@ -59,15 +59,10 @@ BaseAsset::register($this);
         </div>
     </div>
     
-    
-    <div id="accounting-summary-container">
-        <!--?= $this->renderAjax('partial_summary', [
-            'start' => $start,
-            'end' => $end
-        ]); ?-->
-    </div>
+    <div id="accounting-summary-container"></div>
     
     
 </div>
+
 <!-- JAVASCRIPT -->
 <?php $this->registerJs("acc_sum_init()", $this::POS_READY); ?>

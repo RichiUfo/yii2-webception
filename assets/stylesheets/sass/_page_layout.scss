@@ -1,4 +1,8 @@
 .fp-acc-page {
+    min-height: 100%;
+    
+    
+    
     .header {
         position: relative;
         border-bottom: 1px solid #F5F5F5;
@@ -64,6 +68,13 @@
                     padding: 4px 5;
                 }
             }
+        }
+    }
+
+    .content {
+        @include calc("min-height", "100% - 100px") ;
+        .ajaxloader{
+            @include centerer;
         }
     }
 }
