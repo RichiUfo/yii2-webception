@@ -90,7 +90,7 @@
 /* line 74, ../sass/_page_layout.scss */
 .fp-acc-page .content {
   position: relative;
-  min-height: 30px;
+  min-height: 300px;
 }
 /* line 77, ../sass/_page_layout.scss */
 .fp-acc-page .content .ajaxloader {
