@@ -13,7 +13,7 @@
 .fp-acc-page .header {
   position: relative;
   border-bottom: 1px solid #F5F5F5;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 /* line 7, ../sass/_page_layout.scss */
 .fp-acc-page .header .right-menu {
