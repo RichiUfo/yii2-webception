@@ -43,10 +43,6 @@ use dosamigos\chartjs\ChartJs;
         <h2 class="text-center">Cash Flow</h2>
         <?= ChartJs::widget([
             'type' => 'Radar', 
-            'options' => [ 
-                'height' => 270, 
-                'width' => 270 
-                ], 
             'data' => [
                 'labels' => ["Cash", "Savings", "Investments", "Equipments", "Real Estate", "Land"],
                 'datasets' => [
