@@ -89,6 +89,23 @@ class TransactionController extends \frontend\components\Controller
     /**
      * Private Functions
      */
+    public function getTransactionsFrom($accountid, $last_update_dt) {
+        
+        // 1- Building the time query
+        $now_dt = new \DateTime();
+        $now = $now_dt->format('Y-m-d H:i:s');
+        $last_update = $last_update_dt->format('Y-m-d H:i:s');
+        $time_query = "date_value between '".$last_update."' and '".$now."'";
+        
+        // 2- Searching the transactions
+        $transactions = Transaction::find()
+            ->where('account_credit_id = '.$accountid.' OR account_debit_id = '.$accountid)
+            ->andWhere($time_query)
+            ->orderBy(['date_value' => SORT_DESC])
+            ->all();
+            
+        return $transactions;
+    }
     public function getTransactions($accountid, $start, $end, $children = true){
         
         // Convert the id of the account hierarchy to a SQL compatible format

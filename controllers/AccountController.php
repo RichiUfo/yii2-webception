@@ -159,6 +159,44 @@ class AccountController extends \frontend\components\Controller
         $account->value += $amount;
         return $account->save();
     }
+    public function getCurrentAccountValue($accountid, $currency) {
+        
+        // 1- Get the intrinsic account value (not considering children accounts)
+        $account = Account::findOne($accountid);
+        $now_dt = new \DateTime();
+        $last_update_dt = new \DateTime($account->date_value);
+        $transactions = TransactionController::getTransactionsFrom($accountid, $last_update_dt);
+        foreach($transactions as $transaction) {
+            if($transaction->account_credit_id === $account->id) {
+                $account->value += $transaction->value;
+            }
+            if($transaction->account_debit_id === $account->id) {
+                $account->value -= $transaction->value;
+            }
+        }
+        $account->date_value = $now_dt->format('Y-m-d H:i:s');
+        $account->save();
+        
+        // 2- Get the children account values in the main parent account currency
+        $value = $account->value;
+        $children = getChildrenAccounts($accountid);
+        foreach($children as $child)
+            $value += getCurrentAccountValue($child->id, $currency);
+        
+        // 3- Currency conversion (if necessary)
+        if ($account->currency !== $currency) {
+            
+            $value = ExchangeController::get('finance', 'currency-conversion', [
+                'value' => $value,
+                'from' => $account->currency,
+                'to' => $currency,
+            ]);
+            
+        }
+        
+        // 3- Return the calculated value
+        return $value;
+    }
 
     /**
     * getAccountList()

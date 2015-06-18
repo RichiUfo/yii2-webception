@@ -72,9 +72,11 @@ class DefaultController extends \frontend\components\Controller
 	
 	public function actionTest($id, $s, $e) { 
 		
+		$value = AccountController::getCurrentAccountValue($id, 'EUR');
+		
 		$trans = TransactionController::getTransactions($id, $s, $e);
 		$histo = AccountController::getHistoricalValues($id, $s, $e);
 		
-		return $this->render('test', ['histo' => $histo, 'trans' => $trans]);
+		return $this->render('test', ['histo' => $histo, 'trans' => $trans, 'value'=>$value]);
 	}
 }

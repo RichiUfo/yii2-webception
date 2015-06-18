@@ -5,6 +5,8 @@ namespace frontend\modules\accounting\models;
 use Yii;
 
 use frontend\components\ExchangeController;
+
+use frontend\modules\accounting\controllers\AccountController;
 use frontend\modules\accounting\controllers\TransactionController;
 
 /**
