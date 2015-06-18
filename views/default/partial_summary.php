@@ -60,7 +60,7 @@ use frontend\widgets\chartjs\ChartJs;
                 'labels' => ["January", "February", "March", "April", "May", "June", "July"],
                 'datasets' => [
                     [
-                        'fillColor' => "#FEFEFE",
+                        'fillColor' => "rgb(254,254,254)",
                         'strokeColor' => "rgb(235,114,96)",
                         'data' => [0, -48, -40, -19, -96, -27, -100]
                     ],
