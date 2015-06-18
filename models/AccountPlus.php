@@ -5,6 +5,7 @@ namespace frontend\modules\accounting\models;
 use Yii;
 
 use frontend\components\ExchangeController;
+use frontend\modules\accounting\controllers\TransactionController;
 
 /**
  * This is the model class for table "acc_accounts" supercharged with extra functionnalities
