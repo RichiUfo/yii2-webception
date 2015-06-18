@@ -98,13 +98,53 @@ use frontend\widgets\chartjs\ChartJs;
             ]
         ]);
         ?>
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="data-block">
+                    <span class="data-block-value money" value="" currency=""></span>
+                    <span class="data-block-title">Operating</span>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="data-block">
+                    <span class="data-block-value money" value="" currency=""></span>
+                    <span class="data-block-title">Non-Operating</span>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="data-block">
+                    <span class="data-block-value money" value="" currency=""></span>
+                    <span class="data-block-title">Total</span> 
+                </div>
+            </div>    
+        </div>
     </div>
     
     <!-- Cash Flow -->
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
         <h2 class="text-center">Cash Flow</h2>
         
-        
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="data-block">
+                    <span class="data-block-value money" value="" currency=""></span>
+                    <span class="data-block-title">Operating</span>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="data-block">
+                    <span class="data-block-value money" value="" currency=""></span>
+                    <span class="data-block-title">Investing</span>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="data-block">
+                    <span class="data-block-value money" value="" currency=""></span>
+                    <span class="data-block-title">Financing</span>
+                </div>
+            </div>  
+</div>
+
     </div>
     
 </div>
