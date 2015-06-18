@@ -26,19 +26,19 @@ use frontend\widgets\chartjs\ChartJs;
                 [
                     'value' => 20,
                     'color' => "rgb(41,171,164)",
-                    'highlight' => "#FF5A5E",
+                    //'highlight' => "#FF5A5E",
                     'label' => "Equity"
                 ],
                 [
                     'value' => 30,
                     'color' => "rgb(235,114,96)",
-                    'highlight' => "#5AD3D1",
+                    //'highlight' => "#5AD3D1",
                     'label' => "Debt"
                 ],
                 [
                     'value' => 50,
                     'color' => "rgb(58,154,217)",
-                    'highlight' => "#FFC870",
+                    //'highlight' => "#FFC870",
                     'label' => "Assets"
                 ]
             ]
