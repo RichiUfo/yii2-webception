@@ -9,6 +9,7 @@ use yii\filters\AccessControl;
 
 use frontend\controllers\NotificationController;
 use frontend\controllers\LocalizationController;
+use frontend\components\ExchangeController;
 
 use frontend\modules\accounting\models\Transaction;
 use frontend\modules\accounting\models\Account;
