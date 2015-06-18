@@ -41,7 +41,8 @@ class DefaultController extends \frontend\components\Controller
         if(\Yii::$app->request->isAjax) {
             return $this->renderAjax('partial_summary', [
                 'start' => $start,
-                'end' => $end
+                'end' => $end,
+                'data' => $data
             ]);
         }
         else{
