@@ -181,7 +181,7 @@ class AccountController extends \frontend\components\Controller
         $value = $account->value;
         $children = AccountController::getChildrenAccounts($accountid);
         foreach($children as $child)
-            $value += getCurrentAccountValue($child->id, $currency);
+            $value += AccountController::getCurrentAccountValue($child->id, $currency);
         
         // 3- Currency conversion (if necessary)
         if ($account->currency !== $currency) {
