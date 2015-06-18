@@ -227,19 +227,22 @@ class AccountController extends \frontend\components\Controller
         // Initializing calculation variables
         $datapoints = [];
         $today = new \DateTime();
-        $current = [$today->format('Y-m-d') => $account->value];
+        $current_date = $today->format('Y-m-d');
+        $current_value = $account->value];
         
         // Calculating historical values
         foreach ($transactions as $transaction) {
             
             // If transaction is modifying the account value, calculate a new datapoint
             if(!$transaction->credit and $transaction->debit) {
-                $current = [$transaction->date_value => $current['value'] - $transaction->value];
-                array_push($datapoints, $current);
+                $current_date = $transaction->date_value;
+                $current_value -= $transaction->value;
+                array_push($datapoints, [$current_date => $current_value]);
             }
             else if ($transaction->credit and !$transaction->debit) {
-                $current = [$transaction->date_value => $current['value'] + $transaction->value];
-                array_push($datapoints, $current);
+                $current_date = $transaction->date_value;
+                $current_value += $transaction->value;
+                array_push($datapoints, [$current_date => $current_value]);
             }
         }
         
