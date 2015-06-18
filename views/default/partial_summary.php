@@ -16,6 +16,7 @@ use frontend\widgets\chartjs\ChartJs;
        
         <?= ChartJs::widget([
             'type' => 'Line',
+            //'options' => ['id' => 'graphpl'],
             'clientOptions' => [
                 'showScale' => false,
                 'scaleShowGridLines' => false,
@@ -50,7 +51,7 @@ use frontend\widgets\chartjs\ChartJs;
     <!-- Cash Flow -->
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
         <h2 class="text-center">Cash Flow</h2>
-        <?php ChartJs::widget([
+        <?= ChartJs::widget([
             'type' => 'Radar', 
             'clientOptions' => [
                 'responsive' => true,
