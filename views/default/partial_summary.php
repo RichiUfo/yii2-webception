@@ -25,17 +25,17 @@ use frontend\widgets\chartjs\ChartJs;
                     ],
                     'data' => [
                         [
-                            'value' => $data['total_equity'],
+                            'value' => round($data['total_equity']),
                             'color' => "rgb(41,171,164)",
                             'label' => "Equity"
                         ],
                         [
-                            'value' => $data['total_liabilities'],
+                            'value' => round($data['total_liabilities']),
                             'color' => "rgb(235,114,96)",
                             'label' => "Debt"
                         ],
                         [
-                            'value' => $data['total_assets'],
+                            'value' => round($data['total_assets']),
                             'color' => "rgb(58,154,217)",
                             'label' => "Assets"
                         ]
