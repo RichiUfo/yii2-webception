@@ -17,7 +17,7 @@ use frontend\widgets\chartjs\ChartJs;
                 'segmentStrokeWidth' => 2,
                 'percentageInnerCutout' => 50,
                 'animationSteps' => 100,
-                'animationEasing' => "easeOutBounce",
+                'animationEasing' => "swing",
                 'animateRotate' => false,
                 'animateScale' => true,
                 //'legendTemplate' => "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>
