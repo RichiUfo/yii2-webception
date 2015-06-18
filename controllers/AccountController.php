@@ -165,8 +165,13 @@ class AccountController extends \frontend\components\Controller
         // 1- Get the intrinsic account value (not considering children accounts)
         $account = Account::findOne($accountid);
         $now_dt = new \DateTime();
-        $last_update_dt = new \DateTime($account->date_value);
-        $transactions = TransactionController::getTransactionsFrom($accountid, $last_update_dt);
+        if($account->date_value) {
+            $last_update_dt = new \DateTime($account->date_value);
+            $transactions = TransactionController::getTransactionsFrom($accountid, $last_update_dt);
+        }
+        else {
+            $transactions = TransactionController::getTransactionsFrom($accountid);
+        }
         foreach($transactions as $transaction) {
             if($transaction->account_credit_id === $account->id) {
                 $account->value += $transaction->value;
