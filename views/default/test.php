@@ -18,14 +18,14 @@
     <div class="col-lg-6">
         <h1>Related Transactions</h1>
         <table class="table table-striped">
-        <tbody>
-        <?php foreach($trans as $t) : ?>
-        <tr>
-            <td><?= $t->date_value ?></td>
-            <td><?= $t->value ?></td>
-        </tr>
-        <php endforeach; ?>
-        </tbody>
+            <tbody>
+            <?php foreach($trans as $t) : ?>
+            <tr>
+                <td><?= $t->date_value ?></td>
+                <td><?= $t->value ?></td>
+            </tr>
+            <?php endforeach; ?>
+            </tbody>
         </table>
     </div>
 </div>
