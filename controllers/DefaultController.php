@@ -74,8 +74,8 @@ class DefaultController extends \frontend\components\Controller
 		
 		$value = AccountController::getCurrentAccountValue($id, 'EUR');
 		
-		$trans = TransactionController::getTransactions($id, $s, $e);
-		$histo = AccountController::getHistoricalValues($id, $s, $e);
+		$trans = null; //TransactionController::getTransactions($id, $s, $e);
+		$histo = null; //AccountController::getHistoricalValues($id, $s, $e);
 		
 		return $this->render('test', ['histo' => $histo, 'trans' => $trans, 'value'=>$value]);
 	}
