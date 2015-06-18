@@ -89,13 +89,18 @@ class TransactionController extends \frontend\components\Controller
     /**
      * Private Functions
      */
-    public function getTransactionsFrom($accountid, $last_update_dt) {
+    public function getTransactionsFrom($accountid, $last_update_dt = null) {
         
         // 1- Building the time query
         $now_dt = new \DateTime();
         $now = $now_dt->format('Y-m-d H:i:s');
-        $last_update = $last_update_dt->format('Y-m-d H:i:s');
-        $time_query = "date_value between '".$last_update."' and '".$now."'";
+        if($last_update_dt) {
+            $last_update = $last_update_dt->format('Y-m-d H:i:s');
+            $time_query = "date_value between '".$last_update."' and '".$now."'";
+        }
+        else {
+            $time_query = "date_value < '".$now."'";
+        }
         
         // 2- Searching the transactions
         $transactions = Transaction::find()
