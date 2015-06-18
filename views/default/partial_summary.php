@@ -87,28 +87,7 @@ use frontend\widgets\chartjs\ChartJs;
     <!-- Cash Flow -->
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
         <h2 class="text-center">Cash Flow</h2>
-        <?= ChartJs::widget([
-            'type' => 'Radar', 
-            'clientOptions' => [
-                'responsive' => true,
-                'showTooltips' => false,
-            ],
-            'data' => [
-                'labels' => ["Cash", "Savings", "Investments", "Equipments", "Real Estate", "Land"],
-                'datasets' => [
-                    [
-                        'label' => "Assets Allocation",
-                        'fillColor' => "rgba(26,179,148,0.2)",
-                        'strokeColor' => "rgba(26,179,148,1)",
-                        'pointColor' => "rgba(26,179,148,1)",
-                        'pointStrokeColor' => "#fff",
-                        'pointHighlightFill' => "#fff",
-                        'pointHighlightStroke' => "rgba(151,187,205,1)",
-                        'data' => [65, 59, 90, 81, 56, 55]
-                    ]
-                ]
-            ]
-        ]); ?>
+        
         
     </div>
     
