@@ -70,14 +70,10 @@ class DefaultController extends \frontend\components\Controller
         }
     }
 	
-	public function actionTest() { 
+	public function actionTest($id, $s, $e) { 
 		
-		$rate = ExchangeController::get('finance','currency-conversion', [
-		    'value' => '1500',
-		    'from' => 'KRW',    
-		    'to' => 'EUR',    
-	    ]);
+		$histo = AccountController::getHistoricalValues($id, $s, $e);
 		
-		return $this->render('test', ['rate' => $rate]);
+		return $this->render('test', ['histo' => $histo]);
 	}
 }

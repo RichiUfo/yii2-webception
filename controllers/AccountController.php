@@ -224,16 +224,26 @@ class AccountController extends \frontend\components\Controller
         $account = AccountPlus::findOne($accountid);
         $transactions = TransactionController::getTransactions($accountid, $start, $end);
         
-        // Calculating historical account values
-        $values = [];
+        // Initializing calculation variables
+        $datapoints = [];
         $today = new \DateTime();
-        $current = [
-            'date' => $today->format('Y-m-d'),
-            'value' => $account->value,
-        ];
+        $current = [$today->format('Y-m-d') => $account->value];
+        
+        // Calculating historical values
         foreach ($transactions as $transaction) {
             
+            // If transaction is modifying the account value, calculate a new datapoint
+            if(!$transaction->credit and $transaction->debit) {
+                $current = [$transaction->date_value => $current['value'] - $transaction->value];
+                array_push($datapoints, $current);
+            }
+            else if ($transaction->credit and !$transaction->debit) {
+                $current = [$transaction->date_value => $current['value'] + $transaction->value];
+                array_push($datapoints, $current);
+            }
         }
+        
+        return $datapoints;
     }
     
     /**

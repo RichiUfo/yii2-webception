@@ -1,1 +1,1 @@
-<?php var_dump($rate); ?>
+<?php var_dump($histo); ?>
