@@ -25,12 +25,12 @@ use frontend\widgets\chartjs\ChartJs;
                             [
                                 'fillColor' => "rgb(58,154,217)",
                                 'strokeColor' => "rgb(58,154,217)",
-                                'data' => [0, 59, 90, 81, 56, 55, 90]
+                                'data' => [0, 5, 4, 10, 20, 27, 50]
                             ],
                             [
                                 'fillColor' => "rgb(58,154,217)",
                                 'strokeColor' => "rgb(41,171,164)",
-                                'data' => [0, 5, 4, 10, 20, 27, 50]
+                                'data' => [0, 59, 90, 81, 56, 55, 90]
                             ]
                         ]
                     ]
