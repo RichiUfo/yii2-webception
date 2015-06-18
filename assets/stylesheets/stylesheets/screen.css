@@ -11,16 +11,17 @@
 
 /* line 3, ../sass/_page_layout.scss */
 .fp-acc-page .chartjs-container {
+  height: 120px;
   margin: 20px;
   padding: 0;
 }
-/* line 9, ../sass/_page_layout.scss */
+/* line 10, ../sass/_page_layout.scss */
 .fp-acc-page .header {
   position: relative;
   border-bottom: 1px solid #F5F5F5;
   margin-bottom: 20px;
 }
-/* line 13, ../sass/_page_layout.scss */
+/* line 14, ../sass/_page_layout.scss */
 .fp-acc-page .header .right-menu {
   position: absolute;
   height: 30px;
@@ -28,12 +29,12 @@
   bottom: 10px;
   right: 0px;
 }
-/* line 19, ../sass/_page_layout.scss */
+/* line 20, ../sass/_page_layout.scss */
 .fp-acc-page .header .right-menu .btn-group {
   position: absolute;
   right: 220px;
 }
-/* line 25, ../sass/_page_layout.scss */
+/* line 26, ../sass/_page_layout.scss */
 .fp-acc-page .header .right-menu button, .fp-acc-page .header .right-menu input, .fp-acc-page .header .right-menu span {
   font-family: 'Open Sans', helvetica, arial, sans-serif;
   font-size: 14px;
@@ -41,46 +42,46 @@
   line-height: 15px;
   background: transparent;
 }
-/* line 31, ../sass/_page_layout.scss */
+/* line 32, ../sass/_page_layout.scss */
 .fp-acc-page .header .right-menu button:hover, .fp-acc-page .header .right-menu input:hover, .fp-acc-page .header .right-menu span:hover {
   color: #000;
 }
-/* line 34, ../sass/_page_layout.scss */
+/* line 35, ../sass/_page_layout.scss */
 .fp-acc-page .header .right-menu button.icon, .fp-acc-page .header .right-menu input.icon, .fp-acc-page .header .right-menu span.icon {
   position: relative;
   top: -7px;
   font-size: 18px;
   line-height: 30px;
 }
-/* line 43, ../sass/_page_layout.scss */
+/* line 44, ../sass/_page_layout.scss */
 .fp-acc-page .header .right-menu button {
   top: 0;
   height: 30px;
   border: none;
   border-right: 1px solid #F5F5F5;
 }
-/* line 48, ../sass/_page_layout.scss */
+/* line 49, ../sass/_page_layout.scss */
 .fp-acc-page .header .right-menu button .ui-button-text {
   font-weight: 400;
 }
-/* line 51, ../sass/_page_layout.scss */
+/* line 52, ../sass/_page_layout.scss */
 .fp-acc-page .header .right-menu button:active {
   box-shadow: none;
 }
-/* line 58, ../sass/_page_layout.scss */
+/* line 59, ../sass/_page_layout.scss */
 .fp-acc-page .header #input-daterange-container {
   display: inline;
 }
-/* line 60, ../sass/_page_layout.scss */
+/* line 61, ../sass/_page_layout.scss */
 .fp-acc-page .header #input-daterange-container .input-daterange {
   width: 220px;
   display: inline-table;
 }
-/* line 63, ../sass/_page_layout.scss */
+/* line 64, ../sass/_page_layout.scss */
 .fp-acc-page .header #input-daterange-container .input-daterange > input {
   border: none;
 }
-/* line 66, ../sass/_page_layout.scss */
+/* line 67, ../sass/_page_layout.scss */
 .fp-acc-page .header #input-daterange-container .input-daterange > span {
   border: none;
   background: transparent;
@@ -88,12 +89,12 @@
   height: 22px;
   padding: 4px 5;
 }
-/* line 77, ../sass/_page_layout.scss */
+/* line 78, ../sass/_page_layout.scss */
 .fp-acc-page .content {
   position: relative;
   min-height: 300px;
 }
-/* line 80, ../sass/_page_layout.scss */
+/* line 81, ../sass/_page_layout.scss */
 .fp-acc-page .content .ajaxloader {
   position: absolute;
   top: 50%;
