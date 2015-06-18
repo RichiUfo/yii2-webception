@@ -238,13 +238,27 @@ class AccountController extends \frontend\components\Controller
             $current_date_dt = new \DateTime($transaction->date_value);
             $current_date = $current_date_dt->format('Y-m-d');
             
+            // Add current value (Today)
             $datapoints[$current_date] = round($current_value, 2);
             
-            if(!$transaction->credit and $transaction->debit) {
-                $current_value += $transaction->value;
+            // Past Transactions
+            if ($today > $current_date_dt) {
+                if(!$transaction->credit and $transaction->debit) {
+                    $current_value += $transaction->value;
+                }
+                else if ($transaction->credit and !$transaction->debit) {
+                    $current_value -= $transaction->value;
+                }
             }
-            else if ($transaction->credit and !$transaction->debit) {
-                $current_value -= $transaction->value;
+            
+            // Future Transactions
+            else if ($today < $current_date_dt) {
+                if(!$transaction->credit and $transaction->debit) {
+                    $current_value -= $transaction->value;
+                }
+                else if ($transaction->credit and !$transaction->debit) {
+                    $current_value += $transaction->value;
+                }
             }
             
             
