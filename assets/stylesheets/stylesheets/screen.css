@@ -11,8 +11,7 @@
 
 /* line 3, ../sass/_page_layout.scss */
 .fp-acc-page .chartjs-container {
-  width: 80%;
-  margin: 0;
+  margin: 20px;
   padding: 0;
 }
 /* line 9, ../sass/_page_layout.scss */
