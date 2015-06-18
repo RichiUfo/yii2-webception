@@ -179,7 +179,7 @@ class AccountController extends \frontend\components\Controller
         
         // 2- Get the children account values in the main parent account currency
         $value = $account->value;
-        $children = getChildrenAccounts($accountid);
+        $children = AccountController::getChildrenAccounts($accountid);
         foreach($children as $child)
             $value += getCurrentAccountValue($child->id, $currency);
         
@@ -196,6 +196,12 @@ class AccountController extends \frontend\components\Controller
         
         // 3- Return the calculated value
         return $value;
+    }
+    public function getChildrenAccounts($accountid) {
+        $children = Account::find()
+            ->where(['parent_id' => $accountid])
+            ->all();
+        return $children;
     }
 
     /**
