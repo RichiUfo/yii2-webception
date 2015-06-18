@@ -2,10 +2,10 @@
 
 <table class="table table-striped">
 <tbody>
-<?php foreach($histo as $h) : ?>
+<?php foreach($histo as $date => $val) : ?>
 <tr>
-    <td><?= $h->date ?></td>
-    <td><?= $h->value ?></td>
+    <td><?= $date ?></td>
+    <td><?= $val ?></td>
 </tr>
 <?php endforeach; ?>
 </tbody>
