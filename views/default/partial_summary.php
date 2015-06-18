@@ -7,58 +7,64 @@ use frontend\widgets\chartjs\ChartJs;
     <!-- Balance Sheet -->
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
         <h2 class="text-center">Balance Sheet</h2>
-        <?= ChartJs::widget([
-            'type' => 'Doughnut',
-            'clientOptions' => [
-                'responsive' => true,
-                // Specific doughnut
-                'segmentShowStroke' => true,
-                'segmentStrokeColor' => "#fff",
-                'segmentStrokeWidth' => 2,
-                'percentageInnerCutout' => 65,
-                'animationSteps' => 20,
-                'animationEasing' => "swing",
-                'animateRotate' => false,
-                'animateScale' => true,
-            ],
-            'data' => [
-                [
-                    'value' => 20,
-                    'color' => "rgb(41,171,164)",
-                    'label' => "Equity"
-                ],
-                [
-                    'value' => 30,
-                    'color' => "rgb(235,114,96)",
-                    'label' => "Debt"
-                ],
-                [
-                    'value' => 50,
-                    'color' => "rgb(58,154,217)",
-                    'label' => "Assets"
-                ]
-            ]
-        ]);
-        ?>
         <div class="row">
-            <div class="col-xs-4">
-                <div class="data-block">
-                    <span class="data-block-value money" value="<?= $data['total_assets'] ?>" currency="" decimal="0"></span>
-                    <span class="data-block-title">Assets</span>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+                <?= ChartJs::widget([
+                    'type' => 'Doughnut',
+                    'clientOptions' => [
+                        'responsive' => true,
+                        // Specific doughnut
+                        'segmentShowStroke' => true,
+                        'segmentStrokeColor' => "#fff",
+                        'segmentStrokeWidth' => 2,
+                        'percentageInnerCutout' => 65,
+                        'animationSteps' => 20,
+                        'animationEasing' => "swing",
+                        'animateRotate' => false,
+                        'animateScale' => true,
+                    ],
+                    'data' => [
+                        [
+                            'value' => 20,
+                            'color' => "rgb(41,171,164)",
+                            'label' => "Equity"
+                        ],
+                        [
+                            'value' => 30,
+                            'color' => "rgb(235,114,96)",
+                            'label' => "Debt"
+                        ],
+                        [
+                            'value' => 50,
+                            'color' => "rgb(58,154,217)",
+                            'label' => "Assets"
+                        ]
+                    ]
+                ]);
+                ?>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="data-block">
+                            <span class="data-block-value money" value="<?= $data['total_assets'] ?>" currency="" decimal="0"></span>
+                            <span class="data-block-title">Assets</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="data-block">
+                            <span class="data-block-value money" value="<?= $data['total_liabilities'] ?>" currency="" decimal="0"></span>
+                            <span class="data-block-title">Debt</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="data-block">
+                            <span class="data-block-value money" value="<?= $data['total_equity'] ?>" currency="" decimal="0"></span>
+                            <span class="data-block-title">Net Worth</span>
+                        </div>
+                    </div>    
                 </div>
             </div>
-            <div class="col-xs-4">
-                <div class="data-block">
-                    <span class="data-block-value money" value="<?= $data['total_liabilities'] ?>" currency="" decimal="0"></span>
-                    <span class="data-block-title">Debt</span>
-                </div>
-            </div>
-            <div class="col-xs-4">
-                <div class="data-block">
-                    <span class="data-block-value money" value="<?= $data['total_equity'] ?>" currency="" decimal="0"></span>
-                    <span class="data-block-title">Net Worth</span>
-                </div>
-            </div>    
         </div>
     </div>
     
