@@ -46,30 +46,10 @@ class AccountPlus extends Account
     public function calcValue() {
         
         // Calc the account intrinsic value
-        $now = new \DateTime();
-        $last_update = new \DateTime($this->date_value);
-        $transactions = TransactionController::getTransactions($this->id, $last_update->format('Y-m-d H:i:s'), 'now', false);
-        foreach($transactions as $transaction) {
-            if ($transaction->credit) $this->value += $transaction->value;
-            if ($transaction->debit) $this->value -= $transaction->value;
-        }
-        $this->last_update = $now->format('Y-m-d H:i:s');
-        $this->save();
+        $this->value = AccountController::getCurrentAccountValue($this->id, $this->currency);
         
-        // If the account has children, its value is the sum of its children
-        $children = AccountPlus::find()->where(['parent_id' => $this->id])->all();
-        $this->has_children = false;
-        if(!empty($children)) {
-            $this->has_children = true;
-            //$this->value = 0;
-            $this->currency = \Yii::$app->user->identity->acc_currency; 
-            foreach($children as $child) 
-                $this->value += $child->value_converted;
-        }
         // Values of special accounts
-        else {
-            if($this->accountForex) $this->value = $this->accountForex->value;
-        }
+        if($this->accountForex) $this->value = $this->accountForex->value;
         
         // Convert the value to the system currency
         $this->value_converted = $this->value;
