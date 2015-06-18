@@ -117,7 +117,7 @@ use frontend\widgets\chartjs\ChartJs;
                     <div class="col-xs-4 col-sm-12 col-md-12 col-lg-4">
                         <div class="data-block">
                             <span class="data-block-value money" value="" currency=""></span>
-                            <span class="data-block-title">Non-Operating</span>
+                            <span class="data-block-title">Operating</span>
                         </div>
                     </div>
                     <div class="col-xs-4 col-sm-12 col-md-12 col-lg-4">
