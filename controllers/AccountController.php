@@ -235,8 +235,11 @@ class AccountController extends \frontend\components\Controller
         foreach ($transactions as $transaction) {
             
             // If transaction is modifying the account value, calculate a new datapoint
-            $current_date = $transaction->date_value;
-            $datapoints[$current_date] = $current_value;
+            $current_date_dt = new \DateTime($transaction->date_value);
+            $current_date = $current_date_dt->format('Y-m-d');
+            
+            $datapoints[$current_date] = round($current_value, 2);
+            
             if(!$transaction->credit and $transaction->debit) {
                 $current_value += $transaction->value;
             }
