@@ -89,18 +89,25 @@ class TransactionController extends \frontend\components\Controller
     /**
      * Private Functions
      */
-    public function getTransactions($accountid, $start, $end){
+    public function getTransactions($accountid, $start, $end, $children = true){
         
         // Convert the id of the account hierarchy to a SQL compatible format
         $account = AccountHierarchy::findOne($accountid);
-        $ids = $account->getChildrenIdList();
-        $strids = '(';
-        foreach ($ids as $id) {$strids .= $id.','; }
-        $strids = substr_replace($strids, ')', -1);
+        if($children) {
+            $ids = $account->getChildrenIdList();
+            $strids = '(';
+            foreach ($ids as $id) {$strids .= $id.','; }
+            $strids = substr_replace($strids, ')', -1);
+        }
+        else {
+            $strids = '('.$account->id.')';
+        }
         
         // Time Query Management
         if ($end === 'now') {
-            $time_query = "date_value > '".$start."'";
+            $now_dt = new \DateTime();
+            $now = $now_dt->format('Y-m-d H:i:s');
+            $time_query = "date_value between '".$start."' and '".$now."'";
         } else {
             $time_query = "date_value between '".$start."' and '".$end." 23:59:59.999'";
         }

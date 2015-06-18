@@ -37,6 +37,7 @@ class Account extends \frontend\components\ActiveRecord
             [['number', 'owner_id', 'parent_id', 'name', 'value', 'currency'], 'required'],
             [['number', 'owner_id', 'parent_id', 'system', 'display_position'], 'integer'],
             [['value'], 'number'],
+            [['date_value'], 'safe'],
             [['name', 'alias', 'special_class'], 'string', 'max' => 255],
             [['currency'], 'string', 'max' => 10]
         ];
@@ -57,6 +58,7 @@ class Account extends \frontend\components\ActiveRecord
             'name' => 'Name',
             'alias' => 'Alias',
             'value' => 'Value',
+            'date_value' => 'Last Value Upda',
             'currency' => 'Currency',
             'special_class' => 'Special Class',
         ];

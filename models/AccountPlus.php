@@ -42,6 +42,17 @@ class AccountPlus extends Account
      */
     public function calcValue() {
         
+        // Calc the account intrinsic value
+        $now = new \DateTime();
+        $last_update = new \DateTime($this->date_value);
+        $transactions = TransactionController::getTransactions($this->id, $last_update->format('Y-m-d H:i:s'), 'now', false);
+        foreach($transactions as $transaction) {
+            if ($transaction->credit) $this->value += $transaction->value;
+            if ($transaction->debit) $this->value -= $transaction->value;
+        }
+        $this->last_update = $now->format('Y-m-d H:i:s');
+        $this->save();
+        
         // If the account has children, its value is the sum of its children
         $children = AccountPlus::find()->where(['parent_id' => $this->id])->all();
         $this->has_children = false;
