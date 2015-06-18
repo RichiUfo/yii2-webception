@@ -241,7 +241,7 @@ class AccountController extends \frontend\components\Controller
             else if ($transaction->credit and !$transaction->debit) {
                 $current_value += $transaction->value;
             }
-            array_push($datapoints, [$current_date => $current_value]);
+            $datapoints[$current_date] = $current_value;
         }
         
         return $datapoints;
