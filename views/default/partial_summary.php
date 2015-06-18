@@ -54,7 +54,7 @@ use frontend\widgets\chartjs\ChartJs;
                 //'scaleShowLabels' => false,
                 'responsive' => true,
                 //'showTooltips' => false,
-                'pointDot' => false,
+                //'pointDot' => false,
             ],
             'data' => [
                 'labels' => ["January", "February", "March", "April", "May", "June", "July"],
