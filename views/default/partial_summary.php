@@ -24,7 +24,7 @@ use frontend\widgets\chartjs\ChartJs;
                         'datasets' => [
                             [
                                 'fillColor' => "rgb(235,114,96)",
-                                'strokeColor' => "rgb(41,171,164)",
+                                'strokeColor' => "rgb(58,154,217)",
                                 'data' => [20, 30, 28, 38, 50, 60, 75]
                             ],
                             [
