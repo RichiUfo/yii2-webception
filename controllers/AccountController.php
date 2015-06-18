@@ -242,7 +242,14 @@ class AccountController extends \frontend\components\Controller
                 $current_value -= $transaction->value;
             }
             $datapoints[$current_date] = $current_value;
+            
         }
+        
+        // In case we have no initial value, set 0 for the start date
+        $current_date = new \DateTime($current_date);
+        $start = new \DateTime($s);
+        if ($s < $current_date)
+            $datapoints[$s] = 0;
         
         return $datapoints;
     }
