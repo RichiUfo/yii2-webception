@@ -13,7 +13,7 @@ use frontend\widgets\chartjs\ChartJs;
                     'type' => 'Line',
                     'clientOptions' => [
                         'showScale' => false,
-                        'maintainAspectRatio': false,
+                        'maintainAspectRatio' => false,
                         'scaleShowGridLines' => false,
                         //'scaleShowLabels' => false,
                         'responsive' => true,
