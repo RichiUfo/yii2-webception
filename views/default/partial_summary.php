@@ -7,7 +7,38 @@ use frontend\widgets\chartjs\ChartJs;
     <!-- Balance Sheet -->
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
         <h2 class="text-center">Balance Sheet</h2>
-        
+        <?= ChartJs::widget([
+            'type' => 'Doughnut',
+            'clientOptions' => [
+                //'showScale' => false,
+                //'scaleShowGridLines' => false,
+                //'scaleShowLabels' => false,
+                'responsive' => true,
+                //'showTooltips' => false,
+                //'pointDot' => false,
+            ],
+            'data' => [
+                [
+                    'value' => 300,
+                    'color' => "#F7464A",
+                    'highlight' => "#FF5A5E",
+                    'label' => "Red"
+                ],
+                [
+                    'value' => 50,
+                    'color' => "#46BFBD",
+                    'highlight' => "#5AD3D1",
+                    'label' => "Green"
+                ],
+                [
+                    'value' => 100,
+                    'color' => "#FDB45C",
+                    'highlight' => "#FFC870",
+                    'label' => "Yellow"
+                ]
+            ]
+        ]);
+        ?>
     </div>
     
     <!-- Income -->
