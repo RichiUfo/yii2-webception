@@ -253,7 +253,7 @@ class AccountController extends \frontend\components\Controller
         if ($start_dt < $current_date)
             $datapoints[$start] = 0;
         
-        ksort($datapoints)
+        ksort($datapoints);
         return $datapoints;
     }
     
