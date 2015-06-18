@@ -53,8 +53,8 @@ use frontend\widgets\chartjs\ChartJs;
                 'scaleShowGridLines' => false,
                 //'scaleShowLabels' => false,
                 'responsive' => true,
-                //'showTooltips' => false,
-                //'pointDot' => false,
+                'showTooltips' => false,
+                'pointDot' => false,
             ],
             'data' => [
                 'labels' => ["January", "February", "March", "April", "May", "June", "July"],
