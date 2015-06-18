@@ -62,16 +62,19 @@ use frontend\widgets\chartjs\ChartJs;
                     [
                         'fillColor' => "rgb(254,254,254)",
                         'strokeColor' => "rgb(235,114,96)",
+                        'fillColorGradient' => false,
                         'data' => [0, -48, -40, -19, -96, -27, -100]
                     ],
                     [
                         'fillColor' => "rgba(41,171,164,0.5)",
                         'strokeColor' => "rgb(41,171,164)",
+                        'fillColorGradient' => true,
                         'data' => [0, 59, 90, 81, 56, 55, 90]
                     ],
                     [
                         'fillColor' => "rgba(58,154,217,0.5)",
                         'strokeColor' => "rgb(58,154,217)",
+                        'fillColorGradient' => true,
                         'data' => [0, 5, 4, 10, 20, 27, 50]
                     ]
                 ]
