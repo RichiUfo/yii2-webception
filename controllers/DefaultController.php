@@ -32,8 +32,7 @@ class DefaultController extends \frontend\components\Controller
         ];
     }
     
-    public function actionIndex($start = '', $end ='')
-    {
+    public function actionIndex($start = '', $end ='') {
         $data = BalancesheetController::getFinancialData();
     
         $this->layout = '@app/views/layouts/two-columns-left';
@@ -74,7 +73,7 @@ class DefaultController extends \frontend\components\Controller
 		
 		$value = AccountController::getCurrentAccountValue($id, 'EUR');
 		
-		$trans = null; //TransactionController::getTransactions($id, $s, $e);
+		$trans = TransactionController::getTransactions($id, $s, $e);
 		$histo = null; //AccountController::getHistoricalValues($id, $s, $e);
 		
 		return $this->render('test', ['histo' => $histo, 'trans' => $trans, 'value'=>$value]);

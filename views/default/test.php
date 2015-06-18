@@ -19,12 +19,12 @@
         <h1>Related Transactions</h1>
         <table class="table table-striped">
         <tbody>
-        <!--php foreach($trans as $t) : ?>
+        <?php foreach($trans as $t) : ?>
         <tr>
-            <td><= $t->date_value ?></td>
-            <td><= $t->value ?></td>
+            <td><?= $t->date_value ?></td>
+            <td><?= $t->value ?></td>
         </tr>
-        <php endforeach; ?-->
+        <php endforeach; ?>
         </tbody>
         </table>
     </div>
