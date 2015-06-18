@@ -15,12 +15,12 @@ use frontend\widgets\chartjs\ChartJs;
                 'segmentShowStroke' => true,
                 'segmentStrokeColor' => "#fff",
                 'segmentStrokeWidth' => 2,
-                'percentageInnerCutout' => 50, // This is 0 for Pie charts
+                'percentageInnerCutout' => 50,
                 'animationSteps' => 100,
                 'animationEasing' => "easeOutBounce",
                 'animateRotate' => false,
                 'animateScale' => true,
-                'legendTemplate' => "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>
+                //'legendTemplate' => "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>
             ],
             'data' => [
                 [
