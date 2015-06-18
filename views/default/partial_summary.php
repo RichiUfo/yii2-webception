@@ -16,7 +16,7 @@ use frontend\widgets\chartjs\ChartJs;
                 'segmentStrokeColor' => "#fff",
                 'segmentStrokeWidth' => 2,
                 'percentageInnerCutout' => 50,
-                'animationSteps' => 10,
+                'animationSteps' => 20,
                 'animationEasing' => "swing",
                 'animateRotate' => false,
                 'animateScale' => true,
