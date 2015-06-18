@@ -236,10 +236,10 @@ class AccountController extends \frontend\components\Controller
             // If transaction is modifying the account value, calculate a new datapoint
             $current_date = $transaction->date_value;
             if(!$transaction->credit and $transaction->debit) {
-                $current_value -= $transaction->value;
+                $current_value += $transaction->value;
             }
             else if ($transaction->credit and !$transaction->debit) {
-                $current_value += $transaction->value;
+                $current_value -= $transaction->value;
             }
             $datapoints[$current_date] = $current_value;
         }
