@@ -4,12 +4,12 @@
         <h1>Historical Values</h1>
         <table class="table table-striped">
         <tbody>
-        <!--php foreach($histo as $date => $val) : ?>
+        <?php foreach($histo as $date => $val) : ?>
         <tr>
-            <td><= $date ?></td>
-            <td><= $val ?></td>
+            <td><?= $date ?></td>
+            <td><?= $val ?></td>
         </tr>
-        <php endforeach; ?-->
+        <?php endforeach; ?>
         </tbody>
         </table>
     </div>
