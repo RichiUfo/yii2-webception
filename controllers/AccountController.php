@@ -220,6 +220,21 @@ class AccountController extends \frontend\components\Controller
             'movements' => $movements
         ]);
     }
+    public function getHistoricalValues($accountid, $start, $end) {
+        $account = AccountPlus::findOne($accountid);
+        $transactions = TransactionController::getTransactions($accountid, $start, $end);
+        
+        // Calculating historical account values
+        $values = [];
+        $today = new \DateTime();
+        $current = [
+            'date' => $today->format('Y-m-d'),
+            'value' => $account->value,
+        ];
+        foreach ($transactions as $transaction) {
+            
+        }
+    }
     
     /**
     * Return an array with the opening balance closing balance and relevant transactions
@@ -365,7 +380,7 @@ class AccountController extends \frontend\components\Controller
     }
     
     /**
-     * AJAX Actions Section (Returns JSON)
+     * AJAX Actions Section (Returns Partials OR JSON)
      */
     public function actionGetAccountSummary($accountid) {
         
@@ -399,4 +414,5 @@ class AccountController extends \frontend\components\Controller
             'movements' => $movements
         ]);
     }
+
 }
