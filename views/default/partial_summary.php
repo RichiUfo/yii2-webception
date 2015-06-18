@@ -23,13 +23,13 @@ use frontend\widgets\chartjs\ChartJs;
                         'labels' => ["January", "February", "March", "April", "May", "June", "July"],
                         'datasets' => [
                             [
-                                'fillColor' => "rgba(41,171,164,0)",
-                                'strokeColor' => "rgb(41,171,164)",
+                                'fillColor' => "rgb(58,154,217)",
+                                'strokeColor' => "rgb(58,154,217)",
                                 'data' => [0, 59, 90, 81, 56, 55, 90]
                             ],
                             [
-                                'fillColor' => "rgba(58,154,217,0)",
-                                'strokeColor' => "rgb(58,154,217)",
+                                'fillColor' => "rgb(58,154,217)",
+                                'strokeColor' => "rgb(41,171,164)",
                                 'data' => [0, 5, 4, 10, 20, 27, 50]
                             ]
                         ]
