@@ -10,12 +10,17 @@ use frontend\widgets\chartjs\ChartJs;
         <?= ChartJs::widget([
             'type' => 'Doughnut',
             'clientOptions' => [
-                //'showScale' => false,
-                //'scaleShowGridLines' => false,
-                //'scaleShowLabels' => false,
                 'responsive' => true,
-                //'showTooltips' => false,
-                //'pointDot' => false,
+                // Specific doughnut
+                'segmentShowStroke' => true,
+                'segmentStrokeColor' => "#fff",
+                'segmentStrokeWidth' => 2,
+                'percentageInnerCutout' => 50, // This is 0 for Pie charts
+                'animationSteps' => 100,
+                'animationEasing' => "easeOutBounce",
+                'animateRotate' => false,
+                'animateScale' => true,
+                'legendTemplate' => "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>
             ],
             'data' => [
                 [
