@@ -62,7 +62,7 @@ use frontend\widgets\chartjs\ChartJs;
                 'datasets' => [
                     [
                         'label' => "Assets Allocation",
-                        'fillColor' => "rgba(26,179,148,0.2)",
+                        'fillColor' => "rgba(26,179,148,0.7)",
                         'strokeColor' => "rgba(26,179,148,1)",
                         'pointColor' => "rgba(26,179,148,1)",
                         'pointStrokeColor' => "#fff",
