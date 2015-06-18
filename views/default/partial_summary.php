@@ -68,21 +68,21 @@ use frontend\widgets\chartjs\ChartJs;
                         'strokeColor' => "rgba(220,220,220,1)",
                         'pointColor' => "rgba(220,220,220,1)",
                         'pointStrokeColor' => "#fff",
-                        'data' => [65, 59, 90, 81, 56, 55, 40]
+                        'data' => [0, 59, 90, 81, 56, 55, 40]
                     ],
                     [
                         'fillColor' => "rgba(205,107,105,0.7)",
                         'strokeColor' => "rgba(255,187,205,1)",
                         'pointColor' => "rgba(151,187,205,1)",
                         'pointStrokeColor' => "#fff",
-                        'data' => [-28, -48, -40, -19, -96, -27, -100]
+                        'data' => [0, -48, -40, -19, -96, -27, -100]
                     ],
                     [
                         'fillColor' => "rgba(151,187,205,0.7)",
                         'strokeColor' => "rgba(151,187,205,1)",
                         'pointColor' => "rgba(151,187,205,1)",
                         'pointStrokeColor' => "#fff",
-                        'data' => [2, 5, 4, 10, 20, 27, 50]
+                        'data' => [0, 5, 4, 10, 20, 27, 50]
                     ]
                 ]
             ]
