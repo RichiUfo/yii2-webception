@@ -228,7 +228,7 @@ class AccountController extends \frontend\components\Controller
         $datapoints = [];
         $today = new \DateTime();
         $current_date = $today->format('Y-m-d');
-        $current_value = $account->value];
+        $current_value = $account->value;
         
         // Calculating historical values
         foreach ($transactions as $transaction) {
