@@ -16,7 +16,6 @@ use frontend\widgets\chartjs\ChartJs;
        
         <?= ChartJs::widget([
             'type' => 'Line',
-            'options' => ['width' => '80%'],
             'clientOptions' => [
                 //'showScale' => false,
                 //'scaleShowGridLines' => false,
