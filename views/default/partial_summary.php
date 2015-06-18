@@ -64,6 +64,11 @@ use frontend\widgets\chartjs\ChartJs;
                 'labels' => ["January", "February", "March", "April", "May", "June", "July"],
                 'datasets' => [
                     [
+                        'fillColor' => "#FEFEFE",
+                        'strokeColor' => "rgb(235,114,96)",
+                        'data' => [0, -48, -40, -19, -96, -27, -100]
+                    ],
+                    [
                         'fillColor' => "rgba(41,171,164,0.5)",
                         'strokeColor' => "rgb(41,171,164)",
                         'data' => [0, 59, 90, 81, 56, 55, 90]
@@ -72,11 +77,6 @@ use frontend\widgets\chartjs\ChartJs;
                         'fillColor' => "rgba(58,154,217,0.5)",
                         'strokeColor' => "rgb(58,154,217)",
                         'data' => [0, 5, 4, 10, 20, 27, 50]
-                    ],
-                    [
-                        'fillColor' => "#FEFEFE",
-                        'strokeColor' => "rgb(235,114,96)",
-                        'data' => [0, -48, -40, -19, -96, -27, -100]
                     ]
                 ]
             ]
