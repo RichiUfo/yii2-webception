@@ -458,10 +458,6 @@ class AccountController extends \frontend\components\Controller
             return false;
         }
     }
-    public function actionTestGetChildNumber($parent) {
-        \Yii::$app->response->format = 'json';
-        return AccountController::getNextAvailableNumber($parent);
-    }
     
     /**
      * AJAX Actions Section (Returns Partials OR JSON)

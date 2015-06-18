@@ -180,9 +180,15 @@ class TransactionController extends \frontend\components\Controller
         );
     }
     private function createTransaction($model) {
-        $debit = AccountController::updateAccountValue($model->account_debit_id, -1 * $model->value);
-        $credit = AccountController::updateAccountValue($model->account_credit_id, $model->value);
-
+        
+        $now_dt = new \DateTime();
+        $datevalue_dt = new \DateTime($model->date_value);
+        
+        if($datevalue_dt <= $now_dt){
+            $debit = AccountController::updateAccountValue($model->account_debit_id, -1 * $model->value);
+            $credit = AccountController::updateAccountValue($model->account_credit_id, $model->value);
+        }
+        
         return $model->save();
     }
     
