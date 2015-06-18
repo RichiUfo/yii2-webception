@@ -72,7 +72,7 @@ use frontend\widgets\chartjs\ChartJs;
                     ],
                     [
                         'fillColor' => "rgba(205,107,105,0.7)",
-                        'strokeColor' => "rgba(151,187,205,1)",
+                        'strokeColor' => "rgba(255,187,205,1)",
                         'pointColor' => "rgba(151,187,205,1)",
                         'pointStrokeColor' => "#fff",
                         'data' => [-28, -48, -40, -19, -96, -27, -100]
