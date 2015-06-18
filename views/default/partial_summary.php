@@ -19,22 +19,22 @@ use frontend\widgets\chartjs\ChartJs;
             ],
             'data' => [
                 [
-                    'value' => 300,
+                    'value' => 20,
                     'color' => "#F7464A",
                     'highlight' => "#FF5A5E",
-                    'label' => "Red"
+                    'label' => "Equity"
+                ],
+                [
+                    'value' => 30,
+                    'color' => "#46BFBD",
+                    'highlight' => "#5AD3D1",
+                    'label' => "Debt"
                 ],
                 [
                     'value' => 50,
-                    'color' => "#46BFBD",
-                    'highlight' => "#5AD3D1",
-                    'label' => "Green"
-                ],
-                [
-                    'value' => 100,
                     'color' => "#FDB45C",
                     'highlight' => "#FFC870",
-                    'label' => "Yellow"
+                    'label' => "Assets"
                 ]
             ]
         ]);
@@ -92,7 +92,7 @@ use frontend\widgets\chartjs\ChartJs;
                 'datasets' => [
                     [
                         'label' => "Assets Allocation",
-                        'fillColor' => "rgba(26,179,148,0.7)",
+                        'fillColor' => "rgba(26,179,148,0.2)",
                         'strokeColor' => "rgba(26,179,148,1)",
                         'pointColor' => "rgba(26,179,148,1)",
                         'pointStrokeColor' => "#fff",
