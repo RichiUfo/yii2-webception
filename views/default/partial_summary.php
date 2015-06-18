@@ -71,58 +71,63 @@ use frontend\widgets\chartjs\ChartJs;
     <!-- Income -->
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
        <h2 class="text-center">Profits &amp; Losses</h2>
-       
-        <?= ChartJs::widget([
-            'type' => 'Line',
-            'clientOptions' => [
-                'showScale' => false,
-                'scaleShowGridLines' => false,
-                //'scaleShowLabels' => false,
-                'responsive' => true,
-                'showTooltips' => false,
-                'pointDot' => false,
-            ],
-            'data' => [
-                'labels' => ["January", "February", "March", "April", "May", "June", "July"],
-                'datasets' => [
-                    [
-                        'fillColor' => "rgba(41,171,164,0)",
-                        'strokeColor' => "rgb(41,171,164)",
-                        'data' => [0, 59, 90, 81, 56, 55, 90]
+       <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+                <?= ChartJs::widget([
+                    'type' => 'Line',
+                    'clientOptions' => [
+                        'showScale' => false,
+                        'scaleShowGridLines' => false,
+                        //'scaleShowLabels' => false,
+                        'responsive' => true,
+                        'showTooltips' => false,
+                        'pointDot' => false,
                     ],
-                    [
-                        'fillColor' => "rgba(58,154,217,0)",
-                        'strokeColor' => "rgb(58,154,217)",
-                        'data' => [0, 5, 4, 10, 20, 27, 50]
-                    ],
-                    [
-                        'fillColor' => "rgba(254,254,254,0)",
-                        'strokeColor' => "rgb(235,114,96)",
-                        'data' => [0, -48, -40, -19, -96, -27, -100]
+                    'data' => [
+                        'labels' => ["January", "February", "March", "April", "May", "June", "July"],
+                        'datasets' => [
+                            [
+                                'fillColor' => "rgba(41,171,164,0)",
+                                'strokeColor' => "rgb(41,171,164)",
+                                'data' => [0, 59, 90, 81, 56, 55, 90]
+                            ],
+                            [
+                                'fillColor' => "rgba(58,154,217,0)",
+                                'strokeColor' => "rgb(58,154,217)",
+                                'data' => [0, 5, 4, 10, 20, 27, 50]
+                            ],
+                            [
+                                'fillColor' => "rgba(254,254,254,0)",
+                                'strokeColor' => "rgb(235,114,96)",
+                                'data' => [0, -48, -40, -19, -96, -27, -100]
+                            ]
+                        ]
                     ]
-                ]
-            ]
-        ]);
-        ?>
-        <div class="row">
-            <div class="col-xs-4">
-                <div class="data-block">
-                    <span class="data-block-value money" value="" currency=""></span>
-                    <span class="data-block-title">Operating</span>
+                ]);
+                ?>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-12 col-md-12 col-lg-4">
+                        <div class="data-block">
+                            <span class="data-block-value money" value="" currency=""></span>
+                            <span class="data-block-title">Operating</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-12 col-md-12 col-lg-4">
+                        <div class="data-block">
+                            <span class="data-block-value money" value="" currency=""></span>
+                            <span class="data-block-title">Non-Operating</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-12 col-md-12 col-lg-4">
+                        <div class="data-block">
+                            <span class="data-block-value money" value="" currency=""></span>
+                            <span class="data-block-title">Non-Operating</span>
+                        </div>
+                    </div>    
                 </div>
             </div>
-            <div class="col-xs-4">
-                <div class="data-block">
-                    <span class="data-block-value money" value="" currency=""></span>
-                    <span class="data-block-title">Non-Operating</span>
-                </div>
-            </div>
-            <div class="col-xs-4">
-                <div class="data-block">
-                    <span class="data-block-value money" value="" currency=""></span>
-                    <span class="data-block-title">Total</span> 
-                </div>
-            </div>    
         </div>
     </div>
     
