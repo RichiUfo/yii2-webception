@@ -31,11 +31,6 @@ use frontend\widgets\chartjs\ChartJs;
                                 'fillColor' => "rgba(58,154,217,0)",
                                 'strokeColor' => "rgb(58,154,217)",
                                 'data' => [0, 5, 4, 10, 20, 27, 50]
-                            ],
-                            [
-                                'fillColor' => "rgba(254,254,254,0)",
-                                'strokeColor' => "rgb(235,114,96)",
-                                'data' => [0, -48, -40, -19, -96, -27, -100]
                             ]
                         ]
                     ]
