@@ -15,6 +15,7 @@ class AccountPlus extends Account
     public $root_account;
     public $statement;
     public $sign;
+    public $value_currency;
     public $value_converted;
     
     public function afterFind(){
@@ -46,7 +47,7 @@ class AccountPlus extends Account
         $this->has_children = false;
         if(!empty($children)) {
             $this->has_children = true;
-            $this->value = 0;
+            //$this->value = 0;
             $this->currency = \Yii::$app->user->identity->acc_currency; 
             foreach($children as $child) 
                 $this->value += $child->value_converted;
