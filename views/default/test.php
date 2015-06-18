@@ -6,8 +6,8 @@
         <tbody>
         <!--php foreach($histo as $date => $val) : ?>
         <tr>
-            <td><?= $date ?></td>
-            <td><?= $val ?></td>
+            <td><= $date ?></td>
+            <td><= $val ?></td>
         </tr>
         <php endforeach; ?-->
         </tbody>
@@ -21,8 +21,8 @@
         <tbody>
         <!--php foreach($trans as $t) : ?>
         <tr>
-            <td><?= $t->date_value ?></td>
-            <td><?= $t->value ?></td>
+            <td><= $t->date_value ?></td>
+            <td><= $t->value ?></td>
         </tr>
         <php endforeach; ?-->
         </tbody>
