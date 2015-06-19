@@ -291,7 +291,7 @@ class AccountController extends \frontend\components\Controller
             'movements' => $movements
         ]);
     }
-    public function getHistoricalValues($accountid, $start, $end) {
+    public function getHistoricalValue($accountid, $start, $end) {
         $account = AccountPlus::findOne($accountid);
         $transactions = TransactionController::getTransactions($accountid, $start, $end);
         
@@ -346,6 +346,25 @@ class AccountController extends \frontend\components\Controller
         // Currencies aggregation to main currency
         
         
+        return $datapoints;
+    }
+    public function getHistoricalValues($accountid, $start, $end) {
+        
+        // 0- Variables Init
+        $now_dt = new \DateTime();
+        $start_dt = new \DateTime($start);
+        $end_dt = new \DateTime($end);
+        
+        // 1- Get Current Values (All Currencies)
+        $current = AccountController::getCurrentAccountValues($accountid);
+        if($now_dt > $start_dt and $now_dt < $end_dt)
+            $datapoints[$now_dt->format('Y-m-d')] = $current;
+        
+        // 2- Get Related Transactions
+        $transactions = TransactionController::getTransactions($accountid, $start, $end);
+        
+        // Sort & Return the values
+        ksort($datapoints);
         return $datapoints;
     }
     
