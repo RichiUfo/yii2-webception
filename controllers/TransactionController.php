@@ -46,7 +46,7 @@ class TransactionController extends \frontend\components\Controller
             // Regular Transaction
             if($deb->currency === $cur and $cre->currency === $cur){
                 if ($model->validate()) {
-                    TransactionController::createTransactionForex($deb, $cre, $value, $model->value, $model->date_value, $model->name, $model->description);
+                    TransactionController::createTransactionRegular($deb, $cre, $model->value, $model->date_value, $model->name, $model->description);
                     NotificationController::setNotification('success', 'Transaction Saved', 'The transaction has been saved !');
                 }
             }
