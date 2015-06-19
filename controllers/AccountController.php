@@ -360,8 +360,19 @@ class AccountController extends \frontend\components\Controller
         if($now_dt > $start_dt and $now_dt < $end_dt)
             $datapoints[$now_dt->format('Y-m-d')] = $current;
         
-        // 2- Get Related Transactions
+        // 2- Get Related Transactions (DESC date_value - most recent first)
         $transactions = TransactionController::getTransactions($accountid, $start, $end);
+        
+        // 3- Calculate Past Values
+        $c = $current;
+        foreach ($transactions as $t) {
+            $date_dt = new \DateTime($t->date_value);
+            if ($date_dt < $now_dt) {
+                if ($t->debit) $c[$t->currency] += $t->value;
+                if ($t->credit) $c[$t->currency] -= $t->value;
+            }
+            $datapoints[$date_dt->format('Y-m-d')] = $c;
+        }
         
         // Sort & Return the values
         ksort($datapoints);

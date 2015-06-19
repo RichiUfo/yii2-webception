@@ -144,7 +144,8 @@ class TransactionController extends \frontend\components\Controller
         // Check if the transaction is a debit or credit for this account
         foreach($transactions as $transaction){
             $transaction->credit = (in_array($transaction->account_credit_id, $ids))?true:false;       
-            $transaction->debit = (in_array($transaction->account_debit_id, $ids))?true:false;       
+            $transaction->debit = (in_array($transaction->account_debit_id, $ids))?true:false;    
+            $transaction->currency = $transaction->accountCredit->currency;
         }
         
         return $transactions;
