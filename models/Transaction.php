@@ -20,7 +20,6 @@ class Transaction extends \frontend\components\ActiveRecord
     public $debit = false;  // Indicates if the transaction is a debit (true)
     public $credit = false;  // Indicates if the transaction is a credit (true)
     public $currency = '';
-    public $forex_trans_id = '';
     
     /**
      * @inheritdoc
@@ -69,5 +68,9 @@ class Transaction extends \frontend\components\ActiveRecord
     public function getAccountDebit()
     {
         return $this->hasOne(Account::className(), ['id' => 'account_debit_id']);
+    }
+    public function getTransactionForex()
+    {
+        return $this->hasOne(TransactionForex::className(), ['transaction_id' => 'id']);
     }
 }
