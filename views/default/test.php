@@ -38,7 +38,7 @@
                 <td><?= $t->date_value ?></td>
                 <td><?= $t->value ?></td>
                 <td><?= $t->accountDebit->name ?></td> 
-                <td><?php var_dump($t->transactionforex); ?></td>
+                <td><?php var_dump($t->transactionForex); ?></td>
             </tr>
             <?php endforeach; ?>
             </tbody>
