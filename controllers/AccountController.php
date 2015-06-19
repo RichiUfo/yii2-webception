@@ -203,21 +203,21 @@ class AccountController extends \frontend\components\Controller
         $values = AccountController::getCurrentAccountValues($accountid);
         
         // 2- Convert all to the given currency
-        $values['total'] = 0;
+        $total = 0;
         foreach($values as $cur => $val) {
             if($cur !== $currency) {
-                $values['total'] += ExchangeController::get('finance', 'currency-conversion', [
+                $total += ExchangeController::get('finance', 'currency-conversion', [
                     'value' => $val,
                     'from' => $cur,
                     'to' => $currency
                 ]);
             }
             else {
-                $values['total'] += $val;
+                $total += $val;
             }
         }
         
-        return $values['total'];
+        return $total;
     }
     public function getChildrenAccounts($accountid) {
         $children = Account::find()
