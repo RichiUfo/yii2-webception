@@ -368,10 +368,11 @@ class AccountController extends \frontend\components\Controller
         foreach ($transactions as $t) {
             $date_dt = new \DateTime($t->date_value);
             if ($date_dt < $now_dt) {
+                $datapoints[$date_dt->format('Y-m-d')] = $c;
                 if ($t->debit) $c[$t->currency] += $t->value;
                 if ($t->credit) $c[$t->currency] -= $t->value;
             }
-            $datapoints[$date_dt->format('Y-m-d')] = $c;
+
         }
         
         // Sort & Return the values
