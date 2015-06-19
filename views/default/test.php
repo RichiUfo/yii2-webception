@@ -37,6 +37,7 @@
             <tr>
                 <td><?= $t->date_value ?></td>
                 <td><?= $t->value ?></td>
+                <td><?= $t->forex_trans_id ?></td>
             </tr>
             <?php endforeach; ?>
             </tbody>

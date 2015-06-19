@@ -20,6 +20,7 @@ class Transaction extends \frontend\components\ActiveRecord
     public $debit = false;  // Indicates if the transaction is a debit (true)
     public $credit = false;  // Indicates if the transaction is a credit (true)
     public $currency = '';
+    public $forex_trans_id = '';
     
     /**
      * @inheritdoc
