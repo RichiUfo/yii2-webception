@@ -367,6 +367,21 @@ class AccountController extends \frontend\components\Controller
         ksort($datapoints);
         return $datapoints;
     }
+    public function getAccountCurrencies($accountid) {
+        
+        $account = Account::findOne($accountid);
+        $currencies = [$account->currency];
+        
+        $children = getChildrenAccounts($accountid);
+        foreach($children as $child){
+            $cur_child = AccountController::getAccountCurrencies($child->id);
+            foreach($cur_child as $cur)
+                if (!in_array($cur, $currencies)) 
+                    array_push($currencies, $cur);
+        }
+        
+        return $currencies;
+    }
     
     /**
     * Return an array with the opening balance closing balance and relevant transactions

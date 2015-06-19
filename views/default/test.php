@@ -30,7 +30,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-6">
         <h1>Multiple currencies current value</h1>
         <table class="table table-striped">
         <tbody>
@@ -38,6 +38,27 @@
         <tr>
             <td><?= $cur ?></td>
             <td><?= $val ?></td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+        </table>
+    </div>
+    <div class="col-lg-6">
+        <h1>Multiple currencies histo valued</h1>
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>T/C</th>
+                <?php foreach($currencies as $cur) : ?>
+                <th><?= $cur ?></th>
+                <?php endforeach; ?>
+            </tr>
+        </thead>    
+        <tbody>
+        <?php foreach($histos as $date => $vals) : ?>
+        <tr>
+            <td><?= $date ?></td>
+            <td></td>
         </tr>
         <?php endforeach; ?>
         </tbody>
