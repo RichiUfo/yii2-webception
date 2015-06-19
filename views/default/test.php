@@ -55,12 +55,14 @@
             </tr>
         </thead>    
         <tbody>
-        <?php foreach($histos as $date => $vals) : ?>
-        <tr>
-            <td><?= $date ?></td>
-            <td></td>
-        </tr>
-        <?php endforeach; ?>
+            <?php foreach($histos as $date => $vals) : ?>
+            <tr>
+                <td><?= $date ?></td>
+                <?php foreach($currencies as $cur) : ?>
+                <td><?= $vals[$cur] ?></td>
+                <?php endforeach; ?>
+            </tr>
+            <?php endforeach; ?>
         </tbody>
         </table>
     </div>
