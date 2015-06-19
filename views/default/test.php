@@ -30,7 +30,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-8">
         <h1>Multiple currencies current value</h1>
         <table class="table table-striped">
         <tbody>
