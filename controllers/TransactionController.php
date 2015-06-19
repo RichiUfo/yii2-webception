@@ -62,8 +62,12 @@ class TransactionController extends \frontend\components\Controller
                     $value = Yii::$app->request->post('value_debit');
                     $value_forex = Yii::$app->request->post('value_credit');
                 }
-                TransactionController::createTransactionForex($deb, $cre, $value, $value_forex, $model->date_value, $model->name, $model->description);
-                NotificationController::setNotification('success', 'Forex Transaction Saved', 'The transaction has been saved !');
+                $success = TransactionController::createTransactionForex($deb, $cre, $value, $value_forex, $model->date_value, $model->name, $model->description);
+                if ($success) {
+                    NotificationController::setNotification('success', 'Forex Transaction Saved', 'The transaction has been saved !');
+                } else {
+                    NotificationController::setNotification('error', 'Forex Transaction Not Saved', 'The transaction has not been saved !');
+                }
             }
 
             return 'Saved';
@@ -195,7 +199,8 @@ class TransactionController extends \frontend\components\Controller
         $transaction->name = $name;
         $transaction->description = $description;
         $transaction->value = $value;
-        $transaction->save();
+        if(!$transaction->save()) 
+            return null;
         
         // Update the accouts values 
         $now_dt = new \DateTime();
@@ -229,13 +234,12 @@ class TransactionController extends \frontend\components\Controller
             
             // STEP 2 - Create the regular transaction
             if($credit_currency === $system_currency) {
-                $transaction = TransactionController::createTransactionRegular($debit, $credit, $value, $date, $name, $description);
-                //$transaction = TransactionController::createTransactionRegular($trading->account, $credit, $value, $date, $name, $description);
+                $transaction = TransactionController::createTransactionRegular($trading->account, $credit, $value, $date, $name, $description);
             }
             else if($debit_currency === $system_currency) {
-                $transaction = TransactionController::createTransactionRegular($debit, $credit, $value, $date, $name, $description);
-                //$transaction = TransactionController::createTransactionRegular($debit, $trading->account, $value, $date, $name, $description);
+                $transaction = TransactionController::createTransactionRegular($debit, $trading->account, $value, $date, $name, $description);
             }
+            $success = ($transaction) ? true : false;
             
             // STEP 3 - Create the forex transaction
             $forex_transaction = new TransactionForex;
@@ -247,17 +251,17 @@ class TransactionController extends \frontend\components\Controller
             if($credit_currency !== $system_currency) {
                 $trading->forex_value -= $value_forex;
                 $credit->value += $value_forex;
-                $credit->save();
+                $success = $success and $credit->save();
             }
             // Foreign account is debit (Buying Foreign Currency)
             else {
                 $trading->forex_value += $value_forex;
                 $debit->value -= $value_forex;
-                $debit->save();
+                $success = $success and $debit->save();
             }
-            $trading->save();
+            $success = $success and $trading->save();
         }
-        return true;
+        return $success;
     }
     
     /**
