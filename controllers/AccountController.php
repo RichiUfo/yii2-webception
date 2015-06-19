@@ -191,7 +191,12 @@ class AccountController extends \frontend\components\Controller
             $values_children = AccountController::getCurrentAccountValues($child->id);
             
             foreach ($values_children as $curc => $valc)
-                $values[$curc] += $valc;
+                if(isset($values[$curc])) {
+                    $values[$curc] += $valc;
+                }
+                else {
+                    $values[$curc] = $valc;
+                }
         }
         
         // 3- Return an array of values in the difference account currencies (currency => value)
