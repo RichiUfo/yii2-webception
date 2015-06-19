@@ -6,7 +6,7 @@
         <table class="table table-striped">
         <thead>
             <tr>
-                <th>T/C</th>
+                <th>Date vs Currencies</th>
                 <?php foreach($currencies as $cur) : ?>
                 <th><?= $cur ?></th>
                 <?php endforeach; ?>

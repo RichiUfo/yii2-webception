@@ -74,7 +74,9 @@ class DefaultController extends \frontend\components\Controller
 		$value = AccountController::getCurrentAccountValue($id, 'EUR');
 		$values = AccountController::getCurrentAccountValues($id);
 		$currencies = AccountController::getAccountCurrencies($id);
+		
 		$trans = TransactionController::getTransactions($id, $s, $e);
+		
 		$histos = AccountController::getHistoricalValues($id, $s, $e);
 		
 		return $this->render('test', [
