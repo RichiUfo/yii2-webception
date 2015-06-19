@@ -152,7 +152,7 @@ class TransactionController extends \frontend\components\Controller
             $transaction->credit = (in_array($transaction->account_credit_id, $ids))?true:false;       
             $transaction->debit = (in_array($transaction->account_debit_id, $ids))?true:false;    
             $transaction->currency = $transaction->accountCredit->currency;
-            $var = $transaction->transactionForex->forex_value;
+            $var = $transaction->transactionForex;//->forex_value;
         }
         
         return $transactions;
