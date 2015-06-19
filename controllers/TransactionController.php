@@ -46,7 +46,7 @@ class TransactionController extends \frontend\components\Controller
             // Regular Transaction
             if($deb->currency === $cur and $cre->currency === $cur){
                 if ($model->validate()) {
-                    $this->createTransaction($model);
+                    TransactionController::createTransactionForex($deb, $cre, $value, $model->value, $model->date_value, $model->name, $model->description);
                     NotificationController::setNotification('success', 'Transaction Saved', 'The transaction has been saved !');
                 }
             }
@@ -136,6 +136,7 @@ class TransactionController extends \frontend\components\Controller
         
         // Find the transactions
         $transactions = Transaction::find()
+            ->leftJoin('transactions_forex', '`transactions_forex`.`transaction_id` = `transactions`.`id`')
             ->where('account_credit_id IN '.$strids.' OR account_debit_id IN '.$strids)
             ->andWhere($time_query)
             ->orderBy(['date_value' => SORT_DESC])
@@ -210,15 +211,19 @@ class TransactionController extends \frontend\components\Controller
         $transaction->save();
         
         // Update the accouts values 
-        $debit = AccountController::updateAccountValue($debit->id, -1 * $value);
-        $credit = AccountController::updateAccountValue($credit->id, $value);
+        $now_dt = new \DateTime();
+        $datevalue_dt = new \DateTime($date);
+        if($datevalue_dt <= $now_dt){
+            $debit = AccountController::updateAccountValue($debit->id, -1 * $value);
+            $credit = AccountController::updateAccountValue($credit->id, $value);
+        }
         
         // Return the created transaction
         return $transaction;
     }
     private function createTransactionForex($debit, $credit, $value, $value_forex, $date, $name, $description) {
         
-        $system_currency = \Yii::$app->user->identity->acc_currency;;
+        $system_currency = \Yii::$app->user->identity->acc_currency;
         $debit_currency = $debit->currency;
         $credit_currency = $credit->currency;
         
