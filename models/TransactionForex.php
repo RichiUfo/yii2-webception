@@ -53,8 +53,8 @@ class TransactionForex extends \frontend\components\ActiveRecord
     /**
      * Relations
      */
-    public function getTransaction()
+    /*public function getTransaction()
     {
         return $this->hasOne(Transaction::className(), ['id' => 'transaction_id']);
-    }
+    }*/
 }
