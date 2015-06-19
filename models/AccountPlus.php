@@ -19,6 +19,7 @@ class AccountPlus extends Account
     public $statement;
     public $sign;
     public $value_currency;
+    public $value_currencies;
     public $value_converted;
     
     public function afterFind(){

@@ -160,7 +160,7 @@ class AccountController extends \frontend\components\Controller
         $account->value += $amount;
         return $account->save();
     }
-    public function getCurrentAccountValue($accountid, $currency) {
+    public function getCurrentAccountValues($accountid) {
         
         // 1- Get the intrinsic account value (not considering children accounts)
         $account = Account::findOne($accountid);
@@ -183,25 +183,41 @@ class AccountController extends \frontend\components\Controller
         $account->date_value = $now_dt->format('Y-m-d H:i:s');
         $account->save();
         
-        // 2- Get the children account values in the main parent account currency
-        $value = $account->value;
-        $children = AccountController::getChildrenAccounts($accountid);
-        foreach($children as $child)
-            $value += AccountController::getCurrentAccountValue($child->id, $currency);
+        $values[$account->currency] = $account->value;
         
-        // 3- Currency conversion (if necessary)
-        if ($account->currency !== $currency) {
+        // 2- Get the children account values in the main parent account currency
+        $children = AccountController::getChildrenAccounts($accountid);
+        foreach($children as $child) {
+            $values_children += AccountController::getCurrentAccountValues($child->id, $currency);
             
-            $value = ExchangeController::get('finance', 'currency-conversion', [
-                'value' => $value,
-                'from' => $account->currency,
-                'to' => $currency,
-            ]);
-            
+            foreach ($values_children as $curc => $valc)
+                $values[$curc] += $valc;
         }
         
-        // 3- Return the calculated value
-        return $value;
+        // 3- Return an array of values in the difference account currencies (currency => value)
+        return $values;
+    }
+    public function getCurrentAccountValue($accountid, $currency) {
+        
+        // 1- Get the balances in all account currencies
+        $values = AccountController::getCurrentAccountValues($accountid);
+        
+        // 2- Convert all to the given currency
+        $values['total'] = 0;
+        foreach($values as $cur => $val) {
+            if($cur !== $currency) {
+                $values['total'] += ExchangeController::get('finance', 'currency-conversion', [
+                    'value' => $val,
+                    'from' => $cur,
+                    'to' => $currency
+                ]);
+            }
+            else {
+                $values['total'] += $val;
+            }
+        }
+        
+        return $values['total'];
     }
     public function getChildrenAccounts($accountid) {
         $children = Account::find()
@@ -288,8 +304,6 @@ class AccountController extends \frontend\components\Controller
             $current_date_dt = new \DateTime($transaction->date_value);
             $current_date = $current_date_dt->format('Y-m-d');
             
-            
-            
             // Add current value (Today)
             $datapoints[$current_date] = round($current_value, 2);
             
@@ -321,7 +335,12 @@ class AccountController extends \frontend\components\Controller
         if ($start_dt < $current_date)
             $datapoints[$start] = 0;
         
+        // Sort by ascending date order
         ksort($datapoints);
+        
+        // Currencies aggregation to main currency
+        
+        
         return $datapoints;
     }
     

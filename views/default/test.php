@@ -29,3 +29,18 @@
         </table>
     </div>
 </div>
+<div class="row">
+    <div class="col-lg-6">
+        <h1>Multiple currencies current value</h1>
+        <table class="table table-striped">
+        <tbody>
+        <?php foreach($values as $cur => $val) : ?>
+        <tr>
+            <td><?= $cur ?></td>
+            <td><?= $val ?></td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+        </table>
+    </div>
+</div>
