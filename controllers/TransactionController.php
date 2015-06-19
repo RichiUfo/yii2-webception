@@ -140,7 +140,7 @@ class TransactionController extends \frontend\components\Controller
         
         // Find the transactions
         $transactions = Transaction::find()
-            ->select('transactions_forex.*')
+            ->select(['transactions.*', 'transactions_forex.*'])
             ->leftJoin('transactions_forex', '`transactions_forex`.`transaction_id` = `transactions`.`id`')
             ->where('account_credit_id IN '.$strids.' OR account_debit_id IN '.$strids)
             ->andWhere($time_query)
