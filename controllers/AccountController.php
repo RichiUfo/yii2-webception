@@ -372,7 +372,7 @@ class AccountController extends \frontend\components\Controller
         $account = Account::findOne($accountid);
         $currencies = [$account->currency];
         
-        $children = getChildrenAccounts($accountid);
+        $children = AccountController::getChildrenAccounts($accountid);
         foreach($children as $child){
             $cur_child = AccountController::getAccountCurrencies($child->id);
             foreach($cur_child as $cur)
