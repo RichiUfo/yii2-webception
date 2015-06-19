@@ -45,5 +45,3 @@
         </table>
     </div>
 </div>
-
-<?php var_dump($trans); ?>
