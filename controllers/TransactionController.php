@@ -64,9 +64,9 @@ class TransactionController extends \frontend\components\Controller
                 }
                 $success = TransactionController::createTransactionForex($deb, $cre, $value, $value_forex, $model->date_value, $model->name, $model->description);
                 if ($success) {
-                    NotificationController::setNotification('success', 'Forex Transaction Saved', 'The transaction has been saved !');
+                    NotificationController::setNotification('success', 'Forex Transaction Saved', 'The transaction has been saved !'.$success);
                 } else {
-                    NotificationController::setNotification('error', 'Forex Transaction Not Saved', 'The transaction has not been saved !');
+                    NotificationController::setNotification('error', 'Forex Transaction Not Saved', 'The transaction has not been saved !'.$success);
                 }
             }
 
@@ -261,6 +261,7 @@ class TransactionController extends \frontend\components\Controller
             }
             $success = $success and $trading->save();
         }
+        return $transaction->id;
         return $success;
     }
     
