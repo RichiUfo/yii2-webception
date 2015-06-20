@@ -265,6 +265,63 @@ class AccountController extends \frontend\components\Controller
             'movements' => $movements
         ]);
     }
+    public function getHistoricalValue($accountid, $start, $end) {
+        $account = AccountPlus::findOne($accountid);
+        $transactions = TransactionController::getTransactions($accountid, $start, $end);
+        
+        // Initializing calculation variables
+        $datapoints = [];
+        $today = new \DateTime();
+        $current_date = $today->format('Y-m-d');
+        $current_value = $account->value;
+        $datapoints[$current_date] = $current_value;
+        
+        // Calculating historical values
+        foreach ($transactions as $transaction) {
+            
+            // If transaction is modifying the account value, calculate a new datapoint
+            $current_date_dt = new \DateTime($transaction->date_value);
+            $current_date = $current_date_dt->format('Y-m-d');
+            
+            // Add current value (Today)
+            $datapoints[$current_date] = round($current_value, 2);
+            
+            // Past Transactions
+            if ($today > $current_date_dt) {
+                if(!$transaction->credit and $transaction->debit) {
+                    $current_value += $transaction->value;
+                }
+                else if ($transaction->credit and !$transaction->debit) {
+                    $current_value -= $transaction->value;
+                }
+            }
+            
+            // Future Transactions
+            else if ($today < $current_date_dt) {
+                if(!$transaction->credit and $transaction->debit) {
+                    $current_value -= $transaction->value;
+                }
+                else if ($transaction->credit and !$transaction->debit) {
+                    $current_value += $transaction->value;
+                }
+            }
+            
+        }
+        
+        // In case we have no initial value, set 0 for the start date
+        $current_date = new \DateTime($current_date);
+        $start_dt = new \DateTime($start);
+        if ($start_dt < $current_date)
+            $datapoints[$start] = 0;
+        
+        // Sort by ascending date order
+        ksort($datapoints);
+        
+        // Currencies aggregation to main currency
+        
+        
+        return $datapoints;
+    }
     public function getHistoricalValues($accountid, $start, $end) {
         $account = AccountPlus::findOne($accountid);
         $transactions = TransactionController::getTransactions($accountid, $start, $end);
@@ -297,6 +354,7 @@ class AccountController extends \frontend\components\Controller
                     $current_value -= $transaction->value;
                 }
             }
+<<<<<<< HEAD
             
             // Future Transactions
             else if ($today < $current_date_dt) {
@@ -308,6 +366,9 @@ class AccountController extends \frontend\components\Controller
                 }
             }
             
+=======
+
+>>>>>>> parent of bc2ebe8... Autocommit
         }
         
         // In case we have no initial value, set 0 for the start date

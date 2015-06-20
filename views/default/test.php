@@ -28,6 +28,20 @@
 
 
 <div class="row">
+    <div class="col-lg-6">
+        <h1>Historical Values</h1>
+        <table class="table table-striped">
+        <tbody>
+        <?php foreach($histo as $date => $val) : ?>
+        <tr>
+            <td><?= $date ?></td>
+            <td><?= $val ?></td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+        </table>
+    </div>
+    
     
     <div class="col-lg-6">
         <h1>Related Transactions</h1>
