@@ -340,8 +340,6 @@ class AccountController extends \frontend\components\Controller
             $current_date_dt = new \DateTime($transaction->date_value);
             $current_date = $current_date_dt->format('Y-m-d');
             
-            
-            
             // Add current value (Today)
             $datapoints[$current_date] = round($current_value, 2);
             
@@ -354,7 +352,6 @@ class AccountController extends \frontend\components\Controller
                     $current_value -= $transaction->value;
                 }
             }
-<<<<<<< HEAD
             
             // Future Transactions
             else if ($today < $current_date_dt) {
@@ -366,9 +363,6 @@ class AccountController extends \frontend\components\Controller
                 }
             }
             
-=======
-
->>>>>>> parent of bc2ebe8... Autocommit
         }
         
         // In case we have no initial value, set 0 for the start date
