@@ -46,7 +46,7 @@ class TransactionController extends \frontend\components\Controller
             // Regular Transaction
             if($deb->currency === $cur and $cre->currency === $cur){
                 if ($model->validate()) {
-                    TransactionController::createTransactionRegular($deb, $cre, $model->value, $model->date_value, $model->name, $model->description);
+                    $this->createTransaction($model);
                     NotificationController::setNotification('success', 'Transaction Saved', 'The transaction has been saved !');
                 }
             }
@@ -62,12 +62,8 @@ class TransactionController extends \frontend\components\Controller
                     $value = Yii::$app->request->post('value_debit');
                     $value_forex = Yii::$app->request->post('value_credit');
                 }
-                $success = TransactionController::createTransactionForex($deb, $cre, $value, $value_forex, $model->date_value, $model->name, $model->description);
-                if ($success) {
-                    NotificationController::setNotification('success', 'Forex Transaction Saved', 'The transaction has been saved !'.$success);
-                } else {
-                    NotificationController::setNotification('error', 'Forex Transaction Not Saved', 'The transaction has not been saved !'.$success);
-                }
+                TransactionController::createTransactionForex($deb, $cre, $value, $value_forex, $model->date_value, $model->name, $model->description);
+                NotificationController::setNotification('success', 'Forex Transaction Saved', 'The transaction has been saved !');
             }
 
             return 'Saved';
@@ -140,8 +136,6 @@ class TransactionController extends \frontend\components\Controller
         
         // Find the transactions
         $transactions = Transaction::find()
-            ->select(['transactions.*', 'transactions_forex.*'])
-            ->leftJoin('transactions_forex', '`transactions_forex`.`transaction_id` = `transactions`.`id`')
             ->where('account_credit_id IN '.$strids.' OR account_debit_id IN '.$strids)
             ->andWhere($time_query)
             ->orderBy(['date_value' => SORT_DESC])
@@ -152,7 +146,6 @@ class TransactionController extends \frontend\components\Controller
             $transaction->credit = (in_array($transaction->account_credit_id, $ids))?true:false;       
             $transaction->debit = (in_array($transaction->account_debit_id, $ids))?true:false;    
             $transaction->currency = $transaction->accountCredit->currency;
-            $var = $transaction->transactionForex;//->forex_value;
         }
         
         return $transactions;
@@ -192,6 +185,19 @@ class TransactionController extends \frontend\components\Controller
             'transactions' => $transactions 
         );
     }
+    private function createTransaction($model) {
+        
+        $now_dt = new \DateTime();
+        $datevalue_dt = new \DateTime($model->date_value);
+        
+        if($datevalue_dt <= $now_dt){
+            $debit = AccountController::updateAccountValue($model->account_debit_id, -1 * $model->value);
+            $credit = AccountController::updateAccountValue($model->account_credit_id, $model->value);
+        }
+        
+        return $model->save();
+    }
+    
     private function createTransactionRegular($debit, $credit, $value, $date, $name, $description) {
         // Register the transaction in the database
         $transaction = new Transaction;
@@ -201,23 +207,18 @@ class TransactionController extends \frontend\components\Controller
         $transaction->name = $name;
         $transaction->description = $description;
         $transaction->value = $value;
-        if(!$transaction->save()) 
-            return null;
+        $transaction->save();
         
         // Update the accouts values 
-        $now_dt = new \DateTime();
-        $datevalue_dt = new \DateTime($date);
-        if($datevalue_dt <= $now_dt){
-            $debit = AccountController::updateAccountValue($debit->id, -1 * $value);
-            $credit = AccountController::updateAccountValue($credit->id, $value);
-        }
+        $debit = AccountController::updateAccountValue($debit->id, -1 * $value);
+        $credit = AccountController::updateAccountValue($credit->id, $value);
         
         // Return the created transaction
         return $transaction;
     }
     private function createTransactionForex($debit, $credit, $value, $value_forex, $date, $name, $description) {
         
-        $system_currency = \Yii::$app->user->identity->acc_currency;
+        $system_currency = \Yii::$app->user->identity->acc_currency;;
         $debit_currency = $debit->currency;
         $credit_currency = $credit->currency;
         
@@ -241,7 +242,6 @@ class TransactionController extends \frontend\components\Controller
             else if($debit_currency === $system_currency) {
                 $transaction = TransactionController::createTransactionRegular($debit, $trading->account, $value, $date, $name, $description);
             }
-            $success = ($transaction) ? true : false;
             
             // STEP 3 - Create the forex transaction
             $forex_transaction = new TransactionForex;
@@ -253,18 +253,17 @@ class TransactionController extends \frontend\components\Controller
             if($credit_currency !== $system_currency) {
                 $trading->forex_value -= $value_forex;
                 $credit->value += $value_forex;
-                $success = $success and $credit->save();
+                $credit->save();
             }
             // Foreign account is debit (Buying Foreign Currency)
             else {
                 $trading->forex_value += $value_forex;
                 $debit->value -= $value_forex;
-                $success = $success and $debit->save();
+                $debit->save();
             }
-            $success = $success and $trading->save();
+            $trading->save();
         }
-        return $transaction->id;
-        return $success;
+        return true;
     }
     
     /**

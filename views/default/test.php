@@ -6,7 +6,7 @@
         <table class="table table-striped">
         <thead>
             <tr>
-                <th>Date vs Currencies</th>
+                <th>T/C</th>
                 <?php foreach($currencies as $cur) : ?>
                 <th><?= $cur ?></th>
                 <?php endforeach; ?>
@@ -28,20 +28,6 @@
 
 
 <div class="row">
-    <div class="col-lg-6">
-        <h1>Historical Values</h1>
-        <table class="table table-striped">
-        <tbody>
-        <?php foreach($histo as $date => $val) : ?>
-        <tr>
-            <td><?= $date ?></td>
-            <td><?= $val ?></td>
-        </tr>
-        <?php endforeach; ?>
-        </tbody>
-        </table>
-    </div>
-    
     
     <div class="col-lg-6">
         <h1>Related Transactions</h1>
@@ -51,8 +37,6 @@
             <tr>
                 <td><?= $t->date_value ?></td>
                 <td><?= $t->value ?></td>
-                <td><?= $t->accountDebit->name ?></td> 
-                <td><?php var_dump($t->transactionForex); ?></td>
             </tr>
             <?php endforeach; ?>
             </tbody>

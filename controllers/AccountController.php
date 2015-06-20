@@ -160,14 +160,19 @@ class AccountController extends \frontend\components\Controller
         $account->value += $amount;
         return $account->save();
     }
-    public function getCurrentAccountValue($accountid, $currency) {
+    public function getCurrentAccountValues($accountid) {
         
         // 1- Get the intrinsic account value (not considering children accounts)
         $account = Account::findOne($accountid);
         $now_dt = new \DateTime();
-        $last_update_dt = new \DateTime($account->date_value);
-        $transactions = TransactionController::getTransactionsFrom($accountid, $last_update_dt);
-        foreach($transactions as $transaction) { 
+        if($account->date_value) {
+            $last_update_dt = new \DateTime($account->date_value);
+            $transactions = TransactionController::getTransactionsFrom($accountid, $last_update_dt);
+        }
+        else {
+            $transactions = TransactionController::getTransactionsFrom($accountid);
+        }
+        foreach($transactions as $transaction) {
             if($transaction->account_credit_id === $account->id) {
                 $account->value += $transaction->value;
             }
@@ -178,25 +183,46 @@ class AccountController extends \frontend\components\Controller
         $account->date_value = $now_dt->format('Y-m-d H:i:s');
         $account->save();
         
-        // 2- Get the children account values in the main parent account currency
-        $value = $account->value;
-        $children = AccountController::getChildrenAccounts($accountid);
-        foreach($children as $child)
-            $value += AccountController::getCurrentAccountValue($child->id, $currency);
+        $values[$account->currency] = $account->value;
         
-        // 3- Currency conversion (if necessary)
-        if ($account->currency !== $currency) {
+        // 2- Get the children account values in the main parent account currency
+        $children = AccountController::getChildrenAccounts($accountid);
+        foreach($children as $child) {
+            $values_children = AccountController::getCurrentAccountValues($child->id);
             
-            $value = ExchangeController::get('finance', 'currency-conversion', [
-                'value' => $value,
-                'from' => $account->currency,
-                'to' => $currency,
-            ]);
-            
+            foreach ($values_children as $curc => $valc)
+                if(isset($values[$curc])) {
+                    $values[$curc] += $valc;
+                }
+                else {
+                    $values[$curc] = $valc;
+                }
         }
         
-        // 3- Return the calculated value
-        return $value;
+        // 3- Return an array of values in the difference account currencies (currency => value)
+        return $values;
+    }
+    public function getCurrentAccountValue($accountid, $currency) {
+        
+        // 1- Get the balances in all account currencies
+        $values = AccountController::getCurrentAccountValues($accountid);
+        
+        // 2- Convert all to the given currency
+        $total = 0;
+        foreach($values as $cur => $val) {
+            if($cur !== $currency) {
+                $total += ExchangeController::get('finance', 'currency-conversion', [
+                    'value' => $val,
+                    'from' => $cur,
+                    'to' => $currency
+                ]);
+            }
+            else {
+                $total += $val;
+            }
+        }
+        
+        return $total;
     }
     public function getChildrenAccounts($accountid) {
         $children = Account::find()
@@ -265,114 +291,50 @@ class AccountController extends \frontend\components\Controller
             'movements' => $movements
         ]);
     }
-    public function getHistoricalValue($accountid, $start, $end) {
-        $account = AccountPlus::findOne($accountid);
+    public function getHistoricalValues($accountid, $start, $end) {
+        
+        // 0- Variables Init
+        $now_dt = new \DateTime();
+        $start_dt = new \DateTime($start);
+        $end_dt = new \DateTime($end);
+        
+        // 1- Get Current Values (All Currencies)
+        $current = AccountController::getCurrentAccountValues($accountid);
+        if($now_dt > $start_dt and $now_dt < $end_dt)
+            $datapoints[$now_dt->format('Y-m-d')] = $current;
+        
+        // 2- Get Related Transactions (DESC date_value - most recent first)
         $transactions = TransactionController::getTransactions($accountid, $start, $end);
         
-        // Initializing calculation variables
-        $datapoints = [];
-        $today = new \DateTime();
-        $current_date = $today->format('Y-m-d');
-        $current_value = $account->value;
-        $datapoints[$current_date] = $current_value;
-        
-        // Calculating historical values
-        foreach ($transactions as $transaction) {
-            
-            // If transaction is modifying the account value, calculate a new datapoint
-            $current_date_dt = new \DateTime($transaction->date_value);
-            $current_date = $current_date_dt->format('Y-m-d');
-            
-            // Add current value (Today)
-            $datapoints[$current_date] = round($current_value, 2);
-            
-            // Past Transactions
-            if ($today > $current_date_dt) {
-                if(!$transaction->credit and $transaction->debit) {
-                    $current_value += $transaction->value;
-                }
-                else if ($transaction->credit and !$transaction->debit) {
-                    $current_value -= $transaction->value;
-                }
+        // 3- Calculate Past Values
+        $c = $current;
+        foreach ($transactions as $t) {
+            $date_dt = new \DateTime($t->date_value);
+            if ($date_dt < $now_dt) {
+                $datapoints[$date_dt->format('Y-m-d')] = $c;
+                if ($t->debit) $c[$t->currency] += $t->value;
+                if ($t->credit) $c[$t->currency] -= $t->value;
             }
-            
-            // Future Transactions
-            else if ($today < $current_date_dt) {
-                if(!$transaction->credit and $transaction->debit) {
-                    $current_value -= $transaction->value;
-                }
-                else if ($transaction->credit and !$transaction->debit) {
-                    $current_value += $transaction->value;
-                }
-            }
-            
         }
         
-        // In case we have no initial value, set 0 for the start date
-        $current_date = new \DateTime($current_date);
-        $start_dt = new \DateTime($start);
-        if ($start_dt < $current_date)
-            $datapoints[$start] = 0;
-        
-        // Sort by ascending date order
+        // Sort & Return the values
         ksort($datapoints);
-        
-        // Currencies aggregation to main currency
-        
-        
         return $datapoints;
     }
-    public function getHistoricalValues($accountid, $start, $end) {
-        $account = AccountPlus::findOne($accountid);
-        $transactions = TransactionController::getTransactions($accountid, $start, $end);
+    public function getAccountCurrencies($accountid) {
         
-        // Initializing calculation variables
-        $datapoints = [];
-        $today = new \DateTime();
-        $current_date = $today->format('Y-m-d');
-        $current_value = $account->value;
-        $datapoints[$current_date] = $current_value;
+        $account = Account::findOne($accountid);
+        $currencies = [$account->currency];
         
-        // Calculating historical values
-        foreach ($transactions as $transaction) {
-            
-            // If transaction is modifying the account value, calculate a new datapoint
-            $current_date_dt = new \DateTime($transaction->date_value);
-            $current_date = $current_date_dt->format('Y-m-d');
-            
-            // Add current value (Today)
-            $datapoints[$current_date] = round($current_value, 2);
-            
-            // Past Transactions
-            if ($today > $current_date_dt) {
-                if(!$transaction->credit and $transaction->debit) {
-                    $current_value += $transaction->value;
-                }
-                else if ($transaction->credit and !$transaction->debit) {
-                    $current_value -= $transaction->value;
-                }
-            }
-            
-            // Future Transactions
-            else if ($today < $current_date_dt) {
-                if(!$transaction->credit and $transaction->debit) {
-                    $current_value -= $transaction->value;
-                }
-                else if ($transaction->credit and !$transaction->debit) {
-                    $current_value += $transaction->value;
-                }
-            }
-            
+        $children = AccountController::getChildrenAccounts($accountid); 
+        foreach($children as $child){
+            $cur_child = AccountController::getAccountCurrencies($child->id);
+            foreach($cur_child as $cur)
+                if (!in_array($cur, $currencies)) 
+                    array_push($currencies, $cur);
         }
         
-        // In case we have no initial value, set 0 for the start date
-        $current_date = new \DateTime($current_date);
-        $start_dt = new \DateTime($start);
-        if ($start_dt < $current_date)
-            $datapoints[$start] = 0;
-        
-        ksort($datapoints);
-        return $datapoints;
+        return $currencies;
     }
     
     /**
