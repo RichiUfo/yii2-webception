@@ -56,7 +56,7 @@
                         echo $t->debit['value'].' '.$t->debit['currency'];
                     ?>
                 </td>
-                <td><?= ($t->transactionForex)?'':'' ?></td>
+                <td><?= ($t->transactionForex)?'FX':'' ?></td>
             </tr>
             <?php endforeach; ?>
             </tbody>
