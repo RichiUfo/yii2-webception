@@ -43,6 +43,7 @@
             <?php foreach($trans as $t) : ?>
             <tr>
                 <td><?= $t->date_value ?></td>
+                <td><?= $t->name ?></td>
                 <td>
                     <?php if($t->credit['isCredit'])
                         echo $t->credit['value'].' '.$t->credit['currency'];
