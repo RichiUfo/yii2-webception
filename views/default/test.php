@@ -32,12 +32,20 @@
     <div class="col-lg-6">
         <h1>Related Transactions</h1>
         <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Value</th>
+                    <th>Forex</th>
+                </tr>
+            </thead>
             <tbody>
             <?php foreach($trans as $t) : ?>
             <tr>
                 <td><?= $t->date_value ?></td>
-                <td><?= $t->value ?></td>
+                <td><?= $t->value ?> </td>
                 <td><?= $t->transactionForex['forex_value'] ?></td>
+                <td><?= isset($transaction->transactionForex)?'true':'false'; ?></td>
             </tr>
             <?php endforeach; ?>
             </tbody>

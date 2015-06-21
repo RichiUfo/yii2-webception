@@ -83,6 +83,6 @@ class DefaultController extends \frontend\components\Controller
 		    'value'=>$value, 
 		    'values'=>$values,
 		    'currencies'=>$currencies
-		    ]);
+		]);
 	}
 }

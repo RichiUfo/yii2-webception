@@ -141,12 +141,20 @@ class TransactionController extends \frontend\components\Controller
             ->orderBy(['date_value' => SORT_DESC])
             ->all();
         
-        // Check if the transaction is a debit or credit for this account
+        // Debit/Credit, Value, Currency
         foreach($transactions as $transaction){
-            $transaction->credit = (in_array($transaction->account_credit_id, $ids))?true:false;       
-            $transaction->debit = (in_array($transaction->account_debit_id, $ids))?true:false;    
+            
+            // Check if the transaction is a debit or credit for this account
+            $transaction->credit['isCredit'] = (in_array($transaction->account_credit_id, $ids))?true:false;       
+            $transaction->debit['isDebit'] = (in_array($transaction->account_debit_id, $ids))?true:false;   
+            
+            // Currency
+            if(isset($transaction->transactionForex))
             $transaction->currency = $transaction->accountCredit->currency;
         }
+        
+        // Format the values and currencies
+        
         
         return $transactions;
     }
