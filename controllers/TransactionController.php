@@ -169,6 +169,12 @@ class TransactionController extends \frontend\components\Controller
                     $transaction->debit['value'] = $transaction->transactionForex['forex_value'];
                 }
             }
+            else{
+                $transaction->credit['value'] = $transaction->value;
+                
+                    $transaction->debit['value'] = $transaction->value;
+            }
+            
         }
         
         // Format the values and currencies

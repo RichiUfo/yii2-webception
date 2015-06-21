@@ -35,7 +35,7 @@
             <thead>
                 <tr>
                     <th>Date</th>
-                    <th>Transaction</th>
+                    <th>Transaction</th> 
                     <th>Credit</th>
                     <th>Debit</th>
                 </tr>
