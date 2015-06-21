@@ -171,8 +171,7 @@ class TransactionController extends \frontend\components\Controller
             }
             else{
                 $transaction->credit['value'] = $transaction->value;
-                
-                    $transaction->debit['value'] = $transaction->value;
+                $transaction->debit['value'] = $transaction->value;
             }
             
         }
