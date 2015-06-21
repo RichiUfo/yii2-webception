@@ -20,7 +20,7 @@
                 <?php foreach($currencies as $cur) : ?>
                 <td><?= $vals[$cur] ?></td>
                 <?php endforeach; ?>
-                <td></td>
+                <td><?= $vals['total'] ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
