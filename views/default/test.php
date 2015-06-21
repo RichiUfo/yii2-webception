@@ -34,7 +34,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Date</th>
+                    <th>ID #</th>
                     <th>Date</th>
                     <th>Transaction</th> 
                     <th>Credit</th>
@@ -45,7 +45,7 @@
             <tbody>
             <?php foreach($trans as $t) : ?>
                 <tr>
-                    <td><?= $t->date_value ?></td>
+                    <td><?= $t->id ?></td>
                     <td><?= $t->date_value ?></td>
                     <td><?= $t->name ?></td>
                     <td>
