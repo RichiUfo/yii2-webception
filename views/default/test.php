@@ -35,6 +35,7 @@
             <thead>
                 <tr>
                     <th>Date</th>
+                    <th>Date</th>
                     <th>Transaction</th> 
                     <th>Credit</th>
                     <th>Debit</th>
@@ -43,21 +44,22 @@
             </thead>
             <tbody>
             <?php foreach($trans as $t) : ?>
-            <tr>
-                <td><?= $t->date_value ?></td>
-                <td><?= $t->name ?></td>
-                <td>
-                    <?php if($t->credit['isCredit'])
-                        echo $t->credit['value'].' '.$t->credit['currency'];
-                    ?>
-                </td>
-                <td>
-                    <?php if($t->debit['isDebit'])
-                        echo $t->debit['value'].' '.$t->debit['currency'];
-                    ?>
-                </td>
-                <td><?= ($t->transactionForex)?'FX':'' ?></td>
-            </tr>
+                <tr>
+                    <td><?= $t->date_value ?></td>
+                    <td><?= $t->date_value ?></td>
+                    <td><?= $t->name ?></td>
+                    <td>
+                        <?php if($t->credit['isCredit'])
+                            echo $t->credit['value'].' '.$t->credit['currency'];
+                        ?>
+                    </td>
+                    <td>
+                        <?php if($t->debit['isDebit'])
+                            echo $t->debit['value'].' '.$t->debit['currency'];
+                        ?>
+                    </td>
+                    <td><?= ($t->transactionForex)?'FX':'' ?></td> 
+                </tr>
             <?php endforeach; ?>
             </tbody>
         </table>
