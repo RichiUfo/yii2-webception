@@ -19,6 +19,7 @@
                 <?php foreach($currencies as $cur) : ?>
                 <td><?= $vals[$cur] ?></td>
                 <?php endforeach; ?>
+                <td><?= $vals[''] ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
