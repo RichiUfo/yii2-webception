@@ -29,12 +29,13 @@
 
 <div class="row">
     
-    <div class="col-lg-6">
+    <div class="col-lg-12">
         <h1>Related Transactions</h1>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Date</th>
+                    <th>Transaction</th>
                     <th>Credit</th>
                     <th>Debit</th>
                 </tr>
