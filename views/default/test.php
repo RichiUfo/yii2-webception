@@ -38,6 +38,7 @@
                     <th>Transaction</th> 
                     <th>Credit</th>
                     <th>Debit</th>
+                    <th>Forex</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,6 +56,7 @@
                         echo $t->debit['value'].' '.$t->debit['currency'];
                     ?>
                 </td>
+                <td><?= ($t->transactionForex)?'Yes':'No' ?></td>
             </tr>
             <?php endforeach; ?>
             </tbody>
