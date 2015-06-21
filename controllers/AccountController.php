@@ -200,7 +200,6 @@ class AccountController extends \frontend\components\Controller
         }
         
         // 3- Return an array of values in the difference account currencies (currency => value)
-        $values['total'] = 0;
         return $values;
     }
     public function getCurrentAccountValue($accountid, $currency) {
