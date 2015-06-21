@@ -10,7 +10,7 @@
                 <?php foreach($currencies as $cur) : ?>
                 <th><?= $cur ?></th>
                 <?php endforeach; ?>
-                <td>TOTAL</td>
+                <th>TOTAL</th>
             </tr>
         </thead>    
         <tbody>
