@@ -28,7 +28,6 @@
 
 
 <div class="row">
-    
     <div class="col-lg-12">
         <h1>Related Transactions</h1>
         <table class="table table-striped">
@@ -49,7 +48,7 @@
                     <td><?= $t->date_value ?></td>
                     <td><?= $t->name ?></td>
                     <td>
-                        <?php 
+                        <?php
                         if($t->credit['isCredit'])
                             echo $t->credit['value'].' '.$t->credit['currency'];
                         ?>
