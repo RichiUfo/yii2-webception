@@ -157,8 +157,6 @@ class TransactionController extends \frontend\components\Controller
                 $transaction->debit['currency'] = $transaction->accountDebit->currency;
                 
                 // III. Value
-                
-                // Credit Side
                 if($transaction->credit['currency'] === 'EUR') {
                     $transaction->credit['value'] = $transaction->value;
                 } else {

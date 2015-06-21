@@ -50,7 +50,6 @@
                     <td><?= $t->name ?></td>
                     <td>
                         <?php 
-                        echo ($t->credit['isCredit'])?'C':'Not Credit';
                         if($t->credit['isCredit'])
                             echo $t->credit['value'].' '.$t->credit['currency'];
                         ?>
@@ -69,5 +68,3 @@
         </table>
     </div>
 </div>
-
-<?php var_dump($trans[0]->accountForex); ?>
