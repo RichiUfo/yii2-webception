@@ -65,6 +65,3 @@
         </table>
     </div>
 </div>
-
-
-<?php var_dump($trans[0]->accountForex); ?>

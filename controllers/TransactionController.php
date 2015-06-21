@@ -144,17 +144,25 @@ class TransactionController extends \frontend\components\Controller
         
         // Debit/Credit, Value, Currency
         foreach($transactions as $transaction){
-            
-            // Check if the transaction is a debit or credit for this account
-            $transaction->credit['isCredit'] = (in_array($transaction->account_credit_id, $ids))?true:false;       
-            $transaction->debit['isDebit'] = (in_array($transaction->account_debit_id, $ids))?true:false;   
-            
-            // Currency
-            $transaction->credit['currency'] = $transaction->accountCredit->currency;
-            $transaction->debit['currency'] = $transaction->accountDebit->currency;
-            
-            // Values
+             
+            // Forex Transaction
             if(isset($transaction->transactionForex)){
+                
+                // I. Check if the transaction is a debit or credit for this account
+                if (in_array($transaction->account_credit_id, $ids)) {
+                    $transaction->credit['isCredit'] = true;
+                    $transaction->debit['isDebit'] = (in_array($transaction->accountForex['id'], $ids))?true:false;
+                }
+                if (in_array($transaction->account_debit_id, $ids)) {
+                    $transaction->debit['isDebit'] = true;
+                    $transaction->credit['isCredit'] = (in_array($transaction->accountForex['id'], $ids))?true:false;
+                }
+                
+                // II. Currency
+                $transaction->credit['currency'] = $transaction->accountCredit->currency;
+                $transaction->debit['currency'] = $transaction->accountDebit->currency;
+                
+                // III. Value
                 
                 // Credit Side
                 if($transaction->credit['currency'] === 'EUR') {
@@ -170,7 +178,16 @@ class TransactionController extends \frontend\components\Controller
                     $transaction->debit['value'] = $transaction->transactionForex['forex_value'];
                 }
             }
+            
+            // NON-Forex Transaction
             else{
+                // I. Check if the transaction is a debit or credit for this account
+                $transaction->credit['isCredit'] = (in_array($transaction->account_credit_id, $ids))?true:false;       
+                $transaction->debit['isDebit'] = (in_array($transaction->account_debit_id, $ids))?true:false;  
+                // II. Currency
+                $transaction->credit['currency'] = $transaction->accountCredit->currency;
+                $transaction->debit['currency'] = $transaction->accountDebit->currency;
+                // III. Value
                 $transaction->credit['value'] = $transaction->value;
                 $transaction->debit['value'] = $transaction->value;
             }
