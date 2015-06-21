@@ -37,7 +37,7 @@
             <tr>
                 <td><?= $t->date_value ?></td>
                 <td><?= $t->value ?></td>
-                <td><?= $t->transactionForex->id ?></td>
+                <td><?php var_dump($t->transactionForex); ?></td>
             </tr>
             <?php endforeach; ?>
             </tbody>
