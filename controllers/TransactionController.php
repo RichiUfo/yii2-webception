@@ -136,6 +136,7 @@ class TransactionController extends \frontend\components\Controller
         
         // Find the transactions
         $transactions = Transaction::find()
+            ->joinWith(['transactionForex'])
             ->where('account_credit_id IN '.$strids.' OR account_debit_id IN '.$strids)
             ->andWhere($time_query)
             ->orderBy(['date_value' => SORT_DESC])

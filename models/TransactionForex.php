@@ -57,4 +57,8 @@ class TransactionForex extends \frontend\components\ActiveRecord
     {
         return $this->hasOne(Transaction::className(), ['id' => 'transaction_id']);
     }
+    public function getForexAccount()
+    {
+        return $this->hasOne(AccountForex::className(), ['id' => 'account_']);
+    }
 }
