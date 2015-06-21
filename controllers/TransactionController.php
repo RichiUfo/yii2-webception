@@ -149,9 +149,14 @@ class TransactionController extends \frontend\components\Controller
             $transaction->debit['isDebit'] = (in_array($transaction->account_debit_id, $ids))?true:false;   
             
             // Currency
-            if(isset($transaction->transactionForex))
-                $transaction->credit['currency'] = $transaction->accountCredit->currency;
-                $transaction->debit['currency'] = $transaction->accountDebit->currency;
+            $transaction->credit['currency'] = $transaction->accountCredit->currency;
+            $transaction->debit['currency'] = $transaction->accountDebit->currency;
+            
+            // Values
+            if(isset($transaction->transactionForex)){
+                $transaction->credit['value'] = $transaction->value;
+                $transaction->debit['value'] = $transaction->value;
+            }
         }
         
         // Format the values and currencies
