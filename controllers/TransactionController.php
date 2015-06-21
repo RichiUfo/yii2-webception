@@ -154,8 +154,20 @@ class TransactionController extends \frontend\components\Controller
             
             // Values
             if(isset($transaction->transactionForex)){
-                $transaction->credit['value'] = $transaction->value;
-                $transaction->debit['value'] = $transaction->transactionForex['forex_value'];
+                
+                // Credit Side
+                if($transaction->credit['currency'] === 'EUR') {
+                    $transaction->credit['value'] = $transaction->value;
+                } else {
+                    $transaction->credit['value'] = $transaction->transactionForex['forex_value'];;
+                }
+                
+                // Debit Side
+                if($transaction->debit['currency'] === 'EUR') {
+                    $transaction->debit['value'] = $transaction->value;
+                } else {
+                    $transaction->debit['value'] = $transaction->transactionForex['forex_value'];
+                }
             }
         }
         
