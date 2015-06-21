@@ -35,17 +35,24 @@
             <thead>
                 <tr>
                     <th>Date</th>
-                    <th>Value</th>
-                    <th>Forex</th>
+                    <th>Credit</th>
+                    <th>Debit</th>
                 </tr>
             </thead>
             <tbody>
             <?php foreach($trans as $t) : ?>
             <tr>
                 <td><?= $t->date_value ?></td>
-                <td><?= $t->value ?> </td>
-                <td><?= $t->transactionForex['forex_value'] ?></td>
-                <td><?= isset($t->transactionForex)?'true':'false'; ?></td>
+                <td>
+                    <?php if($t->credit->isCredit)
+                        echo $t->credit->value.' '.$t->credit->currency;
+                    ?>
+                </td>
+                <td>
+                    <?php if($t->debit->isDebit)
+                        $t->transactionForex['forex_value'] 
+                    ?>
+                </td>
             </tr>
             <?php endforeach; ?>
             </tbody>
