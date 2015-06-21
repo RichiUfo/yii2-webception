@@ -45,7 +45,7 @@
                 <td><?= $t->date_value ?></td>
                 <td><?= $t->value ?> </td>
                 <td><?= $t->transactionForex['forex_value'] ?></td>
-                <td><?= isset($transaction->transactionForex)?'true':'false'; ?></td>
+                <td><?= isset($t->transactionForex)?'true':'false'; ?></td>
             </tr>
             <?php endforeach; ?>
             </tbody>
