@@ -150,7 +150,7 @@ class TransactionController extends \frontend\components\Controller
             
             // Currency
             if(isset($transaction->transactionForex))
-            $transaction->currency = $transaction->accountCredit->currency;
+            //$transaction->currency = $transaction->accountCredit->currency;
         }
         
         // Format the values and currencies
