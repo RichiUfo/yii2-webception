@@ -336,7 +336,7 @@ class AccountController extends \frontend\components\Controller
                     $total += $val;
                 }
             }
-            $datapoints[$date]['total'] = $total;
+            $datapoints[$date]['total'] = round($total, 2;
         }
         
         return $datapoints;
