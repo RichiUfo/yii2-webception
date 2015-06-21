@@ -37,7 +37,7 @@
             <tr>
                 <td><?= $t->date_value ?></td>
                 <td><?= $t->value ?></td>
-                <td><?= $t->transactionForex['id'] ?></td>
+                <td><?= $t->transactionForex['forex_value'] ?></td>
             </tr>
             <?php endforeach; ?>
             </tbody>
