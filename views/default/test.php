@@ -49,12 +49,16 @@
                     <td><?= $t->date_value ?></td>
                     <td><?= $t->name ?></td>
                     <td>
-                        <?php if($t->credit['isCredit'])
+                        <?php 
+                        echo ($t->credit['isCredit'])?'C':'Not Credit';
+                        if($t->credit['isCredit'])
                             echo $t->credit['value'].' '.$t->credit['currency'];
                         ?>
                     </td>
                     <td>
-                        <?php if($t->debit['isDebit'])
+                        <?php 
+                        echo ($t->credit['isDebit'])?'D':'Not Debit';
+                        if($t->debit['isDebit'])
                             echo $t->debit['value'].' '.$t->debit['currency'];
                         ?>
                     </td>
