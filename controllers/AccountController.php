@@ -336,7 +336,7 @@ class AccountController extends \frontend\components\Controller
                     $total += $val;
                 }
             }
-            $datapoint['total'] = $total;
+            $datapoint['total'] = 9;
         }
         
         return $datapoints;
