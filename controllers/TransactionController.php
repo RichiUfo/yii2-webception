@@ -129,9 +129,9 @@ class TransactionController extends \frontend\components\Controller
         if ($end === 'now') {
             $now_dt = new \DateTime();
             $now = $now_dt->format('Y-m-d H:i:s');
-            $time_query = "date_value between '".$start."' and '".$now."'";
+            $time_query = "transactions.date_value between '".$start."' and '".$now."'";
         } else {
-            $time_query = "date_value between '".$start."' and '".$end." 23:59:59.999'";
+            $time_query = "transactions.date_value between '".$start."' and '".$end." 23:59:59.999'";
         }
         
         // Find the transactions
@@ -139,7 +139,7 @@ class TransactionController extends \frontend\components\Controller
             ->joinWith(['accountForex'])
             ->where('account_credit_id IN '.$strids.' OR account_debit_id IN '.$strids.' OR transactions_forex.account_forex_id IN '.$strids)
             ->andWhere($time_query)
-            ->orderBy(['date_value' => SORT_DESC])
+            ->orderBy(['transactions.date_value' => SORT_DESC])
             ->all();
         
         // Debit/Credit, Value, Currency
