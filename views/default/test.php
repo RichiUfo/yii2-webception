@@ -44,13 +44,13 @@
             <tr>
                 <td><?= $t->date_value ?></td>
                 <td>
-                    <?php if($t->credit->isCredit)
-                        echo $t->credit->value.' '.$t->credit->currency;
+                    <?php if($t->credit['isCredit'])
+                        echo $t->credit['value'].' '.$t->credit['currency'];
                     ?>
                 </td>
                 <td>
-                    <?php if($t->debit->isDebit)
-                        $t->transactionForex['forex_value'] 
+                    <?php if($t->debit['isDebit'])
+                        echo $t->debit['value'].' '.$t->debit['currency'];
                     ?>
                 </td>
             </tr>
