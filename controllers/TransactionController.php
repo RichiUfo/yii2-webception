@@ -149,14 +149,8 @@ class TransactionController extends \frontend\components\Controller
             if(isset($transaction->transactionForex)){
                 
                 // I. Check if the transaction is a debit or credit for this account
-                if (in_array($transaction->account_credit_id, $ids)) {
-                    $transaction->credit['isCredit'] = true;
-                    $transaction->debit['isDebit'] = (in_array($transaction->accountForex['account_id'], $ids))?true:false;
-                }
-                if (in_array($transaction->account_debit_id, $ids)) {
-                    $transaction->debit['isDebit'] = true;
-                    $transaction->credit['isCredit'] = (in_array($transaction->accountForex['account_id'], $ids))?true:false;
-                }
+                $transaction->credit['isCredit'] = (in_array($transaction->account_credit_id, $ids))?true:false;       
+                $transaction->debit['isDebit'] = (in_array($transaction->account_debit_id, $ids))?true:false;  
                 
                 // II. Currency
                 $transaction->credit['currency'] = $transaction->accountCredit->currency;
