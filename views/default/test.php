@@ -55,8 +55,7 @@
                         ?>
                     </td>
                     <td>
-                        <?php 
-                        echo ($t->debit['isDebit'])?'D':'Not Debit';
+                        <?php
                         if($t->debit['isDebit'])
                             echo $t->debit['value'].' '.$t->debit['currency'];
                         ?>
