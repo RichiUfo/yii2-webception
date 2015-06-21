@@ -312,8 +312,8 @@ class AccountController extends \frontend\components\Controller
             $date_dt = new \DateTime($t->date_value);
             if ($date_dt < $now_dt) {
                 $datapoints[$date_dt->format('Y-m-d')] = $c;
-                if ($t->debit['isDebit']) $c[$t->currency] += $t->value;
-                if ($t->credit['isCredit']) $c[$t->currency] -= $t->value;
+                if ($t->debit['isDebit']) $c[$t->debit['currency']] += $t->value;
+                if ($t->credit['isCredit']) $c[$t->credit['currency']] -= $t->value;
             }
         }
         
