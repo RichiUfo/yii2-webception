@@ -46,7 +46,6 @@ class TransactionController extends \frontend\components\Controller
             // Regular Transaction
             if($deb->currency === $cur and $cre->currency === $cur){
                 if ($model->validate()) {
-                    //$this->createTransaction($model);
                     self::createTransactionRegular($deb, $cre, $model->value, $model->date_value, $model->name, $model->description);
                     NotificationController::setNotification('success', 'Transaction Saved', 'The transaction has been saved !');
                 }
@@ -63,7 +62,7 @@ class TransactionController extends \frontend\components\Controller
                     $value = Yii::$app->request->post('value_debit');
                     $value_forex = Yii::$app->request->post('value_credit');
                 }
-                TransactionController::createTransactionForex($deb, $cre, $value, $value_forex, $model->date_value, $model->name, $model->description);
+                self::createTransactionForex($deb, $cre, $value, $value_forex, $model->date_value, $model->name, $model->description);
                 NotificationController::setNotification('success', 'Forex Transaction Saved', 'The transaction has been saved !');
             }
 
@@ -279,10 +278,10 @@ class TransactionController extends \frontend\components\Controller
             
             // STEP 2 - Create the regular transaction
             if($credit_currency === $system_currency) {
-                $transaction = TransactionController::createTransactionRegular($debit, $credit, $value, $date, $name, $description);
+                $transaction = self::createTransactionRegular($debit, $credit, $value, $date, $name, $description);
             }
             else if($debit_currency === $system_currency) {
-                $transaction = TransactionController::createTransactionRegular($debit, $credit, $value, $date, $name, $description);
+                $transaction = self::createTransactionRegular($debit, $credit, $value, $date, $name, $description);
             }
             
             // STEP 3 - Create the forex transaction
