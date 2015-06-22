@@ -299,7 +299,7 @@ class AccountController extends \frontend\components\Controller
                         'value' => $val,
                         'from' => $cur,
                         'to' => $currency,
-                        'date' => $date_dt_temp->format('Y-m-d')
+                        'date' => $date
                     ]);
                 }
                 else {
