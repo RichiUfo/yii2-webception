@@ -137,7 +137,7 @@ class TransactionController extends \frontend\components\Controller
         // Find the transactions
         $transactions = Transaction::find()
             ->joinWith(['accountForex'])
-            ->where('account_credit_id IN '.$strids.' OR account_debit_id IN '.$strids.' OR accounts_forex.account_id IN '.$strids)
+            ->where('account_credit_id IN '.$strids.' OR account_debit_id IN '.$strids.' OR transactions_forex.account_forex_id IN '.$strids)
             ->andWhere($time_query)
             ->orderBy(['transactions.date_value' => SORT_DESC])
             ->all();
@@ -279,7 +279,7 @@ class TransactionController extends \frontend\components\Controller
             // STEP 3 - Create the forex transaction
             $forex_transaction = new TransactionForex;
             $forex_transaction->transaction_id = $transaction->id;
-            $forex_transaction->account_forex_id = ($debit_currency === $system_currency)?$credit->id:$debit->;
+            $forex_transaction->account_forex_id = ($debit_currency === $system_currency)?$credit->id:$debit->id;
             $forex_transaction->forex_value = $value_forex;
             $forex_transaction->save();
             
