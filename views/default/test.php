@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1>Multiple currencies histo valued</h1>
+        <h1>Historical Values</h1>
         <table class="table table-striped">
         <thead>
             <tr>
