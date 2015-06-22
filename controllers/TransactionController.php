@@ -252,7 +252,7 @@ class TransactionController extends \frontend\components\Controller
         
         // Update the accouts values 
         $now_dt = new \DateTime();
-        $datevalue_dt = new \DateTime($model->date_value);
+        $datevalue_dt = new \DateTime($date);
         if($datevalue_dt <= $now_dt) {
             $debit = AccountController::updateAccountValue($debit->id, -1 * $value);
             $credit = AccountController::updateAccountValue($credit->id, $value);
