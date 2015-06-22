@@ -160,49 +160,7 @@ class AccountController extends \frontend\components\Controller
         $account->value += $amount;
         return $account->save();
     }
-    public function getCurrentAccountValues($accountid) {
-        
-        // 1- Get the intrinsic account value (not considering children accounts)
-        $account = Account::findOne($accountid);
-        $now_dt = new \DateTime();
-        if($account->date_value) {
-            $last_update_dt = new \DateTime($account->date_value);
-            $transactions = TransactionController::getTransactionsFrom($accountid, $last_update_dt);
-        }
-        else {
-            $transactions = TransactionController::getTransactionsFrom($accountid);
-        }
-        foreach($transactions as $transaction) {
-            if($transaction->account_credit_id === $account->id) {
-                $account->value += $transaction->value;
-            }
-            if($transaction->account_debit_id === $account->id) {
-                $account->value -= $transaction->value;
-            }
-        }
-        $account->date_value = $now_dt->format('Y-m-d H:i:s');
-        $account->save();
-        
-        $values[$account->currency] = $account->value;
-        
-        // 2- Get the children account values in the main parent account currency
-        $children = AccountController::getChildrenAccounts($accountid);
-        foreach($children as $child) {
-            $values_children = AccountController::getCurrentAccountValues($child->id);
-            
-            foreach ($values_children as $curc => $valc)
-                if(isset($values[$curc])) {
-                    $values[$curc] += $valc;
-                }
-                else {
-                    $values[$curc] = $valc;
-                }
-        }
-        
-        // 3- Return an array of values in the difference account currencies (currency => value)
-        return $values;
-    }
-    public function getCurrentAccountValue($accountid, $currency) {
+    /*public function getCurrentAccountValue($accountid, $currency) {
         
         // 1- Get the balances in all account currencies
         $values = AccountController::getCurrentAccountValues($accountid);
@@ -223,7 +181,7 @@ class AccountController extends \frontend\components\Controller
         }
         
         return $total;
-    }
+    }*/
     public function getChildrenAccounts($accountid) {
         $children = Account::find()
             ->where(['parent_id' => $accountid])
@@ -291,15 +249,76 @@ class AccountController extends \frontend\components\Controller
             'movements' => $movements
         ]);
     }
-    public function getHistoricalValues($accountid, $start, $end) {
+    public function getAccountCurrencies($accountid) {
+        
+        $account = Account::findOne($accountid);
+        $currencies = [$account->currency];
+        
+        $children = AccountController::getChildrenAccounts($accountid); 
+        foreach($children as $child){
+            $cur_child = AccountController::getAccountCurrencies($child->id);
+            foreach($cur_child as $cur)
+                if (!in_array($cur, $currencies)) 
+                    array_push($currencies, $cur);
+        }
+        
+        return $currencies;
+    }
+    
+    /**
+     * Account Valuation Methods
+     */
+    public function getCurrentBalances($accountid) {
+        
+        // 1- Get the intrinsic account value (not considering children accounts)
+        $account = Account::findOne($accountid);
+        $now_dt = new \DateTime();
+        if($account->date_value) {
+            $last_update_dt = new \DateTime($account->date_value);
+            $transactions = TransactionController::getTransactionsFrom($accountid, $last_update_dt);
+        }
+        else {
+            $transactions = TransactionController::getTransactionsFrom($accountid);
+        }
+        foreach($transactions as $transaction) {
+            if($transaction->account_credit_id === $account->id) {
+                $account->value += $transaction->value;
+            }
+            if($transaction->account_debit_id === $account->id) {
+                $account->value -= $transaction->value;
+            }
+        }
+        $account->date_value = $now_dt->format('Y-m-d H:i:s');
+        $account->save();
+        
+        $values[$account->currency] = $account->value;
+        
+        // 2- Get the children account values in the main parent account currency
+        $children = AccountController::getChildrenAccounts($accountid);
+        foreach($children as $child) {
+            $values_children = AccountController::getCurrentAccountValues($child->id);
+            
+            foreach ($values_children as $curc => $valc)
+                if(isset($values[$curc])) {
+                    $values[$curc] += $valc;
+                }
+                else {
+                    $values[$curc] = $valc;
+                }
+        }
+        
+        // 3- Return an array of values in the difference account currencies (currency => value)
+        return $values;
+    }
+    public function getHistoricalBalances($accountid, $start, $end) {
         
         // 0- Variables Init
-        $now_dt = new \DateTime();
+        $now_dt =   new \DateTime();
         $start_dt = new \DateTime($start);
-        $end_dt = new \DateTime($end);
+        $end_dt =   new \DateTime($end);
         
         // 1- Get Current Values (All Currencies)
-        $current = AccountController::getCurrentAccountValues($accountid);
+        $current = self::getCurrentBalances($accountid);
         if($now_dt > $start_dt and $now_dt < $end_dt)
             $datapoints[$now_dt->format('Y-m-d')] = $current;
         
@@ -341,26 +360,12 @@ class AccountController extends \frontend\components\Controller
         
         return $datapoints;
     }
-    public function getAccountCurrencies($accountid) {
-        
-        $account = Account::findOne($accountid);
-        $currencies = [$account->currency];
-        
-        $children = AccountController::getChildrenAccounts($accountid); 
-        foreach($children as $child){
-            $cur_child = AccountController::getAccountCurrencies($child->id);
-            foreach($cur_child as $cur)
-                if (!in_array($cur, $currencies)) 
-                    array_push($currencies, $cur);
-        }
-        
-        return $currencies;
-    }
+    
     
     /**
     * Return an array with the opening balance closing balance and relevant transactions
     */
-    public function getAccountBalance($accountid, $date) {
+    /*public function getAccountBalance($accountid, $date) {
         
         $account = Account::findOne($accountid);
         $balance = $account->value;
@@ -374,7 +379,7 @@ class AccountController extends \frontend\components\Controller
         
         return $balance;
         
-    }
+    }*/
     public function actionAccount($id) {
         
         // Account Information
