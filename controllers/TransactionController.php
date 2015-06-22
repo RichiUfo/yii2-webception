@@ -226,7 +226,7 @@ class TransactionController extends \frontend\components\Controller
             'transactions' => $transactions 
         );
     }
-    private function createTransaction($model) {
+    /*private function createTransaction($model) {
         
         $now_dt = new \DateTime();
         $datevalue_dt = new \DateTime($model->date_value);
@@ -237,7 +237,7 @@ class TransactionController extends \frontend\components\Controller
         }
         
         return $model->save();
-    }
+    }*/
     
     private function createTransactionRegular($debit, $credit, $value, $date, $name, $description) {
         // Register the transaction in the database
@@ -251,9 +251,10 @@ class TransactionController extends \frontend\components\Controller
         $transaction->save();
         
         // Update the accouts values 
-        $debit = AccountController::updateAccountValue($debit->id, -1 * $value);
-        $credit = AccountController::updateAccountValue($credit->id, $value);
-        
+        if($datevalue_dt <= $now_dt) {
+            $debit = AccountController::updateAccountValue($debit->id, -1 * $value);
+            $credit = AccountController::updateAccountValue($credit->id, $value);
+        }
         // Return the created transaction
         return $transaction;
     }
