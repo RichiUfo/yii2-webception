@@ -378,7 +378,7 @@ class AccountController extends \frontend\components\Controller
     /**
     * Routed Actions
     */
-    public function actionDispla($id) {
+    public function actionDisplay($id) {
         
         // Account Information
         $account = AccountHierarchy::findOne(['id' => $id, 'owner_id' => Yii::$app->user->id]);
@@ -425,7 +425,7 @@ class AccountController extends \frontend\components\Controller
             'localdatetime' => LocalizationController::getCurrentLocalDateTime(\Yii::$app->user->identity->app_timezone, 'd.m.Y, H:i:s'),
             'accdatetime' => LocalizationController::getCurrentLocalDateTime(\Yii::$app->user->identity->acc_timezone, 'd.m.Y, H:i:s')
         ]);
-    }
+    } 
     public function actionCreate() {
         $model = new Account();
     
