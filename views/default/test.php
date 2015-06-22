@@ -1,4 +1,4 @@
-<h1>Current Value= <?= $value ?></h1>
+<h1 class="text-center">Historical Account Value </h1>
 
 <div class="row">
     <div class="col-lg-12">
