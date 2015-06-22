@@ -71,7 +71,7 @@ class DefaultController extends \frontend\components\Controller
 	
 	public function actionTest($id, $s, $e) { 
 		
-		$value = AccountController::getCurrentAccountValue($id, 'EUR');
+		//$value = AccountController::getCurrentAccountValue($id, 'EUR');
 		$values = AccountController::getCurrentBalances($id);
 		$currencies = AccountController::getAccountCurrencies($id);
 		$trans = TransactionController::getTransactions($id, $s, $e);
