@@ -310,6 +310,33 @@ class AccountController extends \frontend\components\Controller
         // 3- Return an array of values in the difference account currencies (currency => value)
         return $values;
     }
+    public function getCurrentBalance($accountid, $currency = null) {
+        
+        // STEP 1 - Get the balances in all account currencies
+        $balances = self::getCurrentBalances($accountid);
+        
+        // STEP 2 - Check the display currency
+        if (!$currency) 
+            $currency = \Yii::$app->user->identity->acc_currency;
+            
+        // STEP 3 - Convert the balances to the destination currency
+        $balance = 0;
+        foreach ($balances as $cur => $bal) {
+            if($cur !== $currency) {
+                $balance += ExchangeController::get('finance', 'currency-conversion', [
+                    'value' => $bal,
+                    'from' => $cur,
+                    'to' => $currency
+                ]);
+            }   
+            else {
+                $balance += $bal;
+            }
+        
+        }
+        
+        return $balance;
+    }
     public function getHistoricalBalances($accountid, $start, $end) {
         
         // 0- Variables Init

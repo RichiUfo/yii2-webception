@@ -251,7 +251,7 @@ class TransactionController extends \frontend\components\Controller
     }
     private function createTransactionForex($debit, $credit, $value, $value_forex, $date, $name, $description) {
         
-        $system_currency = \Yii::$app->user->identity->acc_currency;;
+        $system_currency = \Yii::$app->user->identity->acc_currency;
         $debit_currency = $debit->currency;
         $credit_currency = $credit->currency;
         
