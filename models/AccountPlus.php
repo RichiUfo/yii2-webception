@@ -53,7 +53,10 @@ class AccountPlus extends Account
         $this->value_converted = AccountController::getCurrentBalance($this->id, \Yii::$app->user->identity->acc_currency);
         
         // Values of special accounts TO BE REMOVED
-        if($this->accountForex) $this->value = $this->accountForex->value;
+        if($this->accountForex) {
+            $this->value = $this->accountForex->value;
+            $this->value_converted = $this->accountForex->value;
+        }
 
     }
     /**
