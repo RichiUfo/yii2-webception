@@ -297,8 +297,8 @@ class AccountController extends \frontend\components\Controller
                     $total += ExchangeController::get('finance', 'currency-conversion', [
                         'value' => $val,
                         'from' => $cur,
-                        'to' => $currency   //,
-                        //'date' => $date_dt_temp->format('Y-m-d')
+                        'to' => $currency,
+                        'date' => '2015-06-19' //$date_dt_temp->format('Y-m-d')
                     ]);
                 }
                 else {
