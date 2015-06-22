@@ -16,8 +16,7 @@
             {"number": 10400, "name":"Savings Accounts"},
             {"number": 10300, "name":"Checking Accounts"},
             {"number": 10200, "name":"Cash", "children": [
-                {"number": 10201, "name":"Euros"},
-                {"number": 10202, "name":"US Dollars"}
+                {"number": 10201, "name":"Euros"}
             ]}
         ]}
     ]},
