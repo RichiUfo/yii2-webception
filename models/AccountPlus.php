@@ -46,23 +46,15 @@ class AccountPlus extends Account
      */
     public function calcValue() {
         
-        // Calc the account intrinsic value
+        // STEP 1 - Value in account currency
         $this->value = AccountController::getCurrentBalance($this->id, $this->currency);
         
-        // Values of special accounts
-        if($this->accountForex) $this->value = $this->accountForex->value;
+        // STEP 2 - Value in system currency
+        $this->value_converted = AccountController::getCurrentBalance($this->id, \Yii::$app->user->identity->acc_currency);
         
-        // Convert the value to the system currency
-        $this->value_converted = $this->value;
-        if ($this->currency !== Yii::$app->user->identity->acc_currency) {
-            
-            $this->value_converted = ExchangeController::get('finance', 'currency-conversion', [
-                'value' => $this->value,
-                'from' => $this->currency,
-                'to' => \Yii::$app->user->identity->acc_currency,
-            ]);
-            
-        }
+        // Values of special accounts TO BE REMOVED
+        if($this->accountForex) $this->value = $this->accountForex->value;
+
     }
     /**
      * public function getType()

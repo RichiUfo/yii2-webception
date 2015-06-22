@@ -45,47 +45,8 @@ class AccountController extends \frontend\components\Controller
     }
 
     /**
-    * createAccount($name, $parent, $display)
-    * Create a new account
+    * Account Creation Methods
     */
-    public function getNextAvailableNumber($parent_id) {
-        $parent = Account::findOne($parent_id);
-        
-        // Get the base number (without the zeros)
-        $base = $parent->number;
-        while(!is_float($base/10))
-            $base /= 10;
-        
-        // Minimum
-        $base_min = $base;
-        while($base_min * 10 < 99999) 
-            $base_min *= 10;
-        $base_max = $base*10+9;
-        while($base_max * 10 < 99999) 
-            $base_max *= 10;
-        
-        // Find the child account with the highest number
-        $last_account = Account::find()
-            ->where(['parent_id' => $parent->id])
-            ->andWhere('`number` > '.$base_min.' AND `number` < '.$base_max)
-            ->orderBy('`number` DESC')
-            ->one();
-        
-        // Get the base number (without the zeros)
-        if(isset($last_account->number)){
-            $base = $last_account->number;
-            while(!is_float($base/10))
-                $base /= 10;
-            $base += 1;
-        }
-        else {
-            $base = $base*10+1;
-        }
-        while($base * 10 < 99999) 
-            $base *= 10;
-            
-        return $base;
-    }
     public function createAccount($number, $name, $parentid, $display=0, $specialClass='') {
         
         // Check (by name) if the account is already existing    
@@ -150,48 +111,9 @@ class AccountController extends \frontend\components\Controller
         }
         
     }
-    
-    /**
-    * updateAccountValue($accountid, $amount)
-    * Use the function to update the account value and all the parent accounts
-    */
-    public function updateAccountValue($accountid, $amount) {
-        $account = Account::findOne($accountid);
-        $account->value += $amount;
-        return $account->save();
-    }
-    /*public function getCurrentAccountValue($accountid, $currency) {
-        
-        // 1- Get the balances in all account currencies
-        $values = AccountController::getCurrentAccountValues($accountid);
-        
-        // 2- Convert all to the given currency
-        $total = 0;
-        foreach($values as $cur => $val) {
-            if($cur !== $currency) {
-                $total += ExchangeController::get('finance', 'currency-conversion', [
-                    'value' => $val,
-                    'from' => $cur,
-                    'to' => $currency
-                ]);
-            }
-            else {
-                $total += $val;
-            }
-        }
-        
-        return $total;
-    }*/
-    public function getChildrenAccounts($accountid) {
-        $children = Account::find()
-            ->where(['parent_id' => $accountid])
-            ->all();
-        return $children;
-    }
 
     /**
-    * getAccountList()
-    * Returns a list of accounts as "id" => "name" pairs directly useable in a dropdown component
+    * Global User Accounts Methods
     */
     public function getAccountList($end_children_only) {
         
@@ -235,6 +157,20 @@ class AccountController extends \frontend\components\Controller
             
         return recConvertAccounts($roots, $end_children_only);
     }
+    
+    /**
+     * Hierarchy Related Methods
+     */
+    public function getChildrenAccounts($accountid) {
+        $children = Account::find()
+            ->where(['parent_id' => $accountid])
+            ->all();
+        return $children;
+    }
+    
+    /**
+     * Movements Related Methods
+     */
     public function getMovementsSummary($accountid, $start, $end) {
         $account = AccountPlus::findOne($accountid);
         $movements = TransactionController::getMovements($accountid, $start, $end);
@@ -248,21 +184,6 @@ class AccountController extends \frontend\components\Controller
             'closing_balance' => $closing_balance,
             'movements' => $movements
         ]);
-    }
-    public function getAccountCurrencies($accountid) {
-        
-        $account = Account::findOne($accountid);
-        $currencies = [$account->currency];
-        
-        $children = AccountController::getChildrenAccounts($accountid); 
-        foreach($children as $child){
-            $cur_child = AccountController::getAccountCurrencies($child->id);
-            foreach($cur_child as $cur)
-                if (!in_array($cur, $currencies)) 
-                    array_push($currencies, $cur);
-        }
-        
-        return $currencies;
     }
     
     /**
@@ -387,27 +308,77 @@ class AccountController extends \frontend\components\Controller
         
         return $datapoints;
     }
-    
+    public function updateAccountValue($accountid, $amount) {
+        $account = Account::findOne($accountid);
+        $account->value += $amount;
+        return $account->save();
+    }
     
     /**
-    * Return an array with the opening balance closing balance and relevant transactions
-    */
-    /*public function getAccountBalance($accountid, $date) {
+     * Currency Related Methods
+     */
+    public function getAccountCurrencies($accountid) {
         
         $account = Account::findOne($accountid);
-        $balance = $account->value;
+        $currencies = [$account->currency];
         
-        // Calculate closing balance
-        $transactions = TransactionController::getTransactions($accountid, $date, 'now');
-        foreach ($transactions as $transaction){
-            if($transaction->credit) $balance -= $transaction->value;
-            if($transaction->debit) $balance += $transaction->value;
+        $children = AccountController::getChildrenAccounts($accountid); 
+        foreach($children as $child){
+            $cur_child = AccountController::getAccountCurrencies($child->id);
+            foreach($cur_child as $cur)
+                if (!in_array($cur, $currencies)) 
+                    array_push($currencies, $cur);
         }
         
-        return $balance;
+        return $currencies;
+    }
+    
+    /**
+     * Account Numbering Methods
+     */
+    public function getNextAvailableNumber($parent_id) {
+        $parent = Account::findOne($parent_id);
         
-    }*/
-    public function actionAccount($id) {
+        // Get the base number (without the zeros)
+        $base = $parent->number;
+        while(!is_float($base/10))
+            $base /= 10;
+        
+        // Minimum
+        $base_min = $base;
+        while($base_min * 10 < 99999) 
+            $base_min *= 10;
+        $base_max = $base*10+9;
+        while($base_max * 10 < 99999) 
+            $base_max *= 10;
+        
+        // Find the child account with the highest number
+        $last_account = Account::find()
+            ->where(['parent_id' => $parent->id])
+            ->andWhere('`number` > '.$base_min.' AND `number` < '.$base_max)
+            ->orderBy('`number` DESC')
+            ->one();
+        
+        // Get the base number (without the zeros)
+        if(isset($last_account->number)){
+            $base = $last_account->number;
+            while(!is_float($base/10))
+                $base /= 10;
+            $base += 1;
+        }
+        else {
+            $base = $base*10+1;
+        }
+        while($base * 10 < 99999) 
+            $base *= 10;
+            
+        return $base;
+    }
+
+    /**
+    * Routed Actions
+    */
+    public function actionDispla($id) {
         
         // Account Information
         $account = AccountHierarchy::findOne(['id' => $id, 'owner_id' => Yii::$app->user->id]);

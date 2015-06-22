@@ -14,7 +14,7 @@ function displayHierarchy($accounts){
         $currency = ($system_currency != $account->currency)?'&nbsp('.$account->currency.')':'';
         
         echo '<li>
-                <a href="'.Url::to(['account/account', 'id' => $account->id]).'">';
+                <a href="'.Url::to(['account/display', 'id' => $account->id]).'">';
         echo $account->alias.$currency.'</a>
                 <span class="pull-right">
                     <span class="money" 
@@ -49,7 +49,7 @@ function displayHierarchy($accounts){
         <div class="card informative-block transparent">
             <div class="card-header">
                 <div class="banner-title">
-                    <p><a href="<?php echo Url::to(['account/account', 'id' => $assets->id]) ?>"><?= $assets->alias ?></a></p>
+                    <p><a href="<?php echo Url::to(['account/display', 'id' => $assets->id]) ?>"><?= $assets->alias ?></a></p>
                 </div>
                 <div class="banner-subtitle">
                     <p>
@@ -74,7 +74,7 @@ function displayHierarchy($accounts){
         <div class="card informative-block transparent">
             <div class="card-header">
                 <div class="banner-title">
-                    <p><a href="<?php echo Url::to(['account/account', 'id' => $equity->id]) ?>"><?= $equity->alias ?></a></p>
+                    <p><a href="<?php echo Url::to(['account/display', 'id' => $equity->id]) ?>"><?= $equity->alias ?></a></p>
                 </div>
                 <div class="banner-subtitle">
                     <p>
@@ -95,7 +95,7 @@ function displayHierarchy($accounts){
         <div class="card informative-block transparent">
             <div class="card-header">
                 <div class="banner-title">
-                    <p><a href="<?php echo Url::to(['account/account', 'id' => $liabilities->id]) ?>"><?= $liabilities->alias ?></a></p>
+                    <p><a href="<?php echo Url::to(['account/display', 'id' => $liabilities->id]) ?>"><?= $liabilities->alias ?></a></p>
                 </div>
                 <div class="banner-subtitle">
                     <p>
