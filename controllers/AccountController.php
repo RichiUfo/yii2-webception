@@ -292,13 +292,14 @@ class AccountController extends \frontend\components\Controller
         foreach($datapoints as $date => $datapoint) {
             $total = 0;
             $date_dt_temp = new \DateTime($date);
+            $date_dt_temp->sub( \DateInterval::createFromDateString('1 day') );
             foreach($datapoint as $cur => $val) {
                 if($cur !== $currency) {
                     $total += ExchangeController::get('finance', 'currency-conversion', [
                         'value' => $val,
                         'from' => $cur,
                         'to' => $currency,
-                        'date' => '2015-06-19' //$date_dt_temp->format('Y-m-d')
+                        'date' => $date_dt_temp->format('Y-m-d')
                     ]);
                 }
                 else {
