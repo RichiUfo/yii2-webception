@@ -47,7 +47,7 @@ class AccountPlus extends Account
     public function calcValue() {
         
         // Calc the account intrinsic value
-        $this->value = AccountController::getCurrentAccountValue($this->id, $this->currency);
+        $this->value = AccountController::getCurrentBalance($this->id, $this->currency);
         
         // Values of special accounts
         if($this->accountForex) $this->value = $this->accountForex->value;
