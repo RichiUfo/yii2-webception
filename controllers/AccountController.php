@@ -45,47 +45,8 @@ class AccountController extends \frontend\components\Controller
     }
 
     /**
-    * createAccount($name, $parent, $display)
-    * Create a new account
+    * Account Creation Methods
     */
-    public function getNextAvailableNumber($parent_id) {
-        $parent = Account::findOne($parent_id);
-        
-        // Get the base number (without the zeros)
-        $base = $parent->number;
-        while(!is_float($base/10))
-            $base /= 10;
-        
-        // Minimum
-        $base_min = $base;
-        while($base_min * 10 < 99999) 
-            $base_min *= 10;
-        $base_max = $base*10+9;
-        while($base_max * 10 < 99999) 
-            $base_max *= 10;
-        
-        // Find the child account with the highest number
-        $last_account = Account::find()
-            ->where(['parent_id' => $parent->id])
-            ->andWhere('`number` > '.$base_min.' AND `number` < '.$base_max)
-            ->orderBy('`number` DESC')
-            ->one();
-        
-        // Get the base number (without the zeros)
-        if(isset($last_account->number)){
-            $base = $last_account->number;
-            while(!is_float($base/10))
-                $base /= 10;
-            $base += 1;
-        }
-        else {
-            $base = $base*10+1;
-        }
-        while($base * 10 < 99999) 
-            $base *= 10;
-            
-        return $base;
-    }
     public function createAccount($number, $name, $parentid, $display=0, $specialClass='') {
         
         // Check (by name) if the account is already existing    
@@ -150,90 +111,9 @@ class AccountController extends \frontend\components\Controller
         }
         
     }
-    
-    /**
-    * updateAccountValue($accountid, $amount)
-    * Use the function to update the account value and all the parent accounts
-    */
-    public function updateAccountValue($accountid, $amount) {
-        $account = Account::findOne($accountid);
-        $account->value += $amount;
-        return $account->save();
-    }
-    public function getCurrentAccountValues($accountid) {
-        
-        // 1- Get the intrinsic account value (not considering children accounts)
-        $account = Account::findOne($accountid);
-        $now_dt = new \DateTime();
-        if($account->date_value) {
-            $last_update_dt = new \DateTime($account->date_value);
-            $transactions = TransactionController::getTransactionsFrom($accountid, $last_update_dt);
-        }
-        else {
-            $transactions = TransactionController::getTransactionsFrom($accountid);
-        }
-        foreach($transactions as $transaction) {
-            if($transaction->account_credit_id === $account->id) {
-                $account->value += $transaction->value;
-            }
-            if($transaction->account_debit_id === $account->id) {
-                $account->value -= $transaction->value;
-            }
-        }
-        $account->date_value = $now_dt->format('Y-m-d H:i:s');
-        $account->save();
-        
-        $values[$account->currency] = $account->value;
-        
-        // 2- Get the children account values in the main parent account currency
-        $children = AccountController::getChildrenAccounts($accountid);
-        foreach($children as $child) {
-            $values_children = AccountController::getCurrentAccountValues($child->id);
-            
-            foreach ($values_children as $curc => $valc)
-                if(isset($values[$curc])) {
-                    $values[$curc] += $valc;
-                }
-                else {
-                    $values[$curc] = $valc;
-                }
-        }
-        
-        // 3- Return an array of values in the difference account currencies (currency => value)
-        return $values;
-    }
-    public function getCurrentAccountValue($accountid, $currency) {
-        
-        // 1- Get the balances in all account currencies
-        $values = AccountController::getCurrentAccountValues($accountid);
-        
-        // 2- Convert all to the given currency
-        $total = 0;
-        foreach($values as $cur => $val) {
-            if($cur !== $currency) {
-                $total += ExchangeController::get('finance', 'currency-conversion', [
-                    'value' => $val,
-                    'from' => $cur,
-                    'to' => $currency
-                ]);
-            }
-            else {
-                $total += $val;
-            }
-        }
-        
-        return $total;
-    }
-    public function getChildrenAccounts($accountid) {
-        $children = Account::find()
-            ->where(['parent_id' => $accountid])
-            ->all();
-        return $children;
-    }
 
     /**
-    * getAccountList()
-    * Returns a list of accounts as "id" => "name" pairs directly useable in a dropdown component
+    * Global User Accounts Methods
     */
     public function getAccountList($end_children_only) {
         
@@ -277,6 +157,20 @@ class AccountController extends \frontend\components\Controller
             
         return recConvertAccounts($roots, $end_children_only);
     }
+    
+    /**
+     * Hierarchy Related Methods
+     */
+    public function getChildrenAccounts($accountid) {
+        $children = Account::find()
+            ->where(['parent_id' => $accountid])
+            ->all();
+        return $children;
+    }
+    
+    /**
+     * Movements Related Methods
+     */
     public function getMovementsSummary($accountid, $start, $end) {
         $account = AccountPlus::findOne($accountid);
         $movements = TransactionController::getMovements($accountid, $start, $end);
@@ -291,15 +185,88 @@ class AccountController extends \frontend\components\Controller
             'movements' => $movements
         ]);
     }
-    public function getHistoricalValues($accountid, $start, $end) {
+    
+    /**
+     * Account Valuation Methods
+     */
+    public function getCurrentBalances($accountid) {
+        
+        // 1- Get the intrinsic account value (not considering children accounts)
+        $account = Account::findOne($accountid);
+        $now_dt = new \DateTime();
+        if($account->date_value) {
+            $last_update_dt = new \DateTime($account->date_value);
+            $transactions = TransactionController::getTransactionsFrom($accountid, $last_update_dt);
+        }
+        else {
+            $transactions = TransactionController::getTransactionsFrom($accountid);
+        }
+        foreach($transactions as $transaction) {
+            if($transaction->account_credit_id === $account->id) {
+                $account->value += $transaction->value;
+            }
+            if($transaction->account_debit_id === $account->id) {
+                $account->value -= $transaction->value;
+            }
+        }
+        $account->date_value = $now_dt->format('Y-m-d H:i:s');
+        $account->save();
+        
+        $values[$account->currency] = $account->value;
+        
+        // 2- Get the children account values in the main parent account currency
+        $children = self::getChildrenAccounts($accountid);
+        foreach($children as $child) {
+            $values_children = self::getCurrentBalances($child->id);
+            
+            foreach ($values_children as $curc => $valc)
+                if(isset($values[$curc])) {
+                    $values[$curc] += $valc;
+                }
+                else {
+                    $values[$curc] = $valc;
+                }
+        }
+        
+        // 3- Return an array of values in the difference account currencies (currency => value)
+        return $values;
+    }
+    public function getCurrentBalance($accountid, $currency = null) {
+        
+        // STEP 1 - Get the balances in all account currencies
+        $balances = self::getCurrentBalances($accountid);
+        
+        // STEP 2 - Check the display currency
+        if (!$currency) 
+            $currency = \Yii::$app->user->identity->acc_currency;
+            
+        // STEP 3 - Convert the balances to the destination currency
+        $balance = 0;
+        foreach ($balances as $cur => $bal) {
+            if($cur !== $currency) {
+                $balance += ExchangeController::get('finance', 'currency-conversion', [
+                    'value' => $bal,
+                    'from' => $cur,
+                    'to' => $currency
+                ]);
+            }   
+            else {
+                $balance += $bal;
+            }
+        
+        }
+        
+        return $balance;
+    }
+    public function getHistoricalBalances($accountid, $start, $end) {
         
         // 0- Variables Init
-        $now_dt = new \DateTime();
+        $now_dt =   new \DateTime();
         $start_dt = new \DateTime($start);
-        $end_dt = new \DateTime($end);
+        $end_dt =   new \DateTime($end);
         
         // 1- Get Current Values (All Currencies)
-        $current = AccountController::getCurrentAccountValues($accountid);
+        $current = self::getCurrentBalances($accountid);
         if($now_dt > $start_dt and $now_dt < $end_dt)
             $datapoints[$now_dt->format('Y-m-d')] = $current;
         
@@ -323,15 +290,13 @@ class AccountController extends \frontend\components\Controller
         // Calculate the total in system currency 
         $currency = 'EUR';
         foreach($datapoints as $date => $datapoint) {
-            $date_dt_temp = new \DateTime($date);
             $total = 0;
             foreach($datapoint as $cur => $val) {
                 if($cur !== $currency) {
                     $total += ExchangeController::get('finance', 'currency-conversion', [
                         'value' => $val,
                         'from' => $cur,
-                        'to' => $currency,
-                        'date' => $date_dt_temp->format('Y-m-d')
+                        'to' => $currency
                     ]);
                 }
                 else {
@@ -343,6 +308,15 @@ class AccountController extends \frontend\components\Controller
         
         return $datapoints;
     }
+    public function updateAccountValue($accountid, $amount) {
+        $account = Account::findOne($accountid);
+        $account->value += $amount;
+        return $account->save();
+    }
+    
+    /**
+     * Currency Related Methods
+     */
     public function getAccountCurrencies($accountid) {
         
         $account = Account::findOne($accountid);
@@ -360,24 +334,51 @@ class AccountController extends \frontend\components\Controller
     }
     
     /**
-    * Return an array with the opening balance closing balance and relevant transactions
-    */
-    public function getAccountBalance($accountid, $date) {
+     * Account Numbering Methods
+     */
+    public function getNextAvailableNumber($parent_id) {
+        $parent = Account::findOne($parent_id);
         
-        $account = Account::findOne($accountid);
-        $balance = $account->value;
+        // Get the base number (without the zeros)
+        $base = $parent->number;
+        while(!is_float($base/10))
+            $base /= 10;
         
-        // Calculate closing balance
-        $transactions = TransactionController::getTransactions($accountid, $date, 'now');
-        foreach ($transactions as $transaction){
-            if($transaction->credit) $balance -= $transaction->value;
-            if($transaction->debit) $balance += $transaction->value;
+        // Minimum
+        $base_min = $base;
+        while($base_min * 10 < 99999) 
+            $base_min *= 10;
+        $base_max = $base*10+9;
+        while($base_max * 10 < 99999) 
+            $base_max *= 10;
+        
+        // Find the child account with the highest number
+        $last_account = Account::find()
+            ->where(['parent_id' => $parent->id])
+            ->andWhere('`number` > '.$base_min.' AND `number` < '.$base_max)
+            ->orderBy('`number` DESC')
+            ->one();
+        
+        // Get the base number (without the zeros)
+        if(isset($last_account->number)){
+            $base = $last_account->number;
+            while(!is_float($base/10))
+                $base /= 10;
+            $base += 1;
         }
-        
-        return $balance;
-        
+        else {
+            $base = $base*10+1;
+        }
+        while($base * 10 < 99999) 
+            $base *= 10;
+            
+        return $base;
     }
-    public function actionAccount($id) {
+
+    /**
+    * Routed Actions
+    */
+    public function actionDisplay($id) {
         
         // Account Information
         $account = AccountHierarchy::findOne(['id' => $id, 'owner_id' => Yii::$app->user->id]);
@@ -385,7 +386,7 @@ class AccountController extends \frontend\components\Controller
             throw new NotFoundHttpException;
         
         // Closing Balance
-        $closing_balance = $this->getAccountBalance($account->id, date("Y-m-d")) * $account->sign;
+        $closing_balance = $this->getCurrentBalance($account->id, date("Y-m-d")) * $account->sign;
         
         // Transactions & Movements
         $transactions = TransactionController::getTransactions($account->id, '2015/01/01', 'now');
@@ -424,7 +425,7 @@ class AccountController extends \frontend\components\Controller
             'localdatetime' => LocalizationController::getCurrentLocalDateTime(\Yii::$app->user->identity->app_timezone, 'd.m.Y, H:i:s'),
             'accdatetime' => LocalizationController::getCurrentLocalDateTime(\Yii::$app->user->identity->acc_timezone, 'd.m.Y, H:i:s')
         ]);
-    }
+    } 
     public function actionCreate() {
         $model = new Account();
     
