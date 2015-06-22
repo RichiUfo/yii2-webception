@@ -46,7 +46,8 @@ class TransactionController extends \frontend\components\Controller
             // Regular Transaction
             if($deb->currency === $cur and $cre->currency === $cur){
                 if ($model->validate()) {
-                    $this->createTransaction($model);
+                    //$this->createTransaction($model);
+                    self::createTransactionRegular($deb, $cre, $model->value, $model->date_value, $model->name, $model->description);
                     NotificationController::setNotification('success', 'Transaction Saved', 'The transaction has been saved !');
                 }
             }
@@ -231,7 +232,7 @@ class TransactionController extends \frontend\components\Controller
         $now_dt = new \DateTime();
         $datevalue_dt = new \DateTime($model->date_value);
         
-        if($datevalue_dt <= $now_dt){
+        if($datevalue_dt <= $now_dt) {
             $debit = AccountController::updateAccountValue($model->account_debit_id, -1 * $model->value);
             $credit = AccountController::updateAccountValue($model->account_credit_id, $model->value);
         }
