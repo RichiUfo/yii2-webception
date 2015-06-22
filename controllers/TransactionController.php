@@ -226,18 +226,6 @@ class TransactionController extends \frontend\components\Controller
             'transactions' => $transactions 
         );
     }
-    /*private function createTransaction($model) {
-        
-        $now_dt = new \DateTime();
-        $datevalue_dt = new \DateTime($model->date_value);
-        
-        if($datevalue_dt <= $now_dt) {
-            $debit = AccountController::updateAccountValue($model->account_debit_id, -1 * $model->value);
-            $credit = AccountController::updateAccountValue($model->account_credit_id, $model->value);
-        }
-        
-        return $model->save();
-    }*/
     
     private function createTransactionRegular($debit, $credit, $value, $date, $name, $description) {
         // Register the transaction in the database
@@ -282,10 +270,10 @@ class TransactionController extends \frontend\components\Controller
             
             // STEP 2 - Create the regular transaction
             if($credit_currency === $system_currency) {
-                $transaction = self::createTransactionRegular($debit, $credit, $value, $date, $name, $description);
+                $transaction = self::createTransactionRegular($trading->account, $credit, $value, $date, $name, $description);
             }
             else if($debit_currency === $system_currency) {
-                $transaction = self::createTransactionRegular($debit, $credit, $value, $date, $name, $description);
+                $transaction = self::createTransactionRegular($debit, $trading->account, $value, $date, $name, $description);
             }
             
             // STEP 3 - Create the forex transaction
