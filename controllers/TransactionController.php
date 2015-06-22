@@ -251,10 +251,13 @@ class TransactionController extends \frontend\components\Controller
         $transaction->save();
         
         // Update the accouts values 
+        $now_dt = new \DateTime();
+        $datevalue_dt = new \DateTime($model->date_value);
         if($datevalue_dt <= $now_dt) {
             $debit = AccountController::updateAccountValue($debit->id, -1 * $value);
             $credit = AccountController::updateAccountValue($credit->id, $value);
         }
+        
         // Return the created transaction
         return $transaction;
     }
