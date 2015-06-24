@@ -192,8 +192,14 @@ class AccountController extends \frontend\components\Controller
      */
     public function getCurrentBalancesSingle($accountid) {
         
-        // STEP 1 - Get the intrinsic account value (not considering children accounts)
+        // STEP 1 - Get the account
         $account = Account::findOne($accountid);
+        
+        // STEP 2 - In case of special account, redirect to specific functions
+        if ($account->accountForex)
+            return ['USD' => 123];
+        
+        // STEP 3 - In case of regular account, calculate the value based on transactions
         $now_dt = new \DateTime();
         
         $transactions = TransactionPlus::find()
