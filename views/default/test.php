@@ -23,7 +23,7 @@
                     <td><?= $t->date_value ?></td>
                     <td><?= $t->name ?></td>
                     <td><?= $t->valueCredit ?> <?= $t->accountCredit->currency ?></td>
-                    <td><?= $t->valueDedit ?> <?= $t->accountDebit->currency ?></td>
+                    <td><?= $t->valueDebit ?> <?= $t->accountDebit->currency ?></td>
                     <td><?= ($t->accountForex)? $t->accountForex->id : '' ?></td> 
                 </tr>
             <?php endforeach; ?> 
