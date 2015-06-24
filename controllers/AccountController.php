@@ -222,7 +222,7 @@ class AccountController extends \frontend\components\Controller
         // STEP 2 - Get the children account values in the main parent account currency
         $children = self::getChildrenAccounts($accountid);
         foreach($children as $child) {
-            $values_children = self::getCurrentBalancesSingle($child->id);
+            $values_children = self::getCurrentBalancesRecursive($child->id);
             
             foreach ($values_children as $curc => $valc)
                 if(isset($values[$curc])) {
