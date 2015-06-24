@@ -271,14 +271,14 @@ class AccountController extends \frontend\components\Controller
         $transactions = TransactionController::getTransactions($accountid, $start, $end);
         
         // 3- Get the children ID list
-        function getChildren($accountids) {
+        function getChildren($accountid) {
             
-            foreach($accountids as $accountid) {
-                $ch_obj = AccountController::getChildrenAccounts($accountid);
-                foreach($ch_obj as $child) {
-                    array_push($accountids, $child->id);
-                    getChildren([$child->id]);
-                }
+            $accountids = [$accountid];
+            
+            $ch_obj = AccountController::getChildrenAccounts($accountid);
+            foreach($ch_obj as $child) {
+                array_push($accountids, $child->id);
+                array_merge($accountids, getChildren($child->id));
             }
             
             return $accountids;
