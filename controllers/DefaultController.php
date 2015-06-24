@@ -71,19 +71,19 @@ class DefaultController extends \frontend\components\Controller
 	
 	public function actionTest($id, $s, $e) { 
 		
-		$value = AccountController::getCurrentBalance($id);
-		$values = AccountController::getCurrentBalances($id);
-		$currencies = AccountController::getAccountCurrencies($id);
-		$trans = TransactionController::getTransactions($id, $s, $e);
+		//$value = AccountController::getCurrentBalance($id);
+		//$values = AccountController::getCurrentBalances($id);
+		//$currencies = AccountController::getAccountCurrencies($id);
+		//$trans = TransactionController::getTransactions($id, $s, $e);
 		$trans = TransactionController::getTransactions2($id, $s, $e);
-		$histos = AccountController::getHistoricalBalances($id, $s, $e);
+		//$histos = AccountController::getHistoricalBalances($id, $s, $e);
 		
 		return $this->render('test', [
-		    'histos' => $histos, 
+		    //'histos' => $histos, 
 		    'trans' => $trans, 
-		    'value'=>$value, 
-		    'values'=>$values,
-		    'currencies'=>$currencies
+		    //'value'=>$value, 
+		    //'values'=>$values,
+		    //'currencies'=>$currencies
 		]);
 	}
 }
