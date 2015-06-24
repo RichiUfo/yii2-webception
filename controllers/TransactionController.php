@@ -64,7 +64,7 @@ class TransactionController extends \frontend\components\Controller
                     $value_forex = Yii::$app->request->post('value_credit');
                 }
                 self::createTransactionForex($deb, $cre, $value, $value_forex, $model->date_value, $model->name, $model->description);
-                NotificationController::setNotification('success', 'Forex Transaction Saved', 'The transaction has been saved !');
+                NotificationController::setNotification('success', 'Forex Transaction Saved', $cur.' '.$deb->currency.' '.$cre->currency);
             }
 
             return 'Saved';
