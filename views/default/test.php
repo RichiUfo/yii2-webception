@@ -57,3 +57,5 @@
         </table>
     </div>
 </div>
+
+<?php var_dump($values) ?>

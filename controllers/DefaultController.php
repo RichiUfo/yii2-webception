@@ -72,7 +72,7 @@ class DefaultController extends \frontend\components\Controller
 	public function actionTest($id, $s, $e) { 
 		
 		//$value = AccountController::getCurrentBalance($id);
-		//$values = AccountController::getCurrentBalances($id);
+		$values = AccountController::getCurrentBalances($id);
 		$currencies = AccountController::getAccountCurrencies($id);
 		$trans = TransactionController::getTransactions($id, $s, $e);
 		$histos = AccountController::getHistoricalBalances($id, $s, $e);
@@ -81,7 +81,7 @@ class DefaultController extends \frontend\components\Controller
 		    'histos' => $histos, 
 		    'trans' => $trans, 
 		    //'value'=>$value, 
-		    //'values'=>$values,
+		    'values'=>$values,
 		    'currencies'=>$currencies
 		]);
 	}
