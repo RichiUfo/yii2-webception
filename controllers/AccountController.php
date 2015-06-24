@@ -270,14 +270,21 @@ class AccountController extends \frontend\components\Controller
         // 2- Get Related Transactions (DESC date_value - most recent first)
         $transactions = TransactionController::getTransactions($accountid, $start, $end);
         
-        // 3- Calculate Past Values
+        // 3- Get the children ID list
+        $children_obj = self::getChildrenAccounts($accountid);
+        $children = array();
+        foreach($children_obj as $child)
+            array_push($children, $child->id);
+        
+        // 4- Calculate Past Values
         $c = $current;
         foreach ($transactions as $t) {
             $date_dt = new \DateTime($t->date_value);
             if ($date_dt < $now_dt) {
                 $datapoints[$date_dt->format('Y-m-d')] = $c;
-                if ($t->debit['isDebit']) $c[$t->debit['currency']] += $t->value;
-                if ($t->credit['isCredit']) $c[$t->credit['currency']] -= $t->value;
+                
+                if(in_array($t->accountDebit['id'], $children)) $c[$t->accountDebit['currency']] += $t->valueDebit;
+                if(in_array($t->accountCredit['id'], $children)) $c[$t->accountCredit['currency']] += $t->valueCredit;
             }
         }
         
