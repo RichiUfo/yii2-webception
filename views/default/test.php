@@ -1,6 +1,32 @@
 <h1 class="text-center">Historical Account Value </h1>
 
-
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Historical Values</h1>
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <?php foreach($currencies as $cur) : ?>
+                <th><?= $cur ?></th>
+                <?php endforeach; ?>
+                <th>TOTAL</th>
+            </tr>
+        </thead>    
+        <tbody>
+            <?php foreach($histos as $date => $vals) : ?>
+            <tr>
+                <td><?= $date ?></td>
+                <?php foreach($currencies as $cur) : ?>
+                <td><?= $vals[$cur] ?></td>
+                <?php endforeach; ?>
+                <td><?= $vals['total'] ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+        </table>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-lg-12">
@@ -24,7 +50,7 @@
                     <td><?= $t->name ?></td>
                     <td><?= $t->valueCredit ?> <?= $t->accountCredit->currency ?></td>
                     <td><?= $t->valueDebit ?> <?= $t->accountDebit->currency ?></td>
-                    <td><?= ($t->accountForex)? '#'.$t->accountForex->id : 'N/A' ?></td> 
+                    <td><?= ($t->accountForex)? '#'.$t->accountForex->id : 'N/A' ?></td>
                 </tr>
             <?php endforeach; ?> 
             </tbody>
