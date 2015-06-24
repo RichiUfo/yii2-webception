@@ -12,6 +12,7 @@ use frontend\controllers\LocalizationController;
 use frontend\components\ExchangeController;
 
 use frontend\modules\accounting\models\Transaction;
+use frontend\modules\accounting\models\TransactionPlus;
 use frontend\modules\accounting\models\Account;
 use frontend\modules\accounting\models\AccountPlus;
 use frontend\modules\accounting\models\AccountHierarchy;
