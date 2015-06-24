@@ -35,7 +35,7 @@ class TransactionPlus extends Transaction
             $deb_cur = $this->accountDebit['currency'];
             $cre_cur = $this->accountCredit['currency'];
             
-            $this->valueDebit = $deb_cur; //($for_cur === $deb_cur) ? $this->value : $this->transactionForex['forex_value'];
+            $this->valueDebit = $for_cur; //($for_cur === $deb_cur) ? $this->value : $this->transactionForex['forex_value'];
             $this->valueCredit = $cre_cur; //($for_cur === $cre_cur) ? $this->value : $this->transactionForex['forex_value'];
             
         }
