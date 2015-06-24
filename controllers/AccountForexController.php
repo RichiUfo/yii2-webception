@@ -6,11 +6,10 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use yii\filters\AccessControl;
 
-use frontend\modules\accounting\models\Account;
-
 use frontend\controllers\NotificationController;
 use frontend\controllers\LocalizationController;
 
+use frontend\modules\accounting\models\Account;
 use frontend\modules\accounting\models\AccountForex;
 use frontend\modules\accounting\models\TransactionForex;
 
@@ -108,6 +107,21 @@ class AccountForexController extends \frontend\components\Controller
 		$account->save();
 		return [$account, $rfcs, $cocs, $sold_forex_amount, $operations];
 	}
+	
+	/**
+	 * Account Valuation Methods
+     */
+    public function getCurrentBalancesSingle($accountid) {
+    	
+    }
+    
+    /**
+     * Currency Related Methods
+     */
+    public function getAccountCurrencies($accountid) {
+        $account = Account::findOne($accountid);
+        return [$account->currency, $account->accountForex['forex_currency']];
+    }
 	
     /**
     * Actions

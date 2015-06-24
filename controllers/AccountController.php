@@ -344,11 +344,15 @@ class AccountController extends \frontend\components\Controller
      */
     public function getAccountCurrencies($accountid) {
         
-        // STEP 1 - Current Level Currency
+        // STEP 1 - Get the account
         $account = Account::findOne($accountid);
-        $currencies = [$account->currency];
         
-        // STEP 2 - Recursivity
+        // STEP 2 - Special Accounts, Current Level Currency
+        if ($account->accountForex) 
+            return AccountForexController::getAccountCurrencies($accountid);
+        
+        // STEP 3 - Regular Accounts, Recursivity
+        $currencies = [$account->currency];
         $children = AccountController::getChildrenAccounts($accountid); 
         foreach($children as $child){
             $cur_child = AccountController::getAccountCurrencies($child->id);
