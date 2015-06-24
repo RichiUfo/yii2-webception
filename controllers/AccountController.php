@@ -271,7 +271,7 @@ class AccountController extends \frontend\components\Controller
         $end_dt =   new \DateTime($end);
         
         // 1- Get Current Values
-        $current = self::getCurrentBalances($accountid);
+        $current = self::getCurrentBalancesRecursive($accountid);
         if($now_dt > $start_dt and $now_dt < $end_dt)
             $datapoints[$now_dt->format('Y-m-d')] = $current;
         
