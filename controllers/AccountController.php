@@ -277,7 +277,7 @@ class AccountController extends \frontend\components\Controller
                 $ch_obj = AccountController::getChildrenAccounts($accountid);
                 foreach($ch_obj as $child) {
                     array_push($accountids, $child->id);
-                    getChildren($child->id);
+                    getChildren([$child->id]);
                 }
             }
             
