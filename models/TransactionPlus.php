@@ -35,7 +35,7 @@ class TransactionPlus extends Transaction
             
             $this->debug = $this->accountForex;
             
-            $for_cur = $this->accountForex['forex_currency'];
+            $for_cur = '';//$this->accountForex['forex_currency'];
             $deb_cur = $this->accountDebit['currency'];
             $cre_cur = $this->accountCredit['currency'];
             
