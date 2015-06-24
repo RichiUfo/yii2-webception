@@ -114,7 +114,7 @@ class TransactionController extends \frontend\components\Controller
     }
     public function getTransactions($accountid, $start, $end, $children = true){
         
-        // Convert the id of the account hierarchy to a SQL compatible format
+        // Account IDs Query Management
         $account = AccountHierarchy::findOne($accountid);
         if($children) {
             $ids = $account->getChildrenIdList();
@@ -125,6 +125,7 @@ class TransactionController extends \frontend\components\Controller
         else {
             $strids = '('.$account->id.')';
         }
+        $id_query = 'account_credit_id IN '.$strids.' OR account_debit_id IN '.$strids.' OR transactions_forex.account_forex_id IN '.$strids;
         
         // Time Query Management
         if ($end === 'now') {
@@ -137,8 +138,8 @@ class TransactionController extends \frontend\components\Controller
         
         // Find the transactions
         $transactions = TransactionPlus::find()
-            ->joinWith(['accountForex'])
-            ->where('account_credit_id IN '.$strids.' OR account_debit_id IN '.$strids.' OR transactions_forex.account_forex_id IN '.$strids)
+            //->joinWith(['accountForex'])
+            ->where($id_query)
             ->andWhere($time_query)
             ->orderBy(['transactions.date_value' => SORT_DESC])
             ->all();
