@@ -80,7 +80,7 @@ class DefaultController extends \frontend\components\Controller
 		return $this->render('test', [
 		    'histos' => $histos, 
 		    'trans' => $trans, 
-		    //'value'=>$value, 
+		    'value'=>$value, 
 		    'values'=>$values,
 		    'currencies'=>$currencies
 		]);
