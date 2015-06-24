@@ -191,27 +191,23 @@ class AccountController extends \frontend\components\Controller
      */
     public function getCurrentBalances($accountid) {
         
-        // 1- Get the intrinsic account value (not considering children accounts)
+        // STEP 1 - Get the intrinsic account value (not considering children accounts)
         $account = Account::findOne($accountid);
         $now_dt = new \DateTime();
-        if($account->date_value) {
-            $last_update_dt = new \DateTime($account->date_value);
-            $transactions = TransactionController::getTransactionsFrom($accountid, $last_update_dt);
-        }
-        else {
-            $transactions = TransactionController::getTransactionsFrom($accountid);
-        }
-        foreach($transactions as $transaction) {
-            if($transaction->account_credit_id === $account->id) {
-                $account->value += $transaction->value;
-            }
-            if($transaction->account_debit_id === $account->id) {
-                $account->value -= $transaction->value;
-            }
-        }
-        $account->date_value = $now_dt->format('Y-m-d H:i:s');
-        $account->save();
         
+        $transactions = TransactionPlus::find()
+            ->where('id > '.$account->last_transaction_id)
+            ->andWhere('account_debit_id = '.$account->id.' OR account_credit_id = '.$account->id)
+            ->andWhere('date_value < '.$now_dt->format('Y-m-d'))
+            ->all();
+
+        foreach($transactions as $t){
+            $account->last_transaction_id = $t->id;
+            if($t->account_debit_id === $account->id) $account->value -= $t->valueDebit;
+            if($t->account_credit_id === $account->id) $account->value += $t->valueCredit;
+        }
+        
+        $account->save();
         $values[$account->currency] = $account->value;
         
         // 2- Get the children account values in the main parent account currency

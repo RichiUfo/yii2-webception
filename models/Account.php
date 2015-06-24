@@ -58,7 +58,8 @@ class Account extends \frontend\components\ActiveRecord
             'name' => 'Name',
             'alias' => 'Alias',
             'value' => 'Value',
-            'date_value' => 'Last Value Upda',
+            'last_transaction_id' => 'Last Transaction taken into account for valuation',
+            'date_value' => 'Last Value Updated',
             'currency' => 'Currency',
             'special_class' => 'Special Class',
         ];
