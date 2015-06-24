@@ -209,7 +209,7 @@ class AccountController extends \frontend\components\Controller
         }
         
         $account->save();
-        $values[$account->currency] = $account->value;
+        $values[$account->currency] = [$account->id, $account->value];
         
         // 2- Get the children account values in the main parent account currency
         /*$children = self::getChildrenAccounts($accountid);
