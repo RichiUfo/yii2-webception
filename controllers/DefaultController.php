@@ -82,7 +82,7 @@ class DefaultController extends \frontend\components\Controller
 		    'trans' => $trans, 
 		    //'value'=>$value, 
 		    //'values'=>$values,
-		    //'currencies'=>$currencies
+		    'currencies'=>$currencies
 		]);
 	}
 }
