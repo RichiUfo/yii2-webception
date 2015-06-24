@@ -75,7 +75,7 @@ class DefaultController extends \frontend\components\Controller
 		$values = AccountController::getCurrentBalances($id);
 		$currencies = AccountController::getAccountCurrencies($id);
 		$trans = TransactionController::getTransactions($id, $s, $e);
-		$histos = AccountController::getHistoricalBalances($id, $s, $e);
+		$histos = null; //AccountController::getHistoricalBalances($id, $s, $e);
 		
 		return $this->render('test', [
 		    'histos' => $histos, 
