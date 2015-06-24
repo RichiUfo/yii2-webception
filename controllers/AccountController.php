@@ -279,7 +279,7 @@ class AccountController extends \frontend\components\Controller
         $transactions = TransactionController::getTransactions($accountid, $start, $end);
         
         // 3- Get the children ID list
-        function getChildren($accountid) {
+        /*function getChildren($accountid) {
             
             $accountids = [$accountid];
             
@@ -291,7 +291,9 @@ class AccountController extends \frontend\components\Controller
             
             return $accountids;
         }
-        $children = getChildren($accountid);
+        $children = getChildren($accountid);*/
+        $account = AccountHierarchy::findOne($accountid);
+        $children = $account->getChildrenIdList();
         
         // 4- Calculate Past Values
         $c = $current;
