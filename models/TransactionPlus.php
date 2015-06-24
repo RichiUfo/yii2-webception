@@ -28,7 +28,7 @@ class TransactionPlus extends Transaction
         parent::afterFind();
 
         // Values
-        $is_forex = ($this->transactionForex)?true:false;
+        $is_forex = ($this->transactionForex) ? true : false;
         if($is_forex) {
             
             $for_cur = $this->accountForex->forex_currency;
