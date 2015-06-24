@@ -309,11 +309,6 @@ class AccountController extends \frontend\components\Controller
         
         return $datapoints;
     }
-    public function updateAccountValue($accountid, $amount) {
-        $account = Account::findOne($accountid);
-        $account->value += $amount;
-        return $account->save();
-    }
     
     /**
      * Currency Related Methods
