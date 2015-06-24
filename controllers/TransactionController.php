@@ -45,7 +45,7 @@ class TransactionController extends \frontend\components\Controller
             $cre = AccountPlus::findOne($model->account_credit_id);
             
             // Regular Transaction
-            if($deb->currency === $cur and $cre->currency === $cur){
+            if($deb->currency === $cre->currency and $deb->currency === $cur){
                 if ($model->validate()) {
                     self::createTransactionRegular($deb, $cre, $model->value, $model->date_value, $model->name, $model->description);
                     NotificationController::setNotification('success', 'Transaction Saved', 'The transaction has been saved !');
