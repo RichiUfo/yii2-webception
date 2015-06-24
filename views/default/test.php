@@ -18,7 +18,7 @@
             <tr>
                 <td><?= $date ?></td>
                 <?php foreach($currencies as $cur) : ?>
-                <td><?= $vals[$cur] ?></td>
+                <td><?= (isset($vals[$cur])) ? $vals[$cur] : '-' ?></td>
                 <?php endforeach; ?>
                 <td><?= $vals['total'] ?></td>
             </tr>
