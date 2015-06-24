@@ -213,7 +213,7 @@ class TransactionController extends \frontend\components\Controller
         // STEP 3 - Create And Save The Forex Transaction
         $forex_transaction = new TransactionForex;
         $forex_transaction->transaction_id = $transaction->id;
-        $forex_transaction->account_forex_id = $trading->account->id;
+        $forex_transaction->account_forex_id = $trading->id;
         $forex_transaction->forex_value = $value_forex;
         $success = $forex_transaction->save();
         
