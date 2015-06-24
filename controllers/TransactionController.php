@@ -139,6 +139,7 @@ class TransactionController extends \frontend\components\Controller
         // Find the transactions
         $transactions = TransactionPlus::find()
             //->joinWith(['accountForex'])
+            ->joinWith(['transactionForex'])
             ->where($id_query)
             ->andWhere($time_query)
             ->orderBy(['transactions.date_value' => SORT_DESC])
