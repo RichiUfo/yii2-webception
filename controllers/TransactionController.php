@@ -63,8 +63,8 @@ class TransactionController extends \frontend\components\Controller
                     $value = Yii::$app->request->post('value_debit');
                     $value_forex = Yii::$app->request->post('value_credit');
                 }
-                self::createTransactionForex($deb, $cre, $value, $value_forex, $model->date_value, $model->name, $model->description);
-                NotificationController::setNotification('success', 'Forex Transaction Saved', $cur.' '.$deb->currency.' '.$cre->currency);
+                $res = self::createTransactionForex($deb, $cre, $value, $value_forex, $model->date_value, $model->name, $model->description);
+                NotificationController::setNotification('success', 'Forex Transaction Saved', $res[0].' '.$res[1].' '.$res[2]);
             }
 
             return 'Saved';
@@ -202,25 +202,22 @@ class TransactionController extends \frontend\components\Controller
         $sys_cur = \Yii::$app->user->identity->acc_currency;
         $deb_cur = $debit->currency;
         $cre_cur = $credit->currency;
+        $for_cur = ($sys_cur !== $deb_cur) ? $deb_cur : $cre_cur ;
         
-        /*
-        * CASE 1 - One foreign currency
-        */
-        if(($sys_cur === $deb_cur or $sys_cur === $cre_cur) and ($deb_cur !== $cre_cur)){
-            
-            $for_cur = ($sys_cur !== $deb_cur) ? $deb_cur : $cre_cur ;
-            $trading = AccountForexController::getForexAccount($for_cur);
-            $transaction = self::createTransactionRegular($debit, $credit, $value, $date, $name, $description);
+        // STEP 1 - Get (or create) the trading account
+        $trading = AccountForexController::getForexAccount($for_cur);
         
-            // STEP 3 - Create the forex transaction
-            $forex_transaction = new TransactionForex;
-            $forex_transaction->transaction_id = $transaction->id;
-            $forex_transaction->account_forex_id = $trading->account->id;
-            $forex_transaction->forex_value = $value_forex;
-            $forex_transaction->save();
-            
-        }
-        return true;
+        // STEP 2 - Save The Regular Transaction
+        $transaction = self::createTransactionRegular($debit, $credit, $value, $date, $name, $description);
+    
+        // STEP 3 - Create And Save The Forex Transaction
+        $forex_transaction = new TransactionForex;
+        $forex_transaction->transaction_id = $transaction->id;
+        $forex_transaction->account_forex_id = $trading->account->id;
+        $forex_transaction->forex_value = $value_forex;
+        $success = $forex_transaction->save();
+        
+        return [$success, $trading->account->id, $transaction->id];
     }
     
     /**
