@@ -64,7 +64,7 @@ class TransactionController extends \frontend\components\Controller
                     $value_forex = Yii::$app->request->post('value_credit');
                 }
                 $res = self::createTransactionForex($deb, $cre, $value, $value_forex, $model->date_value, $model->name, $model->description);
-                NotificationController::setNotification('success', 'Forex Transaction Saved', $res[0].' '.$res[1].' '.$res[2]);
+                NotificationController::setNotification('success', 'Forex Transaction Saved', 'Success');
             }
 
             return 'Saved';
@@ -217,7 +217,7 @@ class TransactionController extends \frontend\components\Controller
         $forex_transaction->forex_value = $value_forex;
         $success = $forex_transaction->save();
         
-        return [$success, $trading->account->id, $transaction->id];
+        return $success;
     }
     
     /**
