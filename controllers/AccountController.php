@@ -190,7 +190,7 @@ class AccountController extends \frontend\components\Controller
     /**
      * Account Valuation Methods
      */
-    public function getCurrentBalances($accountid) {
+    public function getCurrentBalancesSingle($accountid) {
         
         // STEP 1 - Get the intrinsic account value (not considering children accounts)
         $account = Account::findOne($accountid);
@@ -211,7 +211,15 @@ class AccountController extends \frontend\components\Controller
         $account->save();
         $values[$account->currency] = $account->value;
         
-        // 2- Get the children account values in the main parent account currency
+        return $values;
+        
+    }
+    public function getCurrentBalancesRecursive($accountid) {
+        
+        // STEP 1 - Get the current account multiple currencies balances
+        $values = self::getCurrentBalancesSingle($accountid);
+        
+        // STEP 2 - Get the children account values in the main parent account currency
         $children = self::getChildrenAccounts($accountid);
         foreach($children as $child) {
             $values_children = self::getCurrentBalances($child->id);
@@ -231,7 +239,7 @@ class AccountController extends \frontend\components\Controller
     public function getCurrentBalance($accountid, $currency = null) {
         
         // STEP 1 - Get the balances in all account currencies
-        $balances = self::getCurrentBalances($accountid);
+        $balances = self::getCurrentBalancesRecursive($accountid);
         
         // STEP 2 - Check the display currency
         if (!$currency) 
