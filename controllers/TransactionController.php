@@ -143,13 +143,6 @@ class TransactionController extends \frontend\components\Controller
             ->orderBy(['transactions.date_value' => SORT_DESC])
             ->all();
         
-        // Debit/Credit, Value, Currency
-        /*foreach($transactions as $transaction){
-             
-            
-            
-        }*/
-        
         // Format the values and currencies
         return $transactions;
         
