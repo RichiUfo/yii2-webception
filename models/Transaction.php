@@ -17,8 +17,8 @@ use Yii;
 class Transaction extends \frontend\components\ActiveRecord
 {
     
-    public $debit = ['isDebit' => false, 'value' => null, 'currency' => null];  // Indicates if the transaction is a debit (true)
-    public $credit = ['isCredit' => false, 'value' => null, 'currency' => null];  // Indicates if the transaction is a credit (true)
+    public $debit = ['isDebit' => false, 'value' => null, 'currency' => null];      // Indicates if the transaction is a debit (true)
+    public $credit = ['isCredit' => false, 'value' => null, 'currency' => null];    // Indicates if the transaction is a credit (true)
     
     /**
      * @inheritdoc

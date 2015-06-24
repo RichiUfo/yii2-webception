@@ -9,6 +9,7 @@ use frontend\controllers\NotificationController;
 use frontend\controllers\LocalizationController;
 
 use frontend\modules\accounting\models\Transaction;
+use frontend\modules\accounting\models\TransactionPlus;
 use frontend\modules\accounting\models\TransactionForex;
 use frontend\modules\accounting\models\Account;
 use frontend\modules\accounting\models\AccountPlus;
@@ -111,6 +112,10 @@ class TransactionController extends \frontend\components\Controller
             
         return $transactions;
     }
+    public function getTransactions2($accountid, $start, $end, $children = true){
+    
+        
+    }
     public function getTransactions($accountid, $start, $end, $children = true){
         
         // Convert the id of the account hierarchy to a SQL compatible format
@@ -135,7 +140,7 @@ class TransactionController extends \frontend\components\Controller
         }
         
         // Find the transactions
-        $transactions = Transaction::find()
+        $transactions = TransactionPlus::find()
             ->joinWith(['accountForex'])
             ->where('account_credit_id IN '.$strids.' OR account_debit_id IN '.$strids.' OR transactions_forex.account_forex_id IN '.$strids)
             ->andWhere($time_query)
@@ -143,53 +148,15 @@ class TransactionController extends \frontend\components\Controller
             ->all();
         
         // Debit/Credit, Value, Currency
-        foreach($transactions as $transaction){
+        /*foreach($transactions as $transaction){
              
-            // Forex Transaction
-            if(isset($transaction->transactionForex)){
-                
-                // I. Check if the transaction is a debit or credit for this account
-                $transaction->credit['isCredit'] = (in_array($transaction->account_credit_id, $ids))?true:false;       
-                $transaction->debit['isDebit'] = (in_array($transaction->account_debit_id, $ids))?true:false;  
-                
-                // II. Currency
-                $transaction->credit['currency'] = $transaction->accountCredit->currency;
-                $transaction->debit['currency'] = $transaction->accountDebit->currency;
-                
-                // III. Value
-                if($transaction->credit['currency'] === 'EUR') {
-                    $transaction->credit['value'] = $transaction->value;
-                } else {
-                    $transaction->credit['value'] = $transaction->transactionForex['forex_value'];;
-                }
-                
-                // Debit Side
-                if($transaction->debit['currency'] === 'EUR') {
-                    $transaction->debit['value'] = $transaction->value;
-                } else {
-                    $transaction->debit['value'] = $transaction->transactionForex['forex_value'];
-                }
-            }
             
-            // NON-Forex Transaction
-            else{
-                // I. Check if the transaction is a debit or credit for this account
-                $transaction->credit['isCredit'] = (in_array($transaction->account_credit_id, $ids))?true:false;       
-                $transaction->debit['isDebit'] = (in_array($transaction->account_debit_id, $ids))?true:false;  
-                // II. Currency
-                $transaction->credit['currency'] = $transaction->accountCredit->currency;
-                $transaction->debit['currency'] = $transaction->accountDebit->currency;
-                // III. Value
-                $transaction->credit['value'] = $transaction->value;
-                $transaction->debit['value'] = $transaction->value;
-            }
             
-        }
+        }*/
         
         // Format the values and currencies
-        
-        
         return $transactions;
+        
     }
     public function getMovements($accountid, $start, $end) {
         

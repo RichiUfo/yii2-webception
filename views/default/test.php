@@ -40,7 +40,7 @@
                     <th>Transaction</th> 
                     <th>Credit</th>
                     <th>Debit</th>
-                    <th>Forex</th>
+                    <th>Account Forex</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,19 +49,9 @@
                     <td><?= $t->id ?></td>
                     <td><?= $t->date_value ?></td>
                     <td><?= $t->name ?></td>
-                    <td>
-                        <?php
-                        if($t->credit['isCredit'])
-                            echo $t->credit['value'].' '.$t->credit['currency'];
-                        ?>
-                    </td>
-                    <td>
-                        <?php
-                        if($t->debit['isDebit'])
-                            echo $t->debit['value'].' '.$t->debit['currency'];
-                        ?>
-                    </td>
-                    <td><?= ($t->transactionForex)?'FX':'' ?></td> 
+                    <td><?= $t->valueCredit ?> <?= $t->accountCredit->currency ?></td>
+                    <td><?= $t->valueDedit ?> <?= $t->accountDebit->currency ?></td>
+                    <td><?= ($t->accountForex)? $t->accountForex->id : '' ?></td> 
                 </tr>
             <?php endforeach; ?>
             </tbody>
