@@ -26,7 +26,7 @@
                     <td><?= $t->valueDedit ?> <?= $t->accountDebit->currency ?></td>
                     <td><?= ($t->accountForex)? $t->accountForex->id : '' ?></td> 
                 </tr>
-            <?php endforeach; ?>
+            <?php endforeach; ?> 
             </tbody>
         </table>
     </div>
