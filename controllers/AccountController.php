@@ -284,7 +284,7 @@ class AccountController extends \frontend\components\Controller
                 $datapoints[$date_dt->format('Y-m-d')] = $c;
                 
                 if(in_array($t->accountDebit['id'], $children)) $c[$t->accountDebit['currency']] += $t->valueDebit;
-                if(in_array($t->accountCredit['id'], $children)) $c[$t->accountCredit['currency']] += $t->valueCredit;
+                if(in_array($t->accountCredit['id'], $children)) $c[$t->accountCredit['currency']] = $t->valueCredit;
             }
         }
         
