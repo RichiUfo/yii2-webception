@@ -112,10 +112,6 @@ class TransactionController extends \frontend\components\Controller
             
         return $transactions;
     }
-    public function getTransactions2($accountid, $start, $end, $children = true){
-    
-        
-    }
     public function getTransactions($accountid, $start, $end, $children = true){
         
         // Convert the id of the account hierarchy to a SQL compatible format
