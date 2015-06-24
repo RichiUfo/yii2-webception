@@ -208,8 +208,8 @@ class AccountController extends \frontend\components\Controller
             if($t->account_credit_id === $account->id) $account->value += $t->valueCredit;
         }
         
-        $account->save();
-        $values[$account->currency] = [$account->id, $account->value];
+        $success = $account->save();
+        $values[$account->currency] = [$account->id, $account->value, $success];
         
         // 2- Get the children account values in the main parent account currency
         /*$children = self::getChildrenAccounts($accountid);
