@@ -336,15 +336,16 @@ class AccountController extends \frontend\components\Controller
      */
     public function getAccountCurrencies($accountid) {
         
+        // STEP 1 - Current Level Currency
         $account = Account::findOne($accountid);
         $currencies = [$account->currency];
         
+        // STEP 2 - Recursivity
         $children = AccountController::getChildrenAccounts($accountid); 
         foreach($children as $child){
             $cur_child = AccountController::getAccountCurrencies($child->id);
             foreach($cur_child as $cur)
-                if (!in_array($cur, $currencies)) 
-                    array_push($currencies, $cur);
+                if (!in_array($cur, $currencies)) array_push($currencies, $cur);
         }
         
         return $currencies;
