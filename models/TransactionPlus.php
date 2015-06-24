@@ -23,6 +23,8 @@ class TransactionPlus extends Transaction
     public $valueDebit;
     public $valueCredit;
     
+    public $debug;
+    
     public function afterFind() {
         
         parent::afterFind();
@@ -30,6 +32,8 @@ class TransactionPlus extends Transaction
         // Values
         $is_forex = ($this->transactionForex) ? true : false;
         if($is_forex) {
+            
+            $this->debug = $this->accountForex;
             
             $for_cur = $this->accountForex['forex_currency'];
             $deb_cur = $this->accountDebit['currency'];
