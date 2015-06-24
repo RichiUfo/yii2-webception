@@ -271,10 +271,19 @@ class AccountController extends \frontend\components\Controller
         $transactions = TransactionController::getTransactions($accountid, $start, $end);
         
         // 3- Get the children ID list
-        $children_obj = self::getChildrenAccounts($accountid);
-        $children = array();
-        foreach($children_obj as $child)
-            array_push($children, $child->id);
+        function getChildren($accountids) {
+            
+            foreach($accountids as $accountid) {
+                $ch_obj = self::getChildrenAccounts($accountid);
+                foreach($ch_obj as $child) {
+                    array_push($accountids, $child->id);
+                    getChildren($child->id);
+                }
+            }
+            
+            return $accountids;
+        }
+        $children = getChildren([$accountid]);
         
         // 4- Calculate Past Values
         $c = $current;
@@ -284,7 +293,7 @@ class AccountController extends \frontend\components\Controller
                 $datapoints[$date_dt->format('Y-m-d')] = $c;
                 
                 if(in_array($t->accountDebit['id'], $children)) $c[$t->accountDebit['currency']] += $t->valueDebit;
-                if(in_array($t->accountCredit['id'], $children)) $c[$t->accountCredit['currency']] = $t->valueCredit;
+                if(in_array($t->accountCredit['id'], $children)) $c[$t->accountCredit['currency']] -= $t->valueCredit;
             }
         }
         
