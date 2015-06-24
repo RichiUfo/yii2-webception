@@ -35,7 +35,7 @@ class Account extends \frontend\components\ActiveRecord
     {
         return [
             [['number', 'owner_id', 'parent_id', 'name', 'value', 'currency'], 'required'],
-            [['number', 'owner_id', 'parent_id', 'system', 'display_position'], 'integer'],
+            [['number', 'owner_id', 'parent_id', 'system', 'display_position', 'last_transaction_id'], 'integer'],
             [['value'], 'number'],
             [['date_value'], 'safe'],
             [['name', 'alias', 'special_class'], 'string', 'max' => 255],

@@ -204,12 +204,12 @@ class AccountController extends \frontend\components\Controller
 
         foreach($transactions as $t){
             $account->last_transaction_id = $t->id;
-            if($t->account_debit_id === $account->id) $account->value -= $t->valueDebit;
-            if($t->account_credit_id === $account->id) $account->value += $t->valueCredit;
+            if($t->account_debit_id === $account->id)   $account->value -= $t->valueDebit;
+            if($t->account_credit_id === $account->id)  $account->value += $t->valueCredit;
         }
         
-        $success = $account->save();
-        $values[$account->currency] = [$account->id, $account->value, $success];
+        $account->save();
+        $values[$account->currency] = $account->value;
         
         // 2- Get the children account values in the main parent account currency
         /*$children = self::getChildrenAccounts($accountid);
