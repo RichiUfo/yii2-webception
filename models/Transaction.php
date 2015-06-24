@@ -75,6 +75,6 @@ class Transaction extends \frontend\components\ActiveRecord
     public function getAccountForex()
     {
         return $this->hasOne(AccountForex::className(), ['id' => 'account_forex_id'])
-                    ->viaTable('transactions_forex', ['transaction_id' => 'id']);
+                    ->via('transactionsForex');
     }
 }
