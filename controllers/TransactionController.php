@@ -228,7 +228,7 @@ class TransactionController extends \frontend\components\Controller
     }
     
     private function createTransactionRegular($debit, $credit, $value, $date, $name, $description) {
-        // Register the transaction in the database
+        
         $transaction = new Transaction;
         $transaction->account_debit_id = $debit->id;
         $transaction->account_credit_id = $credit->id;
@@ -238,40 +238,27 @@ class TransactionController extends \frontend\components\Controller
         $transaction->value = $value;
         $transaction->save();
         
-        // Return the created transaction
         return $transaction;
     }
     private function createTransactionForex($debit, $credit, $value, $value_forex, $date, $name, $description) {
         
-        $system_currency = \Yii::$app->user->identity->acc_currency;
-        $debit_currency = $debit->currency;
-        $credit_currency = $credit->currency;
+        $sys_cur = \Yii::$app->user->identity->acc_currency;
+        $deb_cur = $debit->currency;
+        $cre_cur = $credit->currency;
         
         /*
         * CASE 1 - One foreign currency
         */
-        if(($system_currency === $debit_currency or $system_currency === $credit_currency) and ($debit_currency !== $credit_currency)){
+        if(($sys_cur === $deb_cur or $sys_cur === $cre_cur) and ($deb_cur !== $cre_cur)){
             
-            // STEP 1 - Get the foreign currency & associated trading account
-            if($system_currency !== $debit_currency){
-                $foreign_currency = $debit_currency;
-            } else {
-                $foreign_currency = $credit_currency;
-            }
-            $trading = AccountForexController::getForexAccount($foreign_currency);
-            
-            // STEP 2 - Create the regular transaction
-            if($credit_currency === $system_currency) {
-                $transaction = self::createTransactionRegular($trading->account, $credit, $value, $date, $name, $description);
-            }
-            else if($debit_currency === $system_currency) {
-                $transaction = self::createTransactionRegular($debit, $trading->account, $value, $date, $name, $description);
-            }
-            
+            $for_cur = ($sys_cur !== $deb_cur) ? $deb_cur : $cre_cur ;
+            $trading = AccountForexController::getForexAccount($for_cur);
+            $transaction = self::createTransactionRegular($debit, $credit, $value, $date, $name, $description);
+        
             // STEP 3 - Create the forex transaction
             $forex_transaction = new TransactionForex;
             $forex_transaction->transaction_id = $transaction->id;
-            $forex_transaction->account_forex_id = ($debit_currency === $system_currency)?$credit->id:$debit->id;
+            $forex_transaction->account_forex_id = $trading->account->id;
             $forex_transaction->forex_value = $value_forex;
             $forex_transaction->save();
             
