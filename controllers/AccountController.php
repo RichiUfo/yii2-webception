@@ -291,7 +291,7 @@ class AccountController extends \frontend\components\Controller
             
             return $accountids;
         }
-        $children = getChildren([$accountid]);
+        $children = getChildren($accountid);
         
         // 4- Calculate Past Values
         $c = $current;
