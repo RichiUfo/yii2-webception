@@ -262,7 +262,7 @@ class AccountController extends \frontend\components\Controller
         $start_dt = new \DateTime($start);
         $end_dt =   new \DateTime($end);
         
-        // 1- Get Current Values (All Currencies)
+        // 1- Get Current Values
         $current = self::getCurrentBalances($accountid);
         if($now_dt > $start_dt and $now_dt < $end_dt)
             $datapoints[$now_dt->format('Y-m-d')] = $current;
