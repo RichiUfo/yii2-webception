@@ -72,9 +72,9 @@ class Transaction extends \frontend\components\ActiveRecord
     {
         return $this->hasOne(TransactionForex::className(), ['transaction_id' => 'id'])->inverseOf('transaction');
     }
-    public function getAccountForex()
+    public function getAccountForex() 
     {
-        return $this->hasOne(AccountF::className(), ['id' => 'account_forex_id'])
+        return $this->hasOne(Account::className(), ['id' => 'account_forex_id'])
                     ->via('transactionForex');
     }
 }
