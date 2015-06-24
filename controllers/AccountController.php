@@ -199,7 +199,7 @@ class AccountController extends \frontend\components\Controller
         $transactions = TransactionPlus::find()
             ->where('id > '.$account->last_transaction_id)
             ->andWhere('account_debit_id = '.$account->id.' OR account_credit_id = '.$account->id)
-            ->andWhere('date_value < '.$now_dt->format('Y-m-d H:i:s'))
+            ->andWhere("date_value < '".$now_dt->format('Y-m-d H:i:s')."'")
             ->all();
 
         foreach($transactions as $t){
