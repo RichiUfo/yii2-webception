@@ -31,12 +31,12 @@ class TransactionPlus extends Transaction
         $is_forex = ($this->transactionForex) ? true : false;
         if($is_forex) {
             
-            $for_cur = $this->accountForex->forex_currency;
-            $deb_cur = $this->accountDebit->currency;
-            $cre_cur = $this->accountCredit->currency;
+            $for_cur = $this->accountForex['forex_currency'[];
+            $deb_cur = $this->accountDebit['currency'];
+            $cre_cur = $this->accountCredit->['currency'];
             
-            $this->valueDebit = ($for_cur === $deb_cur) ? $this->value : $this->transactionForex->forex_value;
-            $this->valueCredit = ($for_cur === $cre_cur) ? $this->value : $this->transactionForex->forex_value;
+            $this->valueDebit = ($for_cur === $deb_cur) ? $this->value : $this->transactionForex['forex_value'];
+            $this->valueCredit = ($for_cur === $cre_cur) ? $this->value : $this->transactionForex->['forex_value'];
             
         }
         else {
