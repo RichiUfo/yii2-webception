@@ -112,7 +112,9 @@ class AccountForexController extends \frontend\components\Controller
      */
     public function getCurrentBalancesSingle($accountid) {
     	
+    	// STEP 0 - Get the accounts objects to be updated
     	$account = Account::findOne($accountid);
+    	$accountForex = AccountForex::findOne($accountid->accountForex['id']);
     	
     	// STEP 1 - Find all forex transactions related to this account
     	$now_dt = new \DateTime();
@@ -121,16 +123,30 @@ class AccountForexController extends \frontend\components\Controller
     		->where("transactions_forex.account_forex_id =".$account->id)
     		->andWhere('transactions.id > '.$account->last_transaction_id)
             ->andWhere("date_value < '".$now_dt->format('Y-m-d H:i:s')."'")
-    		->all();	
-		return [\Yii::$app->user->identity->acc_currency => count($transactions)];
+    		->all();
+    		
+    	// STEP 2 - Update the balances for each transaction
+    	foreach($transactions as $t){
+            $account->last_transaction_id = $t->id;
+            if($t->accountCredit['currency'] === \Yii::$app->user->identity->acc_currency) {
+            	$account->value += $t->valueCredit;
+            	$accountForex->forex_value -= $t->valueDebit;
+            }
+            else{
+            	$account->value -= $t->valueDebit;
+            	$accountForex->forex_value += $t->valueCredit;
+            }
+        }
+        //$account->save();
+    	//$accountForex->save();
     	
     	// STEP 3 - Get current local and foreign value converted in system currency
     	$value = $account->value;
     	$foreign = ExchangeController::get('finance', 'currency-conversion', [
-                    'value' => $account->accountForex['forex_value'],
-                    'from' => $account->accountForex['forex_currency'],
-                    'to' => \Yii::$app->user->identity->acc_currency
-                ]);
+            'value' => $accountForex->forex_value,
+            'from' => $accountForex->forex_currency,
+            'to' => \Yii::$app->user->identity->acc_currency
+        ]);
     	
     	return [\Yii::$app->user->identity->acc_currency => $value + $foreign];
     }
