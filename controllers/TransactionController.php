@@ -259,31 +259,10 @@ class TransactionController extends \frontend\components\Controller
         return $this->renderAjax('partial_transactions', [
             'start' => $start,
             'end' => $end,
-            'transactions' => $transactions
+            'transactions' => $transactions,
+            'histo' => AccountController::getHistoricalBalance($accountid, $start, $end
         ]);
         
-        
-        
-        
-        // Account Information
-        $account = AccountHierarchy::findOne(['id' => $accountid, 'owner_id' => Yii::$app->user->id]);
-        if ($account === null) throw new NotFoundHttpException;
-        
-        // Closing Balance
-        //$closing_balance = AccountController::getAccountBalance($account->id, date("Y-m-d")) * $account->sign;
-        $movements = AccountController::getMovementsSummary($accountid, $start, $end);
-        $closing_balance = $movements['closing_balance'];
-        
-        // Transactions
-        $transactions = $this->getTransactions($account->id, $start, $end);
-        
-        return $this->renderAjax('partial_transactions', [
-            'start' => $start,
-            'end' => $end,
-            'account' => $account,
-            'closing_balance' => $closing_balance,
-            'transactions' => $transactions
-        ]);
     }
     public function actionGetTransactionsJson($accountid, $start, $end) {
         $transactions = $this->getTransactions($accountid, $start, $end);

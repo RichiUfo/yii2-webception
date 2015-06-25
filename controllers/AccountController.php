@@ -39,7 +39,6 @@ class AccountController extends \frontend\components\Controller
             ],
         ];
     }
-    
     public function beforeAction($action) {
         $this->enableCsrfValidation = false;
         return parent::beforeAction($action);
@@ -185,6 +184,9 @@ class AccountController extends \frontend\components\Controller
             'closing_balance' => $closing_balance,
             'movements' => $movements
         ]);
+    }
+    public function getTransactionsBalances($accountid, $start, $end) {
+        $transactions = TransactionController::getTransactions($accountid, $start, $end);
     }
     
     /**
@@ -333,6 +335,35 @@ class AccountController extends \frontend\components\Controller
         }
         
         return $datapoints;
+    }
+    public function getHistoricalBalance($accountid, $start, $end, $currency = null) {
+        
+        // STEP 1 - Get The Balances In Multiple Currencies
+        $datapoints = self::getHistoricalBalances($accountid, $start, $end);
+        
+        // STEP 2 - Check the display currency
+        if (!$currency) 
+            $currency = \Yii::$app->user->identity->acc_currency;
+            
+        // STEP 3 - Convert To Destination Currency
+        $balances = [];
+        foreach ($datapoints as $date => $datapoint) {
+            $balance = 0;
+            foreach ($datapoint as $cur => $val) {
+                if($cur !== $currency) {
+                $balance += ExchangeController::get('finance', 'currency-conversion', [
+                    'value' => $bal,
+                    'from' => $cur,
+                    'to' => $currency
+                ]);
+            }
+            else {
+                $balance += $bal;
+            }
+            array_push($balances, [$date => $balance]);
+        }
+        
+        return $balances;
     }
     
     /**
