@@ -1,7 +1,3 @@
-<?php
-use frontend\widgets\rotatingcard\RotatingCardWidget;
-?>
-
 <!-- Prepare the period display -->
 <?php
 $start_dt = new \DateTime($start);
