@@ -285,19 +285,6 @@ class AccountController extends \frontend\components\Controller
         $transactions = TransactionController::getTransactions($accountid, $start, $end);
         
         // 3- Get the children ID list
-        /*function getChildren($accountid) {
-            
-            $accountids = [$accountid];
-            
-            $ch_obj = AccountController::getChildrenAccounts($accountid);
-            foreach($ch_obj as $child) {
-                array_push($accountids, $child->id);
-                array_merge($accountids, getChildren($child->id));
-            }
-            
-            return $accountids;
-        }
-        $children = getChildren($accountid);*/
         $account = AccountHierarchy::findOne($accountid);
         $children = $account->getChildrenIdList();
         
@@ -308,8 +295,17 @@ class AccountController extends \frontend\components\Controller
             if ($date_dt < $now_dt) {
                 $datapoints[$date_dt->format('Y-m-d')] = $c;
                 
-                if(in_array($t->accountDebit['id'], $children)) $c[$t->accountDebit['currency']] += $t->valueDebit;
-                if(in_array($t->accountCredit['id'], $children)) $c[$t->accountCredit['currency']] -= $t->valueCredit;
+                // CASE 1 - Forex Account
+                if($account->accountForex) {
+                    if(in_array($t->accountDebit['id'], $children)) $c[$t->accountDebit['currency']] += $t->valueDebit;
+                    if(in_array($t->accountCredit['id'], $children)) $c[$t->accountCredit['currency']] -= $t->valueCredit;
+                }
+                
+                // CASE 2 - Regular Account
+                else {
+                    if(in_array($t->accountDebit['id'], $children)) $c[$t->accountDebit['currency']] += $t->valueDebit;
+                    if(in_array($t->accountCredit['id'], $children)) $c[$t->accountCredit['currency']] -= $t->valueCredit;
+                }
             }
         }
         
