@@ -257,6 +257,8 @@ class TransactionController extends \frontend\components\Controller
         
         // STEP 4 - Render The View
         return $this->renderAjax('partial_transactions', [
+            'start' => $start,
+            'end' => $end,
             'transactions' => $transactions
         ]);
         
