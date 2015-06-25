@@ -251,6 +251,9 @@ class TransactionController extends \frontend\components\Controller
         
         // STEP 1 - Get The Transactions
         $transactions = self::getTransactions($accountid, $start, $end);
+        foreach ($transactions as $t) {
+            if (in_array($t->account_debit_id, ))
+        }
         
         // STEP 2 - Get The Account Historic Values
         $balances = null;
