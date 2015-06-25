@@ -42,5 +42,3 @@ $period = $start_dt->format('M j, Y').' - '.$end_dt->format('M j, Y');
         </table>
     </div>
 </div>
-
-<?php var_dump($histo); ?>
