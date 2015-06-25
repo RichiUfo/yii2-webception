@@ -296,9 +296,15 @@ class AccountController extends \frontend\components\Controller
                 $datapoints[$date_dt->format('Y-m-d')] = $c;
                 
                 // CASE 1 - Forex Account
-                if($account->accountForex) {
-                    if(in_array($t->accountDebit['id'], $children)) $c[$t->accountDebit['currency']] += $t->valueDebit;
-                    if(in_array($t->accountCredit['id'], $children)) $c[$t->accountCredit['currency']] -= $t->valueCredit;
+                //if($account->accountForex) {
+                    //if($t->accountCredit['currency'] === \Yii::$app->user->identity->acc_currency) {
+                        $c[$t->accountCredit['currency']] -= $t->valueCredit;
+                        $c[$t->accountDebit['currency']] += $t->valueDebit;
+                    /*}
+                    else {
+                        $c[$t->accountCredit['currency']] -= $t->valueCredit;
+                        $c[$t->accountDebit['currency']] = $t->valueDebit;
+                    }*/
                 }
                 
                 // CASE 2 - Regular Account
@@ -313,7 +319,7 @@ class AccountController extends \frontend\components\Controller
         ksort($datapoints);
         
         // Calculate the total in system currency 
-        $currency = 'EUR';
+        $currency = \Yii::$app->user->identity->acc_currency;
         foreach($datapoints as $date => $datapoint) {
             $total = 0;
             foreach($datapoint as $cur => $val) {
