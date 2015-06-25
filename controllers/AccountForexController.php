@@ -114,7 +114,7 @@ class AccountForexController extends \frontend\components\Controller
     	
     	// STEP 0 - Get the accounts objects to be updated
     	$account = Account::findOne($accountid);
-    	$accountForex = AccountForex::findOne($accountid->accountForex['id']);
+    	$accountForex = AccountForex::findOne($account->accountForex['id']);
     	
     	// STEP 1 - Find all forex transactions related to this account
     	$now_dt = new \DateTime();
