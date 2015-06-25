@@ -8,6 +8,7 @@ use yii\filters\AccessControl;
 
 use frontend\controllers\NotificationController;
 use frontend\controllers\LocalizationController;
+use frontend\components\ExchangeController;
 
 use frontend\modules\accounting\models\Account;
 use frontend\modules\accounting\models\AccountForex;
@@ -109,7 +110,20 @@ class AccountForexController extends \frontend\components\Controller
 	 * Account Valuation Methods
      */
     public function getCurrentBalancesSingle($accountid) {
-    	return ['EUR' => 1];
+    	
+    	$account = AccountPlus::findOne($accountid);
+    	
+    	// STEP 1 - Get the account balance in system currency
+    	$value = $account->value;
+    	
+    	// STEP 2 - Get foreign value converted in system currency
+    	$foreign = ExchangeController::get('finance', 'currency-conversion', [
+                    'value' => $account->accountForex['forex_value'],
+                    'from' => $account->accountForex['forex_currency'],
+                    'to' => \Yii::$app->user->identity->acc_currency
+                ]);
+    	
+    	return [\Yii::$app->user->identity->acc_currency => $value + $foreign];
     }
     
     /**
