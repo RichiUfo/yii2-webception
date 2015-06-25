@@ -1,4 +1,11 @@
-<h1 class="text-center">Historical Account Value  (<?= round($value,2) ?>)</h1>
+<h1 class="text-center">Account Value Test</h1>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Current Value</h1>
+        <p><?= round($value,2) ?> <?= \Yii::$app->user->identity->acc_currency ?></p>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-lg-12">
