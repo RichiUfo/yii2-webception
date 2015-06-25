@@ -353,7 +353,7 @@ class AccountController extends \frontend\components\Controller
                 if($cur !== $currency) {
                     $balance += ExchangeController::get('finance', 'currency-conversion', [
                         'value' => $val,
-                        'from' => $cur,
+                        'from' => 'EUR' //$cur,
                         'to' => $currency
                     ]);
                 }
