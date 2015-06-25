@@ -12,6 +12,7 @@ use frontend\components\ExchangeController;
 
 use frontend\modules\accounting\models\Account;
 use frontend\modules\accounting\models\AccountForex;
+use frontend\modules\accounting\models\TransactionPlus;
 use frontend\modules\accounting\models\TransactionForex;
 
 class AccountForexController extends \frontend\components\Controller
