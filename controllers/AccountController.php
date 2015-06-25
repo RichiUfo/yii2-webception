@@ -411,10 +411,6 @@ class AccountController extends \frontend\components\Controller
         if ($account === null)
             throw new NotFoundHttpException;
         
-        // STEP 3 - Transaction & Values History
-        //$transactions = TransactionController::getTransactions($account->id, '2015/01/01', 'now');
-		//$histo = self::getHistoricalBalances($account->id, '2015/01/01', 'now'); 
-        
         // STEP 4 - Rendering The View
         if ($account->statement == "balance_sheet") {
             $back_button = ['text' => 'Balance Sheet', 'route' => '/accounting/balancesheet'];
