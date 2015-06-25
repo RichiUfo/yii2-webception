@@ -351,14 +351,15 @@ class AccountController extends \frontend\components\Controller
             $balance = 0;
             foreach ($datapoint as $cur => $val) {
                 if($cur !== $currency) {
-                $balance += ExchangeController::get('finance', 'currency-conversion', [
-                    'value' => $bal,
-                    'from' => $cur,
-                    'to' => $currency
-                ]);
-            }
-            else {
-                $balance += $bal;
+                    $balance += ExchangeController::get('finance', 'currency-conversion', [
+                        'value' => $bal,
+                        'from' => $cur,
+                        'to' => $currency
+                    ]);
+                }
+                else {
+                    $balance += $bal;
+                }
             }
             array_push($balances, [$date => $balance]);
         }
