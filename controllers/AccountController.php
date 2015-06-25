@@ -352,7 +352,7 @@ class AccountController extends \frontend\components\Controller
             foreach ($datapoint as $cur => $val) {
                 if($cur !== $currency) {
                     $balance += ExchangeController::get('finance', 'currency-conversion', [
-                        'value' => $bal,
+                        'value' => $val,
                         'from' => $cur,
                         'to' => $currency
                     ]);
