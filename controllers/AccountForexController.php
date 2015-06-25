@@ -115,10 +115,12 @@ class AccountForexController extends \frontend\components\Controller
     	$account = Account::findOne($accountid);
     	
     	// STEP 1 - Find all forex transactions related to this account
+    	$now_dt = new \DateTime();
     	$transactions = TransactionPlus::find()
-    		->joinWith(['transactionForex', 'accountCredit' , 'accountDebit'])
-    		->where("accounts.currency = '".\Yii::$app->user->identity->acc_currency."' OR accounts.currency = '".$account->accountForex['forex_currency']."'")
+    		->joinWith(['transactionForex'])
+    		->where("transactions_forex.account_forex_id =".$account->id)
     		->andWhere('transactions.id > '.$account->last_transaction_id)
+            ->andWhere("date_value < '".$now_dt->format('Y-m-d H:i:s')."'")
     		->all();
     	return count($transactions);	
     		
