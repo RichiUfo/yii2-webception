@@ -111,7 +111,7 @@ class AccountForexController extends \frontend\components\Controller
      */
     public function getCurrentBalancesSingle($accountid) {
     	
-    	$account = AccountPlus::findOne($accountid);
+    	$account = Account::findOne($accountid);
     	
     	// STEP 1 - Get the account balance in system currency
     	$value = $account->value;
