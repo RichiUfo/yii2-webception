@@ -313,27 +313,6 @@ class AccountController extends \frontend\components\Controller
         
         // Sort & Return the values
         ksort($datapoints);
-        
-        // Calculate the total in system currency 
-        /*$currency = \Yii::$app->user->identity->acc_currency;
-        foreach($datapoints as $date => $datapoint) {
-            $total = 0;
-            foreach($datapoint as $cur => $val) {
-                if($cur !== $currency) {
-                    $total += ExchangeController::get('finance', 'currency-conversion', [
-                        'value' => $val,
-                        'from' => $cur,
-                        'to' => $currency,
-                        'date' => null
-                    ]);
-                }
-                else {
-                    $total += $val;
-                }
-            }
-            $datapoints[$date]['total'] = round($total, 2); 
-        }*/
-        
         return $datapoints;
     }
     public function getHistoricalBalance($accountid, $start, $end, $currency = null) {
