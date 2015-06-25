@@ -129,12 +129,12 @@ class AccountForexController extends \frontend\components\Controller
     	foreach($transactions as $t){
             $account->last_transaction_id = $t->id;
             if($t->accountCredit['currency'] === \Yii::$app->user->identity->acc_currency) {
-            	$account->value += $t->valueCredit;
-            	$accountForex->forex_value -= $t->valueDebit;
+            	$account->value -= $t->valueCredit;
+            	$accountForex->forex_value += $t->valueDebit;
             }
             else{
-            	$account->value -= $t->valueDebit;
-            	$accountForex->forex_value += $t->valueCredit;
+            	$account->value += $t->valueDebit;
+            	$accountForex->forex_value -= $t->valueCredit;
             }
         }
         $account->save();

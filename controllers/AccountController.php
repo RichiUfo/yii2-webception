@@ -297,14 +297,8 @@ class AccountController extends \frontend\components\Controller
                 
                 // CASE 1 - Forex Account
                 if($account->accountForex) {
-                    //if($t->accountCredit['currency'] === \Yii::$app->user->identity->acc_currency) {
-                        $c[$t->accountCredit['currency']] -= $t->valueCredit;
-                        $c[$t->accountDebit['currency']] += $t->valueDebit;
-                    /*}
-                    else {
-                        $c[$t->accountCredit['currency']] -= $t->valueCredit;
-                        $c[$t->accountDebit['currency']] = $t->valueDebit;
-                    }*/
+                    $c[$t->accountCredit['currency']] += $t->valueCredit;
+                    $c[$t->accountDebit['currency']] -= $t->valueDebit;
                 }
                 
                 // CASE 2 - Regular Account
