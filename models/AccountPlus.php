@@ -52,12 +52,6 @@ class AccountPlus extends Account
         // STEP 2 - Value in system currency
         $this->value_converted = AccountController::getCurrentBalance($this->id, \Yii::$app->user->identity->acc_currency);
         
-        // Values of special accounts TO BE REMOVED
-        if($this->accountForex) {
-            $this->value = $this->accountForex->value;
-            $this->value_converted = 12; //$this->accountForex->value;
-        }
-
     }
     /**
      * public function getType()
