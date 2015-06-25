@@ -121,9 +121,8 @@ class AccountForexController extends \frontend\components\Controller
     		->where("transactions_forex.account_forex_id =".$account->id)
     		->andWhere('transactions.id > '.$account->last_transaction_id)
             ->andWhere("date_value < '".$now_dt->format('Y-m-d H:i:s')."'")
-    		->all();
-    	//return count($transactions);	
-    		
+    		->all();	
+		return [\Yii::$app->user->identity->acc_currency => count($transactions)];
     	
     	// STEP 3 - Get current local and foreign value converted in system currency
     	$value = $account->value;
