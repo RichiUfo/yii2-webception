@@ -184,6 +184,9 @@ class TransactionController extends \frontend\components\Controller
         );
     }
     
+    /**
+     * Transaction Creation Methods
+     */
     private function createTransactionRegular($debit, $credit, $value, $date, $name, $description) {
         
         $transaction = new Transaction;
@@ -245,6 +248,21 @@ class TransactionController extends \frontend\components\Controller
         return $ret;
     }
     public function actionGetTransactionsView($accountid, $start, $end) {
+        
+        // STEP 1 - Get The Transactions
+        $transactions = self::getTransactions($accountid, $start, $end);
+        
+        // STEP 2 - Get The Account Historic Values
+        $balances = null;
+        
+        // STEP 4 - Render The View
+        return $this->renderAjax('partial_transactions', [
+            'start' => $start,
+            'end' => $end,
+            'account' => $account,
+            'closing_balance' => $closing_balance,
+            'transactions' => $transactions
+        ]);
         
         // Account Information
         $account = AccountHierarchy::findOne(['id' => $accountid, 'owner_id' => Yii::$app->user->id]);

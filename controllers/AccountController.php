@@ -406,18 +406,16 @@ class AccountController extends \frontend\components\Controller
     */
     public function actionDisplay($id) {
         
-        // Account Information
+        // STEP 1 - Account Information
         $account = AccountHierarchy::findOne(['id' => $id, 'owner_id' => Yii::$app->user->id]);
         if ($account === null)
             throw new NotFoundHttpException;
         
-        // Closing Balance
-        $closing_balance = self::getCurrentBalance($account->id) * $account->sign;
+        // STEP 3 - Transaction & Values History
+        //$transactions = TransactionController::getTransactions($account->id, '2015/01/01', 'now');
+		/$histo = self::getHistoricalBalances($account->id, '2015/01/01', 'now');
         
-        // Transactions & Movements
-        $transactions = TransactionController::getTransactions($account->id, '2015/01/01', 'now');
-        
-        // Back Button
+        // STEP 4 - Rendering The View
         if ($account->statement == "balance_sheet") {
             $back_button = ['text' => 'Balance Sheet', 'route' => '/accounting/balancesheet'];
         }
@@ -428,8 +426,6 @@ class AccountController extends \frontend\components\Controller
         $this->layout = '@app/views/layouts/three-columns';
         return $this->render('account', [
             'account' => $account,
-            'transactions' => $transactions,
-            'closing_balance' => $closing_balance,
             'back_button' => $back_button,
             'left_menus' => [
                 [
