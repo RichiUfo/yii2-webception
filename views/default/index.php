@@ -21,7 +21,7 @@ BaseAsset::register($this);
 <div class="fp-acc-page">
     
     <div class=" header time-range">
-        <h1>Accounting</h1>
+        <h1>Balance Sheet</h1>
     
         <div class="right-menu">
             
