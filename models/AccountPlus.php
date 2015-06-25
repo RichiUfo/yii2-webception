@@ -55,7 +55,7 @@ class AccountPlus extends Account
         // Values of special accounts TO BE REMOVED
         if($this->accountForex) {
             $this->value = $this->accountForex->value;
-            $this->value_converted = $this->accountForex->value;
+            $this->value_converted = 12; //$this->accountForex->value;
         }
 
     }
