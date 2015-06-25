@@ -109,7 +109,7 @@ class AccountForexController extends \frontend\components\Controller
 	 * Account Valuation Methods
      */
     public function getCurrentBalancesSingle($accountid) {
-    	return 1;
+    	return ['EUR' => 1];
     }
     
     /**
