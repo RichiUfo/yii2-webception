@@ -315,7 +315,7 @@ class AccountController extends \frontend\components\Controller
         ksort($datapoints);
         
         // Calculate the total in system currency 
-        $currency = \Yii::$app->user->identity->acc_currency;
+        /*$currency = \Yii::$app->user->identity->acc_currency;
         foreach($datapoints as $date => $datapoint) {
             $total = 0;
             foreach($datapoint as $cur => $val) {
@@ -332,7 +332,7 @@ class AccountController extends \frontend\components\Controller
                 }
             }
             $datapoints[$date]['total'] = round($total, 2); 
-        }
+        }*/
         
         return $datapoints;
     }
