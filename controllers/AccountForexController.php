@@ -116,9 +116,9 @@ class AccountForexController extends \frontend\components\Controller
     	
     	// STEP 1 - Find all forex transactions related to this account
     	$transactions = TransactionPlus::find()
-    		->with('transactionForex')
-    		->with('accountCredit')
-    		->with('accountDebit')
+    		->joinWith('transactionForex')
+    		->joinWith('accountCredit')
+    		->joinWith('accountDebit')
     		->where("accounts.currency = '".\Yii::$app->user->identity->acc_currency."' OR accounts.currency = '".$account->accountForex['forex_currency']."'")
     		->andWhere('transactions.id > '.$account->last_transaction_id)
     		->all();
