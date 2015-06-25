@@ -413,7 +413,7 @@ class AccountController extends \frontend\components\Controller
         
         // STEP 3 - Transaction & Values History
         //$transactions = TransactionController::getTransactions($account->id, '2015/01/01', 'now');
-		/$histo = self::getHistoricalBalances($account->id, '2015/01/01', 'now');
+		//$histo = self::getHistoricalBalances($account->id, '2015/01/01', 'now'); 
         
         // STEP 4 - Rendering The View
         if ($account->statement == "balance_sheet") {
