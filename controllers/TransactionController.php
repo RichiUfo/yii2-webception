@@ -125,7 +125,7 @@ class TransactionController extends \frontend\components\Controller
         else {
             $strids = '('.$account->id.')';
         }
-        $id_query = 'account_credit_id IN '.$strids.' OR account_debit_id IN '.$strids;
+        $id_query = 'account_credit_id IN '.$strids.' OR account_debit_id IN '.$strids.' OR transactions_forex.account_forex_id IN '.$strids;
         
         // Time Query Management
         if ($end === 'now') {
@@ -138,7 +138,7 @@ class TransactionController extends \frontend\components\Controller
         
         // Get Transactions
         $transactions = TransactionPlus::find()
-            //->joinWith(['transactionForex'])
+            ->joinWith(['transactionForex'])
             ->where($id_query)
             ->andWhere($time_query)
             ->orderBy(['transactions.date_value' => SORT_DESC])
