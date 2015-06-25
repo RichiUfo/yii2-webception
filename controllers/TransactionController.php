@@ -260,7 +260,7 @@ class TransactionController extends \frontend\components\Controller
             'start' => $start,
             'end' => $end,
             'transactions' => $transactions,
-            'histo' => AccountController::getHistoricalBalance($accountid, $start, $end
+            'histo' => AccountController::getHistoricalBalance($accountid, $start, $end) 
         ]);
         
     }
