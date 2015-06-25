@@ -137,20 +137,15 @@ class AccountForexController extends \frontend\components\Controller
             	$accountForex->forex_value += $t->valueCredit;
             }
         }
-        //$account->save();
-    	//$accountForex->save();
+        $account->save();
+    	$accountForex->save();
     	
     	// STEP 3 - Get current local and foreign value converted in system currency
     	$value = $account->value;
-    	/*$foreign = ExchangeController::get('finance', 'currency-conversion', [
-            'value' => $accountForex->forex_value,
-            'from' => $accountForex->forex_currency,
-            'to' => \Yii::$app->user->identity->acc_currency
-        ]);*/
     	
     	return [
-    		\Yii::$app->user->identity->acc_currency => $value,
-    		$accountForex->forex_currency => $foreign
+    		\Yii::$app->user->identity->acc_currency => $account->value,
+    		$accountForex->forex_currency => $accountForex->forex_value
 		];
     }
     
