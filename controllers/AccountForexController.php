@@ -122,7 +122,7 @@ class AccountForexController extends \frontend\components\Controller
     		->andWhere('transactions.id > '.$account->last_transaction_id)
             ->andWhere("date_value < '".$now_dt->format('Y-m-d H:i:s')."'")
     		->all();
-    	return count($transactions);	
+    	//return count($transactions);	
     		
     	
     	// STEP 3 - Get current local and foreign value converted in system currency
