@@ -412,11 +412,10 @@ class AccountController extends \frontend\components\Controller
             throw new NotFoundHttpException;
         
         // Closing Balance
-        $closing_balance = $this->getCurrentBalance($account->id, date("Y-m-d")) * $account->sign;
+        $closing_balance = self::getCurrentBalance($account->id) * $account->sign;
         
         // Transactions & Movements
         $transactions = TransactionController::getTransactions($account->id, '2015/01/01', 'now');
-        $movements = $this->getMovementsSummary($account->id, '2015/01/01', 'now');
         
         // Back Button
         if ($account->statement == "balance_sheet") {
@@ -430,7 +429,6 @@ class AccountController extends \frontend\components\Controller
         return $this->render('account', [
             'account' => $account,
             'transactions' => $transactions,
-            'movements' => $movements,
             'closing_balance' => $closing_balance,
             'back_button' => $back_button,
             'left_menus' => [
