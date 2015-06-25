@@ -296,7 +296,7 @@ class AccountController extends \frontend\components\Controller
                 $datapoints[$date_dt->format('Y-m-d')] = $c;
                 
                 // CASE 1 - Forex Account
-                //if($account->accountForex) {
+                if($account->accountForex) {
                     //if($t->accountCredit['currency'] === \Yii::$app->user->identity->acc_currency) {
                         $c[$t->accountCredit['currency']] -= $t->valueCredit;
                         $c[$t->accountDebit['currency']] += $t->valueDebit;
