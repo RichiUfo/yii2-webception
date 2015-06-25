@@ -197,7 +197,7 @@ class AccountController extends \frontend\components\Controller
         
         // STEP 2 - In case of special account, redirect to specific functions
         if ($account->accountForex)
-            return ['USD' => 123];
+            return AccountForexController::getCurrentBalancesSingle($accountid);
         
         // STEP 3 - In case of regular account, calculate the value based on transactions
         $now_dt = new \DateTime();

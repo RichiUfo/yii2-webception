@@ -67,10 +67,7 @@ class AccountForexController extends \frontend\components\Controller
 		return $account;
 		
 	}
-	public function updateRealizedProfits($account, $transaction) {
-		
-		// Useful Variables
-		$account->forex_value;
+	private function updateRealizedProfits($account, $transaction) {
 		
 		$operations = TransactionForex::find()
 			->where(['account_forex_id' => $account->id])
@@ -112,7 +109,7 @@ class AccountForexController extends \frontend\components\Controller
 	 * Account Valuation Methods
      */
     public function getCurrentBalancesSingle($accountid) {
-    	
+    	return 1;
     }
     
     /**
