@@ -118,7 +118,7 @@ class AccountForexController extends \frontend\components\Controller
     		->with('transactionForex')
     		->with('accountCredit')
     		->with('accountDebit')
-    		->where('accounts.currency = '.\Yii::$app->user->identity->acc_currency.' OR accounts.currency = '.$account->accountForex['forex_currency']])
+    		->where('accounts.currency = '.\Yii::$app->user->identity->acc_currency.' OR accounts.currency = '.$account->accountForex['forex_currency'])
     		->andWhere('transactions.id > '.$account->last_transaction_id)
     		->all();
     	return count($transactions);	
