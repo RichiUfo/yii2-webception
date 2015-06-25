@@ -113,10 +113,19 @@ class AccountForexController extends \frontend\components\Controller
     	
     	$account = Account::findOne($accountid);
     	
-    	// STEP 1 - Get the account balance in system currency
-    	$value = $account->value;
+    	// STEP 1 - Find all forex transactions related to this account
+    	$transactions = TransactionPlus::find()
+    		->with('transactionForex')
+    		->with('accountCredit')
+    		->with('accountDebit')
+    		->where('accounts.currency = '.\Yii::$app->user->identity->acc_currency.' OR accounts.currency = '.$account->accountForex['forex_currency']])
+    		->andWhere('transactions.id > '.$account->last_transaction_id)
+    		->all();
+    		
+    		
     	
-    	// STEP 2 - Get foreign value converted in system currency
+    	// STEP 3 - Get current local and foreign value converted in system currency
+    	$value = $account->value;
     	$foreign = ExchangeController::get('finance', 'currency-conversion', [
                     'value' => $account->accountForex['forex_value'],
                     'from' => $account->accountForex['forex_currency'],
