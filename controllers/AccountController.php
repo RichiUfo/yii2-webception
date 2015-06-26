@@ -436,6 +436,8 @@ class AccountController extends \frontend\components\Controller
          */
         if(\Yii::$app->request->isAjax) {
             return $this->renderAjax('partial_account', [
+                'start' => $start,
+                'end' => $end,
                 'account' => $account,
                 'movements' => $movements
             ]);
