@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use dosamigos\datepicker\DateRangePicker;
+use frontend\widgets\editable\Editable;
 
 use frontend\modules\accounting\assets\BaseAsset;
 BaseAsset::register($this);
