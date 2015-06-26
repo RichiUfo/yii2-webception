@@ -36,7 +36,7 @@ function acc_bs_refresh() {
     var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
 
     $.ajax({
-        url: '/accounting/balancesheet/index',
+        url: '/accounting/accounting/index',
         type: 'GET',
         data: {start: start, end: end},
         success: function(result){
