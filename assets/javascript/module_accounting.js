@@ -43,14 +43,6 @@ function acc_bs_refresh() {
             $('#accounting-balancesheet-container').html(result);
             $(document).trigger('domupdated');
         }
-    }).done(function(data) {
-        console.log( "success" );
-    })
-    .fail(function(data) {
-        console.log( "error", data );
-    })
-    .always(function(data) {
-        console.log( "complete" , data );
     });
 };
 
