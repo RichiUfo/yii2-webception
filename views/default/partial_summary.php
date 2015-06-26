@@ -24,12 +24,12 @@ use frontend\widgets\chartjs\ChartJs;
                         'labels' => ["January", "February", "March", "April", "May", "June", "July"],
                         'datasets' => [
                             [
-                                'fillColor' => "rgba(235,114,96,0.2)",
+                                'fillColor' => "rgba(235,114,96,0.1)",
                                 'strokeColor' => "rgb(58,154,217)",
                                 'data' => [20, 30, 28, 38, 50, 60, 75]
                             ],
                             [
-                                'fillColor' => "rgba(41,171,164,0.2)",
+                                'fillColor' => "rgba(41,171,164,0.1)",
                                 'strokeColor' => "rgb(41,171,164)",
                                 'data' => [10, 18, 22, 29, 37, 40, 52]
                             ]
