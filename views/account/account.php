@@ -18,6 +18,7 @@ BaseAsset::register($this);
 <div class="fp-acc-page">
     
     <div class=" header time-range">
+        
         <?= Editable::widget([
             'identifier' => $account->id,
             'text' => $account->alias,

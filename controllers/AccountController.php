@@ -430,28 +430,42 @@ class AccountController extends \frontend\components\Controller
             $back_button = ['text' => 'Profits &amp; Losses', 'route' => '/accounting/profitloss'];
         }
         
-        $this->layout = '@app/views/layouts/three-columns';
-        return $this->render('account', [
-            'account' => $account,
-            'back_button' => $back_button,
-            'left_menus' => [
-                [
-                    'title' => 'Reporting', 'items' => [
-                        ['icon' => 'pie-chart', 'text' => 'Balance Sheet', 'type' => 'regular', 'route' => '/accounting/balancesheet'],
-                        ['icon' => 'bar-chart', 'text' => 'Income', 'type' => 'regular', 'route' => '/accounting/profitloss'],
-                        ['icon' => 'random', 'text' => 'Cash Flow', 'type' => 'regular', 'route' => '/accounting'],
+        /** 
+         * AJAX -> Render the partial view
+         */
+        if(\Yii::$app->request->isAjax) {
+            return $this->renderAjax('partial_account', [
+                'account' => $account,
+            ]);
+        }
+        
+        /** 
+         * REGULAR -> Render the full view
+         */
+        else{
+            $this->layout = '@app/views/layouts/two-columns-left';
+            return $this->render('account', [
+                'account' => $account,
+                'back_button' => $back_button,
+                'left_menus' => [
+                    [
+                        'title' => 'Reporting', 'items' => [
+                            ['icon' => 'pie-chart', 'text' => 'Balance Sheet', 'type' => 'regular', 'route' => '/accounting/balancesheet'],
+                            ['icon' => 'bar-chart', 'text' => 'Income', 'type' => 'regular', 'route' => '/accounting/profitloss'],
+                            ['icon' => 'random', 'text' => 'Cash Flow', 'type' => 'regular', 'route' => '/accounting'],
+                        ]
+                    ],
+                    [
+                        'title' => 'Accounting', 'items' => [
+                            ['icon' => 'plus', 'text' => 'Transaction', 'type' => 'modal', 'route' => 'transaction/create'],
+                            ['icon' => 'plus', 'text' => 'Account', 'type' => 'modal', 'route' => 'account/create'],
+                        ]
                     ]
                 ],
-                [
-                    'title' => 'Accounting', 'items' => [
-                        ['icon' => 'plus', 'text' => 'Transaction', 'type' => 'modal', 'route' => 'transaction/create'],
-                        ['icon' => 'plus', 'text' => 'Account', 'type' => 'modal', 'route' => 'account/create'],
-                    ]
-                ]
-            ],
-            'localdatetime' => LocalizationController::getCurrentLocalDateTime(\Yii::$app->user->identity->app_timezone, 'd.m.Y, H:i:s'),
-            'accdatetime' => LocalizationController::getCurrentLocalDateTime(\Yii::$app->user->identity->acc_timezone, 'd.m.Y, H:i:s')
-        ]);
+                'localdatetime' => LocalizationController::getCurrentLocalDateTime(\Yii::$app->user->identity->app_timezone, 'd.m.Y, H:i:s'),
+                'accdatetime' => LocalizationController::getCurrentLocalDateTime(\Yii::$app->user->identity->acc_timezone, 'd.m.Y, H:i:s')
+            ]);
+        }
     } 
     public function actionCreate() {
         $model = new Account();
