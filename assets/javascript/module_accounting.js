@@ -49,7 +49,26 @@ function acc_bs_refresh() {
 /***************
 * Account Page *
 ***************/
+function acc_acc_init() {
+    acc_acc_refresh();
+}
+function acc_acc_refresh() {
+    
+    $('#accounting-account-container').html('<div class="ajaxloader"><img src="/img/ajax-loader.gif"></div>');
 
+    var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
+    var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
+
+    $.ajax({
+        url: '/accounting/account/display',
+        type: 'GET',
+        data: {id: 552, start: start, end: end},
+        success: function(result){
+            $('#accounting-account-container').html(result);
+            $(document).trigger('domupdated');
+        }
+    });
+};
 /* Date Picker Right Panel */
 var accountPageInit = function(){
     
