@@ -421,7 +421,7 @@ class AccountController extends \frontend\components\Controller
         $account = AccountHierarchy::findOne(['id' => $id, 'owner_id' => Yii::$app->user->id]);
         if ($account === null)
             throw new NotFoundHttpException;
-        $movements = $this->getMovementsSummary($accountid, $start, $end);
+        $movements = $this->getMovementsSummary($id, $start, $end);
         
         // STEP 4 - Rendering The View
         if ($account->statement == "balance_sheet") {
