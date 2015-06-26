@@ -1,4 +1,4 @@
-<div id="account-display">
+<div id="account-display" accountid="<?= $account->id ?>">
     
     <div class="container-fluid">
         <div class="row">
@@ -76,8 +76,36 @@
         </div>
     
         <div class="row">
-            <div id="account-transactions-ajax" accountid="<?= $account->id ?>" class="col-lg-12">
-                
+            <div class="col-lg-12">
+                <?php 
+                $period = ''; //$start_dt->format('M j, Y').' - '.$end_dt->format('M j, Y'); 
+                ?>
+                <h2>Transaction <small><?= $period ?></small></h2>
+                <table class="table table-striped table-no-margin">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Date</th>
+                            <th class="text-left">Transaction</th>
+                            <th class="text-right">Debit</th>
+                            <th class="text-right">Credit</th>
+                            <th class="text-right">Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <!-- Transactions Items -->
+                        <?php foreach ($transactions as $t) : ?>
+                        <tr>
+                            <td class="text-left"><span class="date" datetime="<?= $t->date_value ?>"></span></td>
+                            <td class="text-left"><?= $t->name ?></td>
+                            <td class="text-right"><?= $t->valueDebit ?> <?= $t->accountDebit->currency ?></td>
+                            <td class="text-right"><?= $t->valueCredit ?> <?= $t->accountCredit->currency ?></td>
+                            <td class="text-right"><span class="money" value="0" currency=""></span></td>
+                        </tr>
+                        <?php endforeach; ?>
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

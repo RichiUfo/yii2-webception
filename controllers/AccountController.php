@@ -421,9 +421,12 @@ class AccountController extends \frontend\components\Controller
         $account = AccountHierarchy::findOne(['id' => $id, 'owner_id' => Yii::$app->user->id]);
         if ($account === null)
             throw new NotFoundHttpException;
+        
+        // STEP 2 - Transactions 
+        $transactions = TransactionController::getTransactions($id, $start, $end);
         $movements = $this->getMovementsSummary($id, $start, $end);
         
-        // STEP 4 - Rendering The View
+        // STEP 3 - Back Buttons Config
         if ($account->statement == "balance_sheet") {
             $back_button = ['text' => 'Balance Sheet', 'route' => '/accounting/balancesheet'];
         }
@@ -439,7 +442,8 @@ class AccountController extends \frontend\components\Controller
                 'start' => $start,
                 'end' => $end,
                 'account' => $account,
-                'movements' => $movements
+                'movements' => $movements,
+                'transactions' => $transactions,
             ]);
         }
         
