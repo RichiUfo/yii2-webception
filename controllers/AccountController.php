@@ -417,16 +417,8 @@ class AccountController extends \frontend\components\Controller
     */
     public function actionDisplay($id, $start='', $end='') {
         
-        // STEP 1 - Account Information
-        $account = AccountHierarchy::findOne(['id' => $id, 'owner_id' => Yii::$app->user->id]);
-        if ($account === null)
-            throw new NotFoundHttpException;
-        
-        // STEP 2 - Transactions 
-        $transactions = TransactionController::getTransactions($id, $start, $end);
-        $movements = $this->getMovementsSummary($id, $start, $end);
-        
-        // STEP 3 - Back Buttons Config
+        // Configuring The Back Buttons
+        $account = AccountPlus::findOne(['id' => $id, 'owner_id' => Yii::$app->user->id]);
         if ($account->statement == "balance_sheet") {
             $back_button = ['text' => 'Balance Sheet', 'route' => '/accounting/balancesheet'];
         }
@@ -438,6 +430,16 @@ class AccountController extends \frontend\components\Controller
          * AJAX -> Render the partial view
          */
         if(\Yii::$app->request->isAjax) {
+            
+            // STEP 1 - Account Information
+            $account = AccountHierarchy::findOne(['id' => $id, 'owner_id' => Yii::$app->user->id]);
+            if ($account === null) throw new NotFoundHttpException;
+            
+            // STEP 2 - Transactions Information
+            $transactions = TransactionController::getTransactions($id, $start, $end);
+            $movements = $this->getMovementsSummary($id, $start, $end);
+            
+            // STEP 3 - Rendering The Partial View
             return $this->renderAjax('partial_account', [
                 'start' => $start,
                 'end' => $end,

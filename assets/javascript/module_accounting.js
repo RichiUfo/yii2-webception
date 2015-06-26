@@ -56,13 +56,14 @@ function acc_acc_refresh() {
     
     $('#accounting-account-container').html('<div class="ajaxloader"><img src="/img/ajax-loader.gif"></div>');
 
+    var accountid = $('#account-display').attr('accountid');
     var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
     var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
 
     $.ajax({
         url: '/accounting/account/display',
         type: 'GET',
-        data: {id: 552, start: start, end: end},
+        data: {id: accountid, start: start, end: end},
         success: function(result){
             $('#accounting-account-container').html(result);
             $(document).trigger('domupdated');
