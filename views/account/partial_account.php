@@ -10,7 +10,7 @@
             
             <!-- Movements -->
             <div id="movements-summary-ajax" class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                <h2>Movements</h2>
+                <h2>&nbsp;</h2>
                 <table style="width: 100%">
                     <tr>
                         <td>Opening Balance</td>
