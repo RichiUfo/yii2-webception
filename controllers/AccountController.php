@@ -415,7 +415,7 @@ class AccountController extends \frontend\components\Controller
     /**
     * Routed Actions
     */
-    public function actionDisplay($id) {
+    public function actionDisplay($id, $start = '', $end ='') {
         
         // STEP 1 - Account Information
         $account = AccountHierarchy::findOne(['id' => $id, 'owner_id' => Yii::$app->user->id]);
