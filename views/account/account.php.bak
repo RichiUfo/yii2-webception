@@ -1,0 +1,73 @@
+<?php
+use yii\helpers\Url;
+use yii\bootstrap\ActiveForm;
+use yii\bootstrap\Modal;
+use yii\bootstrap\ActiveField;
+use yii\helpers\Html;
+use yii\web\View;
+
+use \fruppel\googlecharts\GoogleCharts;
+use dosamigos\datepicker\DateRangePicker;
+use frontend\widgets\rotatingcard\RotatingCardWidget;
+use frontend\widgets\editable\Editable;
+
+use frontend\controllers\LocalizationController;
+
+use frontend\modules\accounting\assets\BaseAsset;
+BaseAsset::register($this);
+?>
+
+<!-- LEFT PANEL -->
+<?php $this->render('@app/views/partials/left_panel', [
+    'back_button' => $back_button,
+    'left_menus' => $left_menus
+]); ?>
+
+<!-- RIGHT PANEL -->
+<?php $this->beginBlock('right_panel'); ?>
+    <div class="side_panel_block">
+        <div id="side-menu" class="text-center">
+            <h2 class="title text-center">Time Period</h2>
+            <div class="btn-group" style="margin: 10px">
+                <button id="period-year" class="btn btn-white btn-xs btn-account-period" type="button">Year</button>
+                <button id="period-quarter" class="btn btn-white btn-xs btn-account-period" type="button">Quarter</button>
+                <button id="period-month" class="btn btn-white btn-xs  btn-account-period active" type="button">Month</button>
+                <button id="period-week" class="btn btn-white btn-xs btn-account-period" type="button">Week</button>
+            </div>
+            <div id="account-period-selection" class="right-col-item" style="margin: 10px">
+                <?= DateRangePicker::widget([
+                    'name' => 'date_from',
+                    'size' => 'sm',
+                    'value' => date("Y-m-d", strtotime(date("Y-m-d").' -1 months')),
+                    'nameTo' => 'name_to',
+                    'valueTo' => date("Y-m-d"),
+                    'clientOptions' => [
+                        'format' => 'yyyy-mm-dd',
+                        'autoclose' => true
+                    ],
+                    'clientEvents' => [
+                        'changeDate' => 'function ev(){timePeriodChangeHandler();}'
+                    ]
+                ]); ?>
+            </div>
+        </div>
+    </div>
+<?php $this->endBlock(); ?>
+
+<!-----------------------
+-- EDITABLE PAGE TITLE --
+------------------------>
+
+<!-- Account Name Edition -->
+<?= Editable::widget([
+    'identifier' => $account->id,
+    'text' => $account->alias,
+    'property' => 'alias',
+    'default' => $account->name,
+    'action' => '/accounting/rest/account/rename',    
+]); ?>
+
+<!------------------------
+-- ACCOUNT PAGE CONTENT --
+------------------------->
+
