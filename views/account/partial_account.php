@@ -78,7 +78,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <?php 
-                $period = ''; //$start_dt->format('M j, Y').' - '.$end_dt->format('M j, Y'); 
+                    $start_dt = new \DateTime($start);
+                    $end_dt = new \DateTime($end);
+                    $period = $start_dt->format('M j, Y').' - '.$end_dt->format('M j, Y'); 
                 ?>
                 <h2>Transaction <small><?= $period ?></small></h2>
                 <table class="table table-striped table-no-margin">
