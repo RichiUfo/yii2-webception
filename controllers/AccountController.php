@@ -421,6 +421,7 @@ class AccountController extends \frontend\components\Controller
         $account = AccountHierarchy::findOne(['id' => $id, 'owner_id' => Yii::$app->user->id]);
         if ($account === null)
             throw new NotFoundHttpException;
+        $movements = $this->getMovementsSummary($accountid, $start, $end);
         
         // STEP 4 - Rendering The View
         if ($account->statement == "balance_sheet") {
@@ -436,6 +437,7 @@ class AccountController extends \frontend\components\Controller
         if(\Yii::$app->request->isAjax) {
             return $this->renderAjax('partial_account', [
                 'account' => $account,
+                'movements' => $movements
             ]);
         }
         
