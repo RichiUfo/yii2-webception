@@ -47,10 +47,10 @@ function acc_bs_refresh() {
         console.log( "success" );
     })
     .fail(function(data) {
-        console.log( "error" + data );
+        console.log( "error", data );
     })
     .always(function(data) {
-        console.log( "complete" + data );
+        console.log( "complete" , data );
     });
 };
 
