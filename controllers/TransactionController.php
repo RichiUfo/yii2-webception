@@ -247,26 +247,6 @@ class TransactionController extends \frontend\components\Controller
         $ret['message'] = $message;
         return $ret;
     }
-    public function actionGetTransactionsView($accountid, $start, $end) {
-        
-        // STEP 1 - Get The Transactions
-        $transactions = self::getTransactions($accountid, $start, $end);
-        /*foreach ($transactions as $t) {
-            if (in_array($t->account_debit_id, ))
-        }*/
-        
-        // STEP 2 - Get The Account Historic Values
-        $balances = null;
-        
-        // STEP 4 - Render The View
-        return $this->renderAjax('partial_transactions', [
-            'start' => $start,
-            'end' => $end,
-            'transactions' => $transactions,
-            'histo' => AccountController::getHistoricalBalance($accountid, $start, $end) 
-        ]);
-        
-    }
     public function actionGetTransactionsJson($accountid, $start, $end) {
         $transactions = $this->getTransactions($accountid, $start, $end);
         return json_encode($transactions);

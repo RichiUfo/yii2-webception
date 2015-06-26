@@ -571,17 +571,5 @@ class AccountController extends \frontend\components\Controller
         return $ret;
         
     }
-    public function actionGetMovementsSummaryView($accountid, $start, $end) {
-        
-        $account = AccountPlus::findOne($accountid);
-        $movements = $this->getMovementsSummary($accountid, $start, $end);
-        
-        return $this->renderAjax('partial_movements', [
-            'start' => $start,
-            'end' => $end,
-            'account' => $account,
-            'movements' => $movements
-        ]);
-    }
 
 }
