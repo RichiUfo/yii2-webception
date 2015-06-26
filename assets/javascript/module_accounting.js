@@ -39,10 +39,18 @@ function acc_bs_refresh() {
         url: '/accounting/accounting/index',
         type: 'GET',
         data: {start: start, end: end},
-        done: function(result){
+        success: function(result){
             $('#accounting-balancesheet-container').html(result);
             $(document).trigger('domupdated');
         }
+    }).done(function() {
+        alert( "success" );
+    })
+    .fail(function() {
+        alert( "error" );
+    })
+    .always(function() {
+        alert( "complete" );
     });
 };
 
