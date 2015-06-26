@@ -80,7 +80,7 @@
                 <?php 
                     $start_dt = new \DateTime($start);
                     $end_dt = new \DateTime($end);
-                    $period = $start_dt->format('M j, Y').' - '.$end_dt->format('M j, Y'); 
+                    $period = ''; //$start_dt->format('M j, Y').' - '.$end_dt->format('M j, Y'); 
                 ?>
                 <h2>Transaction <small><?= $period ?></small></h2>
                 <table class="table table-striped table-no-margin">
