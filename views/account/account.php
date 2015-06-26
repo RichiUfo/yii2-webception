@@ -52,7 +52,7 @@ BaseAsset::register($this);
         </div>
     </div>
     
-    <div id="accounting-account-container" class="content"></div>
+    <div id="accounting-account-container" class="content" accountid="<?= $account->id ?>"></div>
     
     
 </div>

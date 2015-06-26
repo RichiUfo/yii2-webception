@@ -1,4 +1,4 @@
-<div id="account-display" accountid="<?= $account->id ?>">
+<div id="account-display">
     
     <div class="container-fluid">
         <div class="row">
