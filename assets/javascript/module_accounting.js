@@ -57,6 +57,7 @@ function acc_acc_refresh() {
     $('#accounting-account-container').html('<div class="ajaxloader"><img src="/img/ajax-loader.gif"></div>');
 
     var accountid = 552; //$('#account-display').attr('accountid');
+    console.log($('#account-display'), $('#account-display').attr('accountid'));
     var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
     var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
 
