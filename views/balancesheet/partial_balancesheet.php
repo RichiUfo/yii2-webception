@@ -33,15 +33,7 @@ function displayHierarchy($accounts){
 
 ?>
 
-<!-- LEFT PANEL -->
-<?php $this->render('@app/views/partials/left_panel', [
-    'back_button' => $back_button,
-    'left_menus' => $left_menus
-]); ?>
-
 <!-- MAIN CONTENT -->
-<h2 class="text-center">Balance Sheet</h2>
-
 <div id="balance-sheet" class="row">
     <div class="col-lg-6">
         
