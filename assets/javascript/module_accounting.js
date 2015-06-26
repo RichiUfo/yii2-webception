@@ -69,6 +69,7 @@ function acc_acc_refresh() {
         }
     });
 };
+
 /* Date Picker Right Panel */
 var accountPageInit = function(){
     
