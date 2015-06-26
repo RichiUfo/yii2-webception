@@ -17,8 +17,7 @@ class BalancesheetController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -47,38 +46,56 @@ class BalancesheetController extends Controller
         return $ret;
     }
     
-    public function actionIndex()
-    {
+    public function actionIndex($start = '', $end ='') {
+        
         $assets = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Assets']);
         $equity = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Equity']);
         $liabilities = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Liabilities']);
         
-        $this->layout = '@app/views/layouts/two-columns-left';
-        return $this->render('balancesheet', [
-            'assets' => $assets, 
-            'equity' => $equity, 
-            'liabilities' => $liabilities,
-            'back_button' => ['text' => 'Accounting', 'route' => '/accounting'],
-            'left_menus' => [
-                [
-                    'title' => 'Reporting', 'items' => [
-                        ['icon' => 'pie-chart', 'text' => 'Balance Sheet', 'type' => 'regular', 'route' => '/accounting/balancesheet'],
-                        ['icon' => 'bar-chart', 'text' => 'Income', 'type' => 'regular', 'route' => '/accounting/profitloss'],
-                        ['icon' => 'random', 'text' => 'Cash Flow', 'type' => 'regular', 'route' => '/accounting'],
-                    ]
-                ],
-                [
-                    'title' => 'Operations', 'items' => [
-                        ['icon' => 'plus', 'text' => 'Transaction', 'type' => 'modal_preload', 'route' => 'transaction/create'], 
-                        ['icon' => 'plus', 'text' => 'Account', 'type' => 'modal_preload', 'route' => 'account/create'],
+        /** 
+         * AJAX -> Render the partial view
+         */
+        if(\Yii::$app->request->isAjax) {
+            return $this->renderAjax('partial_balancesheet', [
+                'assets' => $assets, 
+                'equity' => $equity, 
+                'liabilities' => $liabilities
+            ]);
+        }
+        
+        /** 
+         * REGULAR -> Render the full view
+         */
+        else{
+            $this->layout = '@app/views/layouts/two-columns-left';
+            return $this->render('balancesheet', [
+                'assets' => $assets, 
+                'equity' => $equity, 
+                'liabilities' => $liabilities,
+                'back_button' => ['text' => 'Accounting', 'route' => '/accounting'],
+                'left_menus' => [
+                    [
+                        'title' => 'Reporting', 'items' => [
+                            ['icon' => 'pie-chart', 'text' => 'Balance Sheet', 'type' => 'regular', 'route' => '/accounting/balancesheet'],
+                            ['icon' => 'bar-chart', 'text' => 'Income', 'type' => 'regular', 'route' => '/accounting/profitloss'],
+                            ['icon' => 'random', 'text' => 'Cash Flow', 'type' => 'regular', 'route' => '/accounting'],
+                        ]
+                    ],
+                    [
+                        'title' => 'Operations', 'items' => [
+                            ['icon' => 'plus', 'text' => 'Transaction', 'type' => 'modal_preload', 'route' => 'transaction/create'], 
+                            ['icon' => 'plus', 'text' => 'Account', 'type' => 'modal_preload', 'route' => 'account/create'],
+                        ]
                     ]
                 ]
-            ]
-        ]);
+            ]);
+        }
     }
     
-    public function actionOverview()
-    {
+    /**
+     * AJAX Actions Section (Returns Partials OR JSON)
+     */
+    public function actionOverview() {
         $data = $this->getFinancialData();
         
         return $this->renderAjax('overview', [

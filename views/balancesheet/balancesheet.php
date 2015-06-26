@@ -41,7 +41,7 @@ BaseAsset::register($this);
                         'autoclose' => true
                     ],
                     'clientEvents' => [
-                        'changeDate' => 'function ev(){acc_sum_refresh();}'
+                        'changeDate' => 'function ev(){acc_bs_refresh();}'
                     ]
                 ]); ?>
             </div>
@@ -54,4 +54,4 @@ BaseAsset::register($this);
 </div>
 
 <!-- JAVASCRIPT -->
-<?php $this->registerJs("acc_sum_init()", $this::POS_READY); ?>
+<?php $this->registerJs("acc_bs_init()", $this::POS_READY); ?>

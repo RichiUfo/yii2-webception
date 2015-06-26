@@ -17,8 +17,7 @@ class DefaultController extends \frontend\components\Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors()  {
         return [
             'access' => [
                 'class' => AccessControl::className(),
