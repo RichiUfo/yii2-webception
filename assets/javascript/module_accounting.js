@@ -44,13 +44,13 @@ function acc_bs_refresh() {
             $(document).trigger('domupdated');
         }
     }).done(function(data) {
-        alert( "success" );
+        console.log( "success" );
     })
     .fail(function(data) {
-        alert( "error" + data );
+        console.log( "error" + data );
     })
     .always(function(data) {
-        alert( "complete" + data );
+        console.log( "complete" + data );
     });
 };
 
