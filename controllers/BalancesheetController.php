@@ -48,6 +48,17 @@ class BalancesheetController extends Controller
     
     public function getBalanceSheetHistoricalBalance($start, $end, $currency = null) {
         
+        $eq = AccountPlus::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Equity']);
+        $li = AccountPlus::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Liabilities']);
+        
+        $equity = AccountController::getHistoricalBalanceDaily($eq->id, $start, $end, $currency);
+        $liabilities = AccountController::getHistoricalBalanceDaily($li->id, $start, $end, $currency);
+        
+        $ret = [];
+        foreach($equity as $d => $v)
+            $ret[$d] = [$equity[$d], $liabilities[$d]];
+            
+        return $ret;
     }
     
     public function actionIndex($start = '', $end ='') {

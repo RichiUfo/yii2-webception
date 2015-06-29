@@ -9,6 +9,17 @@ use frontend\widgets\chartjs\ChartJs;
         <h2 class="text-center">Balance Sheet</h2>
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+                <?php
+                $dates = [];
+                $equity = []; 
+                $liabilities = [];
+                foreach($balancesheet as $d => $v) {
+                    array_push($dates, $d);
+                    array_push($equity, $v[0]);
+                    array_push($liabilities, $v[1]);
+                }
+                ?>
+                
                 <?= ChartJs::widget([
                     'type' => 'Line',
                     'clientOptions' => [
@@ -21,17 +32,17 @@ use frontend\widgets\chartjs\ChartJs;
                         'pointDot' => false,
                     ],
                     'data' => [
-                        'labels' => ["January", "February", "March", "April", "May", "June", "July"],
+                        'labels' => $dates,
                         'datasets' => [
                             [
                                 'fillColor' => "rgba(235,114,96,0.1)",
                                 'strokeColor' => "rgb(58,154,217)",
-                                'data' => [20, 30, 28, 38, 50, 60, 75]
+                                'data' => $liabilities
                             ],
                             [
                                 'fillColor' => "rgba(41,171,164,0.1)",
                                 'strokeColor' => "rgb(41,171,164)",
-                                'data' => [10, 18, 22, 29, 37, 40, 52]
+                                'data' => $equity
                             ]
                         ]
                     ]

@@ -95,6 +95,7 @@ use frontend\widgets\chartjs\ChartJs;
 // Preparing the data
 $keys = [];
 $data1 = [];
+
 foreach($daily as $d => $b) {
     array_push($keys, $d);
     array_push($data1, -1*$b);
