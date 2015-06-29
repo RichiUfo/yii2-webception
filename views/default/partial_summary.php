@@ -30,6 +30,7 @@ use frontend\widgets\chartjs\ChartJs;
                         'responsive' => true,
                         'showTooltips' => false,
                         'pointDot' => false,
+                        'bezierCurve' => false,
                     ],
                     'data' => [
                         'labels' => $dates,
