@@ -315,7 +315,7 @@ class AccountController extends \frontend\components\Controller
         ksort($datapoints);
         return $datapoints;
     }
-    public function getHistoricalBalance($accountid, $start, $end, $currency = null) {
+    public function getHistoricalBalance($accountid, $start, $end, $currency = null, $extrapolate = null) {
         
         // STEP 1 - Get The Balances In Multiple Currencies
         $datapoints = self::getHistoricalBalances($accountid, $start, $end);
@@ -323,42 +323,39 @@ class AccountController extends \frontend\components\Controller
         // STEP 2 - Check the display currency
         if (!$currency) 
             $currency = \Yii::$app->user->identity->acc_currency;
+        
+        // STEP 3 - Extrapolate the data
+        if(!$extrapolate) {
+            $balances_temp = [];
             
-        // STEP 3 - Convert To Destination Currency
+            $start = new \DateTime($start);
+            $end = new \DateTime($end);
+            $current = $start;
+            
+            $previous = [];
+            
+            while($current < $end) {
+                
+                if(isset($balances[$current->format('Y-m-d')])) {
+                    $previous = $balances[$current->format('Y-m-d')];
+                    $balances_temp[$current->format('Y-m-d')] = $previous;
+                }
+                else {
+                    $balances_temp[$current->format('Y-m-d')] = $previous;
+                }
+                
+                $current->modify('+1 day');
+            }
+            
+            $balances = $balances_temp;
+        }
+            
+        // STEP 4 - Convert To Destination Currency
         $balances = [];
         foreach ($datapoints as $date => $datapoint)
             $balances[$date] = self::convertAccountBalances($datapoint, $currency, $date);
         
         return $balances;
-    }
-    public function getHistoricalBalanceDaily($accountid, $start, $end, $currency = null) {
-        
-        /**
-         * Extrapolation of the returned array by getHistoricalBalance for every day
-         */
-        $balance = self::getHistoricalBalance($accountid, $start, $end, $currency);
-        
-        $start = new \DateTime($start);
-        $end = new \DateTime($end);
-        $current = $start;
-        $current_balance = 0;
-        
-        $ret = [];
-        while($current < $end) {
-            
-            // Get the current balance at the current date
-            if(isset($balance[$current->format('Y-m-d')]))
-                $current_balance = $balance[$current->format('Y-m-d')];
-            
-            // Get the current balance at the current date (reevaluated given the exchange rate)
-            $ret[$current->format('Y-m-d')] = $current_balance;
-            
-            // Update the current date
-            $current->modify('+1 day');
-        }
-        
-        return $ret;
-        
     }
     
     /**
