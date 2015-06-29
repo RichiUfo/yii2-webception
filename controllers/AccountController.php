@@ -333,7 +333,8 @@ class AccountController extends \frontend\components\Controller
                     $balance += ExchangeController::get('finance', 'currency-conversion', [
                         'value' => $val,
                         'from' => $cur,
-                        'to' => $currency
+                        'to' => $currency,
+                        'date' => $date
                     ]);
                 }
                 else {
