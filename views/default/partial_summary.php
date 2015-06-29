@@ -16,7 +16,7 @@ use frontend\widgets\chartjs\ChartJs;
                 foreach($balancesheet as $d => $v) {
                     array_push($dates, $d);
                     array_push($equity, $v[0]);
-                    array_push($liabilities, $v[1]);
+                    array_push($liabilities, $v[0]+$v[1]);
                 }
                 ?>
                 
