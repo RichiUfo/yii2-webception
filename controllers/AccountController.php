@@ -358,7 +358,9 @@ class AccountController extends \frontend\components\Controller
         $current_balance = 0;
         
         $ret = [];
-        while($current < $end) {
+        $security = 0;
+        while($current < $end and $security < 365) {
+            $security++
             if(isset($balance[$current->format('Y-m-d')])) {
                 $current_balance = $balance[$current->format('Y-m-d')];
             }
