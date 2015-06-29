@@ -86,3 +86,41 @@
         </table>
     </div>
 </div>
+
+<?php
+// Preparing the data
+$keys = [];
+$data1 = [];
+foreach($daily as $d => $b) {
+    array_push($keys, $d);
+    array_push($data1, $b);
+}
+?>
+
+<div class="row">
+    <div class="col-lg-12">
+        <?= ChartJs::widget([
+            'type' => 'Line',
+            'clientOptions' => [
+                'showScale' => false,
+                //'maintainAspectRatio' => false,
+                'scaleShowGridLines' => false,
+                //'scaleShowLabels' => false,
+                'responsive' => true,
+                'showTooltips' => false,
+                'pointDot' => false,
+            ],
+            'data' => [
+                'labels' => $keys,
+                'datasets' => [
+                    [
+                        'fillColor' => "rgba(235,114,96,0.1)",
+                        'strokeColor' => "rgb(58,154,217)",
+                        'data' => $data1
+                    ]
+                ]
+            ]
+        ]);
+        ?>
+    </div>
+</div>
