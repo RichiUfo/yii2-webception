@@ -326,7 +326,6 @@ class AccountController extends \frontend\components\Controller
         
         // STEP 3 - Extrapolate the data
         if($extrapolate) {
-            $balances_temp = [];
             
             $start = new \DateTime($start);
             $end = new \DateTime($end);
@@ -336,18 +335,17 @@ class AccountController extends \frontend\components\Controller
             
             while($current < $end) {
                 
-                if(isset($balances[$current->format('Y-m-d')])) {
-                    $previous = $balances[$current->format('Y-m-d')];
-                    $balances_temp[$current->format('Y-m-d')] = $previous;
+                if(isset($datapoints[$current->format('Y-m-d')])) {
+                    $previous = $datapoints[$current->format('Y-m-d')];
+                    //$datapoints[$current->format('Y-m-d')] = $previous;
                 }
                 else {
-                    $balances_temp[$current->format('Y-m-d')] = $previous;
+                    $datapoints[$current->format('Y-m-d')] = $previous;
                 }
                 
                 $current->modify('+1 day');
             }
             
-            $balances = $balances_temp;
         }
             
         // STEP 4 - Convert To Destination Currency
