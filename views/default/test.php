@@ -64,3 +64,25 @@
         </table>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Daily Historical Values</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($daily as $d => $b) : ?>
+                <tr>
+                    <td><?= $d ?></td>
+                    <td><?= $b ?></td>
+                </tr>
+            <?php endforeach; ?> 
+            </tbody>
+        </table>
+    </div>
+</div>

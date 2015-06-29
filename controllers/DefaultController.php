@@ -37,6 +37,10 @@ class DefaultController extends \frontend\components\Controller
         $this->layout = '@app/views/layouts/two-columns-left';
         
         if(\Yii::$app->request->isAjax) {
+            
+            // Get the balance sheet accounts evolution
+            $balancesheet = BalancesheetController::get
+            
             return $this->renderAjax('partial_summary', [
                 'start' => $start,
                 'end' => $end,
@@ -75,13 +79,15 @@ class DefaultController extends \frontend\components\Controller
 		$currencies = AccountController::getAccountCurrencies($id);
 		$trans = TransactionController::getTransactions($id, $s, $e);
 		$histos = AccountController::getHistoricalBalances($id, $s, $e);
+		$daily = AccountController::getHistoricalBalanceDaily($id, $s, $e);
 		
 		return $this->render('test', [
 		    'histos' => $histos, 
 		    'trans' => $trans, 
 		    'value'=>$value, 
 		    'values'=>$values,
-		    'currencies'=>$currencies
+		    'currencies'=>$currencies,
+		    'daily' => $daily
 		]);
 	}
 }

@@ -46,6 +46,10 @@ class BalancesheetController extends Controller
         return $ret;
     }
     
+    public function getBalanceSheetHistoricalBalance($start, $end, $currency = null) {
+        
+    }
+    
     public function actionIndex($start = '', $end ='') {
         
         $assets = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Assets']);

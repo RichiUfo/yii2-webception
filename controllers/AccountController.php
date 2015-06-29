@@ -345,6 +345,30 @@ class AccountController extends \frontend\components\Controller
         
         return $balances;
     }
+    public function getHistoricalBalanceDaily($accountid, $start, $end, $currency = null) {
+        
+        /**
+         * Extrapolation of the returned array by getHistoricalBalance for every day
+         */
+        $balance = self::getHistoricalBalance($accountid, $start, $end, $currency);
+        
+        $start = new \DateTime($start);
+        $end = new \DateTime($end);
+        $current = $start;
+        $current_balance = 0;
+        
+        $ret = [];
+        while($current < $end) {
+            if(isset($balance[$current->format('Y-m-d')])) {
+                $current_balance = $balance[$current->format('Y-m-d')];
+            }
+            $ret[$current->format('Y-m-d')] = $current_balance;
+            $current->modify('+1 day');
+        }
+        
+        return $ret;
+        
+    }
     
     /**
      * Currency Related Methods
