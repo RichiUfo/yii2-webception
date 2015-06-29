@@ -79,7 +79,6 @@ class DefaultController extends \frontend\components\Controller
 		$currencies = AccountController::getAccountCurrencies($id);
 		$trans = TransactionController::getTransactions($id, $s, $e);
 		$histos = AccountController::getHistoricalBalances($id, $s, $e);
-		
 		$balance = AccountController::getHistoricalBalance($id, $s, $e);
 		$daily = AccountController::getHistoricalBalanceDaily($id, $s, $e);
 		
@@ -89,7 +88,8 @@ class DefaultController extends \frontend\components\Controller
 		    'value'=>$value, 
 		    'values'=>$values,
 		    'currencies'=>$currencies,
-		    'daily' => $daily
+		    'daily' => $daily,
+		    'balance' => $balance
 		]);
 	}
 }
