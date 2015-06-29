@@ -334,7 +334,7 @@ class AccountController extends \frontend\components\Controller
                         'value' => $val,
                         'from' => $cur,
                         'to' => $currency,
-                        //'date' => $date
+                        'date' => $date
                     ]);
                 }
                 else {
