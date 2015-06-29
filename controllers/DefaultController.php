@@ -39,7 +39,7 @@ class DefaultController extends \frontend\components\Controller
         if(\Yii::$app->request->isAjax) {
             
             // Get the balance sheet accounts evolution
-            $balancesheet = BalancesheetController::get
+            //$balancesheet = BalancesheetController::get
             
             return $this->renderAjax('partial_summary', [
                 'start' => $start,
