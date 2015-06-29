@@ -1,3 +1,7 @@
+<?php
+use frontend\widgets\chartjs\ChartJs;
+?>
+
 <h1 class="text-center">Account Value Test</h1>
 
 <div class="row">
