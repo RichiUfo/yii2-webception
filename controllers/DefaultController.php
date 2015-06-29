@@ -75,22 +75,21 @@ class DefaultController extends \frontend\components\Controller
 	
 	public function actionTest($id, $s, $e) { 
 		
-		$value = AccountController::getCurrentBalance($id);
-		$values = AccountController::getCurrentBalancesRecursive($id); 
+		$value      = AccountController::getCurrentBalance($id);
+		$values     = AccountController::getCurrentBalancesRecursive($id); 
 		$currencies = AccountController::getAccountCurrencies($id);
-		$trans = TransactionController::getTransactions($id, $s, $e);
-		$histos = AccountController::getHistoricalBalances($id, $s, $e);
-		$balance = AccountController::getHistoricalBalance($id, $s, $e);
-		$daily = AccountController::getHistoricalBalance($id, $s, $e, 'EUR', 1);
+	    $histos     = AccountController::getHistoricalBalances($id, $s, $e);
+		$balance    = AccountController::getHistoricalBalance($id, $s, $e);
+		$daily      = AccountController::getHistoricalBalance($id, $s, $e, 'EUR', 1);
 		
 		return $this->render('test', [
-		    'histos' => $histos, 
-		    'trans' => $trans, 
-		    'value'=>$value, 
-		    'values'=>$values,
-		    'currencies'=>$currencies,
-		    'daily' => $daily,
-		    'balance' => $balance
+            'histos'        =>  $histos, 
+		    'trans'         =>  $trans, 
+		    'value'         =>  $value, 
+		    'values'        =>  $values,
+		    'currencies'    =>  $currencies,
+		    'daily'         =>  $daily,
+		    'balance'       =>  $balance
 		]);
 	}
 }

@@ -325,7 +325,7 @@ class AccountController extends \frontend\components\Controller
             $currency = \Yii::$app->user->identity->acc_currency;
         
         // STEP 3 - Extrapolate the data
-        if(!$extrapolate) {
+        if($extrapolate) {
             $balances_temp = [];
             
             $start = new \DateTime($start);
