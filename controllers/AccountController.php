@@ -340,7 +340,7 @@ class AccountController extends \frontend\components\Controller
                     $balance += $val;
                 }
             }
-            array_push($balances, [$date => $balance]);
+            $balances[$date] = $balance;
         }
         
         return $balances;
