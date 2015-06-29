@@ -331,13 +331,12 @@ class AccountController extends \frontend\components\Controller
             $end = new \DateTime($end);
             $current = $start;
             
-            $previous = [];
+            $previous = $datapoints[0];
             
             while($current < $end) {
                 
                 if(isset($datapoints[$current->format('Y-m-d')])) {
                     $previous = $datapoints[$current->format('Y-m-d')];
-                    //$datapoints[$current->format('Y-m-d')] = $previous;
                 }
                 else {
                     $datapoints[$current->format('Y-m-d')] = $previous;
