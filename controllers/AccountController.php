@@ -326,23 +326,8 @@ class AccountController extends \frontend\components\Controller
             
         // STEP 3 - Convert To Destination Currency
         $balances = [];
-        foreach ($datapoints as $date => $datapoint) {
-            $balance = 0;
-            foreach ($datapoint as $cur => $val) {
-                if($cur !== $currency) {
-                    $balance += ExchangeController::get('finance', 'currency-conversion', [
-                        'value' => $val,
-                        'from' => $cur,
-                        'to' => $currency,
-                        'date' => $date,
-                    ]);
-                }
-                else {
-                    $balance += $val;
-                }
-            }
-            $balances[$date] = $balance;
-        }
+        foreach ($datapoints as $date => $datapoint)
+            $balances[$date] = self::convertAccountBalances($datapoint, $currency, $date);
         
         return $balances;
     }
@@ -360,10 +345,15 @@ class AccountController extends \frontend\components\Controller
         
         $ret = [];
         while($current < $end) {
-            if(isset($balance[$current->format('Y-m-d')])) {
+            
+            // Get the current balance at the current date
+            if(isset($balance[$current->format('Y-m-d')]))
                 $current_balance = $balance[$current->format('Y-m-d')];
-            }
+            
+            // Get the current balance at the current date (reevaluated given the exchange rate)
             $ret[$current->format('Y-m-d')] = $current_balance;
+            
+            // Update the current date
             $current->modify('+1 day');
         }
         
@@ -393,6 +383,28 @@ class AccountController extends \frontend\components\Controller
         }
         
         return $currencies;
+    }
+    private function convertAccountBalances($balances, $currency = null, $date = null) {
+        
+        if(!$date) $date = new \DateTime();
+        if (!$currency) $currency = \Yii::$app->user->identity->acc_currency;
+        
+        $balance = 0;
+        foreach ($balances as $cur => $val) {
+            if($cur !== $currency) {
+                $balance += ExchangeController::get('finance', 'currency-conversion', [
+                    'value' => $val,
+                    'from' => $cur,
+                    'to' => $currency,
+                    'date' => $date,
+                ]);
+            }
+            else {
+                $balance += $val;
+            }
+        }
+        
+        return $balance;
     }
     
     /**
