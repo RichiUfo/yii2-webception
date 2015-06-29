@@ -86,3 +86,5 @@
         </table>
     </div>
 </div>
+
+<?php var_dump($balance) ?>
