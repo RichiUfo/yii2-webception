@@ -80,7 +80,8 @@ class DefaultController extends \frontend\components\Controller
 		$currencies = AccountController::getAccountCurrencies($id);
 	    $histos     = AccountController::getHistoricalBalances($id, $s, $e);
 		$balance    = AccountController::getHistoricalBalance($id, $s, $e);
-		$daily      = AccountController::getHistoricalBalance($id, $s, $e, 'EUR', 1);
+		$daily      = AccountController::getHistoricalBalance($id, $s, $e, 'EUR', null);
+		$trans      = TransactionController::getTransactions($id, $s, $e);
 		
 		return $this->render('test', [
             'histos'        =>  $histos, 
