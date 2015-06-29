@@ -79,7 +79,7 @@
             <?php foreach($daily as $d => $b) : ?>
                 <tr>
                     <td><?= $d ?></td>
-                    <td><?= $b ?></td>
+                    <td><?= round($b,2) ?></td>
                 </tr>
             <?php endforeach; ?> 
             </tbody>
