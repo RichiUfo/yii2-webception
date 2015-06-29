@@ -360,7 +360,7 @@ class AccountController extends \frontend\components\Controller
         $ret = [];
         $security = 0;
         while($current < $end and $security < 365) {
-            $security++
+            $security++; 
             if(isset($balance[$current->format('Y-m-d')])) {
                 $current_balance = $balance[$current->format('Y-m-d')];
             }
