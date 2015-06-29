@@ -364,7 +364,7 @@ class AccountController extends \frontend\components\Controller
             if(isset($balance[$current->format('Y-m-d')])) {
                 $current_balance = $balance[$current->format('Y-m-d')];
             }
-            $ret[$current->format('Y-m-d')] = isset($balance[$current->format('Y-m-d')]) ? 'true' : 'false';
+            $ret[$current->format('Y-m-d')] = $current_balance;
             $current->modify('+1 day');
         }
         
