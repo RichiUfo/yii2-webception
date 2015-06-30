@@ -31,6 +31,7 @@ use frontend\widgets\chartjs\ChartJs;
                         'showTooltips' => true,
                         'pointDot' => false,
                         'bezierCurve' => false,
+                        'datasetStrokeWidth' => 1,
                     ],
                     'data' => [
                         'labels' => $dates,
