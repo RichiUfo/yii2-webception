@@ -331,7 +331,7 @@ class AccountController extends \frontend\components\Controller
             $end = new \DateTime($end);
             $current = $start;
             
-            $previous = isset($datapoints[0])? $datapoints[0] : [];
+            $previous = isset($datapoints[0]) ? $datapoints[0] : [];
             
             while($current < $end) {
                 
@@ -352,6 +352,7 @@ class AccountController extends \frontend\components\Controller
         foreach ($datapoints as $date => $datapoint)
             $balances[$date] = self::convertAccountBalances($datapoint, $currency, $date);
         
+        ksort($balances);
         return $balances;
     }
     
