@@ -38,12 +38,12 @@ use frontend\widgets\chartjs\ChartJs;
                         'datasets' => [
                             [
                                 'fillColor' => "rgba(235,114,96,0.2)",
-                                'strokeColor' => "rgb(58,154,217)",
+                                'strokeColor' => "rgb(0,0,0)",
                                 'data' => $liabilities
                             ],
                             [
                                 'fillColor' => "rgba(41,171,164,0.2)",
-                                'strokeColor' => "rgb(58,154,217)",
+                                'strokeColor' => "rgb(0,0,217)",
                                 'data' => $equity
                             ]
                         ]
