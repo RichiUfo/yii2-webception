@@ -331,7 +331,7 @@ class AccountController extends \frontend\components\Controller
             $end = new \DateTime($end);
             $current = $start;
             
-            $previous = $datapoints[0];
+            $previous = isset($datapoints[0])? $datapoints[0] : [];
             
             while($current < $end) {
                 
