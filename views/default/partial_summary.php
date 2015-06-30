@@ -28,7 +28,7 @@ use frontend\widgets\chartjs\ChartJs;
                         'scaleShowGridLines' => false,
                         //'scaleShowLabels' => false,
                         'responsive' => true,
-                        'showTooltips' => false,
+                        'showTooltips' => true,
                         'pointDot' => false,
                         'bezierCurve' => false,
                     ],
@@ -42,7 +42,7 @@ use frontend\widgets\chartjs\ChartJs;
                             ],
                             [
                                 'fillColor' => "rgba(41,171,164,0.1)",
-                                'strokeColor' => "rgb(41,171,164)",
+                                'strokeColor' => "rgba(41,171,164,0)",
                                 'data' => $equity
                             ]
                         ]
