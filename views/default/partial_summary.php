@@ -28,7 +28,7 @@ use frontend\widgets\chartjs\ChartJs;
                         'scaleShowGridLines' => false,
                         //'scaleShowLabels' => false,
                         'responsive' => true,
-                        'showTooltips' => true,
+                        'showTooltips' => false,
                         'pointDot' => false,
                         'bezierCurve' => false,
                         'datasetStrokeWidth' => 1,
