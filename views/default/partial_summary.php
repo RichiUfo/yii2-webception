@@ -37,14 +37,14 @@ use frontend\widgets\chartjs\ChartJs;
                         'labels' => $dates,
                         'datasets' => [
                             [
-                                'fillColor' => "rgba(235,114,96,0.2)",
-                                'strokeColor' => "rgba(235,114,96,1)",
-                                'data' => $liabilities
-                            ],
-                            [
                                 'fillColor' => "rgba(41,171,164,0.2)",
                                 'strokeColor' => "rgba(41,171,164,1)",
                                 'data' => $equity
+                            ],
+                            [
+                                'fillColor' => "rgba(235,114,96,0.2)",
+                                'strokeColor' => "rgba(235,114,96,1)",
+                                'data' => $liabilities
                             ]
                         ]
                     ]
