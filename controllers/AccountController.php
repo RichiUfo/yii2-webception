@@ -222,7 +222,7 @@ class AccountController extends \frontend\components\Controller
         }
         
         // STEP 3 - Foramt and Return
-        return array_merge($movements, [
+        return [
             'opening_balance' => $current_balance + $past_debits - $past_credits ,
             'current_balance' => $current_balance,
             'closing_balance' => $current_balance - $future_debits + $future_credits,
@@ -230,7 +230,7 @@ class AccountController extends \frontend\components\Controller
             'past_credits' => $past_credits,
             'future_debits' => $future_debits,
             'future_credits' => $future_credits
-        ]);
+        ];
     }
     public function getTransactions($accountid, $start, $end) {
         $transactions = TransactionController::getTransactions($accountid, $start, $end);
