@@ -1,3 +1,7 @@
+<?php
+use \fruppel\googlecharts\GoogleCharts;
+?>
+
 <div id="account-display">
     
     <div class="container-fluid">
@@ -5,7 +9,63 @@
             <!-- Account Summary -->
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                 <h2>Overview</h2>
-                <p>Value <span class="money" value="<?= $account->sign *$account->value_converted ?>" currency=""></span></p>
+                <?= GoogleCharts::widget([
+                'id' => 'my-id',
+                'visualization' => 'PieChart',
+                'data' => [
+                    'cols' => [
+                        [
+                            'id' => 'topping',
+                            'label' => 'Topping',
+                            'type' => 'string'
+                        ],
+                        [
+                            'id' => 'slices',
+                            'label' => 'Slices',
+                            'type' => 'number'
+                        ]
+                    ],
+                    'rows' => [
+                        [
+                            'c' => [
+                                ['v' => 'Mushrooms'],
+                                ['v' => 3]
+                            ],
+                        ],
+                        [
+                            'c' => [
+                                ['v' => 'Onions'],
+                                ['v' => 1]
+                            ]
+                        ],
+                        [
+                            'c' => [
+                                ['v' => 'Olives'],
+                                ['v' => 1]
+                            ]
+                        ],
+                        [
+                            'c' => [
+                                ['v' => 'Zucchini'],
+                                ['v' => 1]
+                            ]
+                        ],
+                        [
+                            'c' => [
+                                ['v' => 'Pepperoni'],
+                                ['v' => 2]
+                            ]
+                        ],
+                    ]
+                ],
+                'options' => [
+                    'title' => 'How Much Pizza I Ate Last Night',
+                    'width' => 400,
+                    'height' => 300,
+                    'is3D' => true,
+                ],
+                'responsive' => true,
+            ]) ?>
             </div>
             
             <!-- Movements -->
