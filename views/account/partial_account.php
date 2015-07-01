@@ -1,3 +1,7 @@
+<?php
+use \fruppel\googlecharts\GoogleCharts;
+?>
+
 <div id="account-display">
     
     <div class="container-fluid">
