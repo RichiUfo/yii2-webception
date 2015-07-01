@@ -532,7 +532,7 @@ class AccountController extends \frontend\components\Controller
             $movements = self::getMovementsSummary($id, $start, $end, $transactions);
             
             // STEP 3 - Rendering The Partial View
-            return $this->renderAjax('partial_account', [
+            return $this->renderPartial('partial_account', [
                 'start' => $start,
                 'end' => $end,
                 'account' => $account,
