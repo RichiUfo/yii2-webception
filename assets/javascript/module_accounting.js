@@ -60,6 +60,8 @@ function acc_acc_refresh() {
     var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
     var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
 
+    console.log('start , end'. start, end);
+
     $.ajax({
         url: '/accounting/account/display',
         type: 'GET',
