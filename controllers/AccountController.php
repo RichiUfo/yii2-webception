@@ -172,6 +172,7 @@ class AccountController extends \frontend\components\Controller
      * Movements Related Methods
      */
     public function getMovementsSummary($accountid, $start, $end, $transactions=null) {
+        
         $account = AccountPlus::findOne($accountid);
         $current_balance = $account->value;
         
@@ -200,14 +201,14 @@ class AccountController extends \frontend\components\Controller
                     'value' => $t->valueDebit,
                     'from' => $t->accountDebit['currency'],
                     'to' => $account->currency,
-                    'date' => $t->date_value,
+                    'date' => $date_conv,
                 ]);
             if($t->accountCredit['currency'] !== $account->currency)
                 $credit = ExchangeController::get('finance', 'currency-conversion', [
                     'value' => $t->valueCredit,
                     'from' => $t->accountCredit['currency'],
                     'to' => $account->currency,
-                    'date' => $t->date_value,
+                    'date' => $date_conv,
                 ]);
             
             
