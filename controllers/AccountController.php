@@ -171,13 +171,61 @@ class AccountController extends \frontend\components\Controller
     /**
      * Movements Related Methods
      */
-    public function getMovementsSummary($accountid, $start, $end) {
+    public function getMovementsSummary($accountid, $start, $end, $transactions=null) {
         $account = AccountPlus::findOne($accountid);
-        $movements = TransactionController::getMovements($accountid, $start, $end);
         $current_balance = $account->value;
+        
+        $movements = TransactionController::getMovements($accountid, $start, $end);
         $opening_balance = $current_balance - $movements['passed_credits'] + $movements['passed_debits'];
         $closing_balance = $current_balance + $movements['future_credits'] - $movements['future_debits'];
         
+        // STEP 1 - Get the transactions (if not already provided)
+        if(!$transactions)
+            $transactions = self::getTransactions($accountid, $start, $end);
+            
+        // STEP 2 - Calculate movements
+        $now = new \DateTime();
+        $opening_balance = 0;
+        $closing_balance = 0;
+        $past_debits = 0;
+        $past_credits = 0;
+        $future_debits = 0;
+        $future_credits = 0;
+        foreach ($transactions as $t) {
+            
+            $date = new \DateTime($t->date_value);
+            $debit  = $t->valueDebit;
+            $credit = $t->valueCredit;
+            
+            // Convert to account currency
+            $date_conv = ($date <= $now) ? $t->date_value : $now->format('Y-m-d');
+            if($t->accountDebit['currency'] !== $account->currency)
+                $debit = ExchangeController::get('finance', 'currency-conversion', [
+                    'value' => $t->valueDebit,
+                    'from' => $t->accountDebit['currency'],
+                    'to' => $account->currency,
+                    'date' => $t->date_value,
+                ]);
+            if($t->accountCredit['currency'] !== $account->currency)
+                $credit = ExchangeController::get('finance', 'currency-conversion', [
+                    'value' => $t->valueCredit,
+                    'from' => $t->accountCredit['currency'],
+                    'to' => $account->currency,
+                    'date' => $t->date_value,
+                ]);
+            
+            
+            if($date <= $now) {
+                $past_debits = $debit;
+                $past_credits = $credit;
+            }
+            else {
+                $future_debits = $debit;
+                $future_credits = $credit;
+            }
+        }
+        
+        // STEP 3 - Foramt and Return
         return array_merge($movements, [
             'opening_balance' => $opening_balance,
             'current_balance' => $current_balance,
@@ -481,7 +529,7 @@ class AccountController extends \frontend\components\Controller
             
             // STEP 2 - Transactions Information
             $transactions = self::getTransactions($id, $start, $end);
-            $movements = $this->getMovementsSummary($id, $start, $end);
+            $movements = self::getMovementsSummary($id, $start, $end, $transactions);
             
             // STEP 3 - Rendering The Partial View
             return $this->renderAjax('partial_account', [
