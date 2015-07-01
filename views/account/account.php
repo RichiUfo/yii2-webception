@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use dosamigos\datepicker\DateRangePicker;
 use frontend\widgets\editable\Editable;
+use \fruppel\googlecharts\GoogleCharts;
 
 use frontend\modules\accounting\assets\BaseAsset;
 BaseAsset::register($this);
