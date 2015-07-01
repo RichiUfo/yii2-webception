@@ -148,41 +148,6 @@ class TransactionController extends \frontend\components\Controller
         return $transactions;
         
     }
-    public function getMovements($accountid, $start, $end) {
-        
-        $transactions = TransactionController::getTransactions($accountid, $start, $end);
-        
-        $passed_credits = 0;
-        $future_credits = 0;
-        $passed_debits = 0;
-        $future_debits = 0;
-        
-        $now = new \DateTime("now", new \DateTimeZone(\Yii::$app->user->identity->acc_timezone));
-        
-        foreach($transactions as $transaction) {
-            $transaction_time = new \DateTime($transaction->date_value);
-            
-            if($transaction->debit) {
-                if($now >= $transaction_time) $passed_debits += $transaction->value;
-                else $future_debits += $transaction->value;
-            }
-        
-            if($transaction->credit){
-                if($now >= $transaction_time) $passed_credits += $transaction->value;
-                else $future_credits += $transaction->value;
-            }
-        }
-        
-        return array(
-            'passed_credits' => $passed_credits, 
-            'future_credits' => $future_credits,
-            'passed_debits' => $passed_debits,
-            'future_debits' => $future_debits,
-            // DEBUG
-            'now' => $now,
-            'transactions' => $transactions 
-        );
-    }
     
     /**
      * Transaction Creation Methods

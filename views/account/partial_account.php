@@ -21,13 +21,13 @@
                     <tr>
                         <td>Debits</td>
                         <td class="text-right">
-                            <span class="money" value="<?= $movements['passed_debits'] ?>" currency=""></span>
+                            <span class="money" value="<?= $movements['past_debits'] ?>" currency=""></span>
                         </td>
                     </tr>
                     <tr>
                         <td>Credits</td>
                         <td class="text-right">
-                            <span class="money" value="<?= $movements['passed_credits'] ?>" currency=""></span>
+                            <span class="money" value="<?= $movements['past_credits'] ?>" currency=""></span>
                         </td>
                     </tr>
                     <tr>

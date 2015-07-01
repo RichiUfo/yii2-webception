@@ -175,10 +175,6 @@ class AccountController extends \frontend\components\Controller
         $account = AccountPlus::findOne($accountid);
         $current_balance = $account->value;
         
-        $movements = TransactionController::getMovements($accountid, $start, $end);
-        $opening_balance = $current_balance - $movements['passed_credits'] + $movements['passed_debits'];
-        $closing_balance = $current_balance + $movements['future_credits'] - $movements['future_debits'];
-        
         // STEP 1 - Get the transactions (if not already provided)
         if(!$transactions)
             $transactions = self::getTransactions($accountid, $start, $end);
@@ -216,21 +212,24 @@ class AccountController extends \frontend\components\Controller
             
             
             if($date <= $now) {
-                $past_debits = $debit;
-                $past_credits = $credit;
+                $past_debits += $debit;
+                $past_credits += $credit;
             }
             else {
-                $future_debits = $debit;
-                $future_credits = $credit;
+                $future_debits += $debit;
+                $future_credits += $credit;
             }
         }
         
         // STEP 3 - Foramt and Return
         return array_merge($movements, [
-            'opening_balance' => $opening_balance,
+            'opening_balance' => $current_balance + $past_debits - $past_credits ,
             'current_balance' => $current_balance,
-            'closing_balance' => $closing_balance,
-            'movements' => $movements
+            'closing_balance' => $current_balance - $future_debits + $future_credits,
+            'past_debits' => $past_debits,
+            'past_credits' => $past_credits,
+            'future_debits' => $future_debits,
+            'future_credits' => $future_credits
         ]);
     }
     public function getTransactions($accountid, $start, $end) {
