@@ -185,8 +185,20 @@ class AccountController extends \frontend\components\Controller
             'movements' => $movements
         ]);
     }
-    public function getTransactionsBalances($accountid, $start, $end) {
+    public function getTransactions($accountid, $start, $end) {
         $transactions = TransactionController::getTransactions($accountid, $start, $end);
+        
+        // STEP 1 - Remove or confirm the debit or credit side
+        $account = AccountHierarchy::findOne($accountid);
+        $ids = $account->getChildrenIdList();
+        foreach ($transactions as $t) {
+            if (!in_array($t->account_debit_id, $ids)) $t->valueDebit = 0;
+            if (!in_array($t->account_credit_id, $ids)) $t->valueCredit = 0;
+        }
+        
+        // STEP 2 - Calculate the after transaction account balance
+        
+        return $transactions;
     }
     
     /**
@@ -468,7 +480,7 @@ class AccountController extends \frontend\components\Controller
             if ($account === null) throw new NotFoundHttpException;
             
             // STEP 2 - Transactions Information
-            $transactions = TransactionController::getTransactions($id, $start, $end);
+            $transactions = self::getTransactions($id, $start, $end);
             $movements = $this->getMovementsSummary($id, $start, $end);
             
             // STEP 3 - Rendering The Partial View
