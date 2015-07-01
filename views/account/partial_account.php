@@ -96,10 +96,14 @@
                             <td class="text-left"><span class="date" datetime="<?= $t->date_value ?>"></span></td>
                             <td class="text-left"><?= $t->name ?></td>
                             <td class="text-right">
-                                <span class="money" value="<?= $t->valueDebit ?>" currency=""> <?= $t->accountDebit->currency ?></span>
+                                <?php if($t->valueDebit !== 0) : ?>
+                                    <span class="money" value="<?= $t->valueDebit ?>" currency=""> <?= $t->accountDebit->currency ?></span>
+                                <?php endif ?>
                             </td>
                             <td class="text-right">
-                                <span class="money" value="<?= $t->valueCredit ?>" currency=""> <?= $t->accountCredit->currency ?></span>
+                                <?php if($t->valueCredit !== 0) : ?>
+                                    <span class="money" value="<?= $t->valueCredit ?>" currency=""> <?= $t->accountCredit->currency ?></span>
+                                <?php endif ?>
                             </td>
                             <td class="text-right"><span class="money" value="0" currency=""></span></td>
                         </tr>
