@@ -20,7 +20,7 @@
                     <div class="col-lg-4 col-total">
                         <div class="data-block">
                             <span class="data-block-value money" value="<?= $account->sign*$movements['closing_balance'] ?>" currency="" decimal="2"></span>
-                            <span class="data-block-title">Past Tot</span>
+                            <span class="data-block-title">Past Movements</span>
                         </div></div>
                 </div>
                 <div class="row overview-row balances">
