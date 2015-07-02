@@ -3,8 +3,9 @@
         background: #F9F9F9;
     }
     .balances {
+        position: relative;
         i {
-            position: absolute;
+            @include centererV;
         }
     }
 }
