@@ -9,19 +9,22 @@
                 <div class="row overview-row movements">
                     <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
                         <div class="data-block">
-                            <span class="data-block-value money" value="<?= $account->sign*$movements['closing_balance'] ?>" currency="" decimal="2"></span>
+                            <span class="data-block-value money" value="<?= $movements['past_debits'] ?>" currency="" decimal="2"></span>
                             <span class="data-block-title">Debits</span>
-                        </div></div>
+                        </div>
+                    </div>
                     <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
                         <div class="data-block">
-                            <span class="data-block-value money" value="<?= $account->sign*$movements['closing_balance'] ?>" currency="" decimal="2"></span>
+                            <span class="data-block-value money" value="<?= $movements['past_credits'] ?>" currency="" decimal="2"></span>
                             <span class="data-block-title">Credits</span>
-                        </div></div>
+                        </div>
+                    </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-total">
                         <div class="data-block">
-                            <span class="data-block-value money" value="<?= $account->sign*$movements['closing_balance'] ?>" currency="" decimal="2"></span>
+                            <span class="data-block-value money" value="<?= $movements['past_debits'] + $movements['past_credits'] ?>" currency="" decimal="2"></span>
                             <span class="data-block-title">Past Movements</span>
-                        </div></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row overview-row balances">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -46,9 +49,24 @@
                     </div>
                 </div>
                 <div class="row overview-row movements">
-                    <div class="col-lg-4"></div>
-                    <div class="col-lg-4"></div>
-                    <div class="col-lg-4"></div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-total">
+                        <div class="data-block">
+                            <span class="data-block-value money" value="<?= $movements['future_debits'] + $movements['future_credits'] ?>" currency="" decimal="2"></span>
+                            <span class="data-block-title">Future Movements</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                        <div class="data-block">
+                            <span class="data-block-value money" value="<?= $movements['future_debits'] ?>" currency="" decimal="2"></span>
+                            <span class="data-block-title">Debits</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4>
+                        <div class="data-block">
+                            <span class="data-block-value money" value="<?= $movements['future_credits'] ?>" currency="" decimal="2"></span>
+                            <span class="data-block-title">Credits</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
