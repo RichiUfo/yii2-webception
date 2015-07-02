@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Account Summary -->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 account-overview">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 account-overview">
                 <h2>Overview</h2>
                 
                 <div class="row movements">
