@@ -14,17 +14,17 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="data-block">
-                            <span class="data-block-value money" value="<?= $account->sign*$movements['opening_balance'] ?>" currency="" decimal="0"></span>
+                            <span class="data-block-value money" value="<?= $account->sign*$movements['opening_balance'] ?>" currency="" decimal="2"></span>
                             <span class="data-block-title">Opening</span>
                         </div></div>
                     <div class="col-lg-4">
                         <div class="data-block">
-                            <span class="data-block-value money" value="<?= $account->sign*$movements['current_balance'] ?>" currency="" decimal="0"></span>
+                            <span class="data-block-value money" value="<?= $account->sign*$movements['current_balance'] ?>" currency="" decimal="2"></span>
                             <span class="data-block-title">Today</span>
                         </div></div>
                     <div class="col-lg-4">
                         <div class="data-block">
-                            <span class="data-block-value money" value="<?= $account->sign*$movements['closing_balance'] ?>" currency="" decimal="0"></span>
+                            <span class="data-block-value money" value="<?= $account->sign*$movements['closing_balance'] ?>" currency="" decimal="2"></span>
                             <span class="data-block-title">Closing</span>
                         </div></div>
                 </div>
