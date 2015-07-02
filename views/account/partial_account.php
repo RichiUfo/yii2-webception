@@ -7,9 +7,21 @@
                 <h2>Overview</h2>
                 
                 <div class="row overview-row movements">
-                    <div class="col-lg-4">&nbsp;</div>
-                    <div class="col-lg-4"></div>
-                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4">
+                        <div class="data-block">
+                            <span class="data-block-value money" value="<?= $account->sign*$movements['closing_balance'] ?>" currency="" decimal="2"></span>
+                            <span class="data-block-title">Closing</span>
+                        </div></div>
+                    <div class="col-lg-4">
+                        <div class="data-block">
+                            <span class="data-block-value money" value="<?= $account->sign*$movements['closing_balance'] ?>" currency="" decimal="2"></span>
+                            <span class="data-block-title">Closing</span>
+                        </div></div>
+                    <div class="col-lg-4 col-total">
+                        <div class="data-block">
+                            <span class="data-block-value money" value="<?= $account->sign*$movements['closing_balance'] ?>" currency="" decimal="2"></span>
+                            <span class="data-block-title">Closing</span>
+                        </div></div>
                 </div>
                 <div class="row overview-row balances">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
