@@ -7,10 +7,11 @@
         > div {
             height: 75px;
         }
-        .data-block, i {
+        .data-block {
             @include centerer;
         }
         i {
+            @include centererV;
             right: 0; 
         }
     }
