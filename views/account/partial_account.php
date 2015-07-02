@@ -61,7 +61,7 @@
                             <span class="data-block-title">Debits</span>
                         </div>
                     </div>
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4>
+                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
                         <div class="data-block">
                             <span class="data-block-value money" value="<?= $movements['future_credits'] ?>" currency="" decimal="2"></span>
                             <span class="data-block-title">Credits</span>
