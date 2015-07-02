@@ -1,23 +1,27 @@
 .account-overview {
-    .movements {
-        background: #F9F9F9;
-        border-radius: 4px;
-        border-color: rgb(231, 234, 236);
-        > div {
-            height: 65px; 
-        }
-    }
-    .balances {
+    .overview-row {
         position: relative;
-        > div {
-            height: 75px;
-        }
         .data-block {
             @include centerer;
         }
-        i {
-            @include centererV;
-            right: -6px; 
+        
+        &.movements {
+            background: #F9F9F9;
+            border-radius: 4px;
+            border: 1px solid rgb(231, 234, 236);
+            > div {
+                height: 65px; 
+            }
+        }
+        
+        &.balances {
+            > div {
+                height: 75px;
+            }
+            i {
+                @include centererV;
+                right: -6px; 
+            }
         }
     }
 }

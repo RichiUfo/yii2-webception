@@ -6,12 +6,12 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 account-overview">
                 <h2>Overview</h2>
                 
-                <div class="row movements">
+                <div class="row overview-row movements">
                     <div class="col-lg-4">&nbsp;</div>
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4"></div>
                 </div>
-                <div class="row balances">
+                <div class="row overview-row balances">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="data-block">
                             <span class="data-block-value money" value="<?= $account->sign*$movements['opening_balance'] ?>" currency="" decimal="2"></span>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row movements">
+                <div class="row overview-row movements">
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4"></div>
