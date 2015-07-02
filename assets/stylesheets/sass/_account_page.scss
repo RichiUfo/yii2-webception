@@ -5,10 +5,13 @@
     .balances {
         position: relative;
         > div {
-         height: 75px;
+            height: 75px;
         }
         .data-block, i {
             @include centererV;
+        }
+        i {
+            right: ;
         }
     }
 }
