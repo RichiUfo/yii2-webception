@@ -3,15 +3,15 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Account Summary -->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 account-overview">
                 <h2>Overview</h2>
                 
-                <div class="row">
-                    <div class="col-lg-4"></div>
+                <div class="row movements">
+                    <div class="col-lg-4">&nbsp;</div>
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4"></div>
                 </div>
-                <div class="row">
+                <div class="row balances">
                     <div class="col-lg-4">
                         <div class="data-block">
                             <span class="data-block-value money" value="<?= $account->sign*$movements['opening_balance'] ?>" currency="" decimal="2"></span>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row movements">
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4"></div>

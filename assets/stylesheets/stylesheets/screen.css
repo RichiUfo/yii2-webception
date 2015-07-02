@@ -103,17 +103,22 @@
   transform: translate(-50%, -50%);
 }
 
+/* line 2, ../sass/_account_page.scss */
+.account-overview .movements {
+  background: #F9F9F9;
+}
+
 /* Index Page Accounting */
-/* line 17, ../sass/screen.scss */
+/* line 18, ../sass/screen.scss */
 #accounting-index {
   text-align: center;
 }
-/* line 20, ../sass/screen.scss */
+/* line 21, ../sass/screen.scss */
 #accounting-index .header {
   height: 150px;
   position: relative;
 }
-/* line 24, ../sass/screen.scss */
+/* line 25, ../sass/screen.scss */
 #accounting-index .header i, #accounting-index .header p {
   position: absolute;
   top: 50%;
@@ -122,83 +127,83 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-/* line 28, ../sass/screen.scss */
+/* line 29, ../sass/screen.scss */
 #accounting-index .header > i {
   font-size: 100px;
   color: #F5F5F5;
   transition: all 0.3s ease-in-out 0s;
 }
-/* line 34, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 #accounting-index .header p, #accounting-index .header a {
   font-size: 18px;
   line-height: 24px;
   color: #222;
   transition: all 0.3s ease-in-out 0s;
 }
-/* line 42, ../sass/screen.scss */
+/* line 43, ../sass/screen.scss */
 #accounting-index .content {
   margin-top: 0px;
   color: #222;
 }
-/* line 47, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
 #accounting-index .accounting-index-summary-row {
   margin-bottom: 75px;
 }
-/* line 50, ../sass/screen.scss */
+/* line 51, ../sass/screen.scss */
 #accounting-index .accounting-index-summary-row > .column {
   border-right: 1px solid #F5F5F5;
 }
-/* line 53, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
 #accounting-index .accounting-index-summary-row > .column:last-child {
   border-right: none;
 }
-/* line 56, ../sass/screen.scss */
+/* line 57, ../sass/screen.scss */
 #accounting-index .accounting-index-summary-row:last-of-type {
   margin-bottom: 25px;
 }
 
 /* Balance Sheet */
-/* line 65, ../sass/screen.scss */
+/* line 66, ../sass/screen.scss */
 #balance-sheet ul li {
   list-style-type: none;
   padding-bottom: 3px;
 }
 
 /* Profits and Losses */
-/* line 73, ../sass/screen.scss */
+/* line 74, ../sass/screen.scss */
 #profit-loss ul li {
   list-style-type: none;
   padding-bottom: 3px;
 }
 
 /* Account Page */
-/* line 82, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 #account-display ul li {
   list-style-type: none;
 }
-/* line 86, ../sass/screen.scss */
+/* line 87, ../sass/screen.scss */
 #account-display .account-create-li-button {
   transition: all 0.3s ease-in-out 0s;
 }
-/* line 88, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 #account-display .account-create-li-button:hover {
   color: #205081;
   cursor: pointer;
 }
-/* line 94, ../sass/screen.scss */
+/* line 95, ../sass/screen.scss */
 #account-display .currency-group {
   display: inline-block;
 }
-/* line 96, ../sass/screen.scss */
+/* line 97, ../sass/screen.scss */
 #account-display .currency-group img {
   display: inline-block;
   margin-right: 10px;
 }
-/* line 99, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 #account-display .currency-group img:last-child {
   margin-right: 0px;
 }
-/* line 103, ../sass/screen.scss */
+/* line 104, ../sass/screen.scss */
 #account-display .currency-group p {
   display: none;
   font-size: 14px;
