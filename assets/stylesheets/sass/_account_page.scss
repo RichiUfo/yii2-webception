@@ -1,7 +1,11 @@
 .account-overview {
     .movements {
         background: #F9F9F9;
-    }
+        border-radius: 4px;
+        border-color: rgb(231, 234, 236);
+        > div {
+            height: 75px;
+        }
     .balances {
         position: relative;
         > div {
