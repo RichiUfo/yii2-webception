@@ -4,7 +4,9 @@
     }
     .balances {
         position: relative;
-        height: 75px;
+        > div {
+         height: 75px;
+        }
         .data-block, i {
             @include centererV;
         }

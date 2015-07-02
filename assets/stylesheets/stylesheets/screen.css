@@ -110,9 +110,12 @@
 /* line 5, ../sass/_account_page.scss */
 .account-overview .balances {
   position: relative;
+}
+/* line 7, ../sass/_account_page.scss */
+.account-overview .balances > div {
   height: 75px;
 }
-/* line 8, ../sass/_account_page.scss */
+/* line 10, ../sass/_account_page.scss */
 .account-overview .balances .data-block, .account-overview .balances i {
   position: absolute;
   top: 50%;
