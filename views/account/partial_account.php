@@ -12,7 +12,7 @@
                     <div class="col-lg-4"></div>
                 </div>
                 <div class="row balances">
-                    <div class="col-lg-4">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="data-block">
                             <span class="data-block-value money" value="<?= $account->sign*$movements['opening_balance'] ?>" currency="" decimal="2"></span>
                             <span class="data-block-title">Opening</span>
