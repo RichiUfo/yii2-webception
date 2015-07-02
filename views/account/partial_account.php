@@ -19,14 +19,14 @@
                         </div>
                         <i class="fa fa-arrow-right"></i>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="data-block">
                             <span class="data-block-value money" value="<?= $account->sign*$movements['current_balance'] ?>" currency="" decimal="2"></span>
                             <span class="data-block-title">Today</span>
                         </div>
                         <i class="fa fa-arrow-right"></i>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="data-block">
                             <span class="data-block-value money" value="<?= $account->sign*$movements['closing_balance'] ?>" currency="" decimal="2"></span>
                             <span class="data-block-title">Closing</span>
