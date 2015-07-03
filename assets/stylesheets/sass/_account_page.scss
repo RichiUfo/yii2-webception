@@ -10,6 +10,9 @@
         }
         
         &.movements {
+            .column {
+                margin: 0px 20px;
+            }
             .movements-container {
                 border: 1px solid rgb(231, 234, 236);
                 border-radius: 5px;
