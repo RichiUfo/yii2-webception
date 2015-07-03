@@ -132,17 +132,16 @@
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  width: auto;
-  min-width: 100px;
+  max-width: 200px;
   border: 1px solid #e7eaec;
   border-radius: 5px;
   text-align: center;
 }
-/* line 28, ../sass/_account_page.scss */
+/* line 27, ../sass/_account_page.scss */
 .account-overview .overview-row.balances > div {
   height: 75px;
 }
-/* line 31, ../sass/_account_page.scss */
+/* line 30, ../sass/_account_page.scss */
 .account-overview .overview-row.balances .icon-container {
   z-index: 2;
   position: absolute;
@@ -157,7 +156,7 @@
   border: 1px solid #e7eaec;
   background: #fff;
 }
-/* line 40, ../sass/_account_page.scss */
+/* line 39, ../sass/_account_page.scss */
 .account-overview .overview-row.balances .icon-container > i {
   position: absolute;
   top: 50%;
