@@ -42,14 +42,14 @@
                 <div class="row overview-row movements">
                     <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="movements-container">
-                            <span class="data-block-value money" value="<?= $movements['past_debits'] + $movements['past_credits'] ?>" currency="" decimal="2"></span><br>
+                            <strong><span class="data-block-value money" value="<?= $movements['past_debits'] + $movements['past_credits'] ?>" currency="" decimal="2"></span></strong><br>
                             <span class="data-block-value money" value="<?= $movements['past_debits'] ?>" currency="" decimal="2"></span><br>
                             <span class="data-block-value money" value="<?= $movements['past_credits'] ?>" currency="" decimal="2"></span>
                         </div>
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="movements-container">
-                            <span class="data-block-value money" value="<?= $movements['future_debits'] + $movements['future_credits'] ?>" currency="" decimal="2"></span><br>
+                            <strong><span class="data-block-value money" value="<?= $movements['future_debits'] + $movements['future_credits'] ?>" currency="" decimal="2"></span></strong><br>
                             <span class="data-block-value money" value="<?= $movements['future_debits'] ?>" currency="" decimal="2"></span><br>
                             <span class="data-block-value money" value="<?= $movements['future_credits'] ?>" currency="" decimal="2"></span>
                         </div>
