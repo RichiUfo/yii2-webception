@@ -10,13 +10,9 @@
         }
         
         &.movements {
-            border-radius: 6px;
-            border: 1px solid rgb(231, 234, 236);
-            > div {
-                height: 50px; 
-            }
-            .col-total {
-                background: #F9F9F9;
+            .movements-container {
+                border: 1px solid rgb(231, 234, 236);
+                border-radius: 5px;
             }
         }
         
@@ -41,11 +37,6 @@
                     line-height: 20px;
                 }
             }
-        }
-        
-        .line {
-            position: absolute;
-            right: 0;
         }
         
     }
