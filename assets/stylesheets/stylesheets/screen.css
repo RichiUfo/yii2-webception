@@ -146,6 +146,8 @@
   line-height: 20px;
   width: 30px;
   height: 30px;
+  border-radius: 15px;
+  border: 1px solid #e7eaec;
 }
 
 /* Index Page Accounting */
