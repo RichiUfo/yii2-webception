@@ -37,7 +37,7 @@
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="data-block">
                             <span class="data-block-value money" value="<?= $account->sign*$movements['current_balance'] ?>" currency="" decimal="2"></span>
-                            <span class="data-block-title">Today</span>
+                            <span class="data-block-title">TODAY</span>
                         </div>
                         <div class="icon-container">
                             <i class="fa fa-arrow-right"></i>
