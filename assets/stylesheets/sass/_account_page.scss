@@ -37,5 +37,14 @@
             }
         }
         
+        .line {
+            position: absolute;
+            right: 0;
+            
+            &.top {
+                top: 0;
+            }
+        }
+        
     }
 }
