@@ -3,6 +3,7 @@
         position: relative;
         .data-block {
             @include centerer;
+            text-transform: uppercase;
         }
         
         &.movements {
