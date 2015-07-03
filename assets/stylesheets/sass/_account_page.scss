@@ -25,6 +25,7 @@
                 height: 75px;
             }
             .icon-container {
+                z-index: 2;
                 @include centererV;
                 right: -15px;
                 width: 30px;
