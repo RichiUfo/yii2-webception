@@ -17,6 +17,7 @@
             .movements-container {
                 @include centererH;
                 max-width: 200px;
+                max-width: 130px;
                 border: 1px solid rgb(231, 234, 236);
                 border-radius: 5px;
                 text-align: center;
