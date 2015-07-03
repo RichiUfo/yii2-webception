@@ -36,5 +36,14 @@
                 }
             }
         }
+        
+        .line-top {
+            width: 1px;
+            height: 50%;
+            line {
+                stroke: rgb(231, 234, 236);
+                stroke-width: 1
+            }
+        }
     }
 }
