@@ -27,17 +27,17 @@
                     font-weight: 400;
                 }
                 &.red {
-                    border: 1px solid rgb(235,114,96);
+                    //border: 1px solid rgb(235,114,96);
                     .title {
                         background: rgba(235,114,96,0.2);
-                        border-bottom: 1px solid rgb(235,114,96);
+                        //border-bottom: 1px solid rgb(235,114,96);
                     }
                 }
                 &.green {
-                    border: 1px solid rgb(41,171,164);
+                    //border: 1px solid rgb(41,171,164);
                     .title {
                         background: rgba(41,171,164,0.2);
-                        border-bottom: 1px solid rgb(41,171,164);
+                        //border-bottom: 1px solid rgb(41,171,164);
                     }
                 }
             }

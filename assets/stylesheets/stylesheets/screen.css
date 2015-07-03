@@ -140,23 +140,13 @@
   font-size: 14px;
   font-weight: 400;
 }
-/* line 29, ../sass/_account_page.scss */
-.account-overview .overview-row.movements .movements-container.red {
-  border: 1px solid #eb7260;
-}
 /* line 31, ../sass/_account_page.scss */
 .account-overview .overview-row.movements .movements-container.red .title {
   background: rgba(235, 114, 96, 0.2);
-  border-bottom: 1px solid #eb7260;
-}
-/* line 36, ../sass/_account_page.scss */
-.account-overview .overview-row.movements .movements-container.green {
-  border: 1px solid #29aba4;
 }
 /* line 38, ../sass/_account_page.scss */
 .account-overview .overview-row.movements .movements-container.green .title {
   background: rgba(41, 171, 164, 0.2);
-  border-bottom: 1px solid #29aba4;
 }
 /* line 47, ../sass/_account_page.scss */
 .account-overview .overview-row.balances > div {
