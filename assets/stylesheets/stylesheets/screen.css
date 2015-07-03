@@ -134,7 +134,7 @@
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   max-width: 200px;
-  max-width: 130px;
+  min-width: 130px;
   border: 1px solid #e7eaec;
   border-radius: 5px;
   text-align: center;
