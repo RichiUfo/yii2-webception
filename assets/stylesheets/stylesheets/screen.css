@@ -121,10 +121,6 @@
   font-weight: 600;
   text-transform: uppercase;
 }
-/* line 13, ../sass/_account_page.scss */
-.account-overview .overview-row.movements .column {
-  margin: 0px 20px;
-}
 /* line 16, ../sass/_account_page.scss */
 .account-overview .overview-row.movements .movements-container {
   border: 1px solid #e7eaec;
