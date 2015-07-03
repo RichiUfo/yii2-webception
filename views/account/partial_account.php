@@ -42,8 +42,8 @@
                         <div class="icon-container">
                             <i class="fa fa-arrow-right"></i>
                         </div>
-                        <svg class="line top">
-                            <line x1="0" y1="0" x2="0" y2="49" style="stroke:rgb(231, 234, 236);stroke-width:1"/>
+                        <svg height="50" width="1">
+                            <line x1="0" y1="0" x2="0" y2="49" style="stroke:rgb(255,0,0);stroke-width:1" />
                         </svg>
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
