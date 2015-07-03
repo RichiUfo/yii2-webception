@@ -142,12 +142,12 @@
 }
 /* line 29, ../sass/_account_page.scss */
 .account-overview .overview-row.movements .movements-container.red {
-  border: 1px solid #e7eaec;
+  border: 1px solid #eb7260;
 }
 /* line 31, ../sass/_account_page.scss */
 .account-overview .overview-row.movements .movements-container.red .title {
-  background: #F9F9F9;
-  border-bottom: 1px solid #e7eaec;
+  background: rgba(235, 114, 96, 0.2);
+  border-bottom: 1px solid #eb7260;
 }
 /* line 36, ../sass/_account_page.scss */
 .account-overview .overview-row.movements .movements-container.green {
