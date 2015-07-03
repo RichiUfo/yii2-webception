@@ -38,6 +38,9 @@
         }
         
         .line.top {
+            position: absolute;
+            top: 0px;
+            right: 0px;
             width: 1px;
             height: 50%;
             line {

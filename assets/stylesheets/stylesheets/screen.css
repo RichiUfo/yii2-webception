@@ -161,10 +161,13 @@
 }
 /* line 40, ../sass/_account_page.scss */
 .account-overview .overview-row .line.top {
+  position: absolute;
+  top: 0px;
+  right: 0px;
   width: 1px;
   height: 50%;
 }
-/* line 43, ../sass/_account_page.scss */
+/* line 46, ../sass/_account_page.scss */
 .account-overview .overview-row .line.top line {
   stroke: #e7eaec;
   stroke-width: 1;
