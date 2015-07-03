@@ -42,7 +42,7 @@
                         <div class="icon-container">
                             <i class="fa fa-arrow-right"></i>
                         </div>
-                        <svg height="50" width="1">
+                        <svg height="55" width="5">
                             <line x1="0" y1="0" x2="49" y2="0" style="stroke:rgb(231, 234, 236);stroke-width:1" />
                         </svg>
                     </div>
