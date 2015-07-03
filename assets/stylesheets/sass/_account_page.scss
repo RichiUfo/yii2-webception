@@ -26,6 +26,20 @@
                     font-size: 14px;
                     font-weight: 400;
                 }
+                &.red {
+                    border: 1px solid rgb(231, 234, 236);
+                    .title {
+                        background: #F9F9F9;
+                        border-bottom: 1px solid rgb(231, 234, 236);
+                    }
+                }
+                &.green {
+                    border: 1px solid rgb(41,171,164);
+                    .title {
+                        background: rgba(41,171,164,0.2);
+                        border-bottom: 1px solid rgb(41,171,164);
+                    }
+                }
             }
         }
         

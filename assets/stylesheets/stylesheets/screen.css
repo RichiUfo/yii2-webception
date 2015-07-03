@@ -140,11 +140,29 @@
   font-size: 14px;
   font-weight: 400;
 }
-/* line 33, ../sass/_account_page.scss */
+/* line 29, ../sass/_account_page.scss */
+.account-overview .overview-row.movements .movements-container.red {
+  border: 1px solid #e7eaec;
+}
+/* line 31, ../sass/_account_page.scss */
+.account-overview .overview-row.movements .movements-container.red .title {
+  background: #F9F9F9;
+  border-bottom: 1px solid #e7eaec;
+}
+/* line 36, ../sass/_account_page.scss */
+.account-overview .overview-row.movements .movements-container.green {
+  border: 1px solid #29aba4;
+}
+/* line 38, ../sass/_account_page.scss */
+.account-overview .overview-row.movements .movements-container.green .title {
+  background: rgba(41, 171, 164, 0.2);
+  border-bottom: 1px solid #29aba4;
+}
+/* line 47, ../sass/_account_page.scss */
 .account-overview .overview-row.balances > div {
   height: 75px;
 }
-/* line 36, ../sass/_account_page.scss */
+/* line 50, ../sass/_account_page.scss */
 .account-overview .overview-row.balances .icon-container {
   z-index: 2;
   position: absolute;
@@ -159,7 +177,7 @@
   border: 1px solid #e7eaec;
   background: #fff;
 }
-/* line 45, ../sass/_account_page.scss */
+/* line 59, ../sass/_account_page.scss */
 .account-overview .overview-row.balances .icon-container > i {
   position: absolute;
   top: 50%;
