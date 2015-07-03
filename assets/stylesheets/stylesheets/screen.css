@@ -160,12 +160,12 @@
   line-height: 20px;
 }
 /* line 40, ../sass/_account_page.scss */
-.account-overview .overview-row .line-top {
+.account-overview .overview-row .line.top {
   width: 1px;
   height: 50%;
 }
 /* line 43, ../sass/_account_page.scss */
-.account-overview .overview-row .line-top line {
+.account-overview .overview-row .line.top line {
   stroke: #e7eaec;
   stroke-width: 1;
 }
