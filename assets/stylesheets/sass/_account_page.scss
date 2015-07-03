@@ -20,16 +20,20 @@
             > div {
                 height: 75px;
             }
-            i {
+            > .icon-container {
                 @include centererV;
                 right: -15px;
-                font-weight: 100;
-                font-size: 20px;
-                line-height: 20px;
                 width: 30px;
                 height: 30px;
                 border-radius: 15px;
                 border: 1px solid rgb(231, 234, 236);
+                > i {
+                    @include centererV;
+                    right: -10px;
+                    font-weight: 100;
+                    font-size: 20px;
+                    line-height: 20px;
+                }
             }
         }
     }
