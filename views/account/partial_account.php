@@ -6,24 +6,6 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 account-overview">
                 <h2>Overview</h2>
                 
-                <!--div class="row overview-row movements">
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                        <div class="data-block">
-                            <span class="data-block-value money" value="?= $movements['past_debits'] ?" currency="" decimal="2"></span>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                        <div class="data-block">
-                            <span class="data-block-value money" value="?= $movements['past_credits'] ?" currency="" decimal="2"></span>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-total">
-                        <div class="data-block">
-                            <span class="data-block-value money" value="?= $movements['past_debits'] + $movements['past_credits'] ?" currency="" decimal="2"></span>
-                        </div>
-                    </div>
-                </div-->
-                
                 <div class="row overview-row balances">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="data-block">
@@ -60,36 +42,20 @@
                 <div class="row overview-row movements">
                     <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="movements-container">
-                            content
+                            <span class="data-block-value money" value="<?= $movements['past_debits'] + $movements['past_credits'] ?>" currency="" decimal="2"></span><br>
+                            <span class="data-block-value money" value="<?= $movements['past_debits'] ?>" currency="" decimal="2"></span><br>
+                            <span class="data-block-value money" value="<?= $movements['past_credits'] ?>" currency="" decimal="2"></span>
                         </div>
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="movements-container">
-                            content
+                            <span class="data-block-value money" value="<?= $movements['future_debits'] + $movements['future_credits'] ?>" currency="" decimal="2"></span><br>
+                            <span class="data-block-value money" value="<?= $movements['future_debits'] ?>" currency="" decimal="2"></span><br>
+                            <span class="data-block-value money" value="<?= $movements['future_credits'] ?>" currency="" decimal="2"></span>
                         </div>
                     </div>
                 </div>
                 
-                <!--div class="row overview-row movements">
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-total">
-                        <div class="data-block">
-                            <span class="data-block-value money" value="?= $movements['future_debits'] + $movements['future_credits'] ?" currency="" decimal="2"></span>
-                            <span class="data-block-title">Future Movements</span>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                        <div class="data-block">
-                            <span class="data-block-value money" value="?= $movements['future_debits'] ?" currency="" decimal="2"></span>
-                            <span class="data-block-title">Debits</span>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                        <div class="data-block">
-                            <span class="data-block-value money" value="?= $movements['future_credits'] ?" currency="" decimal="2"></span>
-                            <span class="data-block-title">Credits</span>
-                        </div>
-                    </div>
-                </div-->
             </div>
             
             <!-- Children -->
