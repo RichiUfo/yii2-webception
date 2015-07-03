@@ -58,7 +58,7 @@
                 </div>
                 
                 <div class="row overview-row movements">
-                    <div class="col-offset-xs-2 col-offset-sm-2 col-offset-md-2 col-offset-lg-2 col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="movements-container">
                             content
                         </div>
