@@ -256,7 +256,7 @@ class AccountController extends \frontend\components\Controller
                     if ($now > $date) {
                         $balance += ExchangeController::get('finance', 'currency-conversion', [
                             'value' => $t->valueDebit,
-                            'from' => $cur,
+                            'from' => $t->accountDebit['currency'],
                             'to' => $account->currency,
                             'date' => $t->date_value,
                         ]);
