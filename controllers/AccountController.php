@@ -233,7 +233,7 @@ class AccountController extends \frontend\components\Controller
             'future_credits' => $future_credits
         ];
     }
-    public function getTransactions($accountid, $start, $end) {
+    public function getTransactions($accountid, $start, $end, $balance=null) {
         $transactions = TransactionController::getTransactions($accountid, $start, $end);
         
         // STEP 1 - Remove or confirm the debit or credit side
@@ -245,8 +245,31 @@ class AccountController extends \frontend\components\Controller
         }
         
         // STEP 2 - Calculate the after transaction account balance
-        foreach ($transactions as $t) {
-            $t->updatedBalance = 100;
+        if ($balance) {
+            $now = new \DateTime();
+            foreach($transactions as $t) {
+                $date = new \DateTime($t->date_value);
+                
+                // Debit Case
+                if ($t->valueDebit !== 0) {
+                    if ($now > $date) {
+                        $t->updatedBalance += $t->valueDebit;
+                    } 
+                    else {
+                        $t->updatedBalance -= $t->valueDebit;
+                    }
+                }
+                
+                // Credit Case
+                if ($t->valueCredit !== 0) {
+                    if ($now > $date) {
+                        $t->updatedBalance -= $t->valueCredit;
+                    } 
+                    else {
+                        $t->updatedBalance += $t->valueCredit;
+                    }
+                }
+            }
         }
         
         return $transactions;
