@@ -179,6 +179,19 @@ class AccountController extends \frontend\components\Controller
         // STEP 1 - Get the transactions (if not already provided)
         if(!$transactions)
             $transactions = self::getTransactions($accountid, $start, $end);
+        
+        if (!$transactions) {
+            return [
+                'opening_balance' => 0 ,
+                'current_balance' => 0,
+                'closing_balance' => 0,
+                'past_debits' => 0,
+                'past_credits' => 0,
+                'future_debits' => 0,
+                'future_credits' => 0
+            ];
+        }
+        
             
         // STEP 2 - Calculate movements
         $now = new \DateTime();
