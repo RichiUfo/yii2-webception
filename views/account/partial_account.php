@@ -117,7 +117,7 @@
                         <!-- Opening Balance -->
                         <tr>
                             <td class="text-left"><span class="date" datetime="<?= $start ?>"></span></td>
-                            <td class="text-left">Opening Balances</td>
+                            <td class="text-right">Opening Balance</td>
                             <td class="text-right"></td>
                             <td class="text-right"></td>
                             <td class="text-right"><span class="money" value="<?= $account->sign * $opening ?>" currency=""></span></td>
