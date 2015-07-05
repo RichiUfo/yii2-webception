@@ -65,18 +65,18 @@
             <!-- Children -->
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                 <h2>Composition</h2>
-                <table style="width: 100%">
+                <ul>
                     <?php foreach($account->children as $child) : ?>
-                    <tr>
-                        <td><?= $child->name ?></td>
-                        <td class="text-right">
+                    <li>
+                        <h3><?= $child->name ?></h3>
+                        <h3 class="text-right">
                             <span class="money" 
                                   value="<?= $child->sign*$child->value ?>" 
                                   currency=""></span> <?= $child->currency ?>
-                        </td>
-                    </tr>
+                        </h3>
+                    </li>
                     <?php endforeach; ?>
-                </table>
+                </ul>
             </div>
         </div>
     
