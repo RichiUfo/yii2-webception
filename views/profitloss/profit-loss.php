@@ -86,7 +86,7 @@ function displayHierarchy($accounts){
                             <a href="">Non-Operating Profit</a>
                             <span class="pull-right">
                                 <span class="money" 
-                                      value="<?= $non_operating_revenues-->sign * $non_operating_revenues->value_converted ?>" 
+                                      value="<?= $non_operating_revenues->sign * $non_operating_revenues->value_converted ?>" 
                                       currency="<?= $non_operating_revenues->currency ?> ">
                                 </span>
                             </span>
