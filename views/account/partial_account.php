@@ -71,7 +71,7 @@
                         <td><?= $child->name ?></td>
                         <td class="text-right">
                             <span class="money" 
-                                  value="<?= $child->sign*$child->value_converted ?>" 
+                                  value="<?= $child->sign*$child->value ?>" 
                                   currency=""></span> <?= $child->currency ?>
                         </td>
                     </tr>
