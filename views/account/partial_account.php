@@ -72,7 +72,7 @@
                         <td class="text-right">
                             <span class="money" 
                                   value="<?= $child->sign*$child->value_converted ?>" 
-                                  currency=""></span>
+                                  currency=""> <?= $child->currency ?></span>
                         </td>
                     </tr>
                     <?php endforeach; ?>
