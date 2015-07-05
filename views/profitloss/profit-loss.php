@@ -13,12 +13,11 @@ function displayHierarchy($accounts){
                 <a href="'.Url::to(['account/account', 'id' => $account->id]).'">'.$account->name.'</a>
                 <span class="pull-right">
                     <span class="money" 
-                          value="'.$account->display_value.'" 
+                          value="'.$account->sign*$account->value_converted.'" 
                           currency="'.'">
                     </span>
                 </span>
             </li>';
-
         if($account->children != null){
             displayHierarchy($account->children);
         }
@@ -52,7 +51,7 @@ function displayHierarchy($accounts){
                             <a href="">Operating Profit</a>
                             <span class="pull-right">
                                 <span class="money" 
-                                      value="<?= $operating_revenues->display_value ?>" 
+                                      value="<?= $operating_revenues->sign * $operating_revenues->value_converted ?>" 
                                       currency="<?= $operating_revenues->currency ?> ">
                                 </span>
                             </span>
@@ -87,7 +86,7 @@ function displayHierarchy($accounts){
                             <a href="">Non-Operating Profit</a>
                             <span class="pull-right">
                                 <span class="money" 
-                                      value="<?= $non_operating_revenues->display_value ?>" 
+                                      value="<?= $non_operating_revenues-->sign * $non_operating_revenues->value_converted ?>" 
                                       currency="<?= $non_operating_revenues->currency ?> ">
                                 </span>
                             </span>
