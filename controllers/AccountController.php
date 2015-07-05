@@ -246,7 +246,7 @@ class AccountController extends \frontend\components\Controller
         
         // STEP 2 - Calculate the after transaction account balance
         foreach ($transactions as $t) {
-            $t->updatedBalance = 0;
+            $t->updatedBalance = 100;
         }
         
         return $transactions;
