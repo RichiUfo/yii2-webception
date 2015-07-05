@@ -266,42 +266,22 @@ class AccountController extends \frontend\components\Controller
                 
                 // Debit Case
                 if ($t->valueDebit !== 0) {
-                    if ($now > $date) {
-                        $balance += ExchangeController::get('finance', 'currency-conversion', [
-                            'value' => $t->valueDebit,
-                            'from' => $t->accountDebit['currency'],
-                            'to' => $account->currency,
-                            'date' => $t->date_value,
-                        ]);
-                    } 
-                    else {
-                        $balance -= ExchangeController::get('finance', 'currency-conversion', [
-                            'value' => $t->valueDebit,
-                            'from' => $t->accountDebit['currency'],
-                            'to' => $account->currency,
-                            'date' => $t->date_value,
-                        ]);
-                    }
+                    $balance += ExchangeController::get('finance', 'currency-conversion', [
+                        'value' => $t->valueDebit,
+                        'from' => $t->accountDebit['currency'],
+                        'to' => $account->currency,
+                        'date' => $t->date_value,
+                    ]);
                 }
                 
                 // Credit Case
                 if ($t->valueCredit !== 0) {
-                    if ($now > $date) {
-                        $balance -= ExchangeController::get('finance', 'currency-conversion', [
-                            'value' => $t->valueCredit,
-                            'from' => $t->accountCredit['currency'],
-                            'to' => $account->currency,
-                            'date' => $t->date_value,
-                        ]);
-                    } 
-                    else {
-                        $balance += ExchangeController::get('finance', 'currency-conversion', [
-                            'value' => $t->valueCredit,
-                            'from' => $t->accountCredit['currency'],
-                            'to' => $account->currency,
-                            'date' => $t->date_value,
-                        ]);
-                    }
+                    $balance -= ExchangeController::get('finance', 'currency-conversion', [
+                        'value' => $t->valueCredit,
+                        'from' => $t->accountCredit['currency'],
+                        'to' => $account->currency,
+                        'date' => $t->date_value,
+                    ]);
                 }
             }
         }
