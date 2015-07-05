@@ -254,7 +254,12 @@ class AccountController extends \frontend\components\Controller
                 // Debit Case
                 if ($t->valueDebit !== 0) {
                     if ($now > $date) {
-                        $balance += $t->valueDebit;
+                        $balance += ExchangeController::get('finance', 'currency-conversion', [
+                            'value' => $t->valueDebit,
+                            'from' => $cur,
+                            'to' => $account->currency,
+                            'date' => $t->date_value,
+                        ]);
                     } 
                     else {
                         $balance -= $t->valueDebit;
