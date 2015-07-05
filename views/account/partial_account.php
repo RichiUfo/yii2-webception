@@ -64,7 +64,7 @@
             
             <!-- Children -->
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                <h2>Sub-Accounts</h2>
+                <h2>Composition</h2>
                 <table style="width: 100%">
                     <?php foreach($account->children as $child) : ?>
                     <tr>
