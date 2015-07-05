@@ -110,7 +110,7 @@
                                     <span class="money" value="<?= $t->valueCredit ?>" currency=""></span> <?= $t->accountCredit->currency ?>
                                 <?php endif ?>
                             </td>
-                            <td class="text-right"><span class="money" value="<?= $t->updatedBalance ?>" currency=""></span></td>
+                            <td class="text-right"><span class="money" value="<?= $account->sign * $t->updatedBalance ?>" currency=""></span></td>
                         </tr>
                         <?php endforeach; ?>
                         
