@@ -82,7 +82,7 @@
     
         <div class="row">
             <div class="col-lg-12">
-                <h2>Transaction</h2>
+                <h2>Transactions</h2>
                 <table class="table table-striped table-no-margin">
                     <thead>
                         <tr>
