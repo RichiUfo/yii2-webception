@@ -178,7 +178,7 @@ class AccountController extends \frontend\components\Controller
         
         // STEP 1 - Get the transactions (if not already provided)
         if(!$transactions)
-            $transactions = self::getTransactions($accountid, $start, $end);
+            $transactions = self::getTransactions($accountid, $start, $end)['transactions'];
         
         if (!$transactions) {
             return [
