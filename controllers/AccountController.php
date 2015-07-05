@@ -293,7 +293,10 @@ class AccountController extends \frontend\components\Controller
             }
         }
         
-        return $transactions;
+        return [
+            'balance' => $balance,
+            'transactions' => $transactions
+        ];
     }
     
     /**
@@ -576,6 +579,9 @@ class AccountController extends \frontend\components\Controller
             
             // STEP 2 - Transactions Information
             $transactions = self::getTransactions($id, $start, $end, $account->value);
+            $opening = $transactions['balance'];
+            $transactions = $transactions['transactions'];
+            
             $movements = self::getMovementsSummary($id, $start, $end, $transactions);
             
             // STEP 3 - Rendering The Partial View
@@ -585,6 +591,7 @@ class AccountController extends \frontend\components\Controller
                 'account' => $account,
                 'movements' => $movements,
                 'transactions' => $transactions,
+                'opening' => $opening
             ]);
         }
         
