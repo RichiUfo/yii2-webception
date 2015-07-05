@@ -22,7 +22,7 @@ class TransactionPlus extends Transaction
 {
     public $valueDebit;
     public $valueCredit;
-    public $updatedalance = 0;
+    public $updatedBalance = 0;
     
     public function afterFind() {
         
@@ -31,8 +31,6 @@ class TransactionPlus extends Transaction
         // Values
         $is_forex = ($this->transactionForex) ? true : false;
         if($is_forex) {
-            
-            $this->debug = $this->accountForex;
             
             $for_cur = Account::findOne($this->accountForex['id'])->accountForex['forex_currency'];
             $deb_cur = $this->accountDebit['currency'];
