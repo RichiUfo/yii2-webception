@@ -22,7 +22,7 @@ class TransactionPlus extends Transaction
 {
     public $valueDebit;
     public $valueCredit;
-    public $updatedBalance = 0;
+    public $updatedalance = 0;
     
     public function afterFind() {
         
