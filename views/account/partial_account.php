@@ -109,8 +109,8 @@
                                 <?php if($t->valueCredit !== 0) : ?>
                                     <span class="money" value="<?= $t->valueCredit ?>" currency=""></span> <?= $t->accountCredit->currency ?>
                                 <?php endif ?>
-                            </td>
-                            <td class="text-right"><span class="money" value="0" currency=""></span></td>
+                            </td> 
+                            <td class="text-right"><span class="money" value="<?= $t->balance ?>" currency=""></span></td>
                         </tr>
                         <?php endforeach; ?>
                         
