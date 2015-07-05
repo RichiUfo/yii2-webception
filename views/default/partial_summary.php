@@ -68,7 +68,7 @@ use frontend\widgets\chartjs\ChartJs;
                     <div class="col-xs-4 col-sm-12 col-md-12 col-lg-4">
                         <div class="data-block">
                             <span class="data-block-value money" value="<?= $data['total_equity'] ?>" currency="" decimal="0"></span>
-                            <span class="data-block-title">Net Worth</span>
+                            <span class="data-block-title">Net Wealth</span>
                         </div>
                     </div>    
                 </div>
