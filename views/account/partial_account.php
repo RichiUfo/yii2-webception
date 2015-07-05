@@ -69,7 +69,7 @@
                     <?php foreach($account->children as $child) : ?>
                     <li>
                         <h3><?= $child->name ?></h3>
-                        <h3 class="text-right">
+                        <h3 class="pull-right">
                             <span class="money" 
                                   value="<?= $child->sign*$child->value ?>" 
                                   currency=""></span> <?= $child->currency ?>
