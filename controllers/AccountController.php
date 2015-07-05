@@ -578,11 +578,11 @@ class AccountController extends \frontend\components\Controller
             if ($account === null) throw new NotFoundHttpException;
             
             // STEP 2 - Transactions Information
-            $transactions = self::getTransactions($id, $start, $end, $account->value);
+            $movements = self::getMovementsSummary($id, $start, $end);
+            $transactions = self::getTransactions($id, $start, $end, $movements['closing_balance']);
             $opening = $transactions['balance'];
             $transactions = $transactions['transactions'];
             
-            $movements = self::getMovementsSummary($id, $start, $end, $transactions);
             
             // STEP 3 - Rendering The Partial View
             return $this->renderPartial('partial_account', [
