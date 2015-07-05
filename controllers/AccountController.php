@@ -248,25 +248,26 @@ class AccountController extends \frontend\components\Controller
         if ($balance) {
             $now = new \DateTime();
             foreach($transactions as $t) {
+                $t->updatedBalance = $balance;
                 $date = new \DateTime($t->date_value);
                 
                 // Debit Case
                 if ($t->valueDebit !== 0) {
                     if ($now > $date) {
-                        $t->updatedBalance += $t->valueDebit;
+                        $balance += $t->valueDebit;
                     } 
                     else {
-                        $t->updatedBalance -= $t->valueDebit;
+                        $balance -= $t->valueDebit;
                     }
                 }
                 
                 // Credit Case
                 if ($t->valueCredit !== 0) {
                     if ($now > $date) {
-                        $t->updatedBalance -= $t->valueCredit;
+                        $balance -= $t->valueCredit;
                     } 
                     else {
-                        $t->updatedBalance += $t->valueCredit;
+                        $balance += $t->valueCredit;
                     }
                 }
             }
