@@ -178,7 +178,7 @@ class AccountController extends \frontend\components\Controller
         
         // STEP 1 - Get the transactions (if not already provided)
         if(!$transactions)
-            $transactions = self::getTransactions($accountid, $start, $end)['transactions'];
+            $transactions = self::getTransactions($accountid, $start, $end);
         
         if (!$transactions) {
             return [
@@ -286,10 +286,7 @@ class AccountController extends \frontend\components\Controller
             }
         }
         
-        return [
-            'balance' => $balance,
-            'transactions' => $transactions
-        ];
+        return $transactions;
     }
     
     /**
@@ -573,9 +570,6 @@ class AccountController extends \frontend\components\Controller
             // STEP 2 - Transactions Information
             $movements = self::getMovementsSummary($id, $start, $end);
             $transactions = self::getTransactions($id, $start, $end, $movements['closing_balance']);
-            $opening = $transactions['balance'];
-            $transactions = $transactions['transactions'];
-            
             
             // STEP 3 - Rendering The Partial View
             return $this->renderPartial('partial_account', [
@@ -583,8 +577,7 @@ class AccountController extends \frontend\components\Controller
                 'end' => $end,
                 'account' => $account,
                 'movements' => $movements,
-                'transactions' => $transactions,
-                'opening' => $opening
+                'transactions' => $transactions
             ]);
         }
         

@@ -120,7 +120,7 @@
                             <td class="text-right">Opening Balance</td>
                             <td class="text-right"></td>
                             <td class="text-right"></td>
-                            <td class="text-right"><span class="money" value="<?= $account->sign * $opening ?>" currency=""></span></td>
+                            <td class="text-right"><span class="money" value="<?= $account->sign*$movements['opening_balance'] ?>" currency=""></span></td>
                         </tr>
                         
                     </tbody>
