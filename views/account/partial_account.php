@@ -22,8 +22,8 @@ use yii\helpers\Url;
                             </div>
                             <div class="numbers">
                                 <span class="title money" value="<?= $account->sign*($movements['past_credits'] - $movements['past_debits']) ?>" currency="" decimal="2"></span><br>
-                                <span class="subtitle money" value="<?= $movements['past_debits'] ?>" currency="" decimal="2"></span><br>
-                                <span class="subtitle money" value="<?= $movements['past_credits'] ?>" currency="" decimal="2"></span>
+                                <i class="fa fa-caret-up"></i> <span class="subtitle money" value="<?= $movements['past_debits'] ?>" currency="" decimal="2"></span><br>
+                                <i class="fa fa-caret-down"></i> <span class="subtitle money" value="<?= $movements['past_credits'] ?>" currency="" decimal="2"></span>
                             </div>
                         </div>
                     </div>
@@ -38,8 +38,8 @@ use yii\helpers\Url;
                             </div>
                             <div class="numbers">
                                 <span class="title money" value="<?= $account->sign*($movements['future_credits'] - $movements['future_debits']) ?>" currency="" decimal="2"></span><br>
-                                <span class="subtitle money" value="<?= $movements['future_debits'] ?>" currency="" decimal="2"></span><br>
-                                <span class="subtitle money" value="<?= $movements['future_credits'] ?>" currency="" decimal="2"></span>
+                                <i class="fa fa-caret-up"></i> <span class="subtitle money" value="<?= $movements['future_debits'] ?>" currency="" decimal="2"></span><br>
+                                <i class="fa fa-caret-down"></i> <span class="subtitle money" value="<?= $movements['future_credits'] ?>" currency="" decimal="2"></span>
                             </div>
                         </div>
                     </div>
