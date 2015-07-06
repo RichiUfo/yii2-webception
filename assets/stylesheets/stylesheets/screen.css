@@ -182,7 +182,7 @@
   line-height: 20px;
 }
 /* line 74, ../sass/_account_page.scss */
-.fp-acc-page .composition li {
+.fp-acc-page .composition .list-group-item {
   padding: 2px 0 4px;
 }
 /* line 77, ../sass/_account_page.scss */
