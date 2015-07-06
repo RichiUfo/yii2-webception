@@ -9,15 +9,7 @@
                     text-transform: uppercase;
                 }
             }
-            .icon-container {
-                color: #FFF;
-                &.down {
-                    background: #F00;
-                }
-                &.up {
-                    background: #0F0;
-                }
-            }
+            
             &.movements {
                 padding: 0px 20px;
                 height: 75px;
@@ -36,17 +28,13 @@
                         font-weight: 400;
                     }
                     &.red {
-                        //border: 1px solid rgb(235,114,96);
                         .title {
                             background: rgba(235,114,96,0.2);
-                            //border-bottom: 1px solid rgb(235,114,96);
                         }
                     }
                     &.green {
-                        //border: 1px solid rgb(41,171,164);
                         .title {
                             background: rgba(41,171,164,0.2);
-                            //border-bottom: 1px solid rgb(41,171,164);
                         }
                     }
                 }
@@ -65,7 +53,14 @@
                     height: 30px;
                     border-radius: 15px;
                     border: 1px solid rgb(231, 234, 236);
+                    color: #fff;
                     background: #fff;
+                    &.down {
+                        background: #F00;
+                    }
+                    &.up {
+                        background: #0F0;
+                    }
                     > i {
                         @include centerer;
                         color: rgb(231, 234, 236);
