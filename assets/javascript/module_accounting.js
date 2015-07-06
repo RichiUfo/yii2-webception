@@ -46,6 +46,30 @@ function acc_bs_refresh() {
     });
 };
 
+/*********************
+* Profits And Losses Page *
+*********************/
+function acc_pl_init() {
+    acc_bs_refresh();
+}
+function acc_pl_refresh() {
+    
+    $('#accounting-income-container').html('<div class="ajaxloader"><img src="/img/ajax-loader.gif"></div>');
+
+    var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
+    var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
+
+    $.ajax({
+        url: '/accounting/profitloss/index',
+        type: 'GET',
+        data: {start: start, end: end},
+        success: function(result){
+            $('#accounting-income-container').html(result);
+            $(document).trigger('domupdated');
+        }
+    });
+};
+
 /***************
 * Account Page *
 ***************/

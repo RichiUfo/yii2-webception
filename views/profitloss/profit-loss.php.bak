@@ -1,0 +1,38 @@
+<?php
+
+use yii\helpers\Url;
+
+use frontend\modules\accounting\assets\BaseAsset;
+BaseAsset::register($this);
+
+function displayHierarchy($accounts){
+    
+    echo '<ul class="text-left">';
+    foreach ($accounts as $account){
+        echo '<li>
+                <a href="'.Url::to(['account/account', 'id' => $account->id]).'">'.$account->name.'</a>
+                <span class="pull-right">
+                    <span class="money" 
+                          value="'.$account->sign*$account->value_converted.'" 
+                          currency="'.'">
+                    </span>
+                </span>
+            </li>';
+        if($account->children != null){
+            displayHierarchy($account->children);
+        }
+    }
+    echo '</ul>';
+    
+}
+
+?>
+
+<!-- LEFT PANEL -->
+<?php $this->render('@app/views/partials/left_panel', [
+    'back_button' => $back_button,
+    'left_menus' => $left_menus
+]); ?>
+
+<!-- MAIN CONTENT -->
+<h1 class="text-center">Profits & Losses</h1>
