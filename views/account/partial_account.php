@@ -76,6 +76,8 @@
                                 <span><?= $child->name ?></span><br>
                                 <?php if($child->currency !== $account->currency) : ?>
                                 <span>Foreign Currency Account</span>
+                                <?php else : ?>
+                                <span>Regular Account</span>
                                 <?php endif; ?>
                                 
                                 <!-- Right Column -->
