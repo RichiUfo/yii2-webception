@@ -1,72 +1,278 @@
-/*
-Error: Invalid CSS after "}": expected "}", was ""
-        on line 63 of /home/ubuntu/fp2-acc/assets/stylesheets/sass/_account_page.scss
-        from line 15 of /home/ubuntu/fp2-acc/assets/stylesheets/sass/screen.scss
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 4, ../sass/_transaction_form.scss */
+.transaction-form .account-summary {
+  margin: 25px 0px;
+  font-size: 18px;
+  font-weight: 300;
+}
 
-58:         }
-59:         .second-line {
-60:             font-size: 12px;
-61:         }
-62:     }
-63: }
+/* line 3, ../sass/_page_layout.scss */
+.fp-acc-page .chartjs-container {
+  margin: 35px 20px;
+  padding: 0;
+}
+/* line 8, ../sass/_page_layout.scss */
+.fp-acc-page .header {
+  position: relative;
+  border-bottom: 1px solid #F5F5F5;
+  margin-bottom: 20px;
+}
+/* line 12, ../sass/_page_layout.scss */
+.fp-acc-page .header .right-menu {
+  position: absolute;
+  height: 30px;
+  width: auto;
+  bottom: 10px;
+  right: 0px;
+}
+/* line 18, ../sass/_page_layout.scss */
+.fp-acc-page .header .right-menu .btn-group {
+  position: absolute;
+  right: 220px;
+}
+/* line 24, ../sass/_page_layout.scss */
+.fp-acc-page .header .right-menu button, .fp-acc-page .header .right-menu input, .fp-acc-page .header .right-menu span {
+  font-family: 'Open Sans', helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 15px;
+  background: transparent;
+}
+/* line 30, ../sass/_page_layout.scss */
+.fp-acc-page .header .right-menu button:hover, .fp-acc-page .header .right-menu input:hover, .fp-acc-page .header .right-menu span:hover {
+  color: #000;
+}
+/* line 33, ../sass/_page_layout.scss */
+.fp-acc-page .header .right-menu button.icon, .fp-acc-page .header .right-menu input.icon, .fp-acc-page .header .right-menu span.icon {
+  position: relative;
+  top: -7px;
+  font-size: 18px;
+  line-height: 30px;
+}
+/* line 42, ../sass/_page_layout.scss */
+.fp-acc-page .header .right-menu button {
+  top: 0;
+  height: 30px;
+  border: none;
+  border-right: 1px solid #F5F5F5;
+}
+/* line 47, ../sass/_page_layout.scss */
+.fp-acc-page .header .right-menu button .ui-button-text {
+  font-weight: 400;
+}
+/* line 50, ../sass/_page_layout.scss */
+.fp-acc-page .header .right-menu button:active {
+  box-shadow: none;
+}
+/* line 57, ../sass/_page_layout.scss */
+.fp-acc-page .header #input-daterange-container {
+  display: inline;
+}
+/* line 59, ../sass/_page_layout.scss */
+.fp-acc-page .header #input-daterange-container .input-daterange {
+  width: 220px;
+  display: inline-table;
+}
+/* line 62, ../sass/_page_layout.scss */
+.fp-acc-page .header #input-daterange-container .input-daterange > input {
+  border: none;
+}
+/* line 65, ../sass/_page_layout.scss */
+.fp-acc-page .header #input-daterange-container .input-daterange > span {
+  border: none;
+  background: transparent;
+  width: 10px;
+  height: 22px;
+  padding: 4px 5;
+}
+/* line 76, ../sass/_page_layout.scss */
+.fp-acc-page .content {
+  position: relative;
+  min-height: 300px;
+}
+/* line 79, ../sass/_page_layout.scss */
+.fp-acc-page .content .ajaxloader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 
-Backtrace:
-/home/ubuntu/fp2-acc/assets/stylesheets/sass/_account_page.scss:63
-/home/ubuntu/fp2-acc/assets/stylesheets/sass/screen.scss:15
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:1165:in `expected'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:1101:in `expected'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:1096:in `tok!'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:643:in `block'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:635:in `ruleset'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:660:in `block_child'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:650:in `block_contents'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:117:in `stylesheet'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/scss/parser.rb:42:in `parse'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/engine.rb:393:in `_to_tree'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/engine.rb:299:in `to_tree'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:323:in `block in visit_import'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/stack.rb:88:in `block in with_import'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/stack.rb:115:in `with_frame'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/stack.rb:88:in `with_import'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/stack.rb:79:in `block in with_base'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/stack.rb:115:in `with_frame'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/stack.rb:79:in `with_base'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:52:in `map'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/root_node.rb:36:in `css_tree'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/tree/root_node.rb:20:in `render'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/engine.rb:268:in `render'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:209:in `each'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:328:in `block in watch'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/listener.rb:252:in `call'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/adapter.rb:254:in `call'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
-/usr/local/rvm/gems/ruby-2.1.5@rails4/gems/sass-3.4.10/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"}\": expected \"}\", was \"\"\A         on line 63 of /home/ubuntu/fp2-acc/assets/stylesheets/sass/_account_page.scss\A         from line 15 of /home/ubuntu/fp2-acc/assets/stylesheets/sass/screen.scss\A \A 58:         }\A 59:         .second-line {\A 60:             font-size: 12px;\A 61:         }\A 62:     }\A 63: }"; }
+/* line 5, ../sass/_account_page.scss */
+.fp-acc-page .account-overview .overview-row .data-block .data-block-title {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+/* line 11, ../sass/_account_page.scss */
+.fp-acc-page .account-overview .overview-row.balances {
+  margin: 30px 0px;
+}
+/* line 13, ../sass/_account_page.scss */
+.fp-acc-page .account-overview .overview-row.balances > div {
+  position: relative;
+}
+/* line 16, ../sass/_account_page.scss */
+.fp-acc-page .account-overview .overview-row.balances .movements-container {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  text-align: center;
+  padding-top: 22px;
+}
+/* line 20, ../sass/_account_page.scss */
+.fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container {
+  position: relative;
+  left: 58px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid #e7eaec;
+  color: #fff;
+  background: #fff;
+}
+/* line 29, ../sass/_account_page.scss */
+.fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container > i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #e7eaec;
+  font-weight: 100;
+  font-size: 20px;
+  line-height: 20px;
+}
+/* line 36, ../sass/_account_page.scss */
+.fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container.down {
+  background: #ed5565;
+}
+/* line 39, ../sass/_account_page.scss */
+.fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container.up {
+  background: #18a689;
+}
+/* line 43, ../sass/_account_page.scss */
+.fp-acc-page .account-overview .overview-row.balances .movements-container .numbers {
+  margin-top: 20px;
+  font-size: 14px;
+}
+/* line 53, ../sass/_account_page.scss */
+.fp-acc-page .composition.list-group.clear-list .list-group-item {
+  padding: 2px 0 4px;
+}
+/* line 56, ../sass/_account_page.scss */
+.fp-acc-page .composition.list-group.clear-list .first-line {
+  font-size: 14px;
+}
+/* line 59, ../sass/_account_page.scss */
+.fp-acc-page .composition.list-group.clear-list .second-line {
+  font-size: 12px;
+}
+
+/* Index Page Accounting */
+/* line 18, ../sass/screen.scss */
+#accounting-index {
+  text-align: center;
+}
+/* line 21, ../sass/screen.scss */
+#accounting-index .header {
+  height: 150px;
+  position: relative;
+}
+/* line 25, ../sass/screen.scss */
+#accounting-index .header i, #accounting-index .header p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+/* line 29, ../sass/screen.scss */
+#accounting-index .header > i {
+  font-size: 100px;
+  color: #F5F5F5;
+  transition: all 0.3s ease-in-out 0s;
+}
+/* line 35, ../sass/screen.scss */
+#accounting-index .header p, #accounting-index .header a {
+  font-size: 18px;
+  line-height: 24px;
+  color: #222;
+  transition: all 0.3s ease-in-out 0s;
+}
+/* line 43, ../sass/screen.scss */
+#accounting-index .content {
+  margin-top: 0px;
+  color: #222;
+}
+/* line 48, ../sass/screen.scss */
+#accounting-index .accounting-index-summary-row {
+  margin-bottom: 75px;
+}
+/* line 51, ../sass/screen.scss */
+#accounting-index .accounting-index-summary-row > .column {
+  border-right: 1px solid #F5F5F5;
+}
+/* line 54, ../sass/screen.scss */
+#accounting-index .accounting-index-summary-row > .column:last-child {
+  border-right: none;
+}
+/* line 57, ../sass/screen.scss */
+#accounting-index .accounting-index-summary-row:last-of-type {
+  margin-bottom: 25px;
+}
+
+/* Balance Sheet */
+/* line 66, ../sass/screen.scss */
+#balance-sheet ul li {
+  list-style-type: none;
+  padding-bottom: 3px;
+}
+
+/* Profits and Losses */
+/* line 74, ../sass/screen.scss */
+#profit-loss ul li {
+  list-style-type: none;
+  padding-bottom: 3px;
+}
+
+/* Account Page */
+/* line 83, ../sass/screen.scss */
+#account-display ul li {
+  list-style-type: none;
+}
+/* line 87, ../sass/screen.scss */
+#account-display .account-create-li-button {
+  transition: all 0.3s ease-in-out 0s;
+}
+/* line 89, ../sass/screen.scss */
+#account-display .account-create-li-button:hover {
+  color: #205081;
+  cursor: pointer;
+}
+/* line 95, ../sass/screen.scss */
+#account-display .currency-group {
+  display: inline-block;
+}
+/* line 97, ../sass/screen.scss */
+#account-display .currency-group img {
+  display: inline-block;
+  margin-right: 10px;
+}
+/* line 100, ../sass/screen.scss */
+#account-display .currency-group img:last-child {
+  margin-right: 0px;
+}
+/* line 104, ../sass/screen.scss */
+#account-display .currency-group p {
+  display: none;
+  font-size: 14px;
+}
