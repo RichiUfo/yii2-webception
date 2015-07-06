@@ -187,6 +187,7 @@
 }
 /* line 76, ../sass/_account_page.scss */
 .fp-acc-page ul.composition li {
+  padding: 5px;
   background: #F9F9F9;
   margin: 1px 0px;
   border: 1px solid #F0F0F0;
