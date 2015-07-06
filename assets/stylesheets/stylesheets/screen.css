@@ -182,15 +182,15 @@
   line-height: 20px;
 }
 /* line 74, ../sass/_account_page.scss */
-.fp-acc-page .composition .list-group-item {
+.fp-acc-page .composition.list-group.clear-list .list-group-item {
   padding: 2px 0 4px;
 }
 /* line 77, ../sass/_account_page.scss */
-.fp-acc-page .composition .first-line {
+.fp-acc-page .composition.list-group.clear-list .first-line {
   font-size: 14px;
 }
 /* line 80, ../sass/_account_page.scss */
-.fp-acc-page .composition .second-line {
+.fp-acc-page .composition.list-group.clear-list .second-line {
   font-size: 12px;
 }
 
