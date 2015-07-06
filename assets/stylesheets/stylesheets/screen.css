@@ -167,7 +167,7 @@
   background: #18a689;
 }
 /* line 47, ../sass/_account_page.scss */
-.fp-acc-page .account-overview .overview-row.balances .movements-container span {
+.fp-acc-page .account-overview .overview-row.balances .movements-container .numbers {
   margin-top: 20px;
   font-size: 14px;
 }
