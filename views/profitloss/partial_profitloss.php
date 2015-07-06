@@ -45,7 +45,7 @@ function displayHierarchy($accounts){
                         <p>
                             <span   class="money" 
                                     value="<?= $operating_revenues->sign * $operating_revenues->value_converted ?>" 
-                                    currency="">
+                                    currency="<?= $operating_revenues->currency ?>">
                             </span>
                         </p>
                     </div>
@@ -67,8 +67,8 @@ function displayHierarchy($accounts){
                     <div class="banner-subtitle">
                         <p>
                             <span   class="money" 
-                                    value="<?= $operating_revenues->sign * $operating_revenues->value_converted ?>" 
-                                    currency="">
+                                    value="<?= $non_operating_revenues->sign * $non_operating_revenues->value_converted ?>" 
+                                    currency="<?= $non_operating_revenues->currency ?>">
                             </span>
                         </p>
                     </div>
