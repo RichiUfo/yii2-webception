@@ -82,11 +82,11 @@
                             <!-- Second Line -->
                             <?php if($child->currency !== $account->currency) : ?>
                             <span class="second-line">Foreign Currency Account</span>
-                            <span class="pull-right"><?= $child->currency ?> <span class="money" 
+                            <span class="second-line pull-right"><?= $child->currency ?> <span class="money" 
                                       value="<?= $child->sign*$child->value ?>" 
                                       currency=""></span></span>
                             <?php else : ?>
-                            <span>Regular Account</span>
+                            <span class="second-line">Regular Account</span>
                             <?php endif; ?>
                                 
                         </li>
