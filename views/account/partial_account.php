@@ -84,9 +84,11 @@
                                           value="<?= $child->sign*$child->value_converted ?>" 
                                           currency=""></span>
                                     <br>
+                                    <?php if($child->currency !== $account->currency) : ?>
                                     <span class="pull-right"><?= $child->currency ?> <span class="money" 
                                           value="<?= $child->sign*$child->value ?>" 
                                           currency=""></span></span>
+                                    <?php endif; ?>
                                 </span>
                             </p>   
                         </li>
