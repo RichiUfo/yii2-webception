@@ -72,7 +72,13 @@
                     ?>
                         <li class="list-group-item <?= $first ?>">
                             <p>
-                                <span><?= $child->name ?></span>
+                                <!-- Left Column -->
+                                <span><?= $child->name ?></span><br>
+                                <?php if($child->currency !== $account->currency) : ?>
+                                <span>Foreign Currency Account</span>
+                                <?php endif; ?>
+                                
+                                <!-- Right Column -->
                                 <span class="pull-right">
                                     <span class="pull-right money" 
                                           value="<?= $child->sign*$child->value_converted ?>" 
