@@ -185,6 +185,12 @@
 .fp-acc-page ul.composition {
   padding: 0;
 }
+/* line 76, ../sass/_account_page.scss */
+.fp-acc-page ul.composition li {
+  background: #F9F9F9;
+  margin: 1px 0px;
+  border: 1px solid #F0F0F0;
+}
 
 /* Index Page Accounting */
 /* line 18, ../sass/screen.scss */

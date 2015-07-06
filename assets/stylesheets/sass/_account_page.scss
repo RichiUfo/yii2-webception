@@ -73,5 +73,10 @@
     
     ul.composition {
         padding: 0;
+        li {
+            background: #F9F9F9;
+            margin: 1px 0px;
+            border: 1px solid #F0F0F0;
+        }
     }
 }
