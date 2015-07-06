@@ -24,9 +24,6 @@ use yii\helpers\Url;
                             <span class="data-block-value money" value="<?= $movements['past_debits'] ?>" currency="" decimal="2"></span><br>
                             <span class="data-block-value money" value="<?= $movements['past_credits'] ?>" currency="" decimal="2"></span>
                         </div>
-                        <!--svg height="50" width="1" style="position:absolute;right:0;bottom:0;height:50%;z-index:1">
-                            <line x1="0" y1="0" x2="0" y2="49" style="stroke:rgb(231,234,236);stroke-width:1" />
-                        </svg-->
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="data-block">
@@ -41,10 +38,6 @@ use yii\helpers\Url;
                             <span class="data-block-value money" value="<?= $movements['future_debits'] ?>" currency="" decimal="2"></span><br>
                             <span class="data-block-value money" value="<?= $movements['future_credits'] ?>" currency="" decimal="2"></span>
                         </div>
-                            
-                        <!--svg height="50" width="1" style="position:absolute;right:0;bottom:0;height:50%;z-index:1">
-                            <line x1="0" y1="0" x2="0" y2="49" style="stroke:rgb(231,234,236);stroke-width:1" />
-                        </svg-->
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="data-block">

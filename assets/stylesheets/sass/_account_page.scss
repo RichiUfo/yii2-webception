@@ -10,36 +10,6 @@
                 }
             }
             
-            /*&.movements {
-                padding: 0px 20px;
-                height: 75px;
-                .column {
-                    //margin: 0px 20px;
-                }
-                .movements-container {
-                    //border: 1px solid rgb(231, 234, 236);
-                    border-radius: 5px;
-                    text-align: center;
-                    .title {
-                        width: 100%;
-                        //background: #F9F9F9;
-                        //border-bottom: 1px solid rgb(231, 234, 236);
-                        font-size: 14px;
-                        font-weight: 400;
-                    }
-                    &.red {
-                        .title {
-                            //background: rgba(235,114,96,0.2);
-                        }
-                    }
-                    &.green {
-                        .title {
-                            //background: rgba(41,171,164,0.2);
-                        }
-                    }
-                }
-            }*/
-            
             &.balances {
                 > div {
                     height: 75px;
@@ -48,6 +18,7 @@
                 .movements-container {
                     position: absolute;
                     right: 0;
+                    text-align: center;
                     .icon-container {
                         position: relative;
                         width: 30px;

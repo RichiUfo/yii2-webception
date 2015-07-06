@@ -106,35 +106,6 @@
 /* line 3, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row {
   position: relative;
-  /*&.movements {
-      padding: 0px 20px;
-      height: 75px;
-      .column {
-          //margin: 0px 20px;
-      }
-      .movements-container {
-          //border: 1px solid rgb(231, 234, 236);
-          border-radius: 5px;
-          text-align: center;
-          .title {
-              width: 100%;
-              //background: #F9F9F9;
-              //border-bottom: 1px solid rgb(231, 234, 236);
-              font-size: 14px;
-              font-weight: 400;
-          }
-          &.red {
-              .title {
-                  //background: rgba(235,114,96,0.2);
-              }
-          }
-          &.green {
-              .title {
-                  //background: rgba(41,171,164,0.2);
-              }
-          }
-      }
-  }*/
 }
 /* line 5, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row .data-block {
@@ -150,17 +121,18 @@
   font-weight: 600;
   text-transform: uppercase;
 }
-/* line 44, ../sass/_account_page.scss */
+/* line 14, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances > div {
   height: 75px;
   padding-bottom: 30p;
 }
-/* line 48, ../sass/_account_page.scss */
+/* line 18, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container {
   position: absolute;
   right: 0;
+  text-align: center;
 }
-/* line 51, ../sass/_account_page.scss */
+/* line 22, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container {
   position: relative;
   width: 30px;
@@ -170,15 +142,15 @@
   color: #fff;
   background: #fff;
 }
-/* line 59, ../sass/_account_page.scss */
+/* line 30, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container.down {
   background: #ed5565;
 }
-/* line 62, ../sass/_account_page.scss */
+/* line 33, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container.up {
   background: #18a689;
 }
-/* line 65, ../sass/_account_page.scss */
+/* line 36, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container > i {
   position: absolute;
   top: 50%;
@@ -191,15 +163,15 @@
   font-size: 20px;
   line-height: 20px;
 }
-/* line 79, ../sass/_account_page.scss */
+/* line 50, ../sass/_account_page.scss */
 .fp-acc-page .composition.list-group.clear-list .list-group-item {
   padding: 2px 0 4px;
 }
-/* line 82, ../sass/_account_page.scss */
+/* line 53, ../sass/_account_page.scss */
 .fp-acc-page .composition.list-group.clear-list .first-line {
   font-size: 14px;
 }
-/* line 85, ../sass/_account_page.scss */
+/* line 56, ../sass/_account_page.scss */
 .fp-acc-page .composition.list-group.clear-list .second-line {
   font-size: 12px;
 }
