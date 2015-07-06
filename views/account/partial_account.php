@@ -72,26 +72,23 @@
                     ?>
                         <li class="list-group-item <?= $first ?>">
                             <p>
-                                <!-- Left Column -->
-                                <span><?= $child->name ?></span><br>
+                                <!-- First Line -->
+                                <span><?= $child->name ?></span>
+                                <span   class="pull-right money" 
+                                        value="<?= $child->sign*$child->value_converted ?>" 
+                                        currency=""></span>
+                                <br>
+                                
+                                <!-- Second Line -->
                                 <?php if($child->currency !== $account->currency) : ?>
                                 <span>Foreign Currency Account</span>
+                                <span class="pull-right"><?= $child->currency ?> <span class="money" 
+                                          value="<?= $child->sign*$child->value ?>" 
+                                          currency=""></span></span>
                                 <?php else : ?>
                                 <span>Regular Account</span>
                                 <?php endif; ?>
                                 
-                                <!-- Right Column -->
-                                <span class="pull-right">
-                                    <span class="pull-right money" 
-                                          value="<?= $child->sign*$child->value_converted ?>" 
-                                          currency=""></span>
-                                    <br>
-                                    <?php if($child->currency !== $account->currency) : ?>
-                                    <span class="pull-right"><?= $child->currency ?> <span class="money" 
-                                          value="<?= $child->sign*$child->value ?>" 
-                                          currency=""></span></span>
-                                    <?php endif; ?>
-                                </span>
                             </p>   
                         </li>
                     <?php 
