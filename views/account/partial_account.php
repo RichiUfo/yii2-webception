@@ -74,12 +74,12 @@
                             <p>
                                 <span><?= $child->name ?></span>
                                 <span class="pull-right">
-                                    <strong><span class="money" 
+                                    <strong><span class="text-right money" 
                                           value="<?= $child->sign*$child->value_converted ?>" 
                                           currency=""></span></strong>
-                                    <br><span class="money" 
+                                    <br><?= $child->currency ?> <span class="text-right money" 
                                           value="<?= $child->sign*$child->value ?>" 
-                                          currency=""></span> <?= $child->currency ?>
+                                          currency=""></span>
                                 </span>
                             </p>   
                         </li>
