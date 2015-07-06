@@ -68,7 +68,7 @@ class ProfitlossController extends \frontend\components\Controller
          * REGULAR -> Render the full view
          */
         else{
-            $this->layout = '@app/views/layouts/three-columns';
+            $this->layout = '@app/views/layouts/two-columns-left';
             return $this->render('profitloss', [
                 'back_button' => ['text' => 'Accounting', 'route' => '/accounting'],
                 'left_menus' => [
