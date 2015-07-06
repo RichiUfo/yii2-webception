@@ -110,14 +110,20 @@
 }
 /* line 11, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances {
+  position: relative;
   margin: 30px 0px;
 }
-/* line 13, ../sass/_account_page.scss */
+/* line 14, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
   text-align: center;
   padding-top: 22px;
 }
-/* line 16, ../sass/_account_page.scss */
+/* line 18, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container {
   position: relative;
   left: 58px;
@@ -128,7 +134,7 @@
   color: #fff;
   background: #fff;
 }
-/* line 25, ../sass/_account_page.scss */
+/* line 27, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container > i {
   position: absolute;
   top: 50%;
@@ -141,28 +147,28 @@
   font-size: 20px;
   line-height: 20px;
 }
-/* line 32, ../sass/_account_page.scss */
+/* line 34, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container.down {
   background: #ed5565;
 }
-/* line 35, ../sass/_account_page.scss */
+/* line 37, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container.up {
   background: #18a689;
 }
-/* line 39, ../sass/_account_page.scss */
+/* line 41, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .numbers {
   margin-top: 20px;
   font-size: 14px;
 }
-/* line 49, ../sass/_account_page.scss */
+/* line 51, ../sass/_account_page.scss */
 .fp-acc-page .composition.list-group.clear-list .list-group-item {
   padding: 2px 0 4px;
 }
-/* line 52, ../sass/_account_page.scss */
+/* line 54, ../sass/_account_page.scss */
 .fp-acc-page .composition.list-group.clear-list .first-line {
   font-size: 14px;
 }
-/* line 55, ../sass/_account_page.scss */
+/* line 57, ../sass/_account_page.scss */
 .fp-acc-page .composition.list-group.clear-list .second-line {
   font-size: 12px;
 }

@@ -9,8 +9,10 @@
             }
             
             &.balances {
+                position: relative;
                 margin: 30px 0px;
                 .movements-container {
+                    @include centererH;
                     text-align: center;
                     padding-top: 22px; 
                     .icon-container {
