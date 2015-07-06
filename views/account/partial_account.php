@@ -71,7 +71,7 @@
                     foreach($account->children as $child) : 
                     ?>
                         <li class="list-group-item <?= $first ?>">
-                            <p>
+                            
                                 <!-- First Line -->
                                 <span><?= $child->name ?></span>
                                 <span   class="pull-right money" 
@@ -89,7 +89,6 @@
                                 <span>Regular Account</span>
                                 <?php endif; ?>
                                 
-                            </p>   
                         </li>
                     <?php 
                     $first = "";
