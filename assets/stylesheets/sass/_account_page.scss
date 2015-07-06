@@ -10,7 +10,7 @@
                 }
             }
             
-            &.movements {
+            /*&.movements {
                 padding: 0px 20px;
                 height: 75px;
                 .column {
@@ -38,35 +38,37 @@
                         }
                     }
                 }
-            }
+            }*/
             
             &.balances {
                 > div {
                     height: 75px;
                     padding-bottom: 30p;
                 }
-                .icon-container {
-                    z-index: 2;
-                    @include centererV;
-                    right: -15px;
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 15px;
-                    border: 1px solid rgb(231, 234, 236);
-                    color: #fff;
-                    background: #fff;
-                    &.down {
-                        background: #ed5565;
-                    }
-                    &.up {
-                        background: #18a689;
-                    }
-                    > i {
-                        @include centerer;
-                        color: rgb(231, 234, 236);
-                        font-weight: 100;
-                        font-size: 20px;
-                        line-height: 20px;
+                .movements-container {
+                    position: absolute;
+                    right: 0;
+                    .icon-container {
+                        @include centererH;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 15px;
+                        border: 1px solid rgb(231, 234, 236);
+                        color: #fff;
+                        background: #fff;
+                        &.down {
+                            background: #ed5565;
+                        }
+                        &.up {
+                            background: #18a689;
+                        }
+                        > i {
+                            @include centerer;
+                            color: rgb(231, 234, 236);
+                            font-weight: 100;
+                            font-size: 20px;
+                            line-height: 20px;
+                        }
                     }
                 }
             }
