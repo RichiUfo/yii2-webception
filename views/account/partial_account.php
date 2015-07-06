@@ -65,29 +65,29 @@
             <!-- Children -->
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                 <h2>Composition</h2>
-                <ul class="list-group clear-list m-t">
+                <ul class="composition list-group clear-list m-t">
                     <?php 
                     $first = "fist-item";
                     foreach($account->children as $child) : 
                     ?>
                         <li class="list-group-item <?= $first ?>">
                             
-                                <!-- First Line -->
-                                <span><?= $child->name ?></span>
-                                <span   class="pull-right money" 
-                                        value="<?= $child->sign*$child->value_converted ?>" 
-                                        currency=""></span>
-                                <br>
-                                
-                                <!-- Second Line -->
-                                <?php if($child->currency !== $account->currency) : ?>
-                                <span>Foreign Currency Account</span>
-                                <span class="pull-right"><?= $child->currency ?> <span class="money" 
-                                          value="<?= $child->sign*$child->value ?>" 
-                                          currency=""></span></span>
-                                <?php else : ?>
-                                <span>Regular Account</span>
-                                <?php endif; ?>
+                            <!-- First Line -->
+                            <span class="first-line"><?= $child->name ?></span>
+                            <span   class="first-line pull-right money" 
+                                    value="<?= $child->sign*$child->value_converted ?>" 
+                                    currency=""></span>
+                            <br>
+                            
+                            <!-- Second Line -->
+                            <?php if($child->currency !== $account->currency) : ?>
+                            <span class="second-line">Foreign Currency Account</span>
+                            <span class="pull-right"><?= $child->currency ?> <span class="money" 
+                                      value="<?= $child->sign*$child->value ?>" 
+                                      currency=""></span></span>
+                            <?php else : ?>
+                            <span>Regular Account</span>
+                            <?php endif; ?>
                                 
                         </li>
                     <?php 

@@ -181,6 +181,14 @@
   font-size: 20px;
   line-height: 20px;
 }
+/* line 74, ../sass/_account_page.scss */
+.fp-acc-page .composition .first-line {
+  font-size: 14px;
+}
+/* line 77, ../sass/_account_page.scss */
+.fp-acc-page .composition .second-line {
+  font-size: 12px;
+}
 
 /* Index Page Accounting */
 /* line 18, ../sass/screen.scss */
