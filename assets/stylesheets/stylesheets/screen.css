@@ -115,8 +115,9 @@
 /* line 13, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances > div {
   position: relative;
+  min-height: 150px;
 }
-/* line 16, ../sass/_account_page.scss */
+/* line 17, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container {
   position: absolute;
   top: 0;
@@ -124,7 +125,6 @@
   -webkit-transform: translateX(50%);
   -ms-transform: translateX(50%);
   transform: translateX(50%);
-  min-height: 150px;
   text-align: center;
 }
 /* line 26, ../sass/_account_page.scss */

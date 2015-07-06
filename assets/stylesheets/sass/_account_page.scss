@@ -12,6 +12,7 @@
                 margin: 30px 0px;
                 > div {
                     position: relative;
+                    min-height: 150px; 
                 } 
                 .movements-container {
                     // Positioning on the border
@@ -21,7 +22,6 @@
                     -webkit-transform: translateX(50%); 
                     -ms-transform: translateX(50%);
                     transform: translateX(50%); 
-                    min-height: 150px; 
                     text-align: center;
                     .icon-container {
                         position: relative; 
