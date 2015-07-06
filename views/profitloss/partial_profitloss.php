@@ -1,5 +1,13 @@
 <?php
 
+use yii\helpers\Url;
+
+use frontend\modules\accounting\assets\BaseAsset;
+BaseAsset::register($this);
+?>
+
+<?php
+
 function displayHierarchy($accounts){
     
     echo '<ul class="text-left">';
