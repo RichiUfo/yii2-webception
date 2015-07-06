@@ -50,7 +50,7 @@ function acc_bs_refresh() {
 * Profits And Losses Page *
 *********************/
 function acc_pl_init() {
-    acc_bs_refresh();
+    acc_pl_refresh();
 }
 function acc_pl_refresh() {
     
