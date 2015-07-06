@@ -128,7 +128,7 @@
 }
 /* line 26, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container {
-  position: rel;
+  position: relative;
   margin: auto 0;
   width: 30px;
   height: 30px;
