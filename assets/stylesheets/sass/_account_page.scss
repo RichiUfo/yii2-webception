@@ -1,74 +1,76 @@
-.account-overview {
-    .overview-row {
-        position: relative;
-        .data-block {
-            @include centerer;
-            .data-block-title {
-                font-weight: 600;
-                text-transform: uppercase;
-            }
-        }
-        
-        &.movements {
-            padding: 0px 20px;
-            height: 75px;
-            .column {
-                //margin: 0px 20px;
-            }
-            .movements-container {
-                border: 1px solid rgb(231, 234, 236);
-                border-radius: 5px;
-                text-align: center;
-                .title {
-                    width: 100%;
-                    background: #F9F9F9;
-                    border-bottom: 1px solid rgb(231, 234, 236);
-                    font-size: 14px;
-                    font-weight: 400;
-                }
-                &.red {
-                    //border: 1px solid rgb(235,114,96);
-                    .title {
-                        background: rgba(235,114,96,0.2);
-                        //border-bottom: 1px solid rgb(235,114,96);
-                    }
-                }
-                &.green {
-                    //border: 1px solid rgb(41,171,164);
-                    .title {
-                        background: rgba(41,171,164,0.2);
-                        //border-bottom: 1px solid rgb(41,171,164);
-                    }
+.fp-acc-page {
+    .account-overview {
+        .overview-row {
+            position: relative;
+            .data-block {
+                @include centerer;
+                .data-block-title {
+                    font-weight: 600;
+                    text-transform: uppercase;
                 }
             }
-        }
-        
-        &.balances {
-            > div {
+            
+            &.movements {
+                padding: 0px 20px;
                 height: 75px;
-                padding-bottom: 30p;
-            }
-            .icon-container {
-                z-index: 2;
-                @include centererV;
-                right: -15px;
-                width: 30px;
-                height: 30px;
-                border-radius: 15px;
-                border: 1px solid rgb(231, 234, 236);
-                background: #fff;
-                > i {
-                    @include centerer;
-                    color: rgb(231, 234, 236);
-                    font-weight: 100;
-                    font-size: 20px;
-                    line-height: 20px;
+                .column {
+                    //margin: 0px 20px;
+                }
+                .movements-container {
+                    border: 1px solid rgb(231, 234, 236);
+                    border-radius: 5px;
+                    text-align: center;
+                    .title {
+                        width: 100%;
+                        background: #F9F9F9;
+                        border-bottom: 1px solid rgb(231, 234, 236);
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                    &.red {
+                        //border: 1px solid rgb(235,114,96);
+                        .title {
+                            background: rgba(235,114,96,0.2);
+                            //border-bottom: 1px solid rgb(235,114,96);
+                        }
+                    }
+                    &.green {
+                        //border: 1px solid rgb(41,171,164);
+                        .title {
+                            background: rgba(41,171,164,0.2);
+                            //border-bottom: 1px solid rgb(41,171,164);
+                        }
+                    }
                 }
             }
+            
+            &.balances {
+                > div {
+                    height: 75px;
+                    padding-bottom: 30p;
+                }
+                .icon-container {
+                    z-index: 2;
+                    @include centererV;
+                    right: -15px;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 15px;
+                    border: 1px solid rgb(231, 234, 236);
+                    background: #fff;
+                    > i {
+                        @include centerer;
+                        color: rgb(231, 234, 236);
+                        font-weight: 100;
+                        font-size: 20px;
+                        line-height: 20px;
+                    }
+                }
+            }
+            
         }
-        
     }
-
+    
     ul.composition {
         padding: 0;
     }
