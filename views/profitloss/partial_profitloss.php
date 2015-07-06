@@ -1,3 +1,29 @@
+<?php
+
+function displayHierarchy($accounts){
+    
+    echo '<ul class="text-left">';
+    foreach ($accounts as $account){
+        echo '<li>
+                <a href="'.Url::to(['account/account', 'id' => $account->id]).'">'.$account->name.'</a>
+                <span class="pull-right">
+                    <span class="money" 
+                          value="'.$account->sign*$account->value_converted.'" 
+                          currency="'.'">
+                    </span>
+                </span>
+            </li>';
+        if($account->children != null){
+            displayHierarchy($account->children);
+        }
+    }
+    echo '</ul>';
+    
+}
+
+?>
+
+
 <div id="profit-loss">
     <div class="row">
         <div class="col-lg-6">
