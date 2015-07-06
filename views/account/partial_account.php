@@ -65,9 +65,9 @@
             <!-- Children -->
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                 <h2>Composition</h2>
-                <ul class="composition">
+                <ul class="list-group clear-list m-t">
                     <?php foreach($account->children as $child) : ?>
-                    <li>
+                    <li class="list-group-item">
                         <p>
                             <span><?= $child->name ?></span>
                             <span class="pull-right">
