@@ -70,16 +70,16 @@
                     $first = "fist-item";
                     foreach($account->children as $child) : 
                     ?>
-                    <li class="list-group-item <?= $first ?>">
-                        <p>
-                            <span><?= $child->name ?></span>
-                            <span class="pull-right">
-                                <span class="money" 
-                                      value="<?= $child->sign*$child->value ?>" 
-                                      currency=""></span> <?= $child->currency ?>
-                            </span>
-                        </p>   
-                    </li>
+                        <li class="list-group-item <?= $first ?>">
+                            <p>
+                                <span><?= $child->name ?></span>
+                                <span class="pull-right">
+                                    <span class="money" 
+                                          value="<?= $child->sign*$child->value ?>" 
+                                          currency=""></span> <?= $child->currency ?>
+                                </span>
+                            </p>   
+                        </li>
                     <?php 
                     $first = "";
                     endforeach; 
