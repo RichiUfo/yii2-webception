@@ -20,9 +20,9 @@ use yii\helpers\Url;
                             <div class="icon-container up">
                                 <i class="material-icons">trending_up</i>
                             </div>
-                            <span class="data-block-value money" value="<?= $account->sign*($movements['past_credits'] - $movements['past_debits']) ?>" currency="" decimal="2"></span><br>
-                            <span class="data-block-value money" value="<?= $movements['past_debits'] ?>" currency="" decimal="2"></span><br>
-                            <span class="data-block-value money" value="<?= $movements['past_credits'] ?>" currency="" decimal="2"></span>
+                            <span class="money" value="<?= $account->sign*($movements['past_credits'] - $movements['past_debits']) ?>" currency="" decimal="2"></span><br>
+                            <span class="money" value="<?= $movements['past_debits'] ?>" currency="" decimal="2"></span><br>
+                            <span class="money" value="<?= $movements['past_credits'] ?>" currency="" decimal="2"></span>
                         </div>
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -34,9 +34,9 @@ use yii\helpers\Url;
                             <div class="icon-container down">
                                 <i class="material-icons">trending_down</i>
                             </div>
-                            <span class="data-block-value money" value="<?= $account->sign*($movements['future_credits'] - $movements['future_debits']) ?>" currency="" decimal="2"></span><br>
-                            <span class="data-block-value money" value="<?= $movements['future_debits'] ?>" currency="" decimal="2"></span><br>
-                            <span class="data-block-value money" value="<?= $movements['future_credits'] ?>" currency="" decimal="2"></span>
+                            <span class="money" value="<?= $account->sign*($movements['future_credits'] - $movements['future_debits']) ?>" currency="" decimal="2"></span><br>
+                            <span class="money" value="<?= $movements['future_debits'] ?>" currency="" decimal="2"></span><br>
+                            <span class="money" value="<?= $movements['future_credits'] ?>" currency="" decimal="2"></span>
                         </div>
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
