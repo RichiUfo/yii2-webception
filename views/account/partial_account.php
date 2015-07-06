@@ -77,7 +77,7 @@ use yii\helpers\Url;
                         <li class="list-group-item <?= $first ?>">
                             
                             <!-- First Line -->
-                            <a href="<?= Url::to(['account/display', 'id' => $child->id]) ?>"><span class="first-line"><?= $child->name ?></span></a>
+                            <a href="<?= Url::to(['account/display', 'id' => $child->id]) ?>"><span class="first-line"><?= $child->alias ?></span></a>
                             <span   class="first-line pull-right money" 
                                     value="<?= $child->sign*$child->value_converted ?>" 
                                     currency=""></span>
