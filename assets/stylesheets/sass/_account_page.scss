@@ -56,10 +56,10 @@
                     color: #fff;
                     background: #fff;
                     &.down {
-                        background: #F00;
+                        background: #ed5565;
                     }
                     &.up {
-                        background: #0F0;
+                        background: #18a689;
                     }
                     > i {
                         @include centerer;
