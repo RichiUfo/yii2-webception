@@ -16,8 +16,13 @@ use yii\helpers\Url;
                             <span class="data-block-value money" value="<?= $account->sign*$movements['opening_balance'] ?>" currency="" decimal="2"></span>
                             <span class="data-block-title">Opening</span>
                         </div>
-                        <div class="icon-container up">
-                            <i class="material-icons">trending_up</i>
+                        <div class="movements-container"> 
+                            <div class="icon-container up">
+                                <i class="material-icons">trending_up</i>
+                            </div>
+                            <span class="data-block-value money" value="<?= $account->sign*($movements['past_credits'] - $movements['past_debits']) ?>" currency="" decimal="2"></span><br>
+                            <span class="data-block-value money" value="<?= $movements['past_debits'] ?>" currency="" decimal="2"></span><br>
+                            <span class="data-block-value money" value="<?= $movements['past_credits'] ?>" currency="" decimal="2"></span>
                         </div>
                         <!--svg height="50" width="1" style="position:absolute;right:0;bottom:0;height:50%;z-index:1">
                             <line x1="0" y1="0" x2="0" y2="49" style="stroke:rgb(231,234,236);stroke-width:1" />
