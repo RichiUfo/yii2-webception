@@ -9,7 +9,15 @@
                     text-transform: uppercase;
                 }
             }
-            
+            .icon-container {
+                color: #FFF;
+                &.down {
+                    background: #F00;
+                }
+                &.up {
+                    background: #0F0;
+                }
+            }
             &.movements {
                 padding: 0px 20px;
                 height: 75px;
