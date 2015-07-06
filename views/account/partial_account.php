@@ -77,9 +77,9 @@
                                     <span class="pull-right money" 
                                           value="<?= $child->sign*$child->value_converted ?>" 
                                           currency=""></span>
-                                    <br><?= $child->currency ?>&nbsp;<span class="pull-right money" 
+                                    <br>(<?= $child->currency ?>&nbsp;<span class="pull-right money" 
                                           value="<?= $child->sign*$child->value ?>" 
-                                          currency=""></span>
+                                          currency=""></span>)
                                 </span>
                             </p>   
                         </li>
