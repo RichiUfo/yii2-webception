@@ -30,12 +30,6 @@
                         border: 1px solid rgb(231, 234, 236);
                         color: #fff;
                         background: #fff;
-                        &.down {
-                            background: #ed5565;
-                        }
-                        &.up {
-                            background: #18a689;
-                        }
                         > i {
                             @include centerer;
                             color: rgb(231, 234, 236);
@@ -43,6 +37,15 @@
                             font-size: 20px;
                             line-height: 20px;
                         }
+                        &.down {
+                            background: #ed5565;
+                        }
+                        &.up {
+                            background: #18a689;
+                        }
+                    }
+                    >span:first-child {
+                        margin-top: 20px; 
                     }
                 }
             }
