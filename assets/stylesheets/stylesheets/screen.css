@@ -132,7 +132,7 @@
   position: absolute;
   right: -75px;
   text-align: center;
-  padding-top: 22;
+  padding-top: 22px;
 }
 /* line 24, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container {
