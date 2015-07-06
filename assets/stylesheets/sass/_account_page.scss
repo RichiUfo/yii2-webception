@@ -48,7 +48,15 @@
                     }
                     .numbers {
                         margin-top: 20px;
-                        font-size: 14px; 
+                        > .title {
+                            font-size: 18px;
+                            font-weight: 200;  
+                        }
+                        > .subtitle {
+                            font-size: 10px;
+                            font-weight: 600; 
+                        }
+                        
                     }
                 }
             }
