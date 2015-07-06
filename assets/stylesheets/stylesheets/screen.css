@@ -181,8 +181,8 @@
   font-size: 20px;
   line-height: 20px;
 }
-/* line 73, ../sass/_account_page.scss */
-.account-overview .composition ul {
+/* line 72, ../sass/_account_page.scss */
+.account-overview ul.composition {
   padding: 0;
 }
 

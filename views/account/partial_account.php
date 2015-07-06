@@ -65,7 +65,7 @@
             <!-- Children -->
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                 <h2>Composition</h2>
-                <ul>
+                <ul class="composition">
                     <?php foreach($account->children as $child) : ?>
                     <li>
                         <p>
