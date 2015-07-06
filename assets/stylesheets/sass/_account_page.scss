@@ -17,24 +17,24 @@
                     //margin: 0px 20px;
                 }
                 .movements-container {
-                    border: 1px solid rgb(231, 234, 236);
+                    //border: 1px solid rgb(231, 234, 236);
                     border-radius: 5px;
                     text-align: center;
                     .title {
                         width: 100%;
-                        background: #F9F9F9;
-                        border-bottom: 1px solid rgb(231, 234, 236);
+                        //background: #F9F9F9;
+                        //border-bottom: 1px solid rgb(231, 234, 236);
                         font-size: 14px;
                         font-weight: 400;
                     }
                     &.red {
                         .title {
-                            background: rgba(235,114,96,0.2);
+                            //background: rgba(235,114,96,0.2);
                         }
                     }
                     &.green {
                         .title {
-                            background: rgba(41,171,164,0.2);
+                            //background: rgba(41,171,164,0.2);
                         }
                     }
                 }
