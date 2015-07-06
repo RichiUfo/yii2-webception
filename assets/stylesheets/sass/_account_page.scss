@@ -1,9 +1,7 @@
 .fp-acc-page {
     .account-overview {
         .overview-row {
-            position: relative;
             .data-block {
-                @include centerer;
                 .data-block-title {
                     font-weight: 600;
                     text-transform: uppercase;
@@ -12,9 +10,6 @@
             
             &.balances {
                 .movements-container {
-                    min-width: 150px;
-                    position: absolute;
-                    right: -75px;
                     text-align: center;
                     padding-top: 22px; 
                     .icon-container {

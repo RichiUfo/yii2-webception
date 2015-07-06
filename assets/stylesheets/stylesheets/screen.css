@@ -103,33 +103,17 @@
   transform: translate(-50%, -50%);
 }
 
-/* line 3, ../sass/_account_page.scss */
-.fp-acc-page .account-overview .overview-row {
-  position: relative;
-}
 /* line 5, ../sass/_account_page.scss */
-.fp-acc-page .account-overview .overview-row .data-block {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-/* line 7, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row .data-block .data-block-title {
   font-weight: 600;
   text-transform: uppercase;
 }
-/* line 14, ../sass/_account_page.scss */
+/* line 12, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container {
-  min-width: 150px;
-  position: absolute;
-  right: -75px;
   text-align: center;
   padding-top: 22px;
 }
-/* line 20, ../sass/_account_page.scss */
+/* line 15, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container {
   position: relative;
   left: 58px;
@@ -140,7 +124,7 @@
   color: #fff;
   background: #fff;
 }
-/* line 29, ../sass/_account_page.scss */
+/* line 24, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container > i {
   position: absolute;
   top: 50%;
@@ -153,28 +137,28 @@
   font-size: 20px;
   line-height: 20px;
 }
-/* line 36, ../sass/_account_page.scss */
+/* line 31, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container.down {
   background: #ed5565;
 }
-/* line 39, ../sass/_account_page.scss */
+/* line 34, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .icon-container.up {
   background: #18a689;
 }
-/* line 43, ../sass/_account_page.scss */
+/* line 38, ../sass/_account_page.scss */
 .fp-acc-page .account-overview .overview-row.balances .movements-container .numbers {
   margin-top: 20px;
   font-size: 14px;
 }
-/* line 53, ../sass/_account_page.scss */
+/* line 48, ../sass/_account_page.scss */
 .fp-acc-page .composition.list-group.clear-list .list-group-item {
   padding: 2px 0 4px;
 }
-/* line 56, ../sass/_account_page.scss */
+/* line 51, ../sass/_account_page.scss */
 .fp-acc-page .composition.list-group.clear-list .first-line {
   font-size: 14px;
 }
-/* line 59, ../sass/_account_page.scss */
+/* line 54, ../sass/_account_page.scss */
 .fp-acc-page .composition.list-group.clear-list .second-line {
   font-size: 12px;
 }
