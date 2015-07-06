@@ -39,7 +39,7 @@ function displayHierarchy($accounts){
             <div class="card informative-block transparent">
                 <div class="card-header">
                     <div class="banner-title">
-                        <p><a href="<?php echo Url::to(['account/display', 'id' => $assets->id]) ?>">Operating Profit</a></p>
+                        <p><a href="">Operating Profit</a></p>
                     </div>
                     <div class="banner-subtitle">
                         <p>
