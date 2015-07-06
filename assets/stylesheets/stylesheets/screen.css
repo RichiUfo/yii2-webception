@@ -182,10 +182,14 @@
   line-height: 20px;
 }
 /* line 74, ../sass/_account_page.scss */
+.fp-acc-page .composition li {
+  padding: 2px 0 4px;
+}
+/* line 77, ../sass/_account_page.scss */
 .fp-acc-page .composition .first-line {
   font-size: 14px;
 }
-/* line 77, ../sass/_account_page.scss */
+/* line 80, ../sass/_account_page.scss */
 .fp-acc-page .composition .second-line {
   font-size: 12px;
 }
