@@ -45,7 +45,7 @@ BaseAsset::register($this);
         <table class="table table-condensed">
             <tr><td>Assets</td><td><span class="pull-right">51,000</span></td></tr>
             <tr><td>Equity</td><td><span class="pull-right">22,000</span></td></tr>
-            <tr><td>Debt</td><td><span class="pull-right">29,000</span></td></tr>
+            <tr><td><i class="material-icons">&#xE84F;</i> Debt</td><td><span class="pull-right">29,000</span></td></tr>
             <tr><td>Income</td><td><span class="pull-right">1,000</span></td></tr>
             <tr><td>Losses</td><td><span class="pull-right">700</span></td></tr>
         </table>
