@@ -45,7 +45,7 @@ BaseAsset::register($this);
         <table class="table table-condensed">
             <tr>
                 <td>Assets</td>
-                <td><span class="pull-right" value="51,000"></span></td>
+                <td><span class="pull-right money" value="51,000"></span></td>
                 <td class="green"><i class="material-icons">trending_up</i><span class="pull-right money" value="125.12"></span></td>
             </tr>
             <tr>
