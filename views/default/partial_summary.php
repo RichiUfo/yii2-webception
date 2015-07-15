@@ -21,41 +21,38 @@ use frontend\widgets\chartjs\ChartJs;
                         array_push($liabilities, $v[0]+$v[1]);
                     }
                     ?>
-                    
-                    <?= ChartJs::widget([
-                        'type' => 'Line',
-                        'options' => [
-                            'height' => 200,
-                            'width' => '100%'
-                        ],
-                        'clientOptions' => [
-                            'showScale' => false,
-                            //'maintainAspectRatio' => false,
-                            'scaleShowGridLines' => false,
-                            //'scaleShowLabels' => false,
-                            'responsive' => true,
-                            'showTooltips' => false,
-                            'pointDot' => false,
-                            'bezierCurve' => false,
-                            'datasetStrokeWidth' => 1,
-                        ],
-                        'data' => [
-                            'labels' => $dates,
-                            'datasets' => [
-                                [
-                                    'fillColor' => "rgba(41,171,164,0.2)",
-                                    'strokeColor' => "rgba(41,171,164,1)",
-                                    'data' => $equity
-                                ],
-                                [
-                                    'fillColor' => "rgba(235,114,96,0.2)",
-                                    'strokeColor' => "rgba(235,114,96,1)",
-                                    'data' => $liabilities
+                    <div class="chart-container-full">
+                        <?= ChartJs::widget([
+                            'type' => 'Line',
+                            'clientOptions' => [
+                                'showScale' => false,
+                                //'maintainAspectRatio' => false,
+                                'scaleShowGridLines' => false,
+                                //'scaleShowLabels' => false,
+                                'responsive' => true,
+                                'showTooltips' => false,
+                                'pointDot' => false,
+                                'bezierCurve' => false,
+                                'datasetStrokeWidth' => 1,
+                            ],
+                            'data' => [
+                                'labels' => $dates,
+                                'datasets' => [
+                                    [
+                                        'fillColor' => "rgba(41,171,164,0.2)",
+                                        'strokeColor' => "rgba(41,171,164,1)",
+                                        'data' => $equity
+                                    ],
+                                    [
+                                        'fillColor' => "rgba(235,114,96,0.2)",
+                                        'strokeColor' => "rgba(235,114,96,1)",
+                                        'data' => $liabilities
+                                    ]
                                 ]
                             ]
-                        ]
-                    ]);
-                    ?>
+                        ]);
+                        ?>
+                    </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
                     <div class="row">
