@@ -417,7 +417,7 @@ class AccountController extends \frontend\components\Controller
             return $datapoints;
         } 
         else {
-            return null;
+            return [];
         }
     }
     public function getHistoricalBalance($accountid, $start, $end, $currency = null, $extrapolate = null) {
