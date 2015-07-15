@@ -42,13 +42,13 @@ BaseAsset::register($this);
     
     <!-- Data Summary -->
     <div class="col-lg-4">
-        <ul>
-            <li>Assets<span class="pull-right">51,000</span></li>
-            <li>Equity<span class="pull-right">22,000</span></li>
-            <li>Debt<span class="pull-right">29,000</span></li>
-            <li>Income<span class="pull-right">1,000</span></li>
-            <li>Losses<span class="pull-right">700</span></li>
-        </ul>
+        <table class="table">
+            <tr><td>Assets</td><td><span class="pull-right">51,000</span></td></tr>
+            <tr><td>Equity</td><td><span class="pull-right">22,000</span></td></tr>
+            <tr><td>Debt</td><td><span class="pull-right">29,000</span></td></tr>
+            <tr><td>Income</td><td><span class="pull-right">1,000</span></td></tr>
+            <tr><td>Losses</td><td><span class="pull-right">700</span></td></tr>
+        </table>
     </div>
     
     <!-- Analytics -->
