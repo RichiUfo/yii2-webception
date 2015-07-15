@@ -43,11 +43,27 @@ BaseAsset::register($this);
     <!-- Data Summary -->
     <div class="col-lg-4">
         <table class="table table-condensed">
-            <tr><td>Assets</td><td><span class="pull-right">51,000</span></td></tr>
-            <tr><td>Equity</td><td><span class="pull-right">22,000</span></td></tr>
-            <tr><td><i class="material-icons">&#xE84F;</i> Debt</td><td><span class="pull-right">29,000</span></td></tr>
-            <tr><td>Income</td><td><span class="pull-right">1,000</span></td></tr>
-            <tr><td>Losses</td><td><span class="pull-right">700</span></td></tr>
+            <tr>
+                <td>Assets</td>
+                <td><span class="pull-right" value="51,000"></span></td>
+                <td><i class="material-icons green">trending_up</i><span class="pull-right money" value="125.12"></span></td>
+            </tr>
+            <tr>
+                <td>Equity</td>
+                <td><span class="pull-right">22,000</span></td>
+            </tr>
+            <tr>
+                <td>Debt</td>
+                <td><span class="pull-right">29,000</span></td>
+            </tr>
+            <tr>
+                <td>Income</td>
+                <td><span class="pull-right">1,000</span></td>
+            </tr>
+            <tr>
+                <td>Losses</td>
+                <td><span class="pull-right">700</span></td>
+            </tr>
         </table>
     </div>
     
