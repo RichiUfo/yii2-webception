@@ -20,6 +20,16 @@ BaseAsset::register($this);
 <!-- MAIN CONTENT -->
 <div class="fp-acc-page">
     
+    <div class="row page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Accounting</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="header time-range">
         <h1>Accounting</h1>
     
