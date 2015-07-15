@@ -12,7 +12,7 @@ BaseAsset::register($this);
 ?>
 
 <!-- HEADER -->
-<?php $this->beginBlock('header'); ?>
+<?php $this->beginBlock('page-header'); ?>
     <div class="col-lg-12 header time-range">
         <h1>Accounting</h1>
     
