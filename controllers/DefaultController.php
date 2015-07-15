@@ -34,7 +34,7 @@ class DefaultController extends \frontend\components\Controller
     public function actionIndex($start = '', $end ='') {
         $data = BalancesheetController::getFinancialData();
     
-        $this->layout = '@app/views/layouts/one-column';
+        $this->layout = '@app/views/layouts/one-column-header';
         
         if(\Yii::$app->request->isAjax) {
             
