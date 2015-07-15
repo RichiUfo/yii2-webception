@@ -82,7 +82,7 @@ class BalancesheetController extends Controller
          * REGULAR -> Render the full view
          */
         else{
-            $this->layout = '@app/views/layouts/two-columns-left';
+            $this->layout = '@app/views/layouts/one-column-notfluid';
             return $this->render('balancesheet', [
                 'assets' => $assets, 
                 'equity' => $equity, 

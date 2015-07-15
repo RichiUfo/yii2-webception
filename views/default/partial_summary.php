@@ -6,7 +6,7 @@ use frontend\widgets\chartjs\ChartJs;
     
     <!-- Balance Sheet -->
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-        <h2 class="text-center">Balance Sheet</h2>
+        <h2 class="text-center"><a href="<?= Url::toRoute('/accounting/balancesheet') ?>">Balance Sheet</a></h2>
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
                 <?php
