@@ -25,7 +25,7 @@ BaseAsset::register($this);
                     'name' => 'date_from',
                     'size' => 'sm',
                     'value' => date("Y-m-d", strtotime(date("Y-m-d").' -1 months')),
-                    'nameTo' => 'name_to',
+                    'nameTo' => 'date_to',
                     'valueTo' => date("Y-m-d"),
                     'labelTo' => '<i class="fa fa-chevron-right"></i>',
                     'clientOptions' => [
