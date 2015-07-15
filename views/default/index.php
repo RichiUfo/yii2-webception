@@ -61,7 +61,7 @@ BaseAsset::register($this);
     </div>
     
                    
-    <div class="row page-header">
+    <div class="row">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
