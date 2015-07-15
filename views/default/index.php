@@ -20,7 +20,7 @@ BaseAsset::register($this);
 <!-- MAIN CONTENT -->
 <div class="fp-acc-page">
     
-    <div class=" header time-range">
+    <div class="header time-range">
         <h1>Accounting</h1>
     
         <div class="right-menu">
