@@ -9,68 +9,6 @@
         position: relative;
         border-bottom: 1px solid #F5F5F5;
         margin-bottom: 20px;
-        .right-menu {
-            position: absolute;
-            height: 30px;
-            width: auto;
-            bottom: 10px;
-            right: 0px;
-            .btn-group {
-                position: absolute;
-                right: 220px;
-            }
-            
-            // Menu Items Commons
-            button, input, span {
-                font-family: 'Open Sans', helvetica, arial, sans-serif;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 15px;
-                background: transparent;
-                &:hover {
-                    color: #000;
-                }
-                &.icon {
-                    position: relative;
-                    top: -7px;
-                    font-size: 18px;
-                    line-height: 30px;
-                }
-            }
-            
-            // Dropdown Specifics
-            button {
-                top: 0;
-                height: 30px;
-                border: none;
-                border-right: 1px solid #F5F5F5;
-                .ui-button-text {
-                    font-weight: 400;
-                } 
-                &:active {
-                    box-shadow: none;
-                    
-                }
-            }
-        }
-        
-        #input-daterange-container {
-            display: inline;
-            .input-daterange {
-                width: 220px;
-                display: inline-table;
-                > input {
-                    border: none;
-                }
-                > span {
-                    border: none;
-                    background: transparent;
-                    width: 10px;
-                    height: 22px;
-                    padding: 4px 5;
-                }
-            }
-        }
     }
 
     .content {
