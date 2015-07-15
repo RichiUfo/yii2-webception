@@ -82,7 +82,7 @@ use frontend\widgets\chartjs\ChartJs;
     <!-- Income -->
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
         <div class="box">
-            <h2 class="text-center"><a href="<?= Url::toRoute('/accounting/profitloss') ?>">Profits &amp; Losses</a></h2>
+            <h2 class="title text-center"><a href="<?= Url::toRoute('/accounting/profitloss') ?>">Profits &amp; Losses</a></h2>
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 text-center">
                     <?= ChartJs::widget([
@@ -147,7 +147,7 @@ use frontend\widgets\chartjs\ChartJs;
     <!-- Cash Flow -->
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
         <div class="box">
-            <h2 class="text-center"><a href="<?= Url::toRoute('/accounting/cashflow') ?>">Cash Flow</a></h2>
+            <h2 class="title text-center"><a href="<?= Url::toRoute('/accounting/cashflow') ?>">Cash Flow</a></h2>
             <?= ChartJs::widget([
                 'type' => 'Doughnut',
                 'clientOptions' => [
