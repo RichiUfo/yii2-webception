@@ -25,7 +25,7 @@ use frontend\widgets\chartjs\ChartJs;
                         <?= ChartJs::widget([
                             'type' => 'Line',
                             'options' => [
-                                'height' => 400,
+                                'height' => 100,
                                 'width' => 400
                             ],
                             'clientOptions' => [
