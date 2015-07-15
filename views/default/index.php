@@ -24,39 +24,43 @@ BaseAsset::register($this);
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3>Accounting</h3>
+                    
+                    <!-- Title & Date selector -->
+                    <div class="header time-range">
+                        <h1>Accounting</h1>
+                    
+                        <div class="right-menu">
+                            
+                            <span class="icon"><i class="fa fa-calendar"></i></span> 
+                            
+                            <div id="input-daterange-container">
+                                <?= DateRangePicker::widget([
+                                    'id' => 'input-daterange-widget',
+                                    'name' => 'date_from',
+                                    'size' => 'sm',
+                                    'value' => date("Y-m-d", strtotime(date("Y-m-d").' -1 months')),
+                                    'nameTo' => 'name_to',
+                                    'valueTo' => date("Y-m-d"),
+                                    'labelTo' => '<i class="fa fa-chevron-right"></i>',
+                                    'clientOptions' => [
+                                        'format' => 'yyyy-mm-dd',
+                                        'autoclose' => true
+                                    ],
+                                    'clientEvents' => [
+                                        'changeDate' => 'function ev(){acc_sum_refresh();}'
+                                    ]
+                                ]); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- EO Title & Date selector -->
+                    
                 </div>
             </div>
         </div>
     </div>
     
-    <div class="header time-range">
-        <h1>Accounting</h1>
-    
-        <div class="right-menu">
-            
-            <span class="icon"><i class="fa fa-calendar"></i></span> 
-            
-            <div id="input-daterange-container">
-                <?= DateRangePicker::widget([
-                    'id' => 'input-daterange-widget',
-                    'name' => 'date_from',
-                    'size' => 'sm',
-                    'value' => date("Y-m-d", strtotime(date("Y-m-d").' -1 months')),
-                    'nameTo' => 'name_to',
-                    'valueTo' => date("Y-m-d"),
-                    'labelTo' => '<i class="fa fa-chevron-right"></i>',
-                    'clientOptions' => [
-                        'format' => 'yyyy-mm-dd',
-                        'autoclose' => true
-                    ],
-                    'clientEvents' => [
-                        'changeDate' => 'function ev(){acc_sum_refresh();}'
-                    ]
-                ]); ?>
-            </div>
-        </div>
-    </div>
+                   
     
     <div id="accounting-summary-container" class="content"></div>
     
