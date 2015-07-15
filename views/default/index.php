@@ -61,8 +61,17 @@ BaseAsset::register($this);
     </div>
     
                    
-    
-    <div id="accounting-summary-container" class="content"></div>
+    <div class="row page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <div id="accounting-summary-container" class="content"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
     
     
 </div>
