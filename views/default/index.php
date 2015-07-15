@@ -15,7 +15,7 @@ BaseAsset::register($this);
 <?php $this->beginBlock('page-header'); ?>
 
     <!-- Title & Dates -->
-    <div class="col-lg-12 header time-range">
+    <div class="col-lg-12 time-range">
         <h1>Accounting</h1>
         <div class="right-menu">
             <span class="icon"><i class="fa fa-calendar"></i></span> 
