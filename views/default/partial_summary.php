@@ -24,6 +24,7 @@ use frontend\widgets\chartjs\ChartJs;
                     <div class="chart-container-full-width">
                         <?= ChartJs::widget([
                             'type' => 'Line',
+                            'options' => ['height' => 150],
                             'clientOptions' => [
                                 'showScale' => false,
                                 //'maintainAspectRatio' => false,
