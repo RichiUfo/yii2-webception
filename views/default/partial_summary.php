@@ -21,7 +21,7 @@ use frontend\widgets\chartjs\ChartJs;
                         array_push($liabilities, $v[0]+$v[1]);
                     }
                     ?>
-                    <div class="chart-container-full">
+                    <div class="chart-container-full-width">
                         <?= ChartJs::widget([
                             'type' => 'Line',
                             'clientOptions' => [
