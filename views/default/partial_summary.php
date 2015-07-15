@@ -26,7 +26,7 @@ use frontend\widgets\chartjs\ChartJs;
                             'type' => 'Line',
                             'options' => [
                                 'height' => 100,
-                                'width' => 400
+                                //'width' => 400
                             ],
                             'clientOptions' => [
                                 'showScale' => false,
