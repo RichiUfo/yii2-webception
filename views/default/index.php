@@ -51,18 +51,22 @@ BaseAsset::register($this);
             <tr>
                 <td>Equity</td>
                 <td><span class="pull-right">22,000</span></td>
+                <td class="green"><i class="material-icons">trending_up</i><span class="pull-right money" value="125.12"></span></td>
             </tr>
             <tr>
                 <td>Debt</td>
                 <td><span class="pull-right">29,000</span></td>
+                <td class="green"><i class="material-icons">trending_up</i><span class="pull-right money" value="125.12"></span></td>
             </tr>
             <tr>
                 <td>Income</td>
                 <td><span class="pull-right">1,000</span></td>
+                <td class="green"><i class="material-icons">trending_up</i><span class="pull-right money" value="125.12"></span></td>
             </tr>
             <tr>
                 <td>Losses</td>
                 <td><span class="pull-right">700</span></td>
+                <td class="green"><i class="material-icons">trending_up</i><span class="pull-right money" value="125.12"></span></td>
             </tr>
         </table>
     </div>
