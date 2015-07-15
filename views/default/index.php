@@ -49,9 +49,11 @@ BaseAsset::register($this);
             <tr><td>Income</td><td><span class="pull-right">1,000</span></td></tr>
             <tr><td>Losses</td><td><span class="pull-right">700</span></td></tr>
         </table>
+        
         <ul class="list-group clear-list m-t">
-            
-            
+            <li class="list-group-item first-item">Assets<span class="pull-right">51,000</span></li>
+            <li class="list-group-item">Assets<span class="pull-right">51,000</span></li>
+            <li class="list-group-item">Assets<span class="pull-right">51,000</span></li>
         </ul>
         
     </div>
