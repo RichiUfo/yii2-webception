@@ -412,8 +412,13 @@ class AccountController extends \frontend\components\Controller
         }
         
         // Sort & Return the values
-        if (isset($datapoints)) ksort($datapoints);
-        return $datapoints;
+        if (isset($datapoints)) {
+            ksort($datapoints);
+            return $datapoints;
+        } 
+        else {
+            return null;
+        }
     }
     public function getHistoricalBalance($accountid, $start, $end, $currency = null, $extrapolate = null) {
         
