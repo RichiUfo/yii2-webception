@@ -6,7 +6,7 @@ function acc_sum_init() {
 }
 function acc_sum_refresh() {
     
-    $('#accounting-summary-container').html('<div class="ajaxloader"><img src="/img/ajax-loader.gif"></div>');
+    $('#accounting-summary-container').html('<div class="ajaxloader"><img src="/img/loader."></div>');
 
     var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
     var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
