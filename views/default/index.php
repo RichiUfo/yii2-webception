@@ -13,13 +13,12 @@ BaseAsset::register($this);
 
 <!-- HEADER -->
 <?php $this->beginBlock('page-header'); ?>
+
+    <!-- Title & Dates -->
     <div class="col-lg-12 header time-range">
         <h1>Accounting</h1>
-    
         <div class="right-menu">
-            
             <span class="icon"><i class="fa fa-calendar"></i></span> 
-            
             <div id="input-daterange-container">
                 <?= DateRangePicker::widget([
                     'id' => 'input-daterange-widget',
@@ -40,6 +39,29 @@ BaseAsset::register($this);
             </div>
         </div>
     </div>
+    
+    <!-- Data Summary -->
+    <div class="col-lg-4">
+        <ul>
+            <li>Assets<span class="pull-right">51,000</span></li>
+            <li>Equity<span class="pull-right">22,000</span></li>
+            <li>Debt<span class="pull-right">29,000</span></li>
+            <li>Income<span class="pull-right">1,000</span></li>
+            <li>Losses<span class="pull-right">700</span></li>
+        </ul>
+    </div>
+    
+    <!-- Analytics -->
+    <div class="col-lg-4">
+        
+    </div>
+    
+    
+    <!-- Quick Actions -->
+    <div class="col-lg-4">
+        
+    </div>
+    
 <?php $this->endBlock(); ?>
 
 <!-- MAIN CONTENT -->
