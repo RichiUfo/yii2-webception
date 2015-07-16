@@ -113,7 +113,7 @@ BaseAsset::register($this);
         <table class="table table-condensed">
             <thead>
                 <tr>
-                    <th colspan="3">Operations</th>
+                    <th colspan="3">Quick Actions</th>
                 </tr>
             </thead>
             <tbody>
