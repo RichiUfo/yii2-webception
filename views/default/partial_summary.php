@@ -1,6 +1,12 @@
 <?php
 use yii\helpers\Url;
 use frontend\widgets\chartjs\ChartJs;
+
+use yii\bootstrap\Modal;
+use yii\helpers\Html;
+use yii\widgets\Pjax;
+use yii\bootstrap\ButtonDropdown;
+use dosamigos\datepicker\DateRangePicker;
 ?>
 
 <!-- HEADER -->
