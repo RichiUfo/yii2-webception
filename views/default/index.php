@@ -49,24 +49,19 @@ BaseAsset::register($this);
                 <td class="text-right green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
             </tr>
             <tr>
-                <td>Equity</td>
-                <td><span class="pull-right">22,000</span></td>
-                <td class="green"><i class="material-icons">trending_up</i><span class="pull-right money" value="125.12"></span></td>
+                <td>Assets</td>
+                <td><span class="pull-right money" value="51,000" currency=""></span></td>
+                <td class="text-right green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
             </tr>
             <tr>
-                <td>Debt</td>
-                <td><span class="pull-right">29,000</span></td>
-                <td class="green"><i class="material-icons">trending_up</i><span class="pull-right money" value="125.12"></span></td>
+                <td>Assets</td>
+                <td><span class="pull-right money" value="51,000" currency=""></span></td>
+                <td class="text-right green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
             </tr>
             <tr>
-                <td>Income</td>
-                <td><span class="pull-right">1,000</span></td>
-                <td class="green text-right"><i class="material-icons">trending_up</i><span class="money" value="125.12"></span></td>
-            </tr>
-            <tr>
-                <td>Losses</td>
-                <td><span class="pull-right">700</span></td>
-                <td class="green"><i class="material-icons">trending_up</i><span class="pull-right money" value="125.12"></span></td>
+                <td>Assets</td>
+                <td><span class="pull-right money" value="51,000" currency=""></span></td>
+                <td class="text-right green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
             </tr>
         </table>
     </div>
