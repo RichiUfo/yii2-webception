@@ -31,11 +31,12 @@ class DefaultController extends \frontend\components\Controller
         ];
     }
     
-    public function actionIndex($start = '', $end ='') {
+    /**
+	 * Routed Actions - Views Rendering
+	 */
+    public function actionIndex($start='', $end='') {
         $data = BalancesheetController::getFinancialData();
     
-        $this->layout = '@app/views/layouts/one-column-header';
-        
         if(\Yii::$app->request->isAjax) {
             
             // Get the balance sheet accounts evolution
@@ -49,6 +50,7 @@ class DefaultController extends \frontend\components\Controller
             ]);
         }
         else{
+            $this->layout = '@app/views/layouts/one-column-header';
             return $this->render('index' , [
                 'data' => $data,
                 'back_button' => ['text' => 'Home', 'route' => '/'],
@@ -72,25 +74,22 @@ class DefaultController extends \frontend\components\Controller
             ]);
         }
     }
+    public function actionIndexHeader($start='', $end='') {
+        $data = BalancesheetController::getFinancialData();
+    
+        if(\Yii::$app->request->isAjax) {
+            
+            // Get the balance sheet accounts evolution
+            $balancesheet = BalancesheetController::getBalanceSheetHistoricalBalance($start, $end);
+            
+            return $this->renderAjax('partial_summary_header', [
+                'start' => $start,
+                'end' => $end,
+                'data' => $data,
+                'balancesheet' => $balancesheet
+            ]);
+        }
+    }
+    
 	
-	public function actionTest($id, $s, $e) { 
-		
-		$value      = AccountController::getCurrentBalance($id);
-		$values     = AccountController::getCurrentBalancesRecursive($id); 
-		$currencies = AccountController::getAccountCurrencies($id);
-	    $histos     = AccountController::getHistoricalBalances($id, $s, $e);
-		$balance    = AccountController::getHistoricalBalance($id, $s, $e);
-		$daily      = AccountController::getHistoricalBalance($id, $s, $e, 'EUR', 1);
-		$trans      = TransactionController::getTransactions($id, $s, $e);
-		
-		return $this->render('test', [
-            'histos'        =>  $histos, 
-		    'trans'         =>  $trans, 
-		    'value'         =>  $value, 
-		    'values'        =>  $values,
-		    'currencies'    =>  $currencies,
-		    'daily'         =>  $daily,
-		    'balance'       =>  $balance
-		]);
-	}
 }
