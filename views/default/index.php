@@ -75,11 +75,10 @@ BaseAsset::register($this);
     
     <!-- Analytics -->
     <div class="col-lg-4">
-        <h3>Analytics</h3>
         <table class="table table-condensed">
             <thead>
                 <tr>
-                    <th colspan="3">Summary</th>
+                    <th colspan="3">Analytics</th>
                 </tr>
             </thead>
             <tbody>
