@@ -83,7 +83,7 @@ use frontend\widgets\stepform\StepFormModalContainerWidget;
         <tbody>
             <tr>
                 <td id="link-transaction-create-button">
-                    <i class="fa fa-plus.'"></i><span>Create Transaction</span>
+                    <i class="fa fa-plus"></i><span>Create Transaction</span>
                     
                     <?php
                     // Generate the modal
@@ -92,19 +92,11 @@ use frontend\widgets\stepform\StepFormModalContainerWidget;
                             'size' => 'modal-lg',
                             'options' => ['class' => 'no-padding']
                         ]);
-                    echo '<div class="link-transaction-create-content"></div>';
+                    //echo '<div class="link-transaction-create-content"></div>';
                     $modal->end();
                     
                     // Load the content
                     $this->registerJs("
-                        $.ajax({
-                            url: '".Url::to('transaction/create')."',
-                            success: function(result){
-                                $('#link-transaction-create').find('.link-transaction-create-content').html(result);
-                                $(document).trigger('domupdated');
-                            }
-                        });
-                        
                         $('#link-transaction-create-button').click(function (){
                             $('#link-transaction-create').modal('show');
                         });
