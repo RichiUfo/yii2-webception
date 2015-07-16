@@ -45,23 +45,23 @@ BaseAsset::register($this);
         <table class="table table-condensed">
             <tr>
                 <td>Assets</td>
-                <td><span class="pull-right money" value="51,000" currency=""></span></td>
-                <td class="text-right green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
+                <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
+                <td class="text-right fit-width green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
             </tr>
             <tr>
                 <td>Assets</td>
-                <td><span class="pull-right money" value="51,000" currency=""></span></td>
-                <td class="text-right green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
+                <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
+                <td class="text-right fit-width green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
             </tr>
             <tr>
                 <td>Assets</td>
-                <td><span class="pull-right money" value="51,000" currency=""></span></td>
-                <td class="text-right green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
+                <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
+                <td class="text-right fit-width green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
             </tr>
             <tr>
                 <td>Assets</td>
-                <td><span class="pull-right money" value="51,000" currency=""></span></td>
-                <td class="text-right green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
+                <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
+                <td class="text-right fit-width green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
             </tr>
         </table>
     </div>
