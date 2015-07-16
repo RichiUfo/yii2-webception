@@ -11,6 +11,7 @@ function acc_sum_refresh() {
     
     var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
     var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
+    var fully_loaded = 0;
 
     $.ajax({
         url: '/accounting/default/index',
@@ -18,7 +19,8 @@ function acc_sum_refresh() {
         data: {start: start, end: end},
         success: function(result){
             $('#accounting-summary-container').html(result);
-            $(document).trigger('domupdated');
+            fully_loaded++;
+            if(fully_loaded == 2) $(document).trigger('domupdated');
         }
     });
     
@@ -28,7 +30,8 @@ function acc_sum_refresh() {
         data: {start: start, end: end},
         success: function(result){
             $('#page-header-summary').html(result);
-            $(document).trigger('domupdated');
+            fully_loaded++;
+            if(fully_loaded == 2) $(document).trigger('domupdated');
         }
     });
 };
