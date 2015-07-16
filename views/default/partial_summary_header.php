@@ -1,29 +1,3 @@
-<!-- Title & Dates -->
-<div class="col-lg-12 time-range">
-    <h1>Accounting</h1>
-    <div class="right-menu">
-        <span class="icon"><i class="fa fa-calendar"></i></span> 
-        <div id="input-daterange-container">
-            <?= DateRangePicker::widget([
-                'id' => 'input-daterange-widget',
-                'name' => 'date_from',
-                'size' => 'sm',
-                'value' => date("Y-m-d", strtotime(date("Y-m-d").' -1 months')),
-                'nameTo' => 'date_to',
-                'valueTo' => date("Y-m-d"),
-                'labelTo' => '<i class="fa fa-chevron-right"></i>',
-                'clientOptions' => [
-                    'format' => 'yyyy-mm-dd',
-                    'autoclose' => true
-                ],
-                'clientEvents' => [
-                    'changeDate' => 'function ev(){acc_sum_refresh();}'
-                ]
-            ]); ?>
-        </div>
-    </div>
-</div>
-
 <!-- Data Summary -->
 <div class="col-lg-4">
     <table class="table table-condensed">
