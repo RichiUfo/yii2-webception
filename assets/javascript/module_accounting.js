@@ -11,33 +11,22 @@ function acc_sum_refresh() {
     
     var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
     var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
-    var fully_loaded = 0;
 
-    /*$.ajax({
-        url: '/accounting/default/index',
-        type: 'GET',
-        data: {start: start, end: end},
-        success: function(result){
-            $('#accounting-summary-container').html(result);
-            fully_loaded++;
-            if(fully_loaded == 2) {
-                console.log(fully_loaded);
-                $(document).trigger('domupdated');
-            }
-        }
-    });*/
-    
     $.ajax({
         url: '/accounting/default/index-header',
         type: 'GET',
         data: {start: start, end: end},
         success: function(result){
             $('#page-header-summary').html(result);
-            fully_loaded++;
-            if(fully_loaded == 2) {
-                console.log(fully_loaded);
-                $(document).trigger('domupdated');
-            }
+            $.ajax({
+                url: '/accounting/default/index',
+                type: 'GET',
+                data: {start: start, end: end},
+                success: function(result){
+                    $('#accounting-summary-container').html(result);
+                    $(document).trigger('domupdated');
+                }
+            });
         }
     });
 };
