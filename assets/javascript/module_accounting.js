@@ -7,7 +7,7 @@ function acc_sum_init() {
 function acc_sum_refresh() {
     
     $('#accounting-summary-container').html('<div class="ajaxloader"><img src="/img/loader.png"></div>'); 
-    $('#page-header').html('<div class="ajaxloader"><img src="/img/loader.png"></div>');
+    $('#page-header-summary').html('<div class="ajaxloader"><img src="/img/loader.png"></div>');
     
     var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
     var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
@@ -27,7 +27,7 @@ function acc_sum_refresh() {
         type: 'GET',
         data: {start: start, end: end},
         success: function(result){
-            $('#page-header').html(result);
+            $('#page-header-summary').html(result);
             $(document).trigger('domupdated');
         }
     });

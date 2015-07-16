@@ -13,6 +13,7 @@ BaseAsset::register($this);
 
 <!-- HEADER -->
 <?php $this->beginBlock('page-header'); ?>
+    
     <!-- Title & Dates -->
     <div class="col-lg-12 time-range">
         <h1>Accounting</h1>
@@ -38,6 +39,9 @@ BaseAsset::register($this);
             </div>
         </div>
     </div>
+    
+    <!-- Page Summary -->
+    <div id="page-header-summary"></div>
 <?php $this->endBlock(); ?>
 
 <!-- MAIN CONTENT -->
