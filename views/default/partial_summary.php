@@ -48,7 +48,7 @@ use dosamigos\datepicker\DateRangePicker;
             </thead>
             <tbody>
                 <tr>
-                    <td>yo</td>
+                    <td></td>
                     <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
                     <td class="text-right fit-width text-green"><i class="material-icons">trending_up</i><span class="money" value="125.12" currency=""></span></td>
                 </tr>
