@@ -45,7 +45,7 @@ BaseAsset::register($this);
         <table class="table table-condensed">
             <thead>
                 <tr>
-                    <th>Summary</th>
+                    <th colspan="3">Summary</th>
                 </tr>
             </thead>
             <tbody>
