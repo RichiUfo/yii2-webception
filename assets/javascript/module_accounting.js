@@ -13,7 +13,7 @@ function acc_sum_refresh() {
     var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
     var fully_loaded = 0;
 
-    $.ajax({
+    /*$.ajax({
         url: '/accounting/default/index',
         type: 'GET',
         data: {start: start, end: end},
@@ -25,7 +25,7 @@ function acc_sum_refresh() {
                 $(document).trigger('domupdated');
             }
         }
-    });
+    });*/
     
     $.ajax({
         url: '/accounting/default/index-header',
