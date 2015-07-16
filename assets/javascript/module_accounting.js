@@ -18,6 +18,7 @@ function acc_sum_refresh() {
         data: {start: start, end: end},
         success: function(result){
             $('#page-header-summary').html(result);
+            $(document).trigger('domupdated');
             $.ajax({
                 url: '/accounting/default/index',
                 type: 'GET',
