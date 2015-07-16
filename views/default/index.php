@@ -77,26 +77,33 @@ BaseAsset::register($this);
     <div class="col-lg-4">
         <h3>Analytics</h3>
         <table class="table table-condensed">
-            <tr>
-                <td>Assets</td>
-                <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
-                <td class="text-right fit-width text-green"><i class="material-icons">trending_up</i><span class="money" value="125.12" currency=""></span></td>
-            </tr>
-            <tr>
-                <td>Assets</td>
-                <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
-                <td class="text-right fit-width text-green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
-            </tr>
-            <tr>
-                <td>Assets</td>
-                <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
-                <td class="text-right fit-width text-red"><i class="material-icons">trending_down</i><span class="money" value="125.12" currency=""></span></td>
-            </tr>
-            <tr>
-                <td>Assets</td>
-                <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
-                <td class="text-right fit-width text-green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
-            </tr>
+            <thead>
+                <tr>
+                    <th colspan="3">Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Assets</td>
+                    <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
+                    <td class="text-right fit-width text-green"><i class="material-icons">trending_up</i><span class="money" value="125.12" currency=""></span></td>
+                </tr>
+                <tr>
+                    <td>Assets</td>
+                    <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
+                    <td class="text-right fit-width text-green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
+                </tr>
+                <tr>
+                    <td>Assets</td>
+                    <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
+                    <td class="text-right fit-width text-red"><i class="material-icons">trending_down</i><span class="money" value="125.12" currency=""></span></td>
+                </tr>
+                <tr>
+                    <td>Assets</td>
+                    <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
+                    <td class="text-right fit-width text-green"><i class="material-icons">arrow_drop_up</i><span class="money" value="125.12" currency=""></span></td>
+                </tr>
+            </tbody>
         </table>
         
     </div>
