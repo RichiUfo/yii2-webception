@@ -20,8 +20,10 @@ function acc_sum_refresh() {
         success: function(result){
             $('#accounting-summary-container').html(result);
             fully_loaded++;
-            console.log(fully_loaded);
-            if(fully_loaded == 2) $(document).trigger('domupdated');
+            if(fully_loaded == 2) {
+                console.log(fully_loaded);
+                $(document).trigger('domupdated');
+            }
         }
     });
     
@@ -32,8 +34,10 @@ function acc_sum_refresh() {
         success: function(result){
             $('#page-header-summary').html(result);
             fully_loaded++;
-            console.log(fully_loaded);
-            if(fully_loaded == 2) $(document).trigger('domupdated');
+            if(fully_loaded == 2) {
+                console.log(fully_loaded);
+                $(document).trigger('domupdated');
+            }
         }
     });
 };
