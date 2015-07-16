@@ -1,3 +1,9 @@
+<?php
+use yii\helpers\Url;
+use yii\bootstrap\Modal;
+use frontend\widgets\stepform\StepFormModalContainerWidget;
+?>
+
 <!-- Data Summary -->
 <div class="col-lg-4">
     <table class="table table-condensed">
@@ -76,7 +82,35 @@
         </thead>
         <tbody>
             <tr>
-                <td></td>
+                <td id="link-transaction-create-button">
+                    <i class="fa fa-plus.'"></i><span>Create Transaction</span>
+                    
+                    <?php
+                    // Generate the modal
+                    $modal = Modal::begin([
+                            'id' => 'link-transaction-create',
+                            'size' => 'modal-lg',
+                            'options' => ['class' => 'no-padding']
+                        ]);
+                    echo '<div class="link-transaction-create-content"></div>';
+                    $modal->end();
+                    
+                    // Load the content
+                    $this->registerJs("
+                        $.ajax({
+                            url: '".Url::to('transaction/create')."',
+                            success: function(result){
+                                $('#link-transaction-create').find('.link-transaction-create-content').html(result);
+                                $(document).trigger('domupdated');
+                            }
+                        });
+                        
+                        $('#link-transaction-create-button').click(function (){
+                            $('#link-transaction-create').modal('show');
+                        });
+                    ", $this::POS_END);
+                    ?>
+                </td>
                 <td></td>
                 <td></td>
             </tr>
