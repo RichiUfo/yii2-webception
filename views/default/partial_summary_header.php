@@ -16,23 +16,23 @@ use frontend\widgets\buttonmodal\ButtonModal;
         <tbody>
             <tr>
                 <td>Assets</td>
-                <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
-                <td class="text-right fit-width text-green"><i class="material-icons">trending_up</i><span class="money" value="125.12" currency=""></span></td>
+                <td class="fit-width"><span class="pull-right money" value="<?= $data['total_assets'] ?>" currency=""></span></td>
+                <td class="text-right fit-width text-green"><i class="material-icons">trending_up</i><span class="money" value="0" currency=""></span></td>
             </tr>
             <tr>
                 <td>Revenues</td>
-                <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
-                <td class="text-right fit-width text-green"><i class="material-icons">trending_up</i><span class="money" value="125.12" currency=""></span></td>
+                <td class="fit-width"><span class="pull-right money" value="0" currency=""></span></td>
+                <td class="text-right fit-width text-green"><i class="material-icons">trending_up</i><span class="money" value="0" currency=""></span></td>
             </tr>
             <tr>
                 <td>Expenses</td>
-                <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
-                <td class="text-right fit-width text-red"><i class="material-icons">trending_down</i><span class="money" value="125.12" currency=""></span></td>
+                <td class="fit-width"><span class="pull-right money" value="0" currency=""></span></td>
+                <td class="text-right fit-width text-red"><i class="material-icons">trending_down</i><span class="money" value="0" currency=""></span></td>
             </tr>
             <tr>
                 <td>Net Income</td>
-                <td class="fit-width"><span class="pull-right money" value="51,000" currency=""></span></td>
-                <td class="text-right fit-width text-green"><i class="material-icons">trending_up</i><span class="money" value="125.12" currency=""></span></td>
+                <td class="fit-width"><span class="pull-right money" value="0" currency=""></span></td>
+                <td class="text-right fit-width text-green"><i class="material-icons">trending_up</i><span class="money" value="0" currency=""></span></td>
             </tr>
         </tbody>
     </table>
