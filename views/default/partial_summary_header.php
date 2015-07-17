@@ -98,7 +98,7 @@ use frontend\widgets\stepform\StepFormModalContainerWidget;
                     // Load the content
                     $this->registerJs("
                         $.ajax({
-                            url: '".Url::toRoute('transaction/create')."',
+                            url: '".Url::toRoute('/accounting/transaction/create')."',
                             success: function(result){
                                 $('#link-transaction-create').find('.link-transaction-create-content').html(result);
                                 $(document).trigger('domupdated');
