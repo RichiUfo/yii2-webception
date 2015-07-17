@@ -49,7 +49,7 @@ function acc_bs_refresh() {
         type: 'GET',
         data: {start: start, end: end},
         success: function(result){
-            $('#page-header-balancesheet').html(result);
+            $('#page-header-summary').html(result);
             $(document).trigger('domupdated');
             $.ajax({
                 url: '/accounting/balancesheet/index',
