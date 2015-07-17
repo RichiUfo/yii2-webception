@@ -6,7 +6,7 @@ use frontend\widgets\buttonmodal\ButtonModal;
 ?>
 
 <!-- Data Summary -->
-<div class="col-lg-3">
+<div class="col-lg-4">
     <table class="table table-condensed">
         <thead>
             <tr>
@@ -39,7 +39,7 @@ use frontend\widgets\buttonmodal\ButtonModal;
 </div>
 
 <!-- Analytics -->
-<div class="col-lg-3">
+<div class="col-lg-4">
     <table class="table table-condensed">
         <thead>
             <tr>
@@ -72,7 +72,7 @@ use frontend\widgets\buttonmodal\ButtonModal;
 </div>
 
 <!-- Quick Actions -->
-<div class="col-lg-3">
+<div class="col-lg-4">
     <table class="table table-condensed quick-actions">
         <thead>
             <tr>
