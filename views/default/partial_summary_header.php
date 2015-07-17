@@ -87,7 +87,7 @@ use frontend\widgets\buttonmodal\ButtonModal;
                     <i class="fa fa-plus"></i><span>Create Transaction</span>
                 </td>
                 <td>
-                    <?php
+                    <?=
                     ButtonModal::widget([
                         'caption' => 'New Transaction',
                         'icon' => 'plus',
