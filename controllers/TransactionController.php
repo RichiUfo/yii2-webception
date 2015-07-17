@@ -73,7 +73,7 @@ class TransactionController extends \frontend\components\Controller
         // Step 1 : Request users inputs
         $model->date_value = date('Y/m/d');
 		if(\Yii::$app->request->isAjax) {
-			return $this->renderAjax('create', [
+			return $this->renderPartial('create', [
 				'model' => $model,
 				'accounts' => AccountController::getAccountList(true)
         	]);
