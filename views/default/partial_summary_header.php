@@ -90,7 +90,13 @@ use frontend\widgets\buttonmodal\ButtonModal;
                         'route' => '/accounting/transaction/create'
                     ]) ?>
                 </td>
-                <td></td>
+                <td>
+                    <?= ButtonModal::widget([
+                        'caption' => 'New Account',
+                        'icon' => 'plus',
+                        'route' => '/accounting/account/create'
+                    ]) ?>
+                </td>
             </tr>
             
         </tbody>
