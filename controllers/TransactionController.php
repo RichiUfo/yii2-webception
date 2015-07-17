@@ -84,7 +84,6 @@ class TransactionController extends \frontend\components\Controller
 				'accounts' => AccountController::getAccountList(true)
         	]);
 		}
-        
     }
     
     /**
