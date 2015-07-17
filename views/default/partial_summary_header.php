@@ -75,10 +75,10 @@ use frontend\widgets\buttonmodal\ButtonModal;
 
 <!-- Quick Actions -->
 <div class="col-lg-4">
-    <table class="table table-condensed">
+    <table class="table table-condensed quick-actions">
         <thead>
             <tr>
-                <th colspan="3">Quick Actions</th>
+                <th colspan="2">Quick Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -90,7 +90,6 @@ use frontend\widgets\buttonmodal\ButtonModal;
                         'route' => '/accounting/transaction/create'
                     ]) ?>
                 </td>
-                <td></td>
                 <td></td>
             </tr>
             
