@@ -2,6 +2,7 @@
 use yii\helpers\Url;
 use yii\bootstrap\Modal;
 use frontend\widgets\stepform\StepFormModalContainerWidget;
+frontend\widgets\buttonmodal\ButtonModal;
 ?>
 
 <!-- Data Summary -->
@@ -85,7 +86,15 @@ use frontend\widgets\stepform\StepFormModalContainerWidget;
                 <td id="link-transaction-create-button">
                     <i class="fa fa-plus"></i><span>Create Transaction</span>
                 </td>
-                <td></td>
+                <td>
+                    <?php
+                    ButtonModal::widget([
+                        'caption' => 'New Transaction',
+                        'icon' => 'plus',
+                        'route' => '/accounting/transaction/create'
+                    ]);
+                    ?>
+                </td>
                 <td></td>
             </tr>
             
