@@ -82,7 +82,9 @@ function displayHierarchy($accounts){
                 </div>
             </div>
             <!-- END OF EQUITY -->
-            
+        </div>
+        
+        <div class="box">    
             <!-- LIABILITIES -->
             <div class="card informative-block transparent">
                 <div class="card-header">
