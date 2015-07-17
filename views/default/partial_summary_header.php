@@ -2,7 +2,7 @@
 use yii\helpers\Url;
 use yii\bootstrap\Modal;
 use frontend\widgets\stepform\StepFormModalContainerWidget;
-frontend\widgets\buttonmodal\ButtonModal;
+use frontend\widgets\buttonmodal\ButtonModal;
 ?>
 
 <!-- Data Summary -->
