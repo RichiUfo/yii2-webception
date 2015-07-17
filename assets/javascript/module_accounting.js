@@ -39,19 +39,27 @@ function acc_bs_init() {
     acc_bs_refresh();
 }
 function acc_bs_refresh() {
+    $('#accounting-balancesheet-container').html('<div class="ajaxloader"><img src="/img/loader.png"></div>'); 
     
-    $('#accounting-balancesheet-container').html('<div class="ajaxloader"><img src="/img/ajax-loader.gif"></div>');
-
     var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
     var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
 
     $.ajax({
-        url: '/accounting/balancesheet/index',
+        url: '/accounting/default/index-header',
         type: 'GET',
         data: {start: start, end: end},
         success: function(result){
-            $('#accounting-balancesheet-container').html(result);
+            $('#page-header-balancesheet').html(result);
             $(document).trigger('domupdated');
+            $.ajax({
+                url: '/accounting/balancesheet/index',
+                type: 'GET',
+                data: {start: start, end: end},
+                success: function(result){
+                    $('#accounting-balancesheet-container').html(result);
+                    $(document).trigger('domupdated');
+                }
+            });
         }
     });
 };
