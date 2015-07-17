@@ -83,47 +83,17 @@ use frontend\widgets\buttonmodal\ButtonModal;
         </thead>
         <tbody>
             <tr>
-                <td id="link-transaction-create-button">
-                    <i class="fa fa-plus"></i><span>Create Transaction</span>
-                </td>
                 <td>
-                    <?=
-                    ButtonModal::widget([
+                    <?= ButtonModal::widget([
                         'caption' => 'New Transaction',
                         'icon' => 'plus',
                         'route' => '/accounting/transaction/create'
-                    ]);
-                    ?>
+                    ]) ?>
                 </td>
+                <td></td>
                 <td></td>
             </tr>
             
         </tbody>
     </table>
 </div>
-
-<?php
-// Generate the modal
-$modal = Modal::begin([
-        'id' => 'link-transaction-create',
-        'size' => 'modal-lg',
-        'options' => ['class' => 'no-padding']
-    ]);
-echo '<div class="link-transaction-create-content"></div>';
-$modal->end();
-
-// Load the content
-$this->registerJs("
-    $.ajax({
-        url: '".Url::toRoute('/accounting/transaction/create')."',
-        success: function(result){
-            $('#link-transaction-create').find('.link-transaction-create-content').html(result);
-            $(document).trigger('domupdated');
-        }
-    });
-    
-    $('#link-transaction-create-button').click(function (){
-        $('#link-transaction-create').modal('show');
-    });
-", $this::POS_END);
-?>
