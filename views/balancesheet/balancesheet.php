@@ -39,7 +39,7 @@ BaseAsset::register($this);
     </div>
     
     <!-- Page Summary -->
-    <div id="page-header-balancesheet" class="row"></div>
+    <div id="page-header-summary" class="row"></div>
     
 <?php $this->endBlock(); ?>
 
