@@ -36,73 +36,73 @@ function displayHierarchy($accounts){
 <!-- MAIN CONTENT -->
 <div id="balance-sheet" class="row">
     <div class="col-lg-6">
-        
-        <!-- ASSETS -->
-        <div class="card informative-block transparent">
-            <div class="card-header">
-                <div class="banner-title">
-                    <p><a href="<?php echo Url::to(['account/display', 'id' => $assets->id]) ?>"><?= $assets->alias ?></a></p>
+        <div class="box">
+            <!-- ASSETS -->
+            <div class="card informative-block transparent">
+                <div class="card-header">
+                    <div class="banner-title">
+                        <p><a href="<?php echo Url::to(['account/display', 'id' => $assets->id]) ?>"><?= $assets->alias ?></a></p>
+                    </div>
+                    <div class="banner-subtitle">
+                        <p>
+                            <span class="money" 
+                                  value="<?= $assets->sign*$assets->value_converted ?>" 
+                                  currency="<?= $assets->currency ?>&nbsp;">
+                            </span>
+                        </p>
+                    </div>
                 </div>
-                <div class="banner-subtitle">
-                    <p>
-                        <span class="money" 
-                              value="<?= $assets->sign*$assets->value_converted ?>" 
-                              currency="<?= $assets->currency ?>&nbsp;">
-                        </span>
-                    </p>
+                <div class="card-content">
+                    <?php displayHierarchy($assets->children); ?>
                 </div>
             </div>
-            <div class="card-content">
-                <?php displayHierarchy($assets->children); ?>
-            </div>
+            <!-- END OF ASSETS -->
         </div>
-        <!-- END OF ASSETS -->
-        
     </div>    
 
     <div class="col-lg-6">
-        
-        <!-- EQUITY -->
-        <div class="card informative-block transparent">
-            <div class="card-header">
-                <div class="banner-title">
-                    <p><a href="<?php echo Url::to(['account/display', 'id' => $equity->id]) ?>"><?= $equity->alias ?></a></p>
+        <div class="box">
+            <!-- EQUITY -->
+            <div class="card informative-block transparent">
+                <div class="card-header">
+                    <div class="banner-title">
+                        <p><a href="<?php echo Url::to(['account/display', 'id' => $equity->id]) ?>"><?= $equity->alias ?></a></p>
+                    </div>
+                    <div class="banner-subtitle">
+                        <p>
+                            <span class="money" 
+                                  value="<?= $equity->sign*$equity->value_converted ?>" 
+                                  currency="<?= $equity->currency ?>&nbsp;">
+                            </span>
+                        </p>
+                    </div>
                 </div>
-                <div class="banner-subtitle">
-                    <p>
-                        <span class="money" 
-                              value="<?= $equity->sign*$equity->value_converted ?>" 
-                              currency="<?= $equity->currency ?>&nbsp;">
-                        </span>
-                    </p>
+                <div class="card-content">
+                    <?php displayHierarchy($equity->children); ?>
                 </div>
             </div>
-            <div class="card-content">
-                <?php displayHierarchy($equity->children); ?>
+            <!-- END OF EQUITY -->
+            
+            <!-- LIABILITIES -->
+            <div class="card informative-block transparent">
+                <div class="card-header">
+                    <div class="banner-title">
+                        <p><a href="<?php echo Url::to(['account/display', 'id' => $liabilities->id]) ?>"><?= $liabilities->alias ?></a></p>
+                    </div>
+                    <div class="banner-subtitle">
+                        <p>
+                            <span class="money" 
+                                  value="<?= $liabilities->sign*$liabilities->value_converted ?>" 
+                                  currency="<?= $liabilities->currency ?>&nbsp;">
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <?php displayHierarchy($liabilities->children); ?>
+                </div>
             </div>
+            <!-- END OF LIABILITIES -->
         </div>
-        <!-- END OF EQUITY -->
-        
-        <!-- LIABILITIES -->
-        <div class="card informative-block transparent">
-            <div class="card-header">
-                <div class="banner-title">
-                    <p><a href="<?php echo Url::to(['account/display', 'id' => $liabilities->id]) ?>"><?= $liabilities->alias ?></a></p>
-                </div>
-                <div class="banner-subtitle">
-                    <p>
-                        <span class="money" 
-                              value="<?= $liabilities->sign*$liabilities->value_converted ?>" 
-                              currency="<?= $liabilities->currency ?>&nbsp;">
-                        </span>
-                    </p>
-                </div>
-            </div>
-            <div class="card-content">
-                <?php displayHierarchy($liabilities->children); ?>
-            </div>
-        </div>
-        <!-- END OF LIABILITIES -->
-        
     </div>
 </div>
