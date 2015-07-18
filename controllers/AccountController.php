@@ -590,7 +590,7 @@ class AccountController extends \frontend\components\Controller
          * REGULAR -> Render the full view
          */
         else{
-            $this->layout = '@app/views/layouts/two-columns-left';
+            $this->layout = '@app/views/layouts/one-column-header';
             return $this->render('account', [
                 'account' => $account,
                 'back_button' => $back_button,
