@@ -1,3 +1,33 @@
+/********************************
+* Generic Data Loading Function *
+********************************/
+function ajax_load(content) {
+    var i;
+    
+    // Display an ajax loader when requested
+    for	(i=0; i < content.length; i++) {
+        if (content[i].loader == true) {
+            $(content[i].target).html('<div class="ajaxloader"><img src="/img/loader.png"></div>');
+        } 
+    }
+    
+    // Load the contents
+    for	(i=0; i < content.length; i++) {
+        $.ajax({
+            url: content[i].url,
+            type: 'GET',
+            data: content[i].params,
+            success: function(result){
+                $(content[i].target).html(result);
+                $(document).trigger('domupdated');
+            }
+        });
+    }
+    
+}
+
+
+
 /**************************
 * Accounting Summary Page *
 **************************/
@@ -44,7 +74,20 @@ function acc_bs_refresh() {
     var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
     var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
 
-    $.ajax({
+    ajax_load([
+        {
+            target: '#page-header-summary',
+            url: '/accounting/balancesheet/index-header',
+            params: {start: start, end: end}
+        },
+        {
+            target: '#accounting-balancesheet-container',
+            url: '/accounting/balancesheet/index',
+            params: {start: start, end: end}
+        }
+    ]);
+
+    /*$.ajax({
         url: '/accounting/balancesheet/index-header',
         type: 'GET',
         data: {start: start, end: end},
@@ -61,7 +104,7 @@ function acc_bs_refresh() {
                 }
             });
         }
-    });
+    });*/
 };
 
 /*********************
