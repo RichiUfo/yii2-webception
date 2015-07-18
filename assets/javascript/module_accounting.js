@@ -14,6 +14,18 @@ function ajax_load(content) {
         } 
     }
     
+    // Load the contents
+    for	(i=0; i < content.length; i++) {
+        $.ajax({
+            url: content[i].url,
+            type: 'GET',
+            data: content[i].params,
+            success: function(result, content){
+                $(content[i].target).html(result);
+                $(document).trigger('domupdated');
+            }
+        });
+    }
     
 }
 
