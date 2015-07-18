@@ -13,13 +13,14 @@ function ajax_load(content) {
     
     // Load the contents
     for	(i=0; i < content.length; i++) {
+        var target = content[i].target;
         $.ajax({
             url: content[i].url,
             type: 'GET',
             data: content[i].params,
-            success: function(result, i){
-                console.log('In the success function, logging content : ', content[i]);
-                $(content[i].target).html(result);
+            success: function(result){
+                console.log('In the success function, logging target : ', target);
+                $(.target).html(result);
                 $(document).trigger('domupdated');
             }
         });
