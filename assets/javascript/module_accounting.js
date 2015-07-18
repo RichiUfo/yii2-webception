@@ -120,24 +120,9 @@ function acc_acc_init() {
 }
 function acc_acc_refresh() {
     
-    $('#accounting-account-container').html('<div class="ajaxloader"><img src="/img/ajax-loader.gif"></div>');
-
-    var accountid = $("#accounting-account-container").attr("accountid");
-    var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
-    var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
-
-    $.ajax({
-        url: '/accounting/account/display',
-        type: 'GET',
-        data: {id: accountid, start: start, end: end},
-        success: function(result){
-            $('#accounting-account-container').html(result);
-            $(document).trigger('domupdated');
-        }
-    });
-    
     display_accounting_loader('#accounting-account-container');
     var dates = get_accounting_dates();
+    var accountid = $("#accounting-account-container").attr("accountid");
     
     ajax_load([
         /*{
@@ -150,10 +135,8 @@ function acc_acc_refresh() {
             target: '#accounting-account-container',
             url: '/accounting/account/display',
             loader: true,
-            params: dates
+            params: $.extend({}, dates, {id: accountid})
         }
     ]);
-};
-    
 };
 
