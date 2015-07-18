@@ -3,12 +3,15 @@
 ********************************/
 function ajax_load(content) {
     
-    // Load the contents
+    console.log(content);
+    
     $.ajax({
         url: content[0].url,
         type: 'GET',
         data: content[0].params,
         success: function(result, b, c){
+            
+            // Load the content and trigger the domupdated event
             $(content[0].target).html(result);
             $(document).trigger('domupdated');
             
@@ -16,6 +19,9 @@ function ajax_load(content) {
             content.shift();
             if(content !== []) {
                 ajax_load(content);
+            }
+            else {
+                $(document).trigger('domupdated');
             }
         }
     });
