@@ -15,7 +15,7 @@ function ajax_load(content) {
             
             // Removes the first element and call the function again
             content.shift();
-            if(content !== []) {
+            if(content.length > 0) {
                 ajax_load(content);
             }
             else {
@@ -127,7 +127,7 @@ function acc_acc_refresh() {
     ajax_load([
         {
             target: '#page-header-summary',
-            url: '/accounting/balancesheet/index-header',
+            url: '/accounting/account/display-header',
             loader: false,
             params: dates
         },
