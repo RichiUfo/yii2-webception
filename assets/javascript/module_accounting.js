@@ -4,6 +4,8 @@
 function ajax_load(content) {
     var i;
     
+    console.log(content);
+    
     // Display an ajax loader when requested
     for	(i=0; i < content.length; i++) {
         if (content[i].loader == true) {
