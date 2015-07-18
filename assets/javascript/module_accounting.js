@@ -17,8 +17,8 @@ function ajax_load(content) {
             url: content[i].url,
             type: 'GET',
             data: content[i].params,
-            success: function(result){
-                console.log('In the success function, logging content : ', content);
+            success: function(result, i){
+                console.log('In the success function, logging content : ', content[i]);
                 $(content[i].target).html(result);
                 $(document).trigger('domupdated');
             }
