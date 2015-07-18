@@ -2,29 +2,23 @@
 * Generic Data Loading Function *
 ********************************/
 function ajax_load(content) {
-    var i;
-    
-    // Display an ajax loader when requested
-    for	(i=0; i < content.length; i++) {
-        if (content[i].loader == true) {
-            $(content[i].target).html('<div class="ajaxloader"><img src="/img/loader.png"></div>');
-        } 
-    }
     
     // Load the contents
-    for	(i=0; i < content.length; i++) {
-        var target = content[i].target;
-        $.ajax({
-            url: content[i].url,
-            type: 'GET',
-            data: content[i].params,
-            success: function(result, b, c){
-                console.log('In the success function, logging target : ', target, b, c);
-                $(target).html(result);
-                $(document).trigger('domupdated');
+    $.ajax({
+        url: content[0].url,
+        type: 'GET',
+        data: content[0].params,
+        success: function(result, b, c){
+            $(content[0].target).html(result);
+            $(document).trigger('domupdated');
+            
+            // Removes the first element and call the function again
+            content.shift();
+            if(content !== []) {
+                ajax_load(content);
             }
-        });
-    }
+        }
+    });
     
 }
 
