@@ -11,8 +11,21 @@ function ajax_load(content) {
         } 
     }
     
+    content.each(function(index, elem){
+        $.ajax({
+            url: elem.url,
+            type: 'GET',
+            data: elem.params,
+            success: function(result, b, c){
+                console.log('In the success function, logging target : ', elem, b, c);
+                $(elem.target).html(result);
+                $(document).trigger('domupdated');
+            }
+        });
+    });
+    
     // Load the contents
-    for	(i=0; i < content.length; i++) {
+    /*for	(i=0; i < content.length; i++) {
         var target = content[i].target;
         $.ajax({
             url: content[i].url,
@@ -24,7 +37,7 @@ function ajax_load(content) {
                 $(document).trigger('domupdated');
             }
         });
-    }
+    }*/
     
 }
 
@@ -76,7 +89,7 @@ function acc_bs_refresh() {
     var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
     var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
 
-    ajax_load([
+    ajax_load({
         {
             target: '#page-header-summary',
             url: '/accounting/balancesheet/index-header',
@@ -89,7 +102,7 @@ function acc_bs_refresh() {
             loader: true,
             params: {start: start, end: end}
         }
-    ]);
+    });
 
     /*$.ajax({
         url: '/accounting/balancesheet/index-header',
