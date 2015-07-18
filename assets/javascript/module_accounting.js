@@ -80,11 +80,13 @@ function acc_bs_refresh() {
         {
             target: '#page-header-summary',
             url: '/accounting/balancesheet/index-header',
+            loader: true,
             params: {start: start, end: end}
         },
         {
             target: '#accounting-balancesheet-container',
             url: '/accounting/balancesheet/index',
+            loader: true,
             params: {start: start, end: end}
         }
     ]);
