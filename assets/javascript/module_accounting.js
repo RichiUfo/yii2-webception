@@ -135,5 +135,25 @@ function acc_acc_refresh() {
             $(document).trigger('domupdated');
         }
     });
+    
+    display_accounting_loader('#accounting-account-container');
+    var dates = get_accounting_dates();
+    
+    ajax_load([
+        /*{
+            target: '#page-header-summary',
+            url: '/accounting/balancesheet/index-header',
+            loader: false,
+            params: dates
+        },*/
+        {
+            target: '#accounting-account-container',
+            url: '/accounting/account/display',
+            loader: true,
+            params: dates
+        }
+    ]);
+};
+    
 };
 
