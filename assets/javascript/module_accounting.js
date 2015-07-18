@@ -20,7 +20,7 @@ function ajax_load(content) {
             data: content[i].params,
             success: function(result){
                 console.log('In the success function, logging target : ', target);
-                $(.target).html(result);
+                $(target).html(result);
                 $(document).trigger('domupdated');
             }
         });
