@@ -80,7 +80,7 @@ function acc_bs_refresh() {
         {
             target: '#page-header-summary',
             url: '/accounting/balancesheet/index-header',
-            loader: true,
+            loader: false,
             params: {start: start, end: end}
         },
         {
