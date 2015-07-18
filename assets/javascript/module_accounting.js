@@ -4,11 +4,8 @@
 function ajax_load(content) {
     var i;
     
-    console.log(content);
-    
     // Display an ajax loader when requested
     for	(i=0; i < content.length; i++) {
-        console.log(content[i]);
         if (content[i].loader == true) {
             $(content[i].target).html('<div class="ajaxloader"><img src="/img/loader.png"></div>');
         } 
