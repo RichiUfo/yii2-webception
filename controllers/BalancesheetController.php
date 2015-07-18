@@ -106,7 +106,22 @@ class BalancesheetController extends Controller
             ]);
         }
     }
-    
+    public function actionIndexHeader($start = '', $end ='') {
+        
+        // Get accounts data
+        $assets = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Assets']);
+        $equity = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Equity']);
+        $liabilities = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Liabilities']);
+        
+        // AJAX -> Render the partial view
+        if(\Yii::$app->request->isAjax) {
+            return $this->renderAjax('partial_balancesheet_header', [
+                'assets' => $assets, 
+                'equity' => $equity, 
+                'liabilities' => $liabilities
+            ]);
+        }
+    }
     /**
      * AJAX Actions Section (Returns Partials OR JSON)
      */
