@@ -614,6 +614,9 @@ class AccountController extends \frontend\components\Controller
             ]);
         }
     } 
+    public function actionDisplayHeader() {
+        return $this->renderPartial('partial_account_header', []);
+    }
     public function actionCreate() {
         $model = new Account();
     

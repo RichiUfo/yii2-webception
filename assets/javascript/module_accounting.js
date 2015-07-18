@@ -125,12 +125,12 @@ function acc_acc_refresh() {
     var accountid = $("#accounting-account-container").attr("accountid");
     
     ajax_load([
-        /*{
+        {
             target: '#page-header-summary',
             url: '/accounting/balancesheet/index-header',
             loader: false,
             params: dates
-        },*/
+        },
         {
             target: '#accounting-account-container',
             url: '/accounting/account/display',
