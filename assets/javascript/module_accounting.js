@@ -3,8 +3,6 @@
 ********************************/
 function ajax_load(content) {
     
-    console.log(content);
-    
     $.ajax({
         url: content[0].url,
         type: 'GET',
@@ -27,8 +25,14 @@ function ajax_load(content) {
     });
     
 }
-
-
+function get_accounting_dates() {
+    var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
+    var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
+    return {start: start, end: end};
+}
+function display_accounting_loader(selector) {
+    $(selector).html('<div class="ajaxloader"><img src="/img/loader.png"></div>'); 
+}
 
 /**************************
 * Accounting Summary Page *
@@ -38,30 +42,23 @@ function acc_sum_init() {
 }
 function acc_sum_refresh() {
     
-    $('#accounting-summary-container').html('<div class="ajaxloader"><img src="/img/loader.png"></div>'); 
-    //$('#page-header-summary').html('<div class="ajaxloader"><img src="/img/loader.png"></div>');
+    display_accounting_loader('#accounting-summary-container');
+    var dates = get_accounting_dates();
     
-    var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
-    var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
-
-    $.ajax({
-        url: '/accounting/default/index-header',
-        type: 'GET',
-        data: {start: start, end: end},
-        success: function(result){
-            $('#page-header-summary').html(result);
-            $(document).trigger('domupdated');
-            $.ajax({
-                url: '/accounting/default/index',
-                type: 'GET',
-                data: {start: start, end: end},
-                success: function(result){
-                    $('#accounting-summary-container').html(result);
-                    $(document).trigger('domupdated');
-                }
-            });
+    ajax_load([
+        {
+            target: '#page-header-summary',
+            url: '/accounting/default/index-header',
+            loader: false,
+            params: dates
+        },
+        {
+            target: '#accounting-summary-container',
+            url: '/accounting/default/index',
+            loader: true,
+            params: dates
         }
-    });
+    ]);
 };
 
 /*********************
@@ -71,23 +68,22 @@ function acc_bs_init() {
     acc_bs_refresh();
 }
 function acc_bs_refresh() {
-    $('#accounting-balancesheet-container').html('<div class="ajaxloader"><img src="/img/loader.png"></div>'); 
     
-    var start = moment($("#input-daterange-container input[name='date_from']").datepicker('getDate')).format('YYYY-MM-DD');
-    var end = moment($("#input-daterange-container input[name='date_to']").datepicker('getDate')).format('YYYY-MM-DD');
-
+    display_accounting_loader('#accounting-balancesheet-container');
+    var dates = get_accounting_dates();
+    
     ajax_load([
         {
             target: '#page-header-summary',
             url: '/accounting/balancesheet/index-header',
             loader: false,
-            params: {start: start, end: end}
+            params: dates
         },
         {
             target: '#accounting-balancesheet-container',
             url: '/accounting/balancesheet/index',
             loader: true,
-            params: {start: start, end: end}
+            params: dates
         }
     ]);
 };
