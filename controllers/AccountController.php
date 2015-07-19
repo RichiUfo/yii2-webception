@@ -52,13 +52,13 @@ class AccountController extends \frontend\components\Controller
         // Check (by name) if the account is already existing    
         $check = Account::findOne([
             'name' => $name,
-            'owner_id' => ::$app->user->id
+            'owner_id' => ExchangeController::get('entities', 'active_entity_id')
         ]);
         
         // If not, create it
         if($check == null){
             $account = new Account();
-            $account->owner_id = ::$app->user->id;
+            $account->owner_id = ExchangeController::get('entities', 'active_entity_id');
             $account->parent_id = $parentid;
             $account->number = $number;
             $account->name = $name;
@@ -98,7 +98,7 @@ class AccountController extends \frontend\components\Controller
                 
             if(!$others and !$exclude){
                 $new_others = new Account();
-                $new_others->owner_id = ::$app->user->id;
+                $new_others->owner_id = ExchangeController::get('entities', 'active_entity_id');
                 $new_others->parent_id = $parent->id;
                 $new_others->name = "Other ".$parent->name;
                 $new_others->display_position = 0;
@@ -146,12 +146,12 @@ class AccountController extends \frontend\components\Controller
         if($end_children_only){
             $roots = AccountHierarchy::find()
                 ->where(['parent_id' => 0])
-                ->andWhere(['owner_id' => ::$app->user->id])
+                ->andWhere(['owner_id' => ExchangeController::get('entities', 'active_entity_id')])
                 ->all();
         }
         else {
             $roots = AccountHierarchy::find()
-                ->where(['owner_id' => ::$app->user->id])
+                ->where(['owner_id' => ExchangeController::get('entities', 'active_entity_id')])
                 ->all();
         }
             
@@ -351,7 +351,7 @@ class AccountController extends \frontend\components\Controller
         
         // STEP 2 - Check the display currency
         if (!$currency) 
-            $currency = \::$app->user->identity->acc_currency;
+            $currency = \Yii::$app->user->identity->acc_currency;
             
         // STEP 3 - Convert the balances to the destination currency
         $balance = 0;
@@ -427,7 +427,7 @@ class AccountController extends \frontend\components\Controller
         
         // STEP 2 - Check the display currency
         if (!$currency) 
-            $currency = \::$app->user->identity->acc_currency;
+            $currency = \Yii::$app->user->identity->acc_currency;
         
         // STEP 3 - Extrapolate the data
         if($extrapolate) {
@@ -487,7 +487,7 @@ class AccountController extends \frontend\components\Controller
     private function convertAccountBalances($balances, $currency = null, $date = null) {
         
         if(!$date) $date = new \DateTime();
-        if (!$currency) $currency = \::$app->user->identity->acc_currency;
+        if (!$currency) $currency = \Yii::$app->user->identity->acc_currency;
         
         $balance = 0;
         foreach ($balances as $cur => $val) {
@@ -555,7 +555,7 @@ class AccountController extends \frontend\components\Controller
     public function actionDisplay($id, $start='', $end='') {
         
         // Configuring The Back Buttons
-        $account = AccountPlus::findOne(['id' => $id, 'owner_id' => ::$app->user->id]);
+        $account = AccountPlus::findOne(['id' => $id, 'owner_id' => ExchangeController::get('entities', 'active_entity_id')]);
         if ($account->statement == "balance_sheet") {
             $back_button = ['text' => 'Balance Sheet', 'route' => '/accounting/balancesheet'];
         }
@@ -566,10 +566,10 @@ class AccountController extends \frontend\components\Controller
         /** 
          * AJAX -> Render the partial view
          */
-        if(\::$app->request->isAjax) {
+        if(\Yii::$app->request->isAjax) {
             
             // STEP 1 - Account Information
-            $account = AccountHierarchy::findOne(['id' => $id, 'owner_id' => ::$app->user->id]);
+            $account = AccountHierarchy::findOne(['id' => $id, 'owner_id' => ExchangeController::get('entities', 'active_entity_id')]);
             if ($account === null) throw new NotFoundHttpException;
             
             // STEP 2 - Transactions Information
@@ -609,8 +609,8 @@ class AccountController extends \frontend\components\Controller
                         ]
                     ]
                 ],
-                'localdatetime' => LocalizationController::getCurrentLocalDateTime(\::$app->user->identity->app_timezone, 'd.m.Y, H:i:s'),
-                'accdatetime' => LocalizationController::getCurrentLocalDateTime(\::$app->user->identity->acc_timezone, 'd.m.Y, H:i:s')
+                'localdatetime' => LocalizationController::getCurrentLocalDateTime(\Yii::$app->user->identity->app_timezone, 'd.m.Y, H:i:s'),
+                'accdatetime' => LocalizationController::getCurrentLocalDateTime(\Yii::$app->user->identity->acc_timezone, 'd.m.Y, H:i:s')
             ]);
         }
     } 
@@ -625,7 +625,7 @@ class AccountController extends \frontend\components\Controller
     public function actionCreate() {
         $model = new Account();
     
-        if ($model->load(::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post())) {
             
             $model->owner_id = ExchangeController::get('entities', 'active_entity_id');
             $model->display_position = 10;
@@ -650,8 +650,8 @@ class AccountController extends \frontend\components\Controller
         ]);
     }
     public function actionRename() {
-        $id = (int)::$app->request->post('account_id', 0);
-        $alias = ::$app->request->post('AccountHierarchy', 0)['alias'];
+        $id = (int)Yii::$app->request->post('account_id', 0);
+        $alias = Yii::$app->request->post('AccountHierarchy', 0)['alias'];
         
         $account = Account::findOne($id);
         $old_alias = $account->alias;
@@ -669,11 +669,11 @@ class AccountController extends \frontend\components\Controller
     }
     public function actionUpdate() {
         
-        ::$app->response->format = Response::FORMAT_JSON;
+        Yii::$app->response->format = Response::FORMAT_JSON;
         
         // Different handling depending on ANGULAR or CLASSIC post request
-        if(::$app->request->post()){
-            $post_data = ::$app->request->post();
+        if(Yii::$app->request->post()){
+            $post_data = Yii::$app->request->post();
         }
         else {
             $post_data = json_decode(utf8_encode(file_get_contents("php://input")), false);
@@ -700,7 +700,7 @@ class AccountController extends \frontend\components\Controller
      */
     public function actionGetAccountSummary($accountid) {
         
-        \::$app->response->format = 'json';
+        \Yii::$app->response->format = 'json';
         
         $account = AccountPlus::findOne($accountid);
         $currency = LocalizationController::getInfoFromCurrencyCode($account->currency);
