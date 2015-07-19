@@ -661,7 +661,7 @@ class AccountController extends \frontend\components\Controller
             NotificationController::setNotification('success', 'Account Renamed', 'Account '.$old_alias.' successfully renamed to '.$alias.'.');
             return true;
         } else {
-            NotificationController::setNotification('error', 'Account Not Renamed', 'The account renaiming has failed !');
+            NotificationController::setNotification('error', 'Account Not Renamed', 'The account renaming has failed !');
             return json_encode($account);
         }
         
@@ -719,7 +719,14 @@ class AccountController extends \frontend\components\Controller
         
     }
     public function actionGetNextAvailableNumber($parentid) {
-        return AccountController::getNextAvailableNumber($parentid);
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        
+        $ret = [
+            'base' => AccountController::getNextAvailableNumber($parentid),
+            'options' => [1,2,3,4,5,6,7,8,9]
+        ];
+        
+        return $ret
     }
 
 }
