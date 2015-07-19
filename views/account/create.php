@@ -44,7 +44,9 @@ use frontend\widgets\stepform\StepForm;
                 </div>
                 <div class="col-lg-6">
                     <h4 class="info-text">New Account</h4>
-                    
+                    <?= $stepform->form->field($model, 'number') ?>
+                    <?= $stepform->form->field($model, 'name') ?>
+                    <?= $stepform->form->field($model, 'currency') ?> 
                 </div>
                 
             </div>
