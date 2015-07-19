@@ -54,7 +54,7 @@ use frontend\widgets\stepform\StepForm;
         <div class="tab-pane" id="step2">
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="info-text">Confirm That !</h4>
+                    <h4 class="info-text">Confirm the following account creation</h4>
                 </div>
                 <div class="col-sm-10 col-sm-offset-1">
                      
