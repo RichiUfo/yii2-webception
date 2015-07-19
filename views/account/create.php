@@ -33,7 +33,7 @@ use frontend\widgets\stepform\StepForm;
     
         <div class="tab-pane" id="step1">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-5 col-sm-offset-1">
                     <h4 class="info-text">Parent Account</h4>
                     <?= $stepform->form
                     ->field($model, 'parent_id')
@@ -42,7 +42,7 @@ use frontend\widgets\stepform\StepForm;
                         'prompt' => 'Select An Account'
                     ]) ?>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <h4 class="info-text">New Account</h4>
                     <?= $stepform->form->field($model, 'number') ?>
                     <?= $stepform->form->field($model, 'name') ?>
