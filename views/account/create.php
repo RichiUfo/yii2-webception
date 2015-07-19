@@ -19,7 +19,7 @@ use frontend\widgets\stepform\StepForm;
     	],
     	'header' => [
     		'title_strong' => 'NEW',
-    		'title' => 'ACCONUT',
+    		'title' => 'ACCOUNT',
     		'subtitle' => 'General Account Creation'
     		],
     	'steps' => [
