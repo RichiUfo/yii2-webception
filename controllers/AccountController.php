@@ -619,7 +619,7 @@ class AccountController extends \frontend\components\Controller
         $owner = ExchangeController::get('entities', 'active_entity'); 
         
         return $this->renderPartial('partial_account_header', [
-            'owner' => $owner
+            'owner' => $owner->name
         ]);
     }
     public function actionCreate() {
