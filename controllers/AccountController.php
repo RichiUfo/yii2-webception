@@ -511,7 +511,7 @@ class AccountController extends \frontend\components\Controller
      * Account Numbering Methods
      */
     public function getNextAvailableNumber($parentid) {
-        $parent = Account::findOne($parent_id);
+        $parent = Account::findOne($parentid);
         
         // Get the base number (without the zeros)
         $base = $parent->number;
