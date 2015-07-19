@@ -7,6 +7,8 @@ use yii\web\Controller;
 use yii\helpers\ArrayHelper;
 use yii\filters\AccessControl;
 
+use frontend\components\ExchangeController;
+
 use frontend\modules\accounting\models\Transaction;
 use frontend\modules\accounting\models\Account;
 use frontend\modules\accounting\models\AccountPlus;
