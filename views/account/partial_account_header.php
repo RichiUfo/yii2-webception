@@ -36,7 +36,7 @@ use frontend\widgets\buttonmodal\ButtonModal;
             </tr>
             <tr>
                 <td>Account Owner</td>
-                <td colspan="2" class="fit-width"><?= $ ?></td>
+                <td colspan="2" class="fit-width"><?= $owner ?></td>
             </tr>
         </tbody>
     </table>
