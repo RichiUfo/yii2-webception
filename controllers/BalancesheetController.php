@@ -36,8 +36,8 @@ class BalancesheetController extends Controller
     public function getFinancialData(){
         
         $assets = AccountPlus::findOne(['owner_id' => ExchangeController::get('entities', 'active_entity_id'), 'name' => 'Assets']);
-        $equity = AccountPlus::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Equity']);
-        $liabilities = AccountPlus::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Liabilities']);
+        $equity = AccountPlus::findOne(['owner_id' => ExchangeController::get('entities', 'active_entity_id'), 'name' => 'Equity']);
+        $liabilities = AccountPlus::findOne(['owner_id' => ExchangeController::get('entities', 'active_entity_id'), 'name' => 'Liabilities']);
         
         $ret['total_assets'] = $assets->sign * $assets->value;
         $ret['total_equity'] = $equity->sign * $equity->value;
@@ -50,8 +50,8 @@ class BalancesheetController extends Controller
     
     public function getBalanceSheetHistoricalBalance($start, $end, $currency = null) {
         
-        $eq = AccountPlus::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Equity']);
-        $li = AccountPlus::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Liabilities']);
+        $eq = AccountPlus::findOne(['owner_id' => ExchangeController::get('entities', 'active_entity_id'), 'name' => 'Equity']);
+        $li = AccountPlus::findOne(['owner_id' => ExchangeController::get('entities', 'active_entity_id'), 'name' => 'Liabilities']);
         
         $equity = AccountController::getHistoricalBalance($eq->id, $start, $end, $currency, 1);
         $liabilities = AccountController::getHistoricalBalance($li->id, $start, $end, $currency, 1);
@@ -65,9 +65,9 @@ class BalancesheetController extends Controller
     
     public function actionIndex($start = '', $end ='') {
         
-        $assets = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Assets']);
-        $equity = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Equity']);
-        $liabilities = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Liabilities']);
+        $assets = AccountHierarchy::findOne(['owner_id' => ExchangeController::get('entities', 'active_entity_id'), 'name' => 'Assets']);
+        $equity = AccountHierarchy::findOne(['owner_id' => ExchangeController::get('entities', 'active_entity_id'), 'name' => 'Equity']);
+        $liabilities = AccountHierarchy::findOne(['owner_id' => ExchangeController::get('entities', 'active_entity_id'), 'name' => 'Liabilities']);
         
         /** 
          * AJAX -> Render the partial view
@@ -111,9 +111,9 @@ class BalancesheetController extends Controller
     public function actionIndexHeader($start = '', $end ='') {
         
         // Get accounts data
-        $assets = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Assets']);
-        $equity = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Equity']);
-        $liabilities = AccountHierarchy::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Liabilities']);
+        $assets = AccountHierarchy::findOne(['owner_id' => ExchangeController::get('entities', 'active_entity_id'), 'name' => 'Assets']);
+        $equity = AccountHierarchy::findOne(['owner_id' => ExchangeController::get('entities', 'active_entity_id'), 'name' => 'Equity']);
+        $liabilities = AccountHierarchy::findOne(['owner_id' => ExchangeController::get('entities', 'active_entity_id'), 'name' => 'Liabilities']);
         
         // AJAX -> Render the partial view
         if(\Yii::$app->request->isAjax) {
