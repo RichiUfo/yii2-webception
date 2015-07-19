@@ -718,5 +718,8 @@ class AccountController extends \frontend\components\Controller
         return $ret;
         
     }
+    public function actionGetNextAvailableNumber($parentid) {
+        return AccountController::getNextAvailableNumber($parentid);
+    }
 
 }
