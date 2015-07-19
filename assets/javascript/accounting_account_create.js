@@ -15,7 +15,7 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 		})
 		.success(function(data, status, headers, config) { 
 			console.log('success', data);
-			$scope.account_number = data;
+			$scope.account_number = 'sucess';
 		})
 		.error(function(data, status, headers, config) {
             console.log('error', data, status, headers, config);
