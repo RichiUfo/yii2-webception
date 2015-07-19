@@ -33,9 +33,8 @@ use frontend\widgets\stepform\StepForm;
     
         <div class="tab-pane" id="step1">
             <div class="row">
-                <h4 class="info-text">Choose a parent</h4>
-              
-                <div class="col-sm-10 col-sm-offset-1">
+                <div class="col-lg-6">
+                    <h4 class="info-text">Parent Account</h4>
                     <?= $stepform->form
                     ->field($model, 'parent_id')
                     ->dropDownList($accounts, [
@@ -43,6 +42,11 @@ use frontend\widgets\stepform\StepForm;
                         'prompt' => 'Select An Account'
                     ]) ?>
                 </div>
+                <div class="col-lg-6">
+                    <h4 class="info-text">New Account</h4>
+                    
+                </div>
+                
             </div>
         </div>
     
@@ -50,9 +54,7 @@ use frontend\widgets\stepform\StepForm;
             <h4 class="info-text">Give it a name</h4>
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1">
-                    <?= $stepform->form->field($model, 'number') ?>
-                    <?= $stepform->form->field($model, 'name') ?>
-                    <?= $stepform->form->field($model, 'currency') ?>
+                    
                 </div>
             </div>
         </div>
