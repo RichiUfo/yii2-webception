@@ -38,6 +38,7 @@ use frontend\widgets\stepform\StepForm;
                     ->field($model, 'parent_id')
                     ->dropDownList($accounts, [
                         'class' => 'form-control account-select', 
+                        'ng-model' => 'parent_account',
                         'prompt' => 'Select An Account'
                     ]) ?>
                 </div>
@@ -63,4 +64,6 @@ use frontend\widgets\stepform\StepForm;
         </div>
         
     <?php $stepform->end() ?>
+    
+	<?php $this->registerJs('fp_angular_bootstrap("account-create-app", ["accountCreateApp"])'); ?>
 </div>
