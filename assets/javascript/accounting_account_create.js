@@ -14,7 +14,7 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 			params: { parentid: $scope.parent_account }
 		})
 		.success(function(data, status, headers, config) { 
-			console.log('success', data);
+			console.log('success', data.base);
 			$scope.account_number = 'success';
 		})
 		.error(function(data, status, headers, config) {
