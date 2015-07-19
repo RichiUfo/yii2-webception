@@ -14,8 +14,8 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 			params: { parentid: $scope.parent_account }
 		})
 		.success(function(data, status, headers, config) { 
-			console.log('success', angular.toJson(data));
-			$scope.account_number = 'sucess';
+			console.log('success', data);
+			$scope.account_number = 'success';
 		})
 		.error(function(data, status, headers, config) {
             console.log('error', data, status, headers, config);
