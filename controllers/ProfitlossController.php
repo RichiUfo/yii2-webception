@@ -40,7 +40,7 @@ class ProfitlossController extends \frontend\components\Controller
         if(\Yii::$app->request->isAjax) {
             
             $operating_revenues = AccountHierarchy::findOne([
-                'owner_id' => Yii::$app->user->id, 
+                'owner_id' => ExchangeController::get('entities', 'active_entity_id'), 
                 'name' => 'Operating Revenues'
             ]);
             $non_operating_revenues = AccountHierarchy::findOne([

@@ -76,20 +76,20 @@ class InitController extends \frontend\components\Controller
         
         $transactions = Transaction::find()
             ->innerJoin('accounts', '`accounts`.`id` = `transactions`.`account_debit_id` OR `accounts`.`id` = `transactions`.`account_credit_id`')
-			->where(['accounts.owner_id' => \Yii::$app->user->id])
+			->where(['accounts.owner_id' => ExchangeController::get('entities', 'active_entity_id')])
             ->all();
         
         $transactions_forex = TransactionForex::find()
             ->innerJoin('transactions', '`transactions`.`id` = `transactions_forex`.`transaction_id`')
             ->innerJoin('accounts', '`accounts`.`id` = `transactions`.`account_debit_id` OR `accounts`.`id` = `transactions`.`account_credit_id`')
-            ->where(['accounts.owner_id' => \Yii::$app->user->id])
+            ->where(['accounts.owner_id' => ExchangeController::get('entities', 'active_entity_id')])
             ->all(); 
         
-        $accounts = Account::findAll(['owner_id' => \Yii::$app->user->id]);
+        $accounts = Account::findAll(['owner_id' => ExchangeController::get('entities', 'active_entity_id')]);
         
         $accounts_forex = AccountForex::find()
             ->innerJoin('accounts', '`accounts`.`id` = `accounts_forex`.`account_id`')
-            ->where(['accounts.owner_id' => \Yii::$app->user->id])
+            ->where(['accounts.owner_id' => ExchangeController::get('entities', 'active_entity_id')])
             ->all();
         
         // Remove All

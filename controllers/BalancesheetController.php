@@ -33,7 +33,7 @@ class BalancesheetController extends Controller
     
     public function getFinancialData(){
         
-        $assets = AccountPlus::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Assets']);
+        $assets = AccountPlus::findOne(['owner_id' => ExchangeController::get('entities', 'active_entity_id'), 'name' => 'Assets']);
         $equity = AccountPlus::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Equity']);
         $liabilities = AccountPlus::findOne(['owner_id' => Yii::$app->user->id, 'name' => 'Liabilities']);
         
