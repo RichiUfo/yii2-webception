@@ -23,9 +23,8 @@ use frontend\widgets\stepform\StepForm;
     		'subtitle' => 'General Account Creation'
     		],
     	'steps' => [
-    		'step1' => 'Parent',
-    		'step2' => 'Account',
-    		'step3' => 'Summary'
+    		'step1' => 'Creation',
+    		'step2' => 'Summary',
     		]
     	]
     );
@@ -53,15 +52,6 @@ use frontend\widgets\stepform\StepForm;
         </div>
     
         <div class="tab-pane" id="step2">
-            <h4 class="info-text">Give it a name</h4>
-            <div class="row">
-                <div class="col-sm-10 col-sm-offset-1">
-                    
-                </div>
-            </div>
-        </div>
-    
-        <div class="tab-pane" id="step3">
             <div class="row">
                 <div class="col-sm-12">
                     <h4 class="info-text">Confirm That !</h4>
