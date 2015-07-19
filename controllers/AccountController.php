@@ -726,7 +726,7 @@ class AccountController extends \frontend\components\Controller
             'options' => [1,2,3,4,5,6,7,8,9]
         ];
         
-        return $ret
+        return $ret;
     }
 
 }
