@@ -2,7 +2,7 @@
 
 namespace frontend\modules\accounting\controllers;
 
-use ;
+use Yii;
 use \web\Response;
 use \helpers\ArrayHelper;
 use \filters\AccessControl;
