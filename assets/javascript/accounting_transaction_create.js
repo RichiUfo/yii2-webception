@@ -22,7 +22,9 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 			.success(function(data, status, headers, config) { 
 				$scope.account_debit = data;
 				$scope.checkAccounts();
-				$scope.transaction_title = 'Debit '+$scope.account_debit.name+', Credit '+$scope.account_credit.name;
+				if(($scope.account_debit_id !== null)&&($scope.account_credit_id)){
+					$scope.transaction_title = 'Debit '+$scope.account_debit.name+', Credit '+$scope.account_credit.name;
+				}
 			});
 		}
 		else {
@@ -38,7 +40,9 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 			.success(function(data, status, headers, config) { 
 				$scope.account_credit = data; 
 				$scope.checkAccounts();
-				$scope.transaction_title = 'Debit '+$scope.account_debit.name+', Credit '+$scope.account_credit.name;
+				if(($scope.account_debit_id !== null)&&($scope.account_credit_id)){
+					$scope.transaction_title = 'Debit '+$scope.account_debit.name+', Credit '+$scope.account_credit.name;
+				}
 			});
 		}
 		else {
