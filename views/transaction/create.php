@@ -134,7 +134,7 @@ BaseAsset::register($this);
   						]); ?>
       					<div class="input-group-addon right" ng-show="account_debit">
       						{{account_debit.currency.code}}&nbsp;
-      						<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_debit.currency.img}}">
+      						<!-- BLOCK 4 -->
   						</div>
       				</div>
       				<div class="input-group m-b">
