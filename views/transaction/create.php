@@ -147,10 +147,6 @@ BaseAsset::register($this);
       						'placeholder' => 'Credit {{account_credit.name}}',
       						'ng-model' => '$parent.credit_value',
       					]); ?>
-						<div class="input-group-addon right" ng-show="account_credit">
-							{{account_credit.currency.code}}&nbsp;
-							<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_credit.currency.img}}">
-						</div>
 					</div>
 				</div>
 			</div>
