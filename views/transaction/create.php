@@ -114,8 +114,8 @@ BaseAsset::register($this);
 					]
 				]) ?>
 
-				<div ng-if="account_credit.currency.code == account_debit.currency.code and account_credit and account_debit">
-					<div class="form-group field-transaction-value required">
+				<div ng-if="account_credit.currency.code == account_debit.currency.code && account_credit && account_debit">
+					<div class="form-group field-transaction-value required"> 
 						<label class="control-label" for="transaction-value">Value</label>
 						<div class="input-group m-b">
 	      					<input type="text" id="transaction-value" class="form-control" name="Transaction[value]" placeholder="">
