@@ -47,7 +47,11 @@ BaseAsset::register($this);
 						'prompt' => 'Select An Account'
 					]) ?>
 				<div class="account-summary" ng-show="account_debit">
-					<!-- BLOCK 2 -->
+					<div class="name"><img src="<?= Url::to('@web/img/flags/32/') ?>{{account_debit.currency.img}}">&nbsp;{{account_debit.name}} 
+						<span class="pull-right">
+							{{account_debit.display_value | number:2}} {{account_debit.currency.code}}
+						</span>
+					</div>
 				</div>
 			</div>
 			<div class="col-sm-5 acccount-select-group">
