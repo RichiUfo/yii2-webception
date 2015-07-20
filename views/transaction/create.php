@@ -136,6 +136,10 @@ BaseAsset::register($this);
       						'placeholder' => 'Debit {{account_debit.name}}',
       						'ng-model' => '$parent.debit_value',
   						]); ?>
+      					<div class="input-group-addon right" ng-show="account_debit">
+      						{{account_debit.currency.code}}&nbsp;
+      						<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_debit.currency.img}}">
+  						</div>
       				</div>
       				<div class="input-group m-b">
 						<?= Html::input("text", "value_credit", null, [
@@ -143,10 +147,6 @@ BaseAsset::register($this);
       						'placeholder' => 'Credit {{account_credit.name}}',
       						'ng-model' => '$parent.credit_value',
       					]); ?>
-						<div class="input-group-addon right" ng-show="account_credit">
-							{{account_credit.currency.code}}&nbsp;
-							<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_credit.currency.img}}">
-						</div>
 					</div>
 				</div>
 			</div>
