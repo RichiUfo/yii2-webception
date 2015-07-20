@@ -117,7 +117,7 @@ BaseAsset::register($this);
 	      					<input type="text" id="transaction-value" class="form-control" name="Transaction[value]" placeholder="">
 	      					<div class="input-group-addon right" ng-show="account_debit">
 	      						{{account_debit.currency.code}}&nbsp;
-	      						<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_debit.currency.img}}">
+	      						<!-- BLOCK 3 -->	
 	  						</div>
       					</div>
 					</div>
