@@ -13,7 +13,7 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 	
 	// Get the account information when changed
 	$scope.$watch('account_debit_id', function(value) {
-		if(($scope.account_debit_id !== null) && ($scope.account_debit_id != '')){
+		if($scope.account_debit_id !== null){
 			$http.get('/accounting/account/get-account-summary', {
 				params: { accountid: $scope.account_debit_id }
 			})
@@ -29,7 +29,7 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 		}
 	}); 
 	$scope.$watch('account_credit_id', function(value) {
-		if(($scope.account_credit_id !== null) && ($scope.account_credit_id != '')){
+		if($scope.account_credit_id !== null){
 			$http.get('/accounting/account/get-account-summary', {
 				params: { accountid: $scope.account_credit_id }
 			})
