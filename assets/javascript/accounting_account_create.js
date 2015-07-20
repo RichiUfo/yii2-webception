@@ -3,7 +3,7 @@
  */
 var app = angular.module('accountCreateApp', []);
 
-app.controller("FormController", ['$scope', '$http', function($scope, $http) {
+app.controller("NewAccountFormController", ['$scope', '$http', function($scope, $http) {
 	
 	// Variables
 	$scope.parent_account = null;
