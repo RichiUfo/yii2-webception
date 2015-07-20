@@ -64,7 +64,7 @@ BaseAsset::register($this);
 						'prompt' => 'Select An Account'
 					]) ?>
 				<div class="account-summary" ng-show="account_credit">
-					<div class="name" ng-if="account_credit">
+					<div class="name" ng-if="account_credit_id">
 						<img src="<?= Url::to('@web/img/flags/32/') ?>{{account_credit.currency.img}}">&nbsp;{{account_credit.name}} 
 						<span class="pull-right">{{account_credit.display_value | number:2}} {{account_credit.currency.code}}</span>
 					</div>
