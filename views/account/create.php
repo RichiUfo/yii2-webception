@@ -45,7 +45,7 @@ use frontend\widgets\stepform\StepForm;
                 <div class="col-lg-5">
                     <h4 class="info-text">New Account</h4>
                     <?= $stepform->form->field($model, 'number')->input('text', [
-                        'disabled' => null, 
+                        'disabled' => true, 
                         'ng-model' => 'account_number'
                     ]) ?>
                     <?= $stepform->form->field($model, 'name') ?>
