@@ -64,7 +64,7 @@ BaseAsset::register($this);
 						'prompt' => 'Select An Account'
 					]) ?>
 				<div class="account-summary" ng-show="account_credit">
-					<div class="name" ng-if="account_credit_id!==null">
+					<div class="name">
 						<img src="<?= Url::to('@web/img/flags/32/') ?>{{account_credit.currency.img}}">&nbsp;{{account_credit.name}} 
 						<span class="pull-right">{{account_credit.display_value | number:2}} {{account_credit.currency.code}}</span>
 					</div>
@@ -119,7 +119,7 @@ BaseAsset::register($this);
 						<label class="control-label" for="transaction-value">Value</label>
 						<div class="input-group m-b">
 	      					<input type="text" id="transaction-value" class="form-control" name="Transaction[value]" placeholder="">
-	      					<div class="input-group-addon right" ng-if="account_debit_id!==null">
+	      					<div class="input-group-addon right">
 	      						{{account_debit.currency.code}}&nbsp;
 	      						<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_debit.currency.img}}">
 	  						</div>
