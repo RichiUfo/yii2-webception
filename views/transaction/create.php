@@ -65,7 +65,7 @@ BaseAsset::register($this);
 					]) ?>
 				<div class="account-summary" ng-show="account_credit">
 					<div class="name">
-						<img src="<?= Url::to('@web/img/flags/32/') ?>{{account_credit.currency.img}}">&nbsp;{{account_credit.name}} 
+						<img src="<?= Url::to('@web/img/flags/32/') ?>{{account_credit.currency2.img}}">&nbsp;{{account_credit.name}} 
 						<span class="pull-right">{{account_credit.display_value | number:2}} {{account_credit.currency.code}}</span>
 					</div>
 				</div>
