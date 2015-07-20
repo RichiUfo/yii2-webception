@@ -10,6 +10,7 @@ app.controller("NewAccountFormController", ['$scope', '$http', function($scope, 
 	
 	// Get the account information when changed
 	$scope.$watch('parent_account', function(value) {
+		console.log('New Account Creation, logging the parent account number : '+$scope.parent_account);
 		$http.get('/accounting/account/get-next-available-number', {
 			params: { parentid: $scope.parent_account }
 		})
