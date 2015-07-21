@@ -59,7 +59,7 @@ class AccountForexController extends \frontend\components\Controller
 		
 		if(!$account) {
 			$parent = Account::find()
-				->where(['owner_id' => Yii::$app->user->id])
+				->where(['owner_id' => ExchangeController::get('entities', 'active_entity_id')])
 				->andWhere(['number' => 32100])
 				->one();
 			$name = $currency;
@@ -163,7 +163,7 @@ class AccountForexController extends \frontend\components\Controller
 	public function actionAccounts() {
 		$forex = AccountForex::find()
 			->joinWith('account')
-			->where(['accounts.owner_id' => Yii::$app->user->id])
+			->where(['accounts.owner_id' => ExchangeController::get('entities', 'active_entity_id')])
 			->all();
 		return $this->render('accounts', [
 			'forex' => $forex,
@@ -172,7 +172,7 @@ class AccountForexController extends \frontend\components\Controller
 	public function actionAccount($id) {
 		$account = AccountForex::find()
 			->joinWith('account')
-			->where(['accounts.owner_id' => Yii::$app->user->id])
+			->where(['accounts.owner_id' => ExchangeController::get('entities', 'active_entity_id')])
 			->andWhere(['accounts_forex.id' => $id])
 			->one();
 			
