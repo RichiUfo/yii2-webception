@@ -64,8 +64,7 @@ BaseAsset::register($this);
 						'prompt' => 'Select An Account'
 					]) ?>
 				<div class="account-summary" ng-show="account_credit">
-					<div class="name">
-						<img src="<?= Url::to('@web/img/flags/32/') ?>{{account_credit.currency.img}}">&nbsp;{{account_credit.name}} 
+					<div class="name"><img src="<?= Url::to('@web/img/flags/32/') ?>{{account_credit.currency.img}}">&nbsp;{{account_credit.name}} 
 						<span class="pull-right">{{account_credit.display_value | number:2}} {{account_credit.currency.code}}</span>
 					</div>
 				</div>
@@ -115,11 +114,11 @@ BaseAsset::register($this);
 				]) ?>
 
 				<div ng-if="account_credit.currency.code == account_debit.currency.code">
-					<div class="form-group field-transaction-value required"> 
+					<div class="form-group field-transaction-value required">
 						<label class="control-label" for="transaction-value">Value</label>
 						<div class="input-group m-b">
 	      					<input type="text" id="transaction-value" class="form-control" name="Transaction[value]" placeholder="">
-	      					<div class="input-group-addon right" ng-if="!account_debit.currency.img"> 
+	      					<div class="input-group-addon right">
 	      						{{account_debit.currency.code}}&nbsp;
 	      						<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_debit.currency.img}}">
 	  						</div>
@@ -136,9 +135,9 @@ BaseAsset::register($this);
       						'placeholder' => 'Debit {{account_debit.name}}',
       						'ng-model' => '$parent.debit_value',
   						]); ?>
-      					<div class="input-group-addon right" ng-show="account_debit">
+      					<div class="input-group-addon right">
       						{{account_debit.currency.code}}&nbsp;
-      						<!-- BLOCK 4 -->
+      						<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_debit.currency.img}}">
   						</div>
       				</div>
       				<div class="input-group m-b">
@@ -147,11 +146,10 @@ BaseAsset::register($this);
       						'placeholder' => 'Credit {{account_credit.name}}',
       						'ng-model' => '$parent.credit_value',
       					]); ?>
-      					
-      					
-      					<!-- HERE COMES BLOCK ONE -->
-      					
-      					
+						<div class="input-group-addon right">
+							{{account_credit.currency.code}}&nbsp;
+							<img src="<?= Url::to('@web/img/flags/24/') ?>{{account_credit.currency.img}}">
+						</div>
 					</div>
 				</div>
 			</div>
