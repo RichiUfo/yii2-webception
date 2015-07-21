@@ -618,7 +618,7 @@ class AccountController extends \frontend\components\Controller
         
         $owner = ExchangeController::get('entities', 'active_entity_id'); 
         
-        return $this->renderPartial('partial_account_header', [
+        return $this->renderAjax('partial_account_header', [
             'owner' => $owner 
         ]);
     }
