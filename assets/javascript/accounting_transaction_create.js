@@ -9,7 +9,7 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 	$scope.account_debit = null;
 	$scope.account_credit = null;
 	
-	$scope.account_debit_id = null;
+	$scope.account_debit_id = null	;
 	$scope.account_credit_id = null;
 	
 	$scope.transaction_title = '';
