@@ -3,6 +3,7 @@
 namespace frontend\modules\accounting\widgets\overview;
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 class OverviewEntity extends \yii\base\Widget{
 
@@ -21,11 +22,20 @@ class OverviewEntity extends \yii\base\Widget{
 	// Rendering
     public function run(){
 		
+		echo Html::beginTag('div', ['class' => 'col-xs-12 col-sm-4 col-md-4 col-lg-4 account-overview']);
+		echo Html::beginTag('div', ['class' => 'box']);
+		
+		echo Html::beginTag('span', ['class' => 'title']);
+		echo Html::tag('a', 'Accounting', ['href' => Url::toRoute('/accounting')]);
+		echo Html::endTag('span');
+		
 		echo Html::beginTag('div', ['class' => 'row overview-row']);
 		echo Html::beginTag('div', ['class' => 'col-lg-12']);
 		
 		echo 'Widget in development ...';
 		
+		echo Html::endTag('div');
+		echo Html::endTag('div');
 		echo Html::endTag('div');
 		echo Html::endTag('div');
 		
