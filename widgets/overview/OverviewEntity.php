@@ -17,11 +17,8 @@ class OverviewEntity extends \yii\base\Widget{
 		// Starts output buffering
         ob_start();
         ob_implicit_flush(false);
-	}
-	
-	// Rendering
-    public function run(){
-		
+        
+        // Render the container
 		echo Html::beginTag('div', ['class' => 'col-xs-12 col-sm-4 col-md-4 col-lg-4 account-overview']);
 		echo Html::beginTag('div', ['class' => 'box']);
 		
@@ -31,6 +28,11 @@ class OverviewEntity extends \yii\base\Widget{
 		
 		echo Html::beginTag('div', ['class' => 'row overview-row']);
 		echo Html::beginTag('div', ['class' => 'col-lg-12']);
+        
+	}
+	
+	// Rendering
+    public function run(){
 		
 		echo 'Widget in development ...';
 		
