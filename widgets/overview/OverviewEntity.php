@@ -21,7 +21,13 @@ class OverviewEntity extends \yii\base\Widget{
 	// Rendering
     public function run(){
 		
-		echo Html::tag('div', 'Widget Content');
+		echo Html::beginTag('div', ['class' => 'row']);
+		echo Html::beginTag('div', ['class' => 'col-lg-12']);
+		
+		echo 'Widget in development ...';
+		
+		echo Html::endTag('div');
+		echo Html::endTag('div');
 		
 		return ob_get_clean();
     }
