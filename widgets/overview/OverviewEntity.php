@@ -10,13 +10,13 @@ use frontend\widgets\box\Box;
 class OverviewEntity extends Box {
 
     public function init(){
-        self::begin();
+        
 	}
     
     public function run(){
-        //sel::begin();
+        Box::begin();
         echo 'It Works !';
-        self::end();
+        Box::end();
     }
     
 }
