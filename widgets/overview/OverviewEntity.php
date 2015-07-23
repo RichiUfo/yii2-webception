@@ -14,7 +14,7 @@ class OverviewEntity extends Box {
 	}
     
     public function run(){
-        parent::run();
+        parent::end();
     }
     
 }
