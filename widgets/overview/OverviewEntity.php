@@ -9,7 +9,12 @@ use frontend\widgets\box\Box;
 
 class OverviewEntity extends Box {
 
-   
+    public function init(){
+        parent::init();
+	}
+    
+    public function run(){
+    }
     
 }
 
