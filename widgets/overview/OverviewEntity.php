@@ -19,7 +19,8 @@ class OverviewEntity extends \yii\base\Widget {
     
     public function run(){
         Box::begin([
-            'title' => 'Accounting'
+            'title' => 'Accounting',
+            'route' => '/accounting'
         ]);
         echo 'It Works !';
         Box::end();
