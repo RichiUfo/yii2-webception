@@ -24,6 +24,8 @@ class OverviewEntity extends \frontend\widgets\box\Box {
         Box::begin();
         echo 'It Works !';
         Box::end();
+        
+        return ob_get_clean();
     }
     
 }
