@@ -14,9 +14,9 @@ class OverviewEntity extends Box {
 	}
     
     public function run(){
-        //parent::begin();
+        //sel::begin();
         echo 'It Works !';
-        //parent::end();
+        self::end();
     }
     
 }
