@@ -7,7 +7,7 @@ use yii\helpers\Url;
 
 use frontend\widgets\box\Box;
 
-class OverviewEntity extends \frontend\widgets\box\Box {
+class OverviewEntity extends \yii\base\Widget {
 
     public function init(){
         parent::init();
@@ -15,13 +15,12 @@ class OverviewEntity extends \frontend\widgets\box\Box {
 		// Starts output buffering
         ob_start();
         ob_implicit_flush(false);
-        
-        $this->title = 'Accounting';
-        $this->route = '/accounting';
 	}
     
     public function run(){
-        Box::begin();
+        Box::begin([
+            'title' => 'Accounting'
+        ]);
         echo 'It Works !';
         Box::end();
         
