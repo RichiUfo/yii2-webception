@@ -7,7 +7,7 @@ use yii\helpers\Url;
 
 use frontend\widgets\box\Box;
 
-class OverviewEntity extends \yii\base\Widget {
+class OverviewEntity extends \frontend\widgets\box\Box {
 
     public function init(){
         
