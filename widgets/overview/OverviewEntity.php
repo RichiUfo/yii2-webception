@@ -15,6 +15,7 @@ class OverviewEntity extends Box {
     
     public function run(){
         parent::begin();
+        echo 'It Works !';
         parent::end();
     }
     
