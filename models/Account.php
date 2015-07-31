@@ -27,6 +27,11 @@ class Account extends \frontend\components\ActiveRecord
     {
         return 'accounts';
     }
+    
+    public static function getDb()
+	{
+		return \Yii::$app->getModule('accounting')->db;
+   	}
 
     /**
      * @inheritdoc
