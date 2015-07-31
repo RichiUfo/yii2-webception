@@ -24,6 +24,13 @@ class TransactionForex extends \frontend\components\ActiveRecord
     {
         return 'transactions_forex';
     }
+    
+    
+    
+    public static function getDb()
+	{
+		return \Yii::$app->getModule('accounting')->db;
+   	}
 
     /**
      * @inheritdoc

@@ -27,6 +27,11 @@ class Transaction extends \frontend\components\ActiveRecord
     {
         return 'transactions';
     }
+    
+    public static function getDb()
+	{
+		return \Yii::$app->getModule('accounting')->db;
+   	}
 
     /**
      * @inheritdoc

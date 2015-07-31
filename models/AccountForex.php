@@ -18,6 +18,11 @@ class AccountForex extends \frontend\components\ActiveRecord
     {
         return 'accounts_forex';
     }
+    
+    public static function getDb()
+	{
+		return \Yii::$app->getModule('accounting')->db;
+   	}
 
     /**
      * @inheritdoc
