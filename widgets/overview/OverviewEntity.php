@@ -7,10 +7,15 @@ use yii\helpers\Url;
 
 use frontend\widgets\box\Box;
 
+use frontend\modules\accounting\controllers\BalancesheetController;
+
 class OverviewEntity extends \yii\base\Widget {
 
     public function init(){
         parent::init();
+		
+		// Get the data
+		$balance_sheet = BalancesheetController::getFinancialData();
 		
 		// Starts output buffering
         ob_start();
@@ -22,7 +27,7 @@ class OverviewEntity extends \yii\base\Widget {
             'title' => 'Accounting',
             'route' => '/accounting'
         ]);
-        echo 'It Works !';
+        var_dump($balance_sheet);
         Box::end();
         
         return ob_get_clean();
