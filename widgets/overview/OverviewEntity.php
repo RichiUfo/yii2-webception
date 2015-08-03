@@ -11,11 +11,13 @@ use frontend\modules\accounting\controllers\BalancesheetController;
 
 class OverviewEntity extends \yii\base\Widget {
 
+    private $balance_sheet;
+
     public function init(){
         parent::init();
 		
 		// Get the data
-		$balance_sheet = BalancesheetController::getFinancialData();
+		$this->balance_sheet = BalancesheetController::getFinancialData();
 		
 		// Starts output buffering
         ob_start();
@@ -27,7 +29,7 @@ class OverviewEntity extends \yii\base\Widget {
             'title' => 'Accounting',
             'route' => '/accounting'
         ]);
-        var_dump($balance_sheet);
+        var_dump($this->balance_sheet);
         Box::end();
         
         return ob_get_clean();
