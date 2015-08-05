@@ -29,6 +29,12 @@ class OverviewEntity extends \yii\base\Widget {
             'title' => 'Accounting',
             'route' => '/accounting'
         ]);
+        echo Html::beginTag('ul');
+        echo Html::tag('li', 'Assets '.$this->balance_sheet['total_assets']);
+        echo Html::tag('li', 'Equity '.$this->balance_sheet['total_equity']);
+        echo Html::tag('li', 'Liabilities '.$this->balance_sheet['total_liabilities']);
+        echo Html::tag('li', 'Debt Ratio '.$this->balance_sheet['debt_ratio']);
+        echo Html::endTag('ul');
         var_dump($this->balance_sheet);
         Box::end();
         
