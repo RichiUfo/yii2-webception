@@ -35,7 +35,6 @@ class OverviewEntity extends \yii\base\Widget {
         echo Html::tag('li', 'Liabilities '.$this->balance_sheet['total_liabilities']);
         echo Html::tag('li', 'Debt Ratio '.$this->balance_sheet['debt_ratio']);
         echo Html::endTag('ul');
-        var_dump($this->balance_sheet);
         Box::end();
         
         return ob_get_clean();
