@@ -638,7 +638,7 @@ class AccountController extends \frontend\components\Controller
                 $model->save();
                 AccountController::createOtherAccount($model->parent_id);
                 NotificationController::setNotification('info', 'New Account Created', 'The action creation was successful.');
-                return;
+                return true;
                 
             }
         }
