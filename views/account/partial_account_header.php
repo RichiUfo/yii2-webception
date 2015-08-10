@@ -34,10 +34,6 @@ use frontend\widgets\buttonmodal\ButtonModal;
                 <td class="fit-width"><span class="pull-right money" value="0" currency=""></span></td>
                 <td class="text-right fit-width text-green"><i class="material-icons">trending_up</i><span class="money" value="0" currency=""></span></td>
             </tr>
-            <tr>
-                <td>Account Owner</td>
-                <td colspan="2" class="fit-width"><?= $owner ?></td>
-            </tr>
         </tbody>
     </table>
 </div>
