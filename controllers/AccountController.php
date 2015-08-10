@@ -641,6 +641,8 @@ class AccountController extends \frontend\components\Controller
                 return true;
                 
             }
+            NotificationController::setNotification('error', 'New Account Not Created', 'The model has not been validate.');
+            return false;
         }
         
         // Step 1 : Request users inputs
