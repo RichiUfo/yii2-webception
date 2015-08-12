@@ -58,7 +58,8 @@ class BalancesheetController extends Controller
         
         $ret = [];
         foreach($equity as $d => $v)
-            $ret[$d] = [$equity[$d], $liabilities[$d]];
+            if(isset($equity[$d]) and isset($liabilities[$d]))
+                $ret[$d] = [$equity[$d], $liabilities[$d]];
             
         return $ret;
     }

@@ -65,6 +65,7 @@ class TransactionController extends \frontend\components\Controller
                 }
                 $res = self::createTransactionForex($deb, $cre, $value, $value_forex, $model->date_value, $model->name, $model->description);
                 NotificationController::setNotification('success', 'Forex Transaction Saved', 'Success');
+                
             }
 
             return 'Saved';
