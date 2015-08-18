@@ -4,7 +4,7 @@
  * @copyright Copyright (c) 20015 Theophile Godard
  */
 
-namespace godardth\yii2webception\\assets;
+namespace godardth\yii2webception\assets;
 
 use yii\web\AssetBundle;
 
