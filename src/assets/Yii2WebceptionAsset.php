@@ -11,21 +11,16 @@ use yii\web\AssetBundle;
 /**
  * @author Theophile Godard <theo.godard@gmail.com>
  */
-class BaseAsset extends AssetBundle
+class Yii2WebceptionAsset extends AssetBundle
 {
-    public $sourcePath = '@app/modules/accounting/assets';
+    public $sourcePath = '@vendor/godardth/yii2-webception/src/assets';
     
     public $css = [
         'stylesheets/stylesheets/screen.css',
     ];
     public $js = [
-        'javascript/module_accounting.js',
-		'javascript/accounting_transaction_create.js',
-		'javascript/accounting_account_create.js',
+        'javascript/yii2-webception.js',
     ];
     public $depends = [
-		'frontend\assets\angular\AngularAsset',
-		'frontend\assets\angularaccounting\AngularAccountingAsset',
-        'frontend\assets\ThemeBaseAsset',
     ];
 }
