@@ -4,7 +4,7 @@ namespace godardth\yii2webception;
 
 class Module extends \frontend\components\Module
 {
-    public $controllerNamespace = 'frontend\modules\accounting\controllers';
+    public $controllerNamespace = 'godardth\yii2webception\controllers';
 	
 	/**
      * Constructor.
