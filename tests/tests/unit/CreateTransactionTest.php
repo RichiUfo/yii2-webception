@@ -22,7 +22,7 @@ class CreateTransactionTest extends \Codeception\TestCase\Test
     // tests
     public function testMe()
     {
-        $transaction = new Tr
+        $transaction = new Transaction;
     }
 
 }
