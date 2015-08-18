@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\modules\accounting;
+namespace godardth\yii2webception;
 
 class Module extends \frontend\components\Module
 {
