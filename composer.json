@@ -1,5 +1,5 @@
 {
-    "name": "godardth/yii2webception",
+    "name": "godardth/yii2-webception",
     "description": "Web interface for codeception testing in Yii 2",
     "type": "yii2-extension",
     "keywords": [
@@ -23,8 +23,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/godardth/yii2webception/issues",
-        "source": "https://github.com/godardth/yii2webception"
+        "issues": "https://github.com/godardth/yii2-webception/issues",
+        "source": "https://github.com/godardth/yii2-webception"
     },
     "require": {
         "yiisoft/yii2": "*",
@@ -35,7 +35,7 @@
     },
     "autoload": {
         "psr-4": {
-            "godardth\\yii2webception\\": "src"
+            "godardth\\yii2-webception\\": "src"
         }
     },
     "extra": {
