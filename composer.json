@@ -1,0 +1,50 @@
+{
+    "name": "godardth/yii2webception",
+    "description": "Web interface for codeception testing in Yii 2",
+    "type": "yii2-extension",
+    "keywords": [
+        "godardth",
+        "yii",
+        "yii2",
+        "yii 2",
+        "extension",
+        "testing",
+        "codeception",
+        "webception"
+    ],
+    "homepage": "http://www.fullplanner.com",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Theophile Godard",
+            "email": "theo.godard@gmail.com",
+            "homepage": "http://www.fullplanner.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/godardth/yii2webception/issues",
+        "source": "https://github.com/godardth/yii2webception"
+    },
+    "require": {
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-codeception": "2.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "godardth\\yii2webception\\": "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.0.1-dev"
+        },
+        "asset-installer-paths": {
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}
+
