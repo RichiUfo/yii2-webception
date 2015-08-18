@@ -6,4 +6,4 @@ modules:
     enabled: [Asserts, UnitHelper, Yii2]
     config:
         Yii2:
-            configFile: '../config/frontend/functional.php'
+            configFile: '../../../../tests/config/modules/unit.php'
