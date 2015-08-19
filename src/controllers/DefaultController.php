@@ -46,7 +46,7 @@ class DefaultController extends Controller
         }*/
         
         return $this->render('index', [
-            'name'        => $app->getName(),
+            //'name'        => $app->getName(),
             //'webception'  => $webception,
             'codeception' => $codeception,
             'tests'       => $tests,
