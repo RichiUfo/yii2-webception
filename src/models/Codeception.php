@@ -54,13 +54,13 @@ class Codeception extends \yii\base\Model
      *
      * @param array $config The codeception.php configuration file.
      */
-    public function __construct($config = array(), $site = NULL)
+    public function __construct()
     {
         // Set the basic config, just incase.
-        $this->config = $config;
+        $this->config = \Yii::$app->controller->module->params;
 
         // If the array wasn't loaded, we can't go any further.
-        if (sizeof($config) == 0)
+        if (sizeof($this->config) == 0)
             return;
 
         // Setup the sites available to Webception
@@ -72,7 +72,7 @@ class Codeception extends \yii\base\Model
 
         // If the Configuration was loaded successfully, merge the configs!
         if ($this->yaml = $this->loadConfig($site->getConfigPath(), $site->getConfigFile())) {
-            $this->config = array_merge($config, $this->yaml);
+            $this->config = array_merge($this->config, $this->yaml);
             $this->loadTests();
         }
     }
