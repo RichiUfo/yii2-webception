@@ -4,6 +4,22 @@ return [
         // list of component configurations
     ],
     'params' => [
+        
+        /*
+        |--------------------------------------------------------------------------
+        | Webception Settings
+        |--------------------------------------------------------------------------
+        */
+    
+        'webception' =>[
+            'version'    => '0.1.0',
+            'name'       => '<strong>Web</strong>ception',
+            'repo'       => 'https://github.com/jayhealey/webception',
+            'twitter'    => '@WebceptionApp',
+            'config'     => RP . 'App/Config/codeception.php',
+            'test'       => RP . 'App/Tests/_config/codeception_%s.php',
+        ],
+        
         /*
         |--------------------------------------------------------------------------
         | Codeception Configurations
