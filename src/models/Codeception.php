@@ -24,7 +24,7 @@ class Codeception extends \yii\base\Model
      *
      * @var boolean
      */
-    public $config = FALSE;
+    public $config = false;
 
     /**
      * Temporary copy of the Codeception.yml setup.
@@ -33,7 +33,7 @@ class Codeception extends \yii\base\Model
      *
      * @var bool
      */
-    private $yaml = FALSE;
+    public $yaml = false;   // Original private
 
     /**
      * Tally of all the tests that have been loaded
