@@ -9,4 +9,5 @@ Yii2WebceptionAsset::register($this);
 <div class="container">
     <h1>Webception</h1>
     <h2>Test Sites</h2>
+    Test count : <?= $test_count ?>
 </div>

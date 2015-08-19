@@ -33,16 +33,15 @@ class DefaultController extends Controller
 	 */
     public function actionIndex() {
         
-        
         $tests       = false;
         $test_count  = 0;
         $webception  = \Yii::$app->controller->module->params['webception'];
         $codeception = new Codeception;
     
-        /*if ($codeception->ready()) {
+        if ($codeception->ready()) {
             $tests      = $codeception->getTests();
             $test_count = $codeception->getTestTally();
-        }*/
+        }
         
         return $this->render('index', [
             'name'        => '$app->getName()',
