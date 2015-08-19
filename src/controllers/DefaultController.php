@@ -29,9 +29,28 @@ class DefaultController extends Controller
     /**
 	 * Routed Actions - Views Rendering
 	 */
-    public function actionIndex($start='', $end='') {
+    public function actionIndex() {
         
-        return $this->render('index');
+        $param = \Yii::$app->controller->module->params['tests'];
+        
+        /*$tests       = false;
+        $test_count  = 0;
+        $webception  = $app->config('webception');
+        $codeception = $app->codeception;
+    
+        if ($codeception->ready()) {
+            $tests      = $codeception->getTests();
+            $test_count = $codeception->getTestTally();
+        }*/
+        
+        return $this->render('index', [
+            /*'name'        => $app->getName(),
+            'webception'  => $webception,
+            'codeception' => $codeception,
+            'tests'       => $tests,
+            'test_count'  => $test_count,*/
+            'param' => $param,
+        ]);
 
     }
     

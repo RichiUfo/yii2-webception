@@ -7,5 +7,7 @@ Yii2WebceptionAsset::register($this);
 ?>
 
 <div class="container">
-    <h1>Yii2 Webception</h1>
+    <h1>Webception</h1>
+    <h2>Test Sites</h2>
+    <?php var_dump($param); ?>
 </div>

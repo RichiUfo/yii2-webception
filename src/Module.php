@@ -5,6 +5,7 @@ namespace godardth\yii2webception;
 class Module extends \frontend\components\Module
 {
     public $controllerNamespace = 'godardth\yii2webception\controllers';
+	public $config_file = './config/config.php';
 	
 	/**
      * Constructor.
@@ -12,14 +13,21 @@ class Module extends \frontend\components\Module
      * @param Module $parent the parent module (if any)
      * @param array $config name-value pairs that will be used to initialize the object properties
      */
-    public function __construct($id, $parent = null, $config = [])
+    /*public function __construct($id, $parent = null, $config = [])
     {
         $this->db_name = 'fullplanner2_accounting';
         $this->db_username = 'accounting';
         $this->db_password = 'lECwn3sqj3_dv-X37fpHxdntrR0m0fWx';
-			
+		
 		parent::__construct($id, $parent, $config);
 		
+    }*/
+    
+    public function init()
+    {
+        parent::init();
+        
+        \Yii::configure($this, require(__DIR__ . '/config/config.php'));
     }
 		
 }
