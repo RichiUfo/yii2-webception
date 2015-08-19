@@ -54,7 +54,7 @@ class Codeception extends \yii\base\Model
      *
      * @param array $config The codeception.php configuration file.
      */
-    public function __construct()
+    public function __construct($site = NULL)
     {
         // Set the basic config, just incase.
         $this->config = \Yii::$app->controller->module->params;
