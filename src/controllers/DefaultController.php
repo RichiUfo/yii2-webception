@@ -47,7 +47,7 @@ class DefaultController extends Controller
             'name'        => '$app->getName()',
             'ready'       => $codeception->ready(),
             'webception'  => $webception,
-            'codeception' => $codeception,
+            'codeception' => $codeception->yaml,
             'tests'       => $tests,
             'test_count'  => $test_count,
         ]);
