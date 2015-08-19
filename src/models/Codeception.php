@@ -15,6 +15,7 @@ class Codeception extends \yii\base\Model
      *
      * @var array
      */
+    private $site;
     private $sites;
 
     /**
