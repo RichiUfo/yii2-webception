@@ -6,6 +6,8 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 
+use godardth\yii2webception\models\Codeception;
+
 class DefaultController extends Controller
 {
     
@@ -31,25 +33,24 @@ class DefaultController extends Controller
 	 */
     public function actionIndex() {
         
-        $param = \Yii::$app->controller->module->params['tests'];
+        //$param = \Yii::$app->controller->module->params['tests'];
         
-        /*$tests       = false;
+        $tests       = false;
         $test_count  = 0;
-        $webception  = $app->config('webception');
-        $codeception = $app->codeception;
+        //$webception  = $app->config('webception');
+        $codeception = new Codeception;
     
         if ($codeception->ready()) {
             $tests      = $codeception->getTests();
             $test_count = $codeception->getTestTally();
-        }*/
+        }
         
         return $this->render('index', [
-            /*'name'        => $app->getName(),
-            'webception'  => $webception,
+            'name'        => $app->getName(),
+            //'webception'  => $webception,
             'codeception' => $codeception,
             'tests'       => $tests,
-            'test_count'  => $test_count,*/
-            'param' => $param,
+            'test_count'  => $test_count,
         ]);
 
     }
