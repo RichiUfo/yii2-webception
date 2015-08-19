@@ -16,8 +16,8 @@ return [
             'name'       => '<strong>Web</strong>ception',
             'repo'       => 'https://github.com/jayhealey/webception',
             'twitter'    => '@WebceptionApp',
-            'config'     => RP . 'App/Config/codeception.php',
-            'test'       => RP . 'App/Tests/_config/codeception_%s.php',
+            'config'     => 'App/Config/codeception.php',
+            'test'       => 'App/Tests/_config/codeception_%s.php',
         ],
         
         /*
