@@ -15,7 +15,6 @@ class Codeception extends \yii\base\Model
      *
      * @var array
      */
-    private $site;
     private $sites;
 
     /**
@@ -55,7 +54,7 @@ class Codeception extends \yii\base\Model
      *
      * @param array $config The codeception.php configuration file.
      */
-    public function __construct($site = NULL)
+    public function __construct($sites = NULL)
     {
         // Set the basic config, just incase.
         $this->config = \Yii::$app->controller->module->params;
@@ -65,10 +64,10 @@ class Codeception extends \yii\base\Model
             return;
 
         // Setup the sites available to Webception
-        $this->site = $site;
+        $this->sites = new Site;
 
         // If the site class isn't ready, we can't load codeception.
-        if (! $site->ready())
+        if (! $this->sites->ready())
             return;
 
         // If the Configuration was loaded successfully, merge the configs!

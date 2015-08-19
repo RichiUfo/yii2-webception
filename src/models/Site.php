@@ -22,7 +22,7 @@ class Site extends \yii\base\Model
      *
      * @var false if not set; string if set.
      */
-    private $hash = FALSE;
+    private $hash = false;
 
     /**
      * On construct, prepare the site details and the chosen site.
@@ -41,12 +41,12 @@ class Site extends \yii\base\Model
      *
      * @param string if set, false if not.
      */
-    public function set($hash=FALSE)
+    public function set($hash=false)
     {
         // If hash matched in sites, set hash.
         if (isset($this->sites[$hash])) {
             $this->hash = $hash;
-        } elseif ($hash == FALSE && sizeof($this->sites) > 0) {
+        } elseif ($hash == false && sizeof($this->sites) > 0) {
             // If no site set, but sites available,
             // pick the first in the list.
             reset($this->sites);
@@ -54,7 +54,7 @@ class Site extends \yii\base\Model
         } else {
             // If no site found or none available,
             // set as false.
-            $this->hash = FALSE;
+            $this->hash = false;
         }
     }
 
@@ -87,8 +87,8 @@ class Site extends \yii\base\Model
     {
         $path = $this->get('path');
 
-        return ($path !== FALSE) ?
-             dirname($path) . '/' : FALSE;
+        return ($path !== false) ?
+             dirname($path) . '/' : false;
     }
 
     /**
@@ -102,8 +102,8 @@ class Site extends \yii\base\Model
     {
         $path = $this->get('path');
 
-        return ($path !== FALSE) ?
-             basename($path) : FALSE;
+        return ($path !== false) ?
+             basename($path) : false;
     }
 
     /**
@@ -114,8 +114,8 @@ class Site extends \yii\base\Model
      */
     public function get($value)
     {
-        return ($this->hash !== FALSE) && isset($this->sites[$this->hash][$value])
-                ? $this->sites[$this->hash][$value] : FALSE;
+        return ($this->hash !== false) && isset($this->sites[$this->hash][$value])
+                ? $this->sites[$this->hash][$value] : false;
     }
 
     /**
@@ -168,7 +168,7 @@ class Site extends \yii\base\Model
      */
     public function ready()
     {
-        return sizeof($this->sites) > 0 && $this->hash !== FALSE;
+        return sizeof($this->sites) > 0 && $this->hash !== false;
     }
 
     /**
