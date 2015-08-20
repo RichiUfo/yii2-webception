@@ -69,7 +69,7 @@ class Site extends \yii\db\ActiveRecord
     }
     
     public function addTest($test) {
-        array_push($this->tests, $test)
+        array_push($this->tests, $test);
     }
     
     public function getTests() {
@@ -77,11 +77,11 @@ class Site extends \yii\db\ActiveRecord
         //1 - Get the tests directories
         
         //2 - Init a test per file
-        foreach() {
+        /*foreach() {
             $test = new Test;
             $test->init();
             $this->addTest($test);
-        }
+        }*/
         
     }
     
