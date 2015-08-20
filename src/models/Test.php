@@ -124,10 +124,10 @@ class Test extends \yii\base\Model
     {
         // Declare the regex string containing all the responses that
         // can indicate that as a passed test.
-        $this->passed_regex = implode('|', $this->responses['passed']);
+        //$this->passed_regex = implode('|', $this->responses['passed']);
 
         // maybe there will be any more failures? Then we are going to need this
-        $this->failure_regex = $this->responses['failed'];
+        //$this->failure_regex = $this->responses['failed'];
     }
 
     /**
