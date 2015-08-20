@@ -16,7 +16,7 @@ Yii2WebceptionAsset::register($this);
     <ul>
     <?php foreach($sites as $site) : ?>
         <li><?= $site->name ?></li>
-        <table>
+        <table class="table table-striped">
             <tr>
                 <th>Test</th>
                 <th>Type</th>
