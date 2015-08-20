@@ -46,7 +46,13 @@ class Site extends \yii\db\ActiveRecord
         ];
     }
     
+    private function getTests() {
+        return new Test;
+    }
     
+    public function __construct() {
+        $this->tests = self::getTests();
+    }
     
     // FROM ORIGINAL WEBCEPTION
     
