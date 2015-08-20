@@ -92,7 +92,6 @@ class Site extends \yii\db\ActiveRecord
                 //if (! in_array($file->getFilename(), $this->configuration['ignore']) && $file->isFile())
                 if ($file->isFile())
                 {
-                    $this->test_count++;
                     // Declare a new test and add it to the list.
                     $test = new Test();
                     //$test->init($type, $file);
