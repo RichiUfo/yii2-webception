@@ -10,7 +10,9 @@ use Yii;
 class Site extends \yii\db\ActiveRecord
 {
     
+    public $directories = array();
     public $tests = array();
+    public $configuration = null;
     
     public static function getDb()
 	{
@@ -46,12 +48,46 @@ class Site extends \yii\db\ActiveRecord
         ];
     }
     
-    private function getTests() {
-        return array(new Test);
+    public function loadConfig($path, $file = '')
+    {
+        $full_path = $path . $file;
+
+        // If the Codeception YAML can't be found, the application can't go any further.
+        if (! file_exists($full_path))
+            return false;
+
+        // Using Symfony's Yaml parser, the file gets turned into an array.
+        $config = \Symfony\Component\Yaml\Yaml::parse(file_get_contents($full_path));
+
+        // Update the config to include the full path.
+        foreach ($config['paths'] as $key => &$test_path) {
+            $test_path = file_exists($path . $test_path) ?
+                 realpath($path . $test_path) : $path . $test_path;
+        }
+
+        return $config;
+    }
+    
+    public function addTest($test) {
+        array_push($this->tests, $test)
+    }
+    
+    public function getTests() {
+        
+        //1 - Get the tests directories
+        
+        //2 - Init a test per file
+        foreach() {
+            $test = new Test;
+            $test->init();
+            $this->addTest($test);
+        }
+        
     }
     
     public function afterFind() {
         parent::afterFind();
+        $this->configuration = self::loadConfig($this->config);
         $this->tests = self::getTests();
     }
     
