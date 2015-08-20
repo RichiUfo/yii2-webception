@@ -47,7 +47,7 @@ class Site extends \yii\db\ActiveRecord
     }
     
     private function getTests() {
-        return new Test;
+        return [new Test;
     }
     
     public function afterFind() {
