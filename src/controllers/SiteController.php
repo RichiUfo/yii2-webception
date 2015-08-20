@@ -33,7 +33,7 @@ class SiteController extends Controller
     }
     
     public function getAvailableSites() {
-        return Site::findAll(1);
+        return Site::find()->where(1)->all();
     }
     
     
