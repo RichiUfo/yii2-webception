@@ -10,6 +10,11 @@ use Yii;
 class Site extends \yii\db\ActiveRecord
 {
     
+    public static function getDb()
+	{
+		return \Yii::$app->controller->module->db;
+   	}
+   	
     /**
      * @inheritdoc
      */
