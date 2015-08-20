@@ -50,8 +50,8 @@ class Site extends \yii\db\ActiveRecord
         return new Test;
     }
     
-    public function __construct() {
-        parent::__construct();
+    public function afterFind() {
+        parent::afterFind();
         $this->tests = self::getTests();
     }
     
