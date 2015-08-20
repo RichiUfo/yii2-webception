@@ -90,15 +90,15 @@ class Site extends \yii\db\ActiveRecord
             foreach ($files as $file) {
     
                 //if (! in_array($file->getFilename(), $this->configuration['ignore']) && $file->isFile())
-                if ($file->isFile())
-                {
+                //if ($file->isFile())
+                //{
                     // Declare a new test and add it to the list.
                     $test = new Test();
                     //$test->init($type, $file);
                     $test->title = $file->getFilename();
                     $this->addTest($test);
                     unset($test);
-                }
+                //}
     
             }
         }
