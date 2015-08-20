@@ -79,7 +79,7 @@ class Site extends \yii\db\ActiveRecord
             'unit'       => true,
         );
         
-        foreach ($types as $type => $active) { 
+        foreach ($types as $type => $active) {
             $files = new \RecursiveIteratorIterator(
                 new \RecursiveDirectoryIterator("{$this->configuration['paths']['tests']}/{$type}/", \FilesystemIterator::SKIP_DOTS),
                 \RecursiveIteratorIterator::SELF_FIRST
