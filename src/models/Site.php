@@ -11,7 +11,7 @@ class Site extends \yii\db\ActiveRecord
 {
     
     public $directories = array();
-    public $tests = [1];
+    public $tests = [];
     public $configuration = null;
     
     public static function getDb()
