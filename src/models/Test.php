@@ -183,15 +183,6 @@ class Test extends \yii\base\Model
         return camel_to_sentance($title);
     }
 
-    /**
-     * Get the Test title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
 
     /**
      * Get the Test Hash
