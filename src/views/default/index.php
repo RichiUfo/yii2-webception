@@ -23,9 +23,9 @@ Yii2WebceptionAsset::register($this);
     <?php foreach($sites as $site) : ?>
         <li><?= $site->name ?> : <?= $site->config ?></li>
         <ul>
-            <?php foreach($site->tests as $test) : ?>
-                <li><?= $test->title ?></li>
-            <?php endforeach; ?>
+            <!--?php foreach($site->tests as $test) : ?>
+                <li>?= $test->title ?></li>
+            ?php endforeach; ?-->
         </ul>
     <?php endforeach; ?>
     </ul>
