@@ -67,10 +67,6 @@ class Site extends \yii\db\ActiveRecord
         return $config;
     }
     
-    public function addTest($test) {
-        array_push($this->tests, $test);
-    }
-    
     public function getTests() {
         
         $types = array(
@@ -85,18 +81,14 @@ class Site extends \yii\db\ActiveRecord
                 \RecursiveIteratorIterator::SELF_FIRST
             );
     
-            // Iterate through all the files, and filter out
-            //      any files that are in the ignore list.
             foreach ($files as $file) {
-                //if (! in_array($file->getFilename(), $this->configuration['ignore']) && $file->isFile())
                 if ($file->isFile())
                 {
-                    // Declare a new test and add it to the list.
                     $test = new Test();
                     //$test->init($type, $file);
                     $test->title = $file->getFilename();
                     array_push($this->tests, $test);
-                    //unset($test);
+                    unset($test);
                 }
     
             }
@@ -106,7 +98,7 @@ class Site extends \yii\db\ActiveRecord
     public function afterFind() {
         parent::afterFind();
         $this->configuration = self::loadConfig($this->config);
-        $this->tests = $this->getTests();
+        $this->getTests();
     }
     
     
