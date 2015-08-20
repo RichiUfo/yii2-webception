@@ -75,7 +75,7 @@ class Site extends \yii\db\ActiveRecord
             'unit'       => true,
         );
         
-        $types = \Yii::$app->controller->module->params['tests'];
+        //$types = \Yii::$app->controller->module->params['tests'];
         
         foreach ($types as $type => $active) {
             $files = new \RecursiveIteratorIterator(
