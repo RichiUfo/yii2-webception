@@ -81,7 +81,7 @@ class Site extends \yii\db\ActiveRecord
         
         foreach ($types as $type) { 
             $files = new \RecursiveIteratorIterator(
-                new \RecursiveDirectoryIterator("{$this->config['paths']['tests']}/{$type}/", \FilesystemIterator::SKIP_DOTS),
+                new \RecursiveDirectoryIterator("{$this->configuration['paths']['tests']}/{$type}/", \FilesystemIterator::SKIP_DOTS),
                 \RecursiveIteratorIterator::SELF_FIRST
             );
     
@@ -89,7 +89,7 @@ class Site extends \yii\db\ActiveRecord
             //      any files that are in the ignore list.
             foreach ($files as $file) {
     
-                if (! in_array($file->getFilename(), $this->config['ignore'])
+                if (! in_array($file->getFilename(), $this->configuration['ignore'])
                    && $file->isFile())
                 {
                     // Declare a new test and add it to the list.
