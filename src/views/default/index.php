@@ -29,6 +29,6 @@ Yii2WebceptionAsset::register($this);
     <?php endforeach; ?>
     
     
-    <?php var_dump($types = \Yii::$app->controller->module->params); ?>
+    <?php var_dump(\Yii::$app->controller->module->params); ?>
     
 </div>
