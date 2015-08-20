@@ -30,4 +30,6 @@ Yii2WebceptionAsset::register($this);
     <?php endforeach; ?>
     </ul>
     
+    <?php var_dump($sites); ?>
+    
 </div>
