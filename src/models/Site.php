@@ -89,10 +89,10 @@ class Site extends \yii\db\ActiveRecord
             // Iterate through all the files, and filter out
             //      any files that are in the ignore list.
             foreach ($files as $file) {
-                $this->test_count++;
                 //if (! in_array($file->getFilename(), $this->configuration['ignore']) && $file->isFile())
                 if ($file->isFile())
                 {
+                    $this->test_count++;
                     // Declare a new test and add it to the list.
                     $test = new Test();
                     //$test->init($type, $file);
