@@ -12,4 +12,7 @@ Yii2WebceptionAsset::register($this);
     <?= $ready?'Ready':'Not Ready'; ?><br>
     Test count : <?= $test_count ?><br><br>
     codeception object : <br> <?php var_dump($codeception); ?>
+    
+    <br><br> Available Sites <br>
+    <?php var_dump($sites); ?>
 </div>

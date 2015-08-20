@@ -7,8 +7,37 @@ use Yii;
 /**
  * This is the model class for Site.
  */
-class Site extends \yii\base\Model
+class Site extends \yii\db\ActiveRecord
 {
+    
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'sites';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['name', 'config'], 'required'],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'name' => 'Name',
+            'config' => 'Configuration File',
+        ];
+    }
     
     /**
      * List of all sites set in the Codeception config.

@@ -6,8 +6,6 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 
-use godardth\yii2webception\models\Codeception;
-
 class DefaultController extends Controller
 {
     
@@ -31,25 +29,10 @@ class DefaultController extends Controller
     /**
 	 * Routed Actions - Views Rendering
 	 */
-    public function actionIndex() {
-        
-        $tests       = false;
-        $test_count  = 0;
-        $webception  = \Yii::$app->controller->module->params['webception'];
-        $codeception = new Codeception;
-    
-        /*if ($codeception->ready()) {
-            $tests      = $codeception->getTests();
-            $test_count = $codeception->getTestTally();
-        }*/
+    public function actionIndex($start='', $end='') {
         
         return $this->render('index', [
-            'name'        => '$app->getName()',
-            'ready'       => $codeception->ready(),
-            'webception'  => $webception,
-            'codeception' => $codeception->yaml,
-            'tests'       => $tests,
-            'test_count'  => $test_count,
+            'sites' => SiteController::getAvailableSites(),   
         ]);
 
     }
