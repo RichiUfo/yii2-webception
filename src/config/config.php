@@ -20,29 +20,6 @@ return [
             'test'       => 'App/Tests/_config/codeception_%s.php',
         ],
         
-        /*
-        |--------------------------------------------------------------------------
-        | Codeception Configurations
-        |--------------------------------------------------------------------------
-        |
-        | This is where you add your Codeception configurations.
-        |
-        | Webception allows you to have access test suites for multiple applications.
-        |
-        | Place them in the order you want and they'll appear in the drop-down list
-        | in the front-end. The first site in the list will become the default
-        | site that's loaded on session load.
-        |
-        | Just add the site name and full path to the 'codeception.yml' below and you're set.
-        |
-        */
-    
-        'sites' => [
-    
-            'FullPlanner'       => '/var/www/fullplanner2/advanced/frontend/tests/codeception.yml', 
-            'Accounting'        => '/var/www/fullplanner2/advanced/frontend/modules/accounting/tests/codeception.yml',
-    
-        ],
     
         /*
         |--------------------------------------------------------------------------
@@ -65,9 +42,9 @@ return [
         */
     
         'tests' => [
-            'acceptance' => TRUE,
-            'functional' => TRUE,
-            'unit'       => TRUE,
+            'acceptance' => true,
+            'functional' => true,
+            'unit'       => true,
         ],
     
         /*
