@@ -51,6 +51,7 @@ class Site extends \yii\db\ActiveRecord
     }
     
     public function __construct() {
+        parent::__construct();
         $this->tests = self::getTests();
     }
     
