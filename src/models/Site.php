@@ -83,6 +83,8 @@ class Site extends \yii\db\ActiveRecord
             $this->addTest($test);
         }*/
         
+        return array();
+        
     }
     
     public function afterFind() {
