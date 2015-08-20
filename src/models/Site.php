@@ -60,10 +60,10 @@ class Site extends \yii\db\ActiveRecord
         $config = \Symfony\Component\Yaml\Yaml::parse(file_get_contents($full_path));
 
         // Update the config to include the full path.
-        foreach ($config['paths'] as $key => &$test_path) {
+        /*foreach ($config['paths'] as $key => &$test_path) {
             $test_path = file_exists($path . $test_path) ?
                  realpath($path . $test_path) : $path . $test_path;
-        }
+        }*
 
         return $config;
     }
