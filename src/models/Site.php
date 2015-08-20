@@ -40,16 +40,14 @@ class Site extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'name' => 'Name',
             'config' => 'Configuration File',
         ];
     }
     
-    public function loadConfig($full_path)
-    {
+    public function loadConfig($full_path) {
         $path = pathinfo($full_path)['dirname'] . '/';
         $file = pathinfo($full_path)['basename'];
 
@@ -75,17 +73,34 @@ class Site extends \yii\db\ActiveRecord
     
     public function getTests() {
         
-        //1 - Get the tests directories
+        $types = array(
+            'acceptance' => true,
+            'functional' => true,
+            'unit'       => true,
+        );
         
-        //2 - Init a test per file
-        /*foreach() {
-            $test = new Test;
-            $test->init();
-            $this->addTest($test);
-        }*/
-        
-        return array();
-        
+        foreach ($types as $type) { 
+            $files = new \RecursiveIteratorIterator(
+                new \RecursiveDirectoryIterator("{$this->config['paths']['tests']}/{$type}/", \FilesystemIterator::SKIP_DOTS),
+                \RecursiveIteratorIterator::SELF_FIRST
+            );
+    
+            // Iterate through all the files, and filter out
+            //      any files that are in the ignore list.
+            foreach ($files as $file) {
+    
+                if (! in_array($file->getFilename(), $this->config['ignore'])
+                   && $file->isFile())
+                {
+                    // Declare a new test and add it to the list.
+                    $test = new Test();
+                    $test->init($type, $file);
+                    $this->addTest($test);
+                    unset($test);
+                }
+    
+            }
+        }
     }
     
     public function afterFind() {
@@ -93,6 +108,12 @@ class Site extends \yii\db\ActiveRecord
         $this->configuration = self::loadConfig($this->config);
         $this->tests = $this->getTests();
     }
+    
+    
+    
+    
+    
+    
     
     // FROM ORIGINAL WEBCEPTION
     
