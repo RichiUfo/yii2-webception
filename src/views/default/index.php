@@ -13,24 +13,21 @@ Yii2WebceptionAsset::register($this);
     
     <!-- List the available sites and tests for each of them -->
     <br><br> Available Sites <br>
-    <ul>
     <?php foreach($sites as $site) : ?>
-        <li><?= $site->name ?></li>
         <table class="table table-striped">
             <tr>
-                <th>Test</th>
-                <th>Type</th>
-                <th>State</th>
+                <th colspan="2"><?= $site->name ?></th>
+                <th><button class="btn btn-default btn-xs" type="submit">Run All</button></th>
             </tr>
             <?php foreach($site->tests as $test) : ?>
                 <tr>
                     <td><?= $test->title ?></td>
                     <td><?= $test->type ?></td>
-                    <td><?= $test->state ?></td>
+                    <td><?= $test->state ?><button class="btn btn-default btn-xs" type="submit">Run</button></td>
+                    <td></td>
                 </tr>
             <?php endforeach; ?>
         </table>
     <?php endforeach; ?>
-    </ul>
     
 </div>
