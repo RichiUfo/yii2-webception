@@ -13,6 +13,11 @@ Yii2WebceptionAsset::register($this);
     Test count : ?= $test_count ?><br><br>
     codeception object : <br> ?php var_dump($codeception); ?-->
     
+    
+    <!-- Check the codeception initialization -->
+    
+    
+    <!-- List the available sites and tests for each of them -->
     <br><br> Available Sites <br>
     <ul>
     <?php foreach($sites as $site) : ?>
@@ -20,5 +25,4 @@ Yii2WebceptionAsset::register($this);
     <?php endforeach; ?>
     </ul>
     
-    <?php var_dump($sites); ?>
 </div>
