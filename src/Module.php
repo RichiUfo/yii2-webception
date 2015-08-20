@@ -15,8 +15,8 @@ class Module extends \frontend\components\Module
     public function __construct($id, $parent = null, $config = [])
     {
         $this->db_name = 'yii2_webception';
-        //$this->db_username = 'accounting';
-        //$this->db_password = 'lECwn3sqj3_dv-X37fpHxdntrR0m0fWx';
+        $this->db_username = 'fullplanner2';
+        $this->db_password = 'fxUYjM7U7Ua5bDRb';
 			
 		parent::__construct($id, $parent, $config);
 		
