@@ -59,6 +59,8 @@ class Test extends \yii\base\Model
      */
     private $passed = false;
 
+    private $state;
+    
     /**
      * Possible test states
      */
@@ -146,7 +148,7 @@ class Test extends \yii\base\Model
         $this->filename = substr($file->getPathname(), $posTypePath);
         $this->file     = $file;
         $this->type     = $type;
-        //$this->state    = self::STATE_READY; // Not used yet.
+        $this->state    = self::STATE_READY; // Not used yet.
     }
 
     /**
