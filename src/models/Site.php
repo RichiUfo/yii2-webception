@@ -85,8 +85,8 @@ class Site extends \yii\db\ActiveRecord
                 if ($file->isFile())
                 {
                     $test = new Test();
-                    //$test->init($type, $file);
-                    $test->title = $file->getFilename();
+                    $test->init($type, $file);
+                    //$test->title = $file->getFilename();
                     array_push($this->tests, $test);
                     unset($test);
                 }

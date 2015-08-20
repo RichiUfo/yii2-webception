@@ -142,7 +142,7 @@ class Test extends \yii\base\Model
         $posTypePath    = strpos($file->getPathname(), "/{$type}/") + strlen("/{$type}/");
 
         $this->hash     = $this->makeHash($type . $filename);
-        $this->title    = $this->filterTitle($filename);
+        $this->title    = $filename; //$this->filterTitle($filename);
         $this->filename = substr($file->getPathname(), $posTypePath);
         $this->file     = $file;
         $this->type     = $type;
