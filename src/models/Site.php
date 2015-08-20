@@ -69,20 +69,19 @@ class Site extends \yii\db\ActiveRecord
     
     public function getTests() {
         
-        $types = \Yii::$app->controller->module->params['tests'];
+        $config = \Yii::$app->controller->module->params;
         
-        foreach ($types as $type => $active) {
+        foreach ($config['tests'] as $type => $active) {
             $files = new \RecursiveIteratorIterator(
                 new \RecursiveDirectoryIterator("{$this->configuration['paths']['tests']}/{$type}/", \FilesystemIterator::SKIP_DOTS),
                 \RecursiveIteratorIterator::SELF_FIRST
             );
     
             foreach ($files as $file) {
-                if ($file->isFile())
+                if (! in_array($file->getFilename(), $config['ignore']) && $file->isFile())
                 {
                     $test = new Test();
                     $test->init($type, $file);
-                    //$test->title = $file->getFilename();
                     array_push($this->tests, $test);
                     unset($test);
                 }
