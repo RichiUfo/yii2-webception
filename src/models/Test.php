@@ -57,7 +57,7 @@ class Test extends \yii\base\Model
      *
      * @var bool
      */
-    private $passed = FALSE;
+    private $passed = false;
 
     /**
      * Possible test states

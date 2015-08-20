@@ -10,6 +10,8 @@ use Yii;
 class Site extends \yii\db\ActiveRecord
 {
     
+    public $tests = array();
+    
     public static function getDb()
 	{
 		return \Yii::$app->controller->module->db;
@@ -44,12 +46,10 @@ class Site extends \yii\db\ActiveRecord
         ];
     }
     
-    /**
-     * List of all sites set in the Codeception config.
-     *
-     * @var array
-     */
-    private $sites = array();
+    
+    
+    // FROM ORIGINAL WEBCEPTION
+    
 
     /**
      * Hash value of the current site.
@@ -163,16 +163,6 @@ class Site extends \yii\db\ActiveRecord
     }
 
     /**
-     * Return full list of sites.
-     *
-     * @return array
-     */
-    public function getSites()
-    {
-        return $this->sites;
-    }
-
-    /**
      * Given a list of sites, prepare a unique hash
      * and tidy up the path to the Codeception configuration.
      *
@@ -203,19 +193,6 @@ class Site extends \yii\db\ActiveRecord
     public function ready()
     {
         return sizeof($this->sites) > 0 && $this->hash !== false;
-    }
-
-    /**
-     * Confirm that Site class has more than one option available.
-     *
-     * This is used on the Webception front-end to decide
-     * if a dropdown is required to swap sites.
-     *
-     * @return boolean Checks if details are ready and more than one site.
-     */
-    public function hasChoices()
-    {
-        return $this->ready() && sizeof($this->sites) > 1;
     }
     
 }

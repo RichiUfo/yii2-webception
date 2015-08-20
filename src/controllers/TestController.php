@@ -30,6 +30,11 @@ class SiteController extends Controller
         ];
     }
     
+    public function getAvailableTests($site) {
+        // To Be Implemented
+    }
+    
+    
     /*
     * Test Runner
     * Given a test type (acceptance, functional etc) and a hash,
