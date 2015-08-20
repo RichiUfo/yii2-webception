@@ -142,7 +142,7 @@ class Test extends \yii\base\Model
         $posTypePath    = strpos($file->getPathname(), "/{$type}/") + strlen("/{$type}/");
 
         $this->hash     = $this->makeHash($type . $filename);
-        $this->title    = $filename; //$this->filterTitle($filename);
+        $this->title    = $this->filterTitle($filename);
         $this->filename = substr($file->getPathname(), $posTypePath);
         $this->file     = $file;
         $this->type     = $type;
@@ -180,7 +180,7 @@ class Test extends \yii\base\Model
      */
     public function filterTitle($title)
     {
-        return camel_to_sentance($title);
+        return trim(preg_replace('/(?!^)[A-Z]{2,}(?=[A-Z][a-z])|[A-Z][a-z]/', ' $0', $title));
     }
 
 
