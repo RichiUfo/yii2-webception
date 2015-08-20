@@ -48,9 +48,10 @@ class Site extends \yii\db\ActiveRecord
         ];
     }
     
-    public function loadConfig($path, $file = '')
+    public function loadConfig($full_path)
     {
-        $full_path = $path . $file;
+        $path = pathinfo($full_path)['dirname'];
+        $file = pathinfo($full_path)['basename'];
 
         // If the Codeception YAML can't be found, the application can't go any further.
         if (! file_exists($full_path))
