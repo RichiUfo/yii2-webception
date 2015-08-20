@@ -11,7 +11,7 @@ class Site extends \yii\db\ActiveRecord
 {
     
     public $directories = array();
-    public $tests = array();
+    public $tests = [1];
     public $configuration = null;
     
     public static function getDb()
@@ -95,7 +95,7 @@ class Site extends \yii\db\ActiveRecord
                     $test = new Test();
                     //$test->init($type, $file);
                     $test->title = $file->getFilename();
-                    $this->addTest($test);
+                    array_push($this->tests, $test);
                     //unset($test);
                 }
     
