@@ -29,7 +29,7 @@ class Test extends \yii\base\Model
      *
      * @var string
      */
-    private $title = 'YO';
+    public $title = 'YO';
 
     /**
      * The file object.
