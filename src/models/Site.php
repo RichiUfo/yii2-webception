@@ -13,6 +13,7 @@ class Site extends \yii\db\ActiveRecord
     public $directories = array();
     public $tests = array();
     public $configuration = null;
+    public $test_count = 0;
     
     public static function getDb()
 	{
@@ -88,7 +89,7 @@ class Site extends \yii\db\ActiveRecord
             // Iterate through all the files, and filter out
             //      any files that are in the ignore list.
             foreach ($files as $file) {
-    
+                $this->test_count++;
                 //if (! in_array($file->getFilename(), $this->configuration['ignore']) && $file->isFile())
                 if ($file->isFile())
                 {
