@@ -14,5 +14,11 @@ Yii2WebceptionAsset::register($this);
     codeception object : <br> ?php var_dump($codeception); ?-->
     
     <br><br> Available Sites <br>
+    <ul>
+    <?php foreach($sites as $site) : ?>
+        <li><?= $site->name ?> : <?= $site->config ?></li>
+    <?php endforeach; ?>
+    </ul>
+    
     <?php var_dump($sites); ?>
 </div>
