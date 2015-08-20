@@ -16,11 +16,20 @@ Yii2WebceptionAsset::register($this);
     <ul>
     <?php foreach($sites as $site) : ?>
         <li><?= $site->name ?></li>
-        <ul>
+        <table>
+            <tr>
+                <th>Test</th>
+                <th>Type</th>
+                <th>State</th>
+            </tr>
             <?php foreach($site->tests as $test) : ?>
-                <li><?= $test->title ?></li>
+                <tr>
+                    <td><?= $test->title ?></td>
+                    <td><?= $test->type ?></td>
+                    <td><?= $test->state ?></td>
+                </tr>
             <?php endforeach; ?>
-        </ul>
+        </table>
     <?php endforeach; ?>
     </ul>
     
