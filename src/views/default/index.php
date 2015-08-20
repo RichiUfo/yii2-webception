@@ -7,7 +7,7 @@ Yii2WebceptionAsset::register($this);
 ?>
 
 <div class="container">
-    <h1>Webception</h1>
+    <h1>Webception<button class="btn btn-default btn-xs pull-right" type="submit">Run All</button></h1>
     
     <!-- Check the codeception initialization -->
     
