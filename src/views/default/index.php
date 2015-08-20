@@ -28,7 +28,4 @@ Yii2WebceptionAsset::register($this);
         </table>
     <?php endforeach; ?>
     
-    
-    <?php var_dump(\Yii::$app->controller->module->params); ?>
-    
 </div>
