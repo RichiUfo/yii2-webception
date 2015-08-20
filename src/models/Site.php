@@ -59,18 +59,6 @@ class Site extends \yii\db\ActiveRecord
     private $hash = false;
 
     /**
-     * On construct, prepare the site details and the chosen site.
-     *
-     * @param array  $config
-     * @param string $hash
-     */
-    public function __construct($sites = array())
-    {
-        // Filter the sites by creating unique hashes.
-        $this->sites = $this->prepare($sites);
-    }
-
-    /**
      * Set the current site.
      *
      * @param string if set, false if not.
