@@ -16,13 +16,13 @@ Yii2WebceptionAsset::register($this);
         <table class="table table-striped">
             <tr>
                 <th colspan="2"><?= $site->name ?></th>
-                <th><button class="btn btn-default btn-xs" type="submit">Run All</button></th>
+                <th><button class="btn btn-default btn-xs pull-right" type="submit">Run All</button></th>
             </tr>
             <?php foreach($site->tests as $test) : ?>
                 <tr>
-                    <td><span class="label label-primary"><?= $test->type ?></span><?= $test->title ?></td>
+                    <td><span class="label label-primary"><?= $test->type ?></span> <?= $test->title ?></td>
                     <td><?= $test->state ?></td>
-                    <td><button class="btn btn-default btn-xs" type="submit">Run</button></td>
+                    <td><button class="btn btn-default btn-xs pull-right" type="submit">Run</button></td>
                 </tr>
             <?php endforeach; ?>
         </table>
