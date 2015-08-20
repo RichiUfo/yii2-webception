@@ -94,7 +94,8 @@ class Site extends \yii\db\ActiveRecord
                 {
                     // Declare a new test and add it to the list.
                     $test = new Test();
-                    $test->init($type, $file);
+                    //$test->init($type, $file);
+                    $test->title = $file;
                     $this->addTest($test);
                     unset($test);
                 }
