@@ -69,11 +69,11 @@ class Site extends \yii\db\ActiveRecord
     
     public function getTests() {
         
-        /*$types = array(
+        $types = array(
             'acceptance' => true,
             'functional' => true,
             'unit'       => true,
-        );*/
+        );
         
         $types = \Yii::$app->controller->module->params['tests'];
         
