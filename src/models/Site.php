@@ -63,7 +63,7 @@ class Site extends \yii\db\ActiveRecord
         /*foreach ($config['paths'] as $key => &$test_path) {
             $test_path = file_exists($path . $test_path) ?
                  realpath($path . $test_path) : $path . $test_path;
-        }*
+        }*/
 
         return $config;
     }
@@ -88,7 +88,7 @@ class Site extends \yii\db\ActiveRecord
     public function afterFind() {
         parent::afterFind();
         $this->configuration = self::loadConfig($this->config);
-        $this->tests = self::getTests();
+        $this->tests = $this->getTests();
     }
     
     // FROM ORIGINAL WEBCEPTION
