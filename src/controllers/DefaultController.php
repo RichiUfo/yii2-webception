@@ -34,7 +34,7 @@ class DefaultController extends Controller
         $sites = SiteController::getAvailableSites();
         
         $checks = [
-            'configuration' => null,  
+            'configuration' => CodeceptionController::checkConfiguration(),  
             'executable' => CodeceptionController::checkExecutable(),
             'writeable' => null
         ];
