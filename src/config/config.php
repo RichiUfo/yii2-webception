@@ -33,7 +33,7 @@ return [
         |
         */
     
-        'executable' => 'vendor/bin/codecept',
+        'executable' => '@app/vendor/bin/codecept',
     
         /*
         |--------------------------------------------------------------------------
