@@ -125,7 +125,7 @@ class TestController extends Controller
         $output  = TerminalController::run_terminal_command($command);
 
         // Add the log to the test which also checks to see if there was a pass/fail.
-        //$test->setLog($output);
+        $test->setLog($output);
 
         return $test;
     }
