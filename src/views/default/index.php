@@ -73,11 +73,11 @@ function genLabel($type){
             </thead>
             <tbody id="site<?= $sitecounter ?>">
                 <?php foreach($site->tests as $test) : ?>
-                    <tr id="<?= $test->hash ?>">
+                    <tr id="<?= $test->hash ?>" class="pull-right">
                         <td><?= genLabel($test->type) ?> <?= $test->title ?></td>
                         <td>
                             <span class="status label label-primary"><?= $test->state ?></span>
-                            <button class="btn btn-default btn-xs pull-right run-test" 
+                            <button class="btn btn-default btn-xs run-test" 
                                     hash="<?= $test->hash ?>"
                                     type="submit">Run</button>
                         </td>
