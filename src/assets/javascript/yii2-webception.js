@@ -20,7 +20,8 @@ $(document).ready(function(){
     $('.run-site').click(function(){
         var site = $(this).attr('site')
         $('#'+site+' .run-test').each(function(i, obj) {
-            runTest(obj.attr('hash'));
+            console.log(obj)
+            runTest(obj.attr('hash'))
         });
         
     })
