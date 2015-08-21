@@ -64,6 +64,10 @@ class TestController extends Controller
         }
     }
     
+    public function findTestFromHash($hash) {
+        $test = new Test;
+        return $test;
+    }
     
     /*
     * Test Runner
@@ -72,14 +76,20 @@ class TestController extends Controller
     *
     * The route is called via AJAX and the return repsonse is JSON.
     */
-    public function actionRunTest() {
+    public function actionRunTest($hash) {
         
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         
-        // TO BE COMPLETE
-        $response = 'Not Implemented yet';
+        $test = null;
+        $sites = SiteController::getAvailableSites();
+        foreach ($sites as $s) {
+            foreach ($s->tests as $t) {
+                if ($t->hash === $hash)
+                    $test = $t;
+            }
+        }
         
-        return $response;
+        return $test;
 
     }
 	
