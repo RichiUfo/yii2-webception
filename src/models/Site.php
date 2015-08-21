@@ -116,17 +116,7 @@ class Site extends \yii\db\ActiveRecord
     }
     
     // FROM ORIGINAL WEBCEPTION
-    
-    /**
-     * Return the full path to the Codeception.yml for the current site.
-     *
-     * @return string
-     */
-    public function getConfig()
-    {
-        return $this->config;
-    }
-    
+
     /**
      * Hash value of the current site.
      *
