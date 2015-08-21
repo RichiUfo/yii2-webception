@@ -68,6 +68,4 @@ class CodeceptionController extends Controller
         return !empty($config);
     }
     
-    public function actionRunTest
-    
 }
