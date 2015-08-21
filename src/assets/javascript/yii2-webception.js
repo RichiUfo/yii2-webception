@@ -11,8 +11,7 @@ var runTest = function(hash) {
             console.log(result)
             $('#'+hash+' .status').html(result.state)
             if(result.state == 'Failed') {
-                console.log($('#'+hash+' .status').closest('.test-log td pre'), result.log)
-                $('#'+hash).parent().find('.test-log td pre').html(result.log)
+                $('#'+hash).next('.test-log td pre').html(result.log)
             }
         }
     })
