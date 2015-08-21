@@ -7,10 +7,19 @@ Yii2WebceptionAsset::register($this);
 ?>
 
 <div class="container">
-    <h1>Webception<button class="btn btn-default btn-xs pull-right" type="submit">Run All</button></h1>
+    <h1>
+        Webception
+        
+        <div class="btn-group btn-group-xs" role="group" aria-label="">
+            <button type="button" class="btn btn-default">Configuration</button>
+            <button type="button" class="btn btn-default">Executable</button>
+            <button type="button" class="btn btn-default">Writeable</button>
+        </div>
+        
+        <button class="btn btn-default btn-xs pull-right" type="submit">Run All</button>
+    </h1>
     
     <!-- Check the codeception initialization -->
-    
     <!-- List the available sites and tests for each of them -->
     <?php foreach($sites as $site) : ?>
         <table class="table table-striped">

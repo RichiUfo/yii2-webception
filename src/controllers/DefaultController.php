@@ -32,13 +32,14 @@ class DefaultController extends Controller
     public function actionIndex($start='', $end='') {
         
         $checks = [
-            'configuration' => true,  
+            'configuration' => null,  
             'executable' => Codeception::checkExecutable(), 
-            'writeable' => true  
+            'writeable' => null
         ];
         
         return $this->render('index', [
-            'sites' => SiteController::getAvailableSites(),   
+            'sites' => SiteController::getAvailableSites(),  
+            'checks' => $checks
         ]);
 
     }
