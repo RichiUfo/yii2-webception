@@ -15,7 +15,7 @@ $(document).ready(function(){
                 // Update the status
                 $('#'+hash+' .status').html(result.state);
                 
-                console.log('Test executed. Output ' + result, $('#'+hash+' .status').html());
+                console.log('Test executed. Output ' + result, $('#'+hash+' .status').html(), result.state);
             }
         });
         
