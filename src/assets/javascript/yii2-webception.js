@@ -10,7 +10,7 @@ var runTest = function(hash) {
         success: function(result){
             console.log(result)
             $('#'+hash+' .status').html(result.state)
-            if(result.state === 'Failed') {
+            if(result.state == 'Failed') {
                 console.log('Failed')
                 $('#'+hash+' .status').closest('.test-log td pre').html(result.log)
             }
