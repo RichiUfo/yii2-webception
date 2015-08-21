@@ -28,7 +28,7 @@ Yii2WebceptionAsset::register($this);
     
     <!-- Check the codeception initialization -->
     <!-- List the available sites and tests for each of them -->
-    <table class="table table-striped">
+    <table class="table table-striped table-condensed">
         <?php foreach($sites as $site) : ?>
             <thead>
                 <tr>
