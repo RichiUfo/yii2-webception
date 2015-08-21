@@ -100,7 +100,7 @@ class Site extends \yii\db\ActiveRecord
     
     public function checkLogging() {
         $response = array();
-        $path = $site->directories['log'];
+        $path = $this->directories['log'];
         $response['resource'] = $path;
 
         if (is_null($path)) {
