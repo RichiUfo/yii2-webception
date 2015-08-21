@@ -92,6 +92,7 @@ class Test extends \yii\base\Model
      * @var string
      */
     private $passed_regex;
+    private $failure_regex;
 
     /**
      * Colour tags from Codeception's coloured output.
