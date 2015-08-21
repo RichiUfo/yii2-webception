@@ -67,5 +67,31 @@ class TerminalController extends Controller
 
         return $output;
     }
+    
+    /**
+     * Full command to run a Codeception test.
+     *
+     * @param  string $type     Test Type (Acceptance, Functional, Unit)
+     * @param  string $filename Name of the Test
+     * @return string Full command to execute Codeception with requred parameters.
+     */
+    public function getCommandPath($type, $filename)
+    {
+        $config = \Yii::$app->controller->module->params;
+        
+        // Build all the different parameters as part of the console command
+        $params = array(
+            $config['executable'],        // Codeception Executable
+            "run",                              // Command to Codeception
+            "--no-colors",                      // Forcing Codeception to not use colors, if enabled in codeception.yml
+            "--config=\"{$this->site->getConfig()}\"", // Full path & file of Codeception
+            $type,                              // Test Type (Acceptance, Unit, Functional)
+            $filename,                          // Filename of the Codeception test
+            "2>&1"                              // Added to force output of running executable to be streamed out
+        );
+
+        // Build the command to be run.
+        return implode(' ', $params);
+    }
 	
 }

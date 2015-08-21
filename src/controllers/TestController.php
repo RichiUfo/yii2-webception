@@ -84,8 +84,49 @@ class TestController extends Controller
             }
         }
         
-        return $test;
+        $response = [
+            'message'     => null,
+            'run'         => false,
+            'passed'      => false,
+            'state'       => 'error',
+            'log'         => null
+        ];
+        
+        if (is_null($response['message'])) {
+            $this->run($test);
+            
+            //$response['run']    = $test->ran();
+            //$response['log']    = $test->getLog();
+            //$response['passed'] = $test->passed();
+            //$response['state']  = $test->getState();
+            //$response['title']  = $test->getTitle();
+        }
+        
+        return $response;
 
     }
-	
+	    
+	/**
+     * Given a test, run the Codeception test.
+     *
+     * @param  Test $test Current test to Run.
+     * @return Test $test Updated test with log and result.
+     */
+    public function run($test)
+    {
+        // Get the full command path to run the test.
+        $command = TerminalController::getCommandPath($test->type, $test->filename);
+
+        // Attempt to set the correct writes to Codeceptions Log path.
+        @chmod($this->getLogPath(), 0777);
+
+        // Run the helper function (as it's not specific to Codeception)
+        // which returns the result of running the terminal command into an array.
+        $output  = TerminalController::run_terminal_command($command);
+
+        // Add the log to the test which also checks to see if there was a pass/fail.
+        //$test->setLog($output);
+
+        return $test;
+    }
 }

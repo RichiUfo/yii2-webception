@@ -22,7 +22,7 @@ class Test extends \yii\base\Model
      *
      * @var string
      */
-    private $filename;
+    public $filename;
 
     /**
      * Readable version of the filename
@@ -43,7 +43,7 @@ class Test extends \yii\base\Model
      *
      * @var string
      */
-    private $type;
+    public $type;
 
     /**
      * Log of the test result
