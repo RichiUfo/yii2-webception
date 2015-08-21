@@ -6,7 +6,9 @@
 
 .godardth-webception {
     
-    .table-tests {
+    .table-tests,
+    .table-tests tr,
+    .table-tests td {
         border: none;
     }
     

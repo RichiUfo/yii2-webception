@@ -4,6 +4,8 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
  */
 /* line 9, ../sass/screen.scss */
-.godardth-webception .table-tests {
+.godardth-webception .table-tests,
+.godardth-webception .table-tests tr,
+.godardth-webception .table-tests td {
   border: none;
 }
