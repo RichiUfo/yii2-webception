@@ -33,7 +33,7 @@ return [
         |
         */
     
-        'executable' => '@app/vendor/bin/codecept',
+        'executable' => Yii::getAlias('@vendor') . '/bin/codecept',
     
         /*
         |--------------------------------------------------------------------------
