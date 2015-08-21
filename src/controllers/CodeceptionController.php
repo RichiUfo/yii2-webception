@@ -43,7 +43,7 @@ class CodeceptionController extends Controller
         $file = $config['executable'];
         $config = $config['location'];
         
-        $response             = array();
+        $response= array();
         $response['resource'] = $file;
 
         // Set this to ensure the developer knows there $file was set.
