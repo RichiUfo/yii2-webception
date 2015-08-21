@@ -77,7 +77,7 @@ class SiteController extends Controller
         Yii::$app->response->format = Response::FORMAT_JSON;
         
         // TO BE COMPLETE
-        $response = null;
+        $response = 'Not Implemented yet';
         
         return $response;
 
