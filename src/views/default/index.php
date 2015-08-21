@@ -28,8 +28,8 @@ Yii2WebceptionAsset::register($this);
     
     <!-- Check the codeception initialization -->
     <!-- List the available sites and tests for each of them -->
-    <?php foreach($sites as $site) : ?>
-        <table class="table table-striped">
+    <table class="table table-striped">
+        <?php foreach($sites as $site) : ?>
             <tr>
                 <th colspan="2"><?= $site->name ?> <button type="button" class="btn btn-<?= $site->logging['passed'] ? 'success' : 'danger' ?> disabled btn-xs">Logging</button></th>
                 <th><button class="btn btn-default btn-xs pull-right" type="submit">Run All</button></th>
@@ -41,7 +41,7 @@ Yii2WebceptionAsset::register($this);
                     <td><button class="btn btn-default btn-xs pull-right" type="submit">Run</button></td>
                 </tr>
             <?php endforeach; ?>
-        </table>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+    </table>
     
 </div>
