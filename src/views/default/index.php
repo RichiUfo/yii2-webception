@@ -19,6 +19,14 @@ Yii2WebceptionAsset::register($this);
         <button class="btn btn-default btn-xs pull-right" type="submit">Run All</button>
     </h1>
     
+    <!-- Error -->
+    <?php if (!$checks['executable']['passed']) : ?>
+        <pre><samp>
+            <?= $checks['executable']['error'] ?>
+            
+        </samp></pre>
+    <?php endif; ?>
+    
     <!-- Check the codeception initialization -->
     <!-- List the available sites and tests for each of them -->
     <?php foreach($sites as $site) : ?>
