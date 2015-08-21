@@ -10,7 +10,6 @@ use Yii;
 class Site extends \yii\db\ActiveRecord
 {
     
-    public $directories = array();
     public $tests = [];
     public $configuration = null;
     public $logging = false;
@@ -100,7 +99,7 @@ class Site extends \yii\db\ActiveRecord
     
     public function checkLogging() {
         $response = array();
-        $path = $this->directories['log'];
+        $path = $this->config['paths['log'];
         $response['resource'] = $path;
 
         if (is_null($path)) {
