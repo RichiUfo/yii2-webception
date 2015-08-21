@@ -8,7 +8,11 @@ var runTest = function(hash) {
         data: { hash: hash },
         dataType: "json",
         success: function(result){
+            console.log(result)
             $('#'+hash+' .status').html(result.state)
+            if(result.state === 'Failed') {
+                $('#'+hash+' .status').closest('.test-log').html(result.log)
+            }
         }
     })
 }

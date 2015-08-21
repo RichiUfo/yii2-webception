@@ -50,7 +50,7 @@ function genLabel($type){
     
     <!-- Check the codeception initialization -->
     <!-- List the available sites and tests for each of them -->
-    <table class="table table-striped table-condensed">
+    <table class="table table-condensed">
         <?php 
         $sitecounter = 0;
         foreach($sites as $site) : 
@@ -80,6 +80,11 @@ function genLabel($type){
                                     hash="<?= $test->hash ?>"
                                     type="submit">Run</button>
                         </td>
+                    </tr>
+                    <tr class="test-log">
+                        <pre>
+                            
+                        </pre>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
