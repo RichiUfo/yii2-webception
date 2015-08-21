@@ -33,7 +33,7 @@ class DefaultController extends Controller
         
         $checks = [
             'configuration' => null,  
-            'executable' => CodeceptionContr::checkExecutable(), 
+            'executable' => CodeceptionController::checkExecutable(),
             'writeable' => null
         ];
         
