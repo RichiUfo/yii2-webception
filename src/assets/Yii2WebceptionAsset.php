@@ -22,6 +22,7 @@ class Yii2WebceptionAsset extends AssetBundle
         'javascript/yii2-webception.js',
     ];
     public $depends = [
-        
+        'yii\web\YiiAsset',
+        'yii\web\JqueryAsset',
     ];
 }
