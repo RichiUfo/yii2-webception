@@ -31,14 +31,15 @@ function genLabel($type){
 <div class="container">
     <h1>
         Webception
-        
-        <div class="btn-group btn-group-xs" role="group" style="margin-left:50px">
-            <button type="button" class="btn btn-<?= $checks['configuration'] ? 'success' : 'danger' ?> disabled">Configuration</button>
-            <button type="button" class="btn btn-<?= $checks['executable']['passed'] ? 'success' : 'danger' ?> disabled">Executable</button>
-            <button type="button" class="btn btn-<?= $checks['logging'] ? 'success' : 'danger' ?> disabled">Writeable</button>
+        <div class="pull-right">
+            <div class="btn-group btn-group-xs" role="group" style="margin-left:50px">
+                <button type="button" class="btn btn-<?= $checks['configuration'] ? 'success' : 'danger' ?> disabled">Configuration</button>
+                <button type="button" class="btn btn-<?= $checks['executable']['passed'] ? 'success' : 'danger' ?> disabled">Executable</button>
+                <button type="button" class="btn btn-<?= $checks['logging'] ? 'success' : 'danger' ?> disabled">Writeable</button>
+            </div>
+            
+            <button class="btn btn-default btn-xs run-all" type="submit">Run All</button>
         </div>
-        
-        <button class="btn btn-default btn-xs pull-right run-all" type="submit">Run All</button>
     </h1>
     
     <!-- Error -->
