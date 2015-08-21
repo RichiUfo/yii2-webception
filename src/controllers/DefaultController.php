@@ -53,5 +53,15 @@ class DefaultController extends Controller
 
     }
     
+    public function actionRun() {
+        
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        
+        // TO BE COMPLETE
+        $response = 'Not Implemented yet';
+        
+        return $response;
+
+    }
 	
 }
