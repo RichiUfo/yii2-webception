@@ -68,7 +68,7 @@ class CodeceptionController extends Controller
         
         $config = \Yii::$app->controller->module->params;
         
-        return !is_empty($config);
+        return !empty($config);
     }
     
 }
