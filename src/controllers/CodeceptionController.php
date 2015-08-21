@@ -40,7 +40,7 @@ class CodeceptionController extends Controller
     public function checkExecutable() {
         
         $config = \Yii::$app->controller->module->params;
-        $file = $config['executable'];
+        $file = realpath($config['executable']);
         $config = $config['location'];
         
         $response= array();
@@ -50,7 +50,7 @@ class CodeceptionController extends Controller
         $response['config']   = realpath($config);
 
         if (! file_exists($file)) {
-            $response['error'] = 'The Codeception executable could not be found. ('.$response['config'].')';
+            $response['error'] = 'The Codeception executable could not be found. ('.$file.')';
         } elseif ( ! is_executable($file) && strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
             $response['error'] = 'Codeception isn\'t executable. Have you set executable rights to the following (try chmod o+x).';
         }
