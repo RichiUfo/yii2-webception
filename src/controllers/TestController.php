@@ -72,7 +72,7 @@ class SiteController extends Controller
     *
     * The route is called via AJAX and the return repsonse is JSON.
     */
-    public function actionRunTest($start='', $end='') {
+    public function actionRunTest() {
         
         Yii::$app->response->format = Response::FORMAT_JSON;
         
