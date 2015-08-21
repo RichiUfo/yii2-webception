@@ -14,13 +14,13 @@ function genLabel($type){
         $ret = '<span class="label label-primary">A</span>';
         break;
     case 'functional':
-        $ret = '<span class="label label-primary">F</span>';
+        $ret = '<span class="label label-info">F</span>';
         break;
     case 'unit':
-        $ret = '<span class="label label-primary">U</span>';
+        $ret = '<span class="label label-warning">U</span>';
         break;
     default:
-        $ret = '<span class="label label-primary">?</span>';
+        $ret = '<span class="label label-default">?</span>';
     }
     return $ret;
 }
