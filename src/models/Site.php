@@ -99,7 +99,7 @@ class Site extends \yii\db\ActiveRecord
     
     public function checkLogging() {
         $response = array();
-        $path = $this->config['paths']['log'];
+        $path = $this->configuration['paths']['log'];
         $response['resource'] = $path;
 
         if (is_null($path)) {
