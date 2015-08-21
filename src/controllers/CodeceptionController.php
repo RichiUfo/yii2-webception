@@ -46,9 +46,6 @@ class CodeceptionController extends Controller
         $response= array();
         $response['resource'] = $file;
 
-        // Set this to ensure the developer knows there $file was set.
-        $response['config']   = realpath($config);
-
         if (! file_exists($file)) {
             $response['error'] = 'The Codeception executable could not be found. ('.$file.')';
         } elseif ( ! is_executable($file) && strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
