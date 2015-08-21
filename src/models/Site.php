@@ -100,7 +100,8 @@ class Site extends \yii\db\ActiveRecord
     
     public function checkLogging() {
         $response = array();
-        $response['resource'] = $site->directories['log'];
+        $path = $site->directories['log'];
+        $response['resource'] = $path;
 
         if (is_null($path)) {
             $response['error'] = 'The Codeception Log is not set. Is the Codeception configuration set up?';
@@ -112,7 +113,7 @@ class Site extends \yii\db\ActiveRecord
 
         $response['passed'] = ! isset($response['error']);
 
-        $this->logging =  $response;
+        $this->logging = $response;
     }
     
     // FROM ORIGINAL WEBCEPTION
