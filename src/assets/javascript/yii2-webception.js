@@ -21,7 +21,7 @@ $(document).ready(function(){
         var site = $(this).attr('site')
         $('#'+site+' .run-test').each(function(i, obj) {
             console.log(obj)
-            runTest(obj.attr('hash'))
+            //runTest(obj.attr('hash'))
         });
         
     })
