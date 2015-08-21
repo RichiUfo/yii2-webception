@@ -28,7 +28,7 @@ function genLabel($type){
 
 ?>
 
-<div class="container">
+<div class="container godardth-webception">
     <h1>
         Webception
         <div class="pull-right">
@@ -51,7 +51,7 @@ function genLabel($type){
     
     <!-- Check the codeception initialization -->
     <!-- List the available sites and tests for each of them -->
-    <table class="table table-condensed">
+    <table class="table table-condensed table-tests">
         <?php 
         $sitecounter = 0;
         foreach($sites as $site) : 

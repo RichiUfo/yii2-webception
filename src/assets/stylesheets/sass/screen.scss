@@ -1,109 +1,13 @@
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
+ */
 
-// Variables
-@import "variables";
-
-// Custom Mixins
-@import "mixins";
-
-@import "transaction_form";
-@import "page_layout";
-@import "accounting_summary";
-@import "account_page";
-
-/* Index Page Accounting */
-#accounting-index {
-    text-align: center;
-     
-    .header {
-        height: 150px;
-        position: relative;
-        
-        i, p {
-            @include centerer;    
-        }
-        
-        > i {
-            font-size: 100px;
-            color: $side-panel-background-color; 
-            transition: $transition; 
-        }
-        
-        p, a {
-            font-size: 18px;
-            line-height: 24px;
-            color: #222;
-            transition: $transition; 
-        }
+.godardth-webception {
+    
+    .table-tests {
+        border: none;
     }
     
-    .content{
-        margin-top: 0px; 
-        color: #222;
-    }
-    
-    .accounting-index-summary-row {
-        margin-bottom: 75px;
-        
-        > .column {
-            border-right: 1px solid #F5F5F5;   
-        }
-        > .column:last-child {
-            border-right: none;   
-        }
-        &:last-of-type {
-            margin-bottom: 25px;
-        }
-    }
 }
-
-
-/* Balance Sheet */
-#balance-sheet {
-    ul li {
-        list-style-type: none; 
-        padding-bottom: 3px;
-    }
-}
-
-/* Profits and Losses */
-#profit-loss { 
-    ul li {
-        list-style-type: none; 
-        padding-bottom: 3px;
-    }
-}
-
-/* Account Page */
-#account-display {
-    
-    ul li {
-        list-style-type: none; 
-    }
-    
-    .account-create-li-button {
-        transition: $transition;
-        &:hover {
-            color: $landing-link-color;
-            cursor: pointer;
-        }
-    }
-    
-    .currency-group {
-        display: inline-block;
-        img {
-            display: inline-block;
-            margin-right: 10px;
-            &:last-child {
-                margin-right: 0px;
-            }
-        }
-        p {
-            display: none;
-            font-size: 14px;
-        }
-    }
-} 
