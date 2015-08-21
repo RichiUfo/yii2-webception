@@ -13,7 +13,7 @@ Yii2WebceptionAsset::register($this);
         <div class="btn-group btn-group-xs" role="group" aria-label="">
             <button type="button" class="btn btn-<?= $checks['configuration'] ? 'success' : 'danger' ?> disabled">Configuration</button>
             <button type="button" class="btn btn-<?= $checks['executable']['passed'] ? 'success' : 'danger' ?> disabled">Executable</button>
-            <button type="button" class="btn btn-<?= $checks['writeable'] ? 'success' : 'danger' ?> disabled">Writeable</button>
+            <button type="button" class="btn btn-<?= $checks['writeable']['passed'] ? 'success' : 'danger' ?> disabled">Writeable</button>
         </div>
         
         <button class="btn btn-default btn-xs pull-right" type="submit">Run All</button>
@@ -31,7 +31,7 @@ Yii2WebceptionAsset::register($this);
     <?php foreach($sites as $site) : ?>
         <table class="table table-striped">
             <tr>
-                <th colspan="2"><?= $site->name ?></th>
+                <th colspan="2"><?= $site->name ?> <button type="button" class="btn btn-<?= $site->logging['passed'] ? 'success' : 'danger' ?> disabled btn-xs">Logging</button></th>
                 <th><button class="btn btn-default btn-xs pull-right" type="submit">Run All</button></th>
             </tr>
             <?php foreach($site->tests as $test) : ?>

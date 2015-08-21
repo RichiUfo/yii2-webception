@@ -42,6 +42,22 @@ class SiteController extends Controller
         // To Be Implemented
     }
     
-    
+    public function checkWriteableLog($site) {
+        
+        $response = array();
+        $response['resource'] = $site->directories['log'];
+
+        if (is_null($path)) {
+            $response['error'] = 'The Codeception Log is not set. Is the Codeception configuration set up?';
+        } elseif (! file_exists($path)) {
+            $response['error'] = 'The Codeception Log directory does not exist. Please check the following path exists:';
+        } elseif (! is_writeable($path)) {
+            $response['error'] = 'The Codeception Log directory can not be written to yet. Please check the following path has \'chmod 777\' set:';
+        }
+
+        $response['passed'] = ! isset($response['error']);
+
+        return $response;
+    }
 	
 }

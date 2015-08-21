@@ -13,6 +13,7 @@ class Site extends \yii\db\ActiveRecord
     public $directories = array();
     public $tests = [];
     public $configuration = null;
+    public $logging = false;
     
     public static function getDb()
 	{
@@ -94,6 +95,24 @@ class Site extends \yii\db\ActiveRecord
         parent::afterFind();
         $this->configuration = self::loadConfig($this->config);
         $this->getTests();
+        $this->checkLogging();
+    }
+    
+    public function checkLogging() {
+        $response = array();
+        $response['resource'] = $site->directories['log'];
+
+        if (is_null($path)) {
+            $response['error'] = 'The Codeception Log is not set. Is the Codeception configuration set up?';
+        } elseif (! file_exists($path)) {
+            $response['error'] = 'The Codeception Log directory does not exist. Please check the following path exists:';
+        } elseif (! is_writeable($path)) {
+            $response['error'] = 'The Codeception Log directory can not be written to yet. Please check the following path has \'chmod 777\' set:';
+        }
+
+        $response['passed'] = ! isset($response['error']);
+
+        $this->logging =  $response;
     }
     
     // FROM ORIGINAL WEBCEPTION

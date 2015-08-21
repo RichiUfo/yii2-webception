@@ -33,6 +33,11 @@ class DefaultController extends Controller
         
         $sites = SiteController::getAvailableSites();
         
+        // Test Logging For Each Site
+        foreach ($sites as $site) {
+            
+        }
+        
         $checks = [
             'configuration' => CodeceptionController::checkConfiguration(),  
             'executable' => CodeceptionController::checkExecutable(),
