@@ -82,9 +82,9 @@ function genLabel($type){
                         </td>
                     </tr>
                     <tr class="test-log">
-                        <pre>
-                            
-                        </pre>
+                        <td colspan="3">
+                           <pre></pre>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
