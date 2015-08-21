@@ -58,6 +58,33 @@ class CodeceptionController extends Controller
         // If there wasn't an error, then it's good!
         $response['ready'] = ! isset($response['error']);
 
+        return $response['ready'];
+    }
+        
+    /**
+     * Check that the Codeception configuratio has been loaded.
+     */
+    public function checkConfiguration() {
+        
+        $config = \Yii::$app->controller->module->params;
+        $file = $config['executable'];
+        $config = $config['location'];
+        
+        $response= array();
+        $response['resource'] = $file;
+
+        // Set this to ensure the developer knows there $file was set.
+        $response['config']   = realpath($config);
+
+        if (! file_exists($file)) {
+            $response['error'] = 'The Codeception executable could not be found.';
+        } elseif ( ! is_executable($file) && strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
+            $response['error'] = 'Codeception isn\'t executable. Have you set executable rights to the following (try chmod o+x).';
+        }
+
+        // If there wasn't an error, then it's good!
+        $response['ready'] = ! isset($response['error']);
+
         return $response;
     }
     

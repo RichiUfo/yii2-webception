@@ -31,6 +31,8 @@ class DefaultController extends Controller
 	 */
     public function actionIndex($start='', $end='') {
         
+        $sites = SiteController::getAvailableSites();
+        
         $checks = [
             'configuration' => null,  
             'executable' => CodeceptionController::checkExecutable(),
@@ -38,7 +40,7 @@ class DefaultController extends Controller
         ];
         
         return $this->render('index', [
-            'sites' => SiteController::getAvailableSites(),  
+            'sites' => $sites, 
             'checks' => $checks
         ]); 
 
