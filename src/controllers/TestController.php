@@ -96,7 +96,7 @@ class TestController extends Controller
         ];
         
         if (is_null($response['message'])) {
-            $this->run($test);
+            $this->run($site, $test);
             
             $response['run']    = $test->ran();
             $response['log']    = $test->getLog();
