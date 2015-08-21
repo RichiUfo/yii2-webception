@@ -10,7 +10,7 @@ use yii\filters\AccessControl;
 * TestController
 * Groups all methods related to TestManagement
 */
-class SiteController extends Controller
+class TestController extends Controller
 {
     
     /**
@@ -74,12 +74,10 @@ class SiteController extends Controller
     */
     public function actionRun() {
         
-        //Yii::$app->response->format = Response::FORMAT_JSON;
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         
         // TO BE COMPLETE
         $response = 'Not Implemented yet';
-        
-        return $this->render('run');
         
         return $response;
 
