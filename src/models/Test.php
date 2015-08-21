@@ -13,10 +13,10 @@ class Test extends \yii\base\Model
     /**
      * Possible test states
      */
-    const STATE_PASSED = 'passed';
-    const STATE_FAILED = 'failed';
-    const STATE_ERROR  = 'error';
-    const STATE_READY  = 'ready';
+    const STATE_PASSED = 'Passed';
+    const STATE_FAILED = 'Failed';
+    const STATE_ERROR  = 'Error';
+    const STATE_READY  = 'Ready';
     
     /**
      * MD5 of the file name
