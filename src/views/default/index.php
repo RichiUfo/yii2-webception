@@ -81,7 +81,7 @@ function genLabel($type){
                                     type="submit">Run</button>
                         </td>
                     </tr>
-                    <tr class="test-log <?= $test->hash ?>"> 
+                    <tr class="test-log <?= $test->hash ?>" style="display:none"> 
                         <td colspan="3">
                            <pre></pre>
                         </td>

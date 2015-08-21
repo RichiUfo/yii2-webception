@@ -11,8 +11,8 @@ var runTest = function(hash) {
             console.log(result)
             $('#'+hash+' .status').html(result.state)
             if(result.state == 'Failed') {
-                console.log($('.test-log.'+hash+' td pre').html()) 
                 $('.test-log.'+hash+' td pre').html(result.log) 
+                $('.test-log.'+hash).show() 
             }
         }
     })
