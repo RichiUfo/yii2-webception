@@ -16,7 +16,7 @@ Yii2WebceptionAsset::register($this);
             <button type="button" class="btn btn-<?= $checks['logging'] ? 'success' : 'danger' ?> disabled">Writeable</button>
         </div>
         
-        <button class="btn btn-default btn-xs pull-right" type="submit">Run All</button>
+        <button class="btn btn-default btn-xs pull-right run-all" type="submit">Run All</button>
     </h1>
     
     <!-- Error -->
