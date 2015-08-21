@@ -56,9 +56,9 @@ class CodeceptionController extends Controller
         }
 
         // If there wasn't an error, then it's good!
-        $response['ready'] = ! isset($response['error']);
+        $response['passed'] = ! isset($response['error']);
 
-        return $response['ready'];
+        return $response;
     }
         
     /**
