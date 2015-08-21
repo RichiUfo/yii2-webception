@@ -14,7 +14,7 @@ $(document).ready(function(){
                 
                 $('#'+hash+' .status').html(result.state);
                 
-                console.log('Test executed. Output ' + result, $('#'+hash+' .status').html(), result[0].state);
+                console.log('Test executed. Output ' + result[0], $('#'+hash+' .status').html(), result[0].state);
             }
         });
         
