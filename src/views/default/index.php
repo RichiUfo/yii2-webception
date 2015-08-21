@@ -23,7 +23,6 @@ Yii2WebceptionAsset::register($this);
     <?php if (!$checks['executable']['passed']) : ?>
         <pre><samp>
             <?= $checks['executable']['error'] ?>
-            
         </samp></pre>
     <?php endif; ?>
     
