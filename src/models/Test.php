@@ -67,7 +67,7 @@ class Test extends \yii\base\Model
      */
     private $passed = false;
 
-    private $state = self::STATE_READY;
+    private $state;
 
     /**
      * List of responses that can occur from Codeception.
@@ -132,6 +132,8 @@ class Test extends \yii\base\Model
 
         // maybe there will be any more failures? Then we are going to need this
         $this->failure_regex = $this->responses['failed'];
+        
+        $this->state = self::STATE_READY; 
     }
 
     /**
