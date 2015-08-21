@@ -6,7 +6,10 @@
 /* line 9, ../sass/screen.scss */
 .godardth-webception .table-tests,
 .godardth-webception .table-tests tr,
-.godardth-webception .table-tests td,
-.godardth-webception .table-tests th {
+.godardth-webception .table-tests td {
   border: none;
+}
+/* line 15, ../sass/screen.scss */
+.godardth-webception .table-tests th {
+  border: 1px solid #F0F0F0;
 }

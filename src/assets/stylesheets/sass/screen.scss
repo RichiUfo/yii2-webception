@@ -8,9 +8,12 @@
     
     .table-tests,
     .table-tests tr,
-    .table-tests td,
-    .table-tests th{
+    .table-tests td {
         border: none;
+    }
+    
+    .table-tests th {
+        border: 1px solid #F0F0F0;
     }
     
 }
