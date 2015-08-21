@@ -4,6 +4,28 @@ use yii\helpers\Url;
 
 use godardth\yii2webception\assets\Yii2WebceptionAsset;
 Yii2WebceptionAsset::register($this);
+
+/**
+ * Generating labels for different test types
+ */
+function genLabel($type){
+    switch ($type) {
+    case 'acceptance':
+        $ret = '<span class="label label-primary">A</span>';
+        break;
+    case 'functional':
+        $ret = '<span class="label label-primary">F</span>';
+        break;
+    case 'unit':
+        $ret = '<span class="label label-primary">U</span>';
+        break;
+    default:
+        $ret = '<span class="label label-primary">?</span>';
+    }
+    return $ret;
+}
+
+
 ?>
 
 <div class="container">
@@ -51,7 +73,7 @@ Yii2WebceptionAsset::register($this);
             <tbody id="site<?= $sitecounter ?>">
                 <?php foreach($site->tests as $test) : ?>
                     <tr id="<?= $test->hash ?>">
-                        <td><span class="label label-primary"><?= $test->type ?></span> <?= $test->title ?></td>
+                        <td><?= genLabel($test->type) ?> <?= $test->title ?></td>
                         <td><span class="status label label-primary"><?= $test->state ?></span></td>
                         <td>
                             <button class="btn btn-default btn-xs pull-right run-test" 
