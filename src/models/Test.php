@@ -128,19 +128,17 @@ class Test extends \yii\base\Model
      * @param string $type Type of Test
      * @param object $file File for the Test
      */
-    public function init($type=null, $file=null)
+    public function initialize($type, $file)
     {
-        if ($type && $file) {
-            $filename       = $this->filterFileName($file->getFileName());
-            $posTypePath    = strpos($file->getPathname(), "/{$type}/") + strlen("/{$type}/");
-    
-            $this->hash     = $this->makeHash($type . $filename);
-            $this->title    = $this->filterTitle($filename);
-            $this->filename = substr($file->getPathname(), $posTypePath);
-            $this->file     = $file;
-            $this->type     = $type;
-            $this->state    = self::STATE_READY; 
-        }
+        $filename       = $this->filterFileName($file->getFileName());
+        $posTypePath    = strpos($file->getPathname(), "/{$type}/") + strlen("/{$type}/");
+
+        $this->hash     = $this->makeHash($type . $filename);
+        $this->title    = $this->filterTitle($filename);
+        $this->filename = substr($file->getPathname(), $posTypePath);
+        $this->file     = $file;
+        $this->type     = $type;
+        $this->state    = self::STATE_READY; 
     }
 
     /**

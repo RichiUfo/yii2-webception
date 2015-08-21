@@ -81,7 +81,7 @@ class Site extends \yii\db\ActiveRecord
                 if (! in_array($file->getFilename(), $config['ignore']) && $file->isFile())
                 {
                     $test = new Test();
-                    $test->init($type, $file);
+                    $test->initialize($type, $file);
                     array_push($this->tests, $test);
                     unset($test);
                 }
