@@ -29,7 +29,11 @@ Yii2WebceptionAsset::register($this);
     <!-- Check the codeception initialization -->
     <!-- List the available sites and tests for each of them -->
     <table class="table table-striped table-condensed">
-        <?php foreach($sites as $site) : ?>
+        <?php 
+        $sitecounter = 0;
+        foreach($sites as $site) : 
+            $sitecounter++;
+        ?>
             <thead>
                 <tr>
                     <th colspan="2"><?= $site->name ?> 
@@ -38,12 +42,13 @@ Yii2WebceptionAsset::register($this);
                     <?php endif; ?>
                     </th>
                     <th>
-                        <button class="btn btn-default btn-xs pull-right" 
+                        <button class="btn btn-default btn-xs pull-right run-site" 
+                        site="site<?= $sitecounter ?>"
                         type="submit">Run All</button>
                     </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody site="site<?= $sitecounter ?>">
                 <?php foreach($site->tests as $test) : ?>
                     <tr id="<?= $test->hash ?>">
                         <td><span class="label label-primary"><?= $test->type ?></span> <?= $test->title ?></td>
