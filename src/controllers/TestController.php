@@ -74,10 +74,12 @@ class SiteController extends Controller
     */
     public function actionRunTest() {
         
-        Yii::$app->response->format = Response::FORMAT_JSON;
+        //Yii::$app->response->format = Response::FORMAT_JSON;
         
         // TO BE COMPLETE
         $response = 'Not Implemented yet';
+        
+        return $this->render('run');
         
         return $response;
 
