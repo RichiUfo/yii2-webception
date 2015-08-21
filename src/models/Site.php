@@ -96,12 +96,6 @@ class Site extends \yii\db\ActiveRecord
         $this->getTests();
     }
     
-    
-    
-    
-    
-    
-    
     // FROM ORIGINAL WEBCEPTION
     
 

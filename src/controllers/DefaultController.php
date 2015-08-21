@@ -31,6 +31,12 @@ class DefaultController extends Controller
 	 */
     public function actionIndex($start='', $end='') {
         
+        $checks = [
+            'configuration' => true,  
+            'executable' => Codeception::checkExecutable(), 
+            'writeable' => true  
+        ];
+        
         return $this->render('index', [
             'sites' => SiteController::getAvailableSites(),   
         ]);

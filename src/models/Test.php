@@ -122,16 +122,6 @@ class Test extends \yii\base\Model
         'Test.php',
     );
 
-    public function __construct()
-    {
-        // Declare the regex string containing all the responses that
-        // can indicate that as a passed test.
-        //$this->passed_regex = implode('|', $this->responses['passed']);
-
-        // maybe there will be any more failures? Then we are going to need this
-        //$this->failure_regex = $this->responses['failed'];
-    }
-
     /**
      * Initialization of the Test
      *
