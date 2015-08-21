@@ -42,7 +42,11 @@ Yii2WebceptionAsset::register($this);
                 <tr>
                     <td><span class="label label-primary"><?= $test->type ?></span> <?= $test->title ?></td>
                     <td><?= $test->state ?></td>
-                    <td><button class="btn btn-default btn-xs pull-right run-test" type="submit">Run</button></td>
+                    <td>
+                        <button class="btn btn-default btn-xs pull-right run-test" 
+                                hash="<?= $test->hash ?>"
+                                type="submit">Run</button>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         <?php endforeach; ?>
