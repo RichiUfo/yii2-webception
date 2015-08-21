@@ -84,7 +84,7 @@ class TerminalController extends Controller
             $config['executable'],        // Codeception Executable
             "run",                              // Command to Codeception
             "--no-colors",                      // Forcing Codeception to not use colors, if enabled in codeception.yml
-            "--config=\"{$this->site->getConfig()}\"", // Full path & file of Codeception
+            //"--config=\"{$this->site->getConfig()}\"", // Full path & file of Codeception
             $type,                              // Test Type (Acceptance, Unit, Functional)
             $filename,                          // Filename of the Codeception test
             "2>&1"                              // Added to force output of running executable to be streamed out
