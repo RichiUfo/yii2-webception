@@ -124,19 +124,7 @@ class Site extends \yii\db\ActiveRecord
      */
     public function getConfig()
     {
-        return $this->get('path');
-    }
-    
-    /**
-     * Getter for site details.
-     *
-     * @param  string $value Name of the required field.
-     * @return string (or FALSE if $value not set)
-     */
-    public function get($value)
-    {
-        return ($this->hash !== false) && isset($this->sites[$this->hash][$value])
-                ? $this->sites[$this->hash][$value] : false;
+        return $this->config;
     }
     
     /**
