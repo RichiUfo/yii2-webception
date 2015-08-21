@@ -75,12 +75,15 @@ class TestController extends Controller
         
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         
+        $site = null;
         $test = null;
         $sites = SiteController::getAvailableSites();
         foreach ($sites as $s) {
             foreach ($s->tests as $t) {
-                if ($t->hash === $hash)
+                if ($t->hash === $hash) {
+                    $site = $s;
                     $test = $t;
+                }
             }
         }
         
@@ -112,10 +115,10 @@ class TestController extends Controller
      * @param  Test $test Current test to Run.
      * @return Test $test Updated test with log and result.
      */
-    public function run($test)
+    public function run($site, $test)
     {
         // Get the full command path to run the test.
-        $command = TerminalController::getCommandPath($test->type, $test->filename);
+        $command = TerminalController::getCommandPath($site, $test->type, $test->filename);
 
         // Attempt to set the correct writes to Codeceptions Log path.
         //@chmod($this->getLogPath(), 0777);
