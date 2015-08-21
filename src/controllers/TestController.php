@@ -95,8 +95,8 @@ class TestController extends Controller
         if (is_null($response['message'])) {
             $this->run($test);
             
-            //$response['run']    = $test->ran();
-            //$response['log']    = $test->getLog();
+            $response['run']    = $test->ran();
+            $response['log']    = $test->getLog();
             //$response['passed'] = $test->passed();
             //$response['state']  = $test->getState();
             //$response['title']  = $test->getTitle();
