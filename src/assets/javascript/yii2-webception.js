@@ -18,8 +18,11 @@ $(document).ready(function(){
     })
     
     $('.run-site').click(function(){
-        var hash = $(this).attr('hash')
-        runTest(hash)
+        var site = $(this).attr('site')
+        $('#'+site+' .run-test').each(function(i, obj) {
+            runTest(obj.attr('hash'));
+        });
+        
     })
     
 })

@@ -48,7 +48,7 @@ Yii2WebceptionAsset::register($this);
                     </th>
                 </tr>
             </thead>
-            <tbody site="site<?= $sitecounter ?>">
+            <tbody id="site<?= $sitecounter ?>">
                 <?php foreach($site->tests as $test) : ?>
                     <tr id="<?= $test->hash ?>">
                         <td><span class="label label-primary"><?= $test->type ?></span> <?= $test->title ?></td>
