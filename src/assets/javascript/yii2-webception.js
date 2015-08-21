@@ -11,10 +11,10 @@ $(document).ready(function(){
             success: function(result){
                 
                 // Update the status
-                var status = $('#'+$(this).attr('hash')).find('span.status');
+                var status = $('#'+$(this).attr('hash')).find('.status');
                 status.html(result.state);
                 
-                console.log('Test executed. Output ' + result);
+                console.log('Test executed. Output ' + result, status);
             }
         });
         
