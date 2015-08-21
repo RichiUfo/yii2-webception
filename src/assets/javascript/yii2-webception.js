@@ -13,10 +13,9 @@ $(document).ready(function(){
             success: function(result){
                 
                 // Update the status
-                var status = $('#'+hash).find('.status');
-                status.html(result.state);
+                $('#'+hash+' .status').html(result.state);
                 
-                console.log('Test executed. Output ' + result, status);
+                console.log('Test executed. Output ' + result, $('#'+hash+' .status').html());
             }
         });
         
