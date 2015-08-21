@@ -72,7 +72,7 @@ class TestController extends Controller
     *
     * The route is called via AJAX and the return repsonse is JSON.
     */
-    public function actionRun() {
+    public function actionTestRun() {
         
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         
