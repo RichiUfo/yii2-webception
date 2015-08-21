@@ -9,6 +9,11 @@ $(document).ready(function(){
             url: "testing/test/run-test", 
             data: { hash: $(this).attr('hash') },
             success: function(result){
+                
+                // Update the status
+                var status = $('#'+$(this).attr('hash')).find('span.status');
+                status.html(result.state);
+                
                 console.log('Test executed. Output ' + result);
             }
         });

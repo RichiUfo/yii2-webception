@@ -39,9 +39,9 @@ Yii2WebceptionAsset::register($this);
                 <th><button class="btn btn-default btn-xs pull-right" type="submit">Run All</button></th>
             </tr>
             <?php foreach($site->tests as $test) : ?>
-                <tr>
+                <tr id="<?= $test->hash ?>">
                     <td><span class="label label-primary"><?= $test->type ?></span> <?= $test->title ?></td>
-                    <td><?= $test->state ?></td>
+                    <td><span class="status label label-primary"><?= $test->state ?></span></td>
                     <td>
                         <button class="btn btn-default btn-xs pull-right run-test" 
                                 hash="<?= $test->hash ?>"
