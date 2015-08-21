@@ -64,11 +64,6 @@ class TestController extends Controller
         }
     }
     
-    public function findTestFromHash($hash) {
-        $test = new Test;
-        return $test;
-    }
-    
     /*
     * Test Runner
     * Given a test type (acceptance, functional etc) and a hash,
