@@ -31,7 +31,11 @@ Yii2WebceptionAsset::register($this);
     <table class="table table-striped">
         <?php foreach($sites as $site) : ?>
             <tr>
-                <th colspan="2"><?= $site->name ?> <button type="button" class="btn btn-<?= $site->logging['passed'] ? 'success' : 'danger' ?> disabled btn-xs">Logging</button></th>
+                <th colspan="2"><?= $site->name ?> 
+                <?php if(!$site->logging['passed']) : ?>
+                    <button type="button" class="btn btn-danger disabled btn-xs">Logging</button>
+                <?php endif; ?>
+                </th>
                 <th><button class="btn btn-default btn-xs pull-right" type="submit">Run All</button></th>
             </tr>
             <?php foreach($site->tests as $test) : ?>
