@@ -271,10 +271,10 @@ class Test extends \yii\base\Model
         $failed = false;
         foreach ($lines as $line) {
 
-            if ($this->checkLogForTestPass($line) && $failed==false)
+            if (self::checkLogForTestPass($line) && $failed==false)
                 $this->setPassed();
 
-            if ($this->checkLogForTestFailure($line)) {
+            if (self::checkLogForTestFailure($line)) {
                 $this->setFailed();
                 $failed = true;
             }
