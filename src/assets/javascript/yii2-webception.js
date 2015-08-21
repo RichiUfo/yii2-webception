@@ -17,4 +17,9 @@ $(document).ready(function(){
         runTest(hash)
     })
     
+    $('.run-site').click(function(){
+        var hash = $(this).attr('hash')
+        runTest(hash)
+    })
+    
 })

@@ -30,25 +30,32 @@ Yii2WebceptionAsset::register($this);
     <!-- List the available sites and tests for each of them -->
     <table class="table table-striped">
         <?php foreach($sites as $site) : ?>
-            <tr>
-                <th colspan="2"><?= $site->name ?> 
-                <?php if(!$site->logging['passed']) : ?>
-                    <button type="button" class="btn btn-danger disabled btn-xs">Logging</button>
-                <?php endif; ?>
-                </th>
-                <th><button class="btn btn-default btn-xs pull-right" type="submit">Run All</button></th>
-            </tr>
-            <?php foreach($site->tests as $test) : ?>
-                <tr id="<?= $test->hash ?>">
-                    <td><span class="label label-primary"><?= $test->type ?></span> <?= $test->title ?></td>
-                    <td><span class="status label label-primary"><?= $test->state ?></span></td>
-                    <td>
-                        <button class="btn btn-default btn-xs pull-right run-test" 
-                                hash="<?= $test->hash ?>"
-                                type="submit">Run</button>
-                    </td>
+            <thead>
+                <tr>
+                    <th colspan="2"><?= $site->name ?> 
+                    <?php if(!$site->logging['passed']) : ?>
+                        <button type="button" class="btn btn-danger disabled btn-xs">Logging</button>
+                    <?php endif; ?>
+                    </th>
+                    <th>
+                        <button class="btn btn-default btn-xs pull-right" 
+                        type="submit">Run All</button>
+                    </th>
                 </tr>
-            <?php endforeach; ?>
+            </thead>
+            <tbody>
+                <?php foreach($site->tests as $test) : ?>
+                    <tr id="<?= $test->hash ?>">
+                        <td><span class="label label-primary"><?= $test->type ?></span> <?= $test->title ?></td>
+                        <td><span class="status label label-primary"><?= $test->state ?></span></td>
+                        <td>
+                            <button class="btn btn-default btn-xs pull-right run-test" 
+                                    hash="<?= $test->hash ?>"
+                                    type="submit">Run</button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
         <?php endforeach; ?>
     </table>
     
