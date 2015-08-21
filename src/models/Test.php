@@ -11,6 +11,14 @@ class Test extends \yii\base\Model
 {
     
     /**
+     * Possible test states
+     */
+    const STATE_PASSED = 'passed';
+    const STATE_FAILED = 'failed';
+    const STATE_ERROR  = 'error';
+    const STATE_READY  = 'ready';
+    
+    /**
      * MD5 of the file name
      *
      * @var string
@@ -59,15 +67,7 @@ class Test extends \yii\base\Model
      */
     private $passed = false;
 
-    private $state;
-    
-    /**
-     * Possible test states
-     */
-    const STATE_PASSED = 'passed';
-    const STATE_FAILED = 'failed';
-    const STATE_ERROR  = 'error';
-    const STATE_READY  = 'ready';
+    private $state = self::STATE_READY;
 
     /**
      * List of responses that can occur from Codeception.
