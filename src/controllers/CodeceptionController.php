@@ -40,7 +40,7 @@ class CodeceptionController extends Controller
     public function checkExecutable() {
         
         $config = \Yii::$app->controller->module->params;
-        $file = realpath($config['executable']);
+        $file = $config['executable'];
         $config = $config['location'];
         
         $response= array();
