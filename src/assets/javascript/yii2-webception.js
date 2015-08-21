@@ -1,4 +1,7 @@
 var runTest = function(hash) {
+    
+    $('#'+hash+' .status').html('Running')
+    
     $.ajax({
         type: "GET",
         url: "testing/test/run-test", 
@@ -25,7 +28,7 @@ $(document).ready(function(){
     })
     
     $('.run-all').click(function(){
-        $(' .run-test').each(function(i, obj) {
+        $('.run-test').each(function(i, obj) {
             runTest($(obj).attr('hash'))
         })
     })
