@@ -118,7 +118,7 @@ class TestController extends Controller
         $command = TerminalController::getCommandPath($test->type, $test->filename);
 
         // Attempt to set the correct writes to Codeceptions Log path.
-        @chmod($this->getLogPath(), 0777);
+        //@chmod($this->getLogPath(), 0777);
 
         // Run the helper function (as it's not specific to Codeception)
         // which returns the result of running the terminal command into an array.
