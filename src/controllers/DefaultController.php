@@ -34,14 +34,16 @@ class DefaultController extends Controller
         $sites = SiteController::getAvailableSites();
         
         // Test Logging For Each Site
+        $logging_passed = true;
         foreach ($sites as $site) {
-            
+            if (!$site->logging['passed'])
+                $logging_passed = false;
         }
         
         $checks = [
             'configuration' => CodeceptionController::checkConfiguration(),  
             'executable' => CodeceptionController::checkExecutable(),
-            'writeable' => null
+            'logging' => $logging_passed
         ];
         
         return $this->render('index', [

@@ -13,7 +13,7 @@ Yii2WebceptionAsset::register($this);
         <div class="btn-group btn-group-xs" role="group" aria-label="">
             <button type="button" class="btn btn-<?= $checks['configuration'] ? 'success' : 'danger' ?> disabled">Configuration</button>
             <button type="button" class="btn btn-<?= $checks['executable']['passed'] ? 'success' : 'danger' ?> disabled">Executable</button>
-            <button type="button" class="btn btn-<?= $checks['writeable']['passed'] ? 'success' : 'danger' ?> disabled">Writeable</button>
+            <button type="button" class="btn btn-<?= $checks['logging'] ? 'success' : 'danger' ?> disabled">Writeable</button>
         </div>
         
         <button class="btn btn-default btn-xs pull-right" type="submit">Run All</button>
