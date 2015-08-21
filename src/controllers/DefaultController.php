@@ -31,16 +31,16 @@ class DefaultController extends Controller
 	 */
     public function actionIndex($start='', $end='') {
         
-        /*$checks = [
+        $checks = [
             'configuration' => null,  
             'executable' => null, //CodeceptionController::checkExecutable(),
             'writeable' => null
-        ];*/
+        ];
         
         return $this->render('index', [
             'sites' => SiteController::getAvailableSites(),  
-            //'checks' => $checks
-        ]);
+            'checks' => $checks
+        ]); 
 
     }
     
