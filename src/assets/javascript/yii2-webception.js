@@ -12,7 +12,6 @@ $(document).ready(function(){
             data: { hash: hash },
             success: function(result){
                 
-                // Update the status
                 $('#'+hash+' .status').html(result.state);
                 
                 console.log('Test executed. Output ' + result, $('#'+hash+' .status').html(), result.state);
