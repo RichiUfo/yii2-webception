@@ -59,7 +59,7 @@ function genLabel($type){
         ?>
             <thead>
                 <tr>
-                    <th colspan="2"><?= $site->name ?> 
+                    <th><?= $site->name ?> 
                     <?php if(!$site->logging['passed']) : ?>
                         <button type="button" class="btn btn-danger disabled btn-xs">Logging</button>
                     <?php endif; ?>
@@ -75,15 +75,15 @@ function genLabel($type){
                 <?php foreach($site->tests as $test) : ?>
                     <tr id="<?= $test->hash ?>">
                         <td><?= genLabel($test->type) ?> <?= $test->title ?></td>
-                        <td><span class="status label label-primary"><?= $test->state ?></span></td>
                         <td>
+                            <span class="status label label-primary"><?= $test->state ?></span>
                             <button class="btn btn-default btn-xs pull-right run-test" 
                                     hash="<?= $test->hash ?>"
                                     type="submit">Run</button>
                         </td>
                     </tr>
                     <tr class="test-log <?= $test->hash ?>" style="display:none"> 
-                        <td colspan="3">
+                        <td colspan="2">
                            <pre></pre>
                         </td>
                     </tr>
