@@ -10,6 +10,7 @@ $(document).ready(function(){
             ty: "GET",
             url: "testing/test/run-test", 
             data: { hash: hash },
+            dataType: "json",
             success: function(result){
                 
                 $('#'+hash+' .status').html(result.state);
