@@ -33,7 +33,7 @@ return [
         |
         */
     
-        'executable' => dirname(__FILE__) .'/../../vendor/bin/codecept',
+        'executable' => 'vendor/bin/codecept',
     
         /*
         |--------------------------------------------------------------------------
