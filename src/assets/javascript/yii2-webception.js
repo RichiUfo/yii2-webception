@@ -12,7 +12,7 @@ var runTest = function(hash) {
             $('#'+hash+' .status').html(result.state)
             if(result.state == 'Failed') {
                 console.log($('#'+hash+' .status').closest('.test-log td pre'))
-                $('#'+hash+' .status').closest('.test-log td pre').html(result.log)
+                $('.test-log td pre').html(result.log)
             }
         }
     })
