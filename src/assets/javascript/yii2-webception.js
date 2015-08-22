@@ -52,7 +52,7 @@ var resetTest = function(hash) {
     
     // Empty and hide the log
     $('.test-log.'+hash+' td pre').html('') 
-    $('.test-log.'+hash).show() 
+    $('.test-log.'+hash).hide() 
     
     // Buttons Reset
     $('#'+hash+' .run-test').show()
