@@ -1,6 +1,7 @@
 var runTest = function(hash) {
     
     $('#'+hash+' .status').html('Running')
+    $('#'+hash+' .run-test').addClass('disabled')
     
     $.ajax({
         type: "GET",
@@ -35,12 +36,31 @@ var runTest = function(hash) {
                 $('.test-log.'+hash).show() 
             }
             
+            // Update the button
+            $('#'+hash+' .run-test').addClass('reset-test')
+            $('#'+hash+' .run-test').html('Reset')
+            $('#'+hash+' .run-test').removeClass('disabled run-test')
+            
         }
     })
+}
+var resetTest = function(hash) {
+    
+    // Reset the status label
+    $('#'+hash+' .status').removeClass('label-default label-primary label-success label-info label-warning label-danger')
+    $('#'+hash+' .status').addClass('label-primary')
+    $('#'+hash+' .status').html('Ready')
+    
+    // Empty and hide the log
+    $('.test-log.'+hash+' td pre').html(result.log) 
+    $('.test-log.'+hash).show() 
 }
 
 $(document).ready(function(){
     
+    /**
+     * Test Runners
+     */
     $('.run-test').click(function(){
         var hash = $(this).attr('hash')
         runTest(hash)
@@ -59,4 +79,12 @@ $(document).ready(function(){
         })
     })
     
+    /**
+     * Test Resetters
+     */
+    $('.reset-all').click(function(){
+        $('.reset-test').each(function(i, obj) {
+            resetTest($(obj).attr('hash'))
+        })
+    })
 })
