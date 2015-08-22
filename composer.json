@@ -37,7 +37,7 @@
     },
     "autoload": {
         "psr-4": {
-            "godardth\\yii2-webception\\": "src"
+            "godardth\\yii2webception\\": "src"
         }
     },
     "extra": {
