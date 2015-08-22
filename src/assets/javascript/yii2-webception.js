@@ -12,19 +12,19 @@ var runTest = function(hash) {
             
             // Show test status + color the label
             $('#'+hash+' .status').html(result.state)
-            $('#'+hash+' .status').removeClass('label-default label-primary label-success label-info label-warning label-danger')
+            $('#'+hash+' .status').removeClass('btn-default btn-primary btn-success btn-info btn-warning btn-danger')
             switch(result.state) {
                 case 'Failed':
-                    $('#'+hash+' .status').addClass('label-danger')
+                    $('#'+hash+' .status').addClass('btn-danger')
                     break;
                 case 'Passed':
-                    $('#'+hash+' .status').addClass('label-success')
+                    $('#'+hash+' .status').addClass('btn-success')
                     break;
                 case 'Ready':
-                    $('#'+hash+' .status').addClass('label-primary')
+                    $('#'+hash+' .status').addClass('btn-primary')
                     break;
                 case 'Error':
-                    $('#'+hash+' .status').addClass('label-warning')
+                    $('#'+hash+' .status').addClass('btn-warning')
                     break;
                 default:
                     $('#'+hash+' .status').addClass('')
@@ -46,8 +46,8 @@ var runTest = function(hash) {
 var resetTest = function(hash) {
     
     // Reset the status label
-    $('#'+hash+' .status').removeClass('label-default label-primary label-success label-info label-warning label-danger')
-    $('#'+hash+' .status').addClass('label-primary')
+    $('#'+hash+' .status').removeClass('btn-default btn-primary btn-success btn-info btn-warning btn-danger')
+    $('#'+hash+' .status').addClass('btn-primary')
     $('#'+hash+' .status').html('Ready')
     
     // Empty and hide the log
