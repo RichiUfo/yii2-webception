@@ -32,13 +32,16 @@ function genLabel($type){
     <h1>
         Webception
         <div class="pull-right">
-            <div class="btn-group btn-group-xs" role="group" style="margin-left:50px">
+            <div class="btn-group btn-group-xs" role="group">
                 <button type="button" class="btn btn-<?= $checks['configuration'] ? 'success' : 'danger' ?> disabled">Configuration</button>
                 <button type="button" class="btn btn-<?= $checks['executable']['passed'] ? 'success' : 'danger' ?> disabled">Executable</button>
                 <button type="button" class="btn btn-<?= $checks['logging'] ? 'success' : 'danger' ?> disabled">Writeable</button>
             </div>
             
-            <button class="btn btn-default btn-xs run-all" type="submit">Run All</button>
+            <div class="btn-group btn-group-xs" role="group" style="margin-left:25px">
+                <button class="btn btn-default reset-all" type="submit">Reset All</button>
+                <button class="btn btn-default run-all" type="submit">Run All</button>
+            </div>
         </div>
     </h1>
     
@@ -77,10 +80,10 @@ function genLabel($type){
                         <td><?= genLabel($test->type) ?> <?= $test->title ?></td>
                         <td>
                             <div class="pull-right">
-                        <span class="status label label-primary"><?= $test->state ?></span>
-                        <button class="btn btn-default btn-xs run-test" 
-                                hash="<?= $test->hash ?>"
-                                type="submit">Run</button>
+                                <span class="status label label-primary"><?= $test->state ?></span>
+                                <button class="btn btn-default btn-xs run-test" 
+                                        hash="<?= $test->hash ?>"
+                                        type="submit">Run</button>
                             </div>
                         </td>
                     </tr>
