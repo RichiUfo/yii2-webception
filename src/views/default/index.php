@@ -78,16 +78,18 @@ function genLabel($type){
                     <tr id="<?= $test->hash ?>">
                         <td><?= genLabel($test->type) ?> <?= $test->title ?></td>
                         <td>
-                            <div class="btn-group btn-group-xs pull-" role="group">
-                                <button class="btn btn-primary status disabled" 
-                                        type="submit">Ready</button>
-                                <button class="btn btn-default run-test" 
-                                        hash="<?= $test->hash ?>"
-                                        type="submit">Run</button>
-                                <button class="btn btn-default reset-test" 
-                                        hash="<?= $test->hash ?>"
-                                        type="submit"
-                                        style="display:none">Reset</button>
+                            <div class="pull-right">
+                                <div class="btn-group btn-group-xs pull-right" role="group">
+                                    <button class="btn btn-primary status disabled" 
+                                            type="submit">Ready</button>
+                                    <button class="btn btn-default run-test" 
+                                            hash="<?= $test->hash ?>"
+                                            type="submit">Run</button>
+                                    <button class="btn btn-default reset-test" 
+                                            hash="<?= $test->hash ?>"
+                                            type="submit"
+                                            style="display:none">Reset</button>
+                                </div>
                             </div>
                         </td>
                     </tr>
