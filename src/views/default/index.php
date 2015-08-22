@@ -78,14 +78,13 @@ function genLabel($type){
                     <tr id="<?= $test->hash ?>">
                         <td><?= genLabel($test->type) ?> <?= $test->title ?></td>
                         <td>
-                            <div class="pull-right">
-                                <!--span class="status label label-primary"><= $test->state ?></span-->
-                                <button class="btn btn-primary btn-xs status disabled" 
+                            <div class="btn-group btn-group-xs pull-" role="group">
+                                <button class="btn btn-primary status disabled" 
                                         type="submit">Ready</button>
-                                <button class="btn btn-default btn-xs run-test" 
+                                <button class="btn btn-default run-test" 
                                         hash="<?= $test->hash ?>"
                                         type="submit">Run</button>
-                                <button class="btn btn-default btn-xs reset-test" 
+                                <button class="btn btn-default reset-test" 
                                         hash="<?= $test->hash ?>"
                                         type="submit"
                                         style="display:none">Reset</button>
