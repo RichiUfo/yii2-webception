@@ -83,6 +83,10 @@ function genLabel($type){
                                 <button class="btn btn-default btn-xs run-test" 
                                         hash="<?= $test->hash ?>"
                                         type="submit">Run</button>
+                                <button class="btn btn-default btn-xs reset-test" 
+                                        hash="<?= $test->hash ?>"
+                                        type="submit"
+                                        style="display:none">Reset</button>
                             </div>
                         </td>
                     </tr>

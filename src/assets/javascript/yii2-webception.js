@@ -37,9 +37,8 @@ var runTest = function(hash) {
             }
             
             // Update the button
-            $('#'+hash+' .run-test').addClass('reset-test')
-            $('#'+hash+' .run-test').html('Reset')
-            $('#'+hash+' .run-test').removeClass('disabled run-test')
+            $('#'+hash+' .run-test').hide()
+            $('#'+hash+' .reset-test').show()
             
         }
     })
@@ -52,8 +51,12 @@ var resetTest = function(hash) {
     $('#'+hash+' .status').html('Ready')
     
     // Empty and hide the log
-    $('.test-log.'+hash+' td pre').html(result.log) 
+    $('.test-log.'+hash+' td pre').html('') 
     $('.test-log.'+hash).show() 
+    
+    // Buttons Reset
+    $('#'+hash+' .run-test').show()
+    $('#'+hash+' .reset-test').hide()
 }
 
 $(document).ready(function(){
