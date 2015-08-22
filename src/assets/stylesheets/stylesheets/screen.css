@@ -8,9 +8,10 @@
 .godardth-webception .table-tests tr,
 .godardth-webception .table-tests td {
   border: none;
+  border-top: 1px solid #FEFEFE;
   padding: 3px 0px 0px 0px;
 }
-/* line 16, ../sass/screen.scss */
+/* line 17, ../sass/screen.scss */
 .godardth-webception .table-tests th {
   padding-top: 30px;
   border-top: none;
