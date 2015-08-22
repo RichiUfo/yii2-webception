@@ -85,6 +85,11 @@ $(document).ready(function(){
     /**
      * Test Resetters
      */
+    $('.reset-test').click(function(){
+        var hash = $(this).attr('hash')
+        resetTest(hash)
+    })
+    
     $('.reset-all').click(function(){
         $('.reset-test').each(function(i, obj) {
             resetTest($(obj).attr('hash'))
