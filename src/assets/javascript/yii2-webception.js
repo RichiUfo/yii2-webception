@@ -57,6 +57,7 @@ var resetTest = function(hash) {
     // Buttons Reset
     $('#'+hash+' .run-test').show()
     $('#'+hash+' .reset-test').hide()
+    $('#'+hash+' .run-test').removeClass('disabled')
 }
 
 $(document).ready(function(){
