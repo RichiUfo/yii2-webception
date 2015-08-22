@@ -8,6 +8,7 @@ var runTest = function(hash) {
         data: { hash: hash },
         dataType: "json",
         success: function(result){
+            
             // Show test status + color the label
             $('#'+hash+' .status').html(result.state)
             $('#'+hash+' .status').removeClass('label-default label-primary label-success label-info label-warning label-danger')
@@ -33,6 +34,7 @@ var runTest = function(hash) {
                 $('.test-log.'+hash+' td pre').html(result.log) 
                 $('.test-log.'+hash).show() 
             }
+            
         }
     })
 }
