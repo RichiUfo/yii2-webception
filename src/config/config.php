@@ -63,6 +63,10 @@ return [
             'AcceptanceTester.php',
             'FunctionalTester.php',
             'UnitTester.php',
+            // Ignoring default files created by yii2-codeception
+            'DbTestCase.php',
+            'user.php',
+            'TestCase.php'
         ],
     
         /*
