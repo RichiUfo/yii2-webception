@@ -49,19 +49,12 @@ class TestController extends Controller
             // Iterate through all the files, and filter out
             //      any files that are in the ignore list.
             foreach ($phpfiles as $file) {
-
-                // Extension must be php
-                $allowed_extensions = array("php");
-                $ext = pathinfo($file->getFilename(), PATHINFO_EXTENSION);
-                if (in_array(strtolower($ext), $allowed_extensions)) {
-                    if (! in_array($file->getFilename(), $this->config['ignore']) && $file->isFile())
-                    {
-                        // Declare a new test and add it to the list.
-                        $test = new Test();
-                        $test->init($type, $file);
-                        $this->addTest($test);
-                        unset($test);
-                    }
+                if (! in_array($file->getFilename(), $this->config['ignore']) && $file->isFile()){
+                    // Declare a new test and add it to the list.
+                    $test = new Test();
+                    $test->init($type, $file);
+                    $this->addTest($test);
+                    unset($test);
                 }
             }
         }
