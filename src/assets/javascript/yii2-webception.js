@@ -90,7 +90,9 @@ $(document).ready(function(){
      * Log Viewer Buttons
      */
     $('.view-log').click(function(){
-        var hash = $(this).attr('hash')
-        $('#modal-'+hash).modal('show')
+        if (!$(this).hasClass('disabled')) {
+            var hash = $(this).attr('hash')
+            $('#modal-'+hash).modal('show')
+        }
     })
 })
