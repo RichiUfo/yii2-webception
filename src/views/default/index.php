@@ -69,7 +69,7 @@ function genLabel($type){
                     <th>
                         <button class="btn btn-default btn-xs pull-right run-site" 
                         site="site<?= $sitecounter ?>"
-                        type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+                        type="submit">Run All <span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
                     </th>
                 </tr>
             </thead>
