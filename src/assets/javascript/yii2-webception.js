@@ -1,5 +1,7 @@
 var runTest = function(hash) {
     
+    resetTest(hash)
+    
     $('#'+hash+' .status').html('Running')
     $('#'+hash+' .run-test').addClass('disabled')
     
@@ -34,7 +36,7 @@ var runTest = function(hash) {
             $('.test-log.'+hash).html(result.log) 
             
             // Update the button
-            $('#'+hash+' .run-test').hide()
+            //$('#'+hash+' .run-test').hide()
             $('#'+hash+' .reset-test').show()
             
         }
