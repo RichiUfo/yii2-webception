@@ -37,7 +37,7 @@ var runTest = function(hash) {
             
             // Update the button
             //$('#'+hash+' .run-test').hide()
-            $('#'+hash+' .reset-test').show()
+            //$('#'+hash+' .reset-test').show()
             
         }
     })
@@ -53,9 +53,9 @@ var resetTest = function(hash) {
     $('.test-log.'+hash).html('') 
     
     // Buttons Reset
-    $('#'+hash+' .run-test').show()
-    $('#'+hash+' .reset-test').hide()
-    $('#'+hash+' .run-test').removeClass('disabled')
+    //$('#'+hash+' .run-test').show()
+    //$('#'+hash+' .reset-test').hide()
+    //$('#'+hash+' .run-test').removeClass('disabled')
 }
 
 $(document).ready(function(){
