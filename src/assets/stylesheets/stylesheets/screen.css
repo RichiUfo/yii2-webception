@@ -3,7 +3,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
  */
-/* line 9, ../sass/screen.scss */
+/* line 10, ../sass/screen.scss */
 .godardth-webception .table-tests,
 .godardth-webception .table-tests tr,
 .godardth-webception .table-tests td {
@@ -11,9 +11,13 @@
   border-top: 1px solid #FA;
   padding: 3px 0px 0px 0px;
 }
-/* line 17, ../sass/screen.scss */
+/* line 18, ../sass/screen.scss */
 .godardth-webception .table-tests th {
   padding-top: 30px;
   border-top: none;
   border-bottom: 1px solid #F0F0F0;
+}
+/* line 25, ../sass/screen.scss */
+.godardth-webception .btn.disabled {
+  cursor: inherit;
 }
