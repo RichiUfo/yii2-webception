@@ -35,10 +35,6 @@ var runTest = function(hash) {
             // Update the test log
             $('.test-log.'+hash).html(result.log) 
             
-            // Update the button
-            //$('#'+hash+' .run-test').hide()
-            //$('#'+hash+' .reset-test').show()
-            
         }
     })
 }
@@ -50,12 +46,8 @@ var resetTest = function(hash) {
     $('#'+hash+' .status').html('Ready')
     
     // Empty and hide the log
-    $('.test-log.'+hash).html('') 
+    $('.test-log.'+hash).html('')
     
-    // Buttons Reset
-    //$('#'+hash+' .run-test').show()
-    //$('#'+hash+' .reset-test').hide()
-    //$('#'+hash+' .run-test').removeClass('disabled')
 }
 
 $(document).ready(function(){
@@ -84,11 +76,6 @@ $(document).ready(function(){
     /**
      * Test Resetters
      */
-    $('.reset-test').click(function(){
-        var hash = $(this).attr('hash')
-        resetTest(hash)
-    })
-    
     $('.reset-all').click(function(){
         $('.reset-test').each(function(i, obj) {
             resetTest($(obj).attr('hash'))
