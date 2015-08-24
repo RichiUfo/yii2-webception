@@ -76,7 +76,7 @@ class Site extends \yii\db\ActiveRecord
             if (! $active) break;
             
             // Configure the file iterator
-            $directory = new \RecursiveDirectoryIterator("{$this->config['paths']['tests']}/{$type}/", \FilesystemIterator::SKIP_DOTS);
+            $directory = new \RecursiveDirectoryIterator("{$this->configuration['paths']['tests']}/{$type}/", \FilesystemIterator::SKIP_DOTS);
             $files = new \RecursiveIteratorIterator($directory, \RecursiveIteratorIterator::SELF_FIRST);
             $phpfiles = new \RegexIterator($files, '/^.+\.php$/i', \RecursiveRegexIterator::GET_MATCH);
             
