@@ -42,14 +42,13 @@ class TestController extends Controller
             if (! $active)
                 break;
 
-            $files = new \RecursiveIteratorIterator(
-                new \RecursiveDirectoryIterator("{$this->config['paths']['tests']}/{$type}/", \FilesystemIterator::SKIP_DOTS),
-                \RecursiveIteratorIterator::SELF_FIRST
-            );
+            $directory = new \RecursiveDirectoryIterator("{$this->config['paths']['tests']}/{$type}/", \FilesystemIterator::SKIP_DOTS);
+            $files = new \RecursiveIteratorIterator($directory, \RecursiveIteratorIterator::SELF_FIRST);
+            $phpfiles = new \RegexIterator($files, '/^.+\.php$/i', RecursiveRegexIterator::GET_MATCH);
 
             // Iterate through all the files, and filter out
             //      any files that are in the ignore list.
-            foreach ($files as $file) {
+            foreach ($phpfiles as $file) {
 
                 // Extension must be php
                 $allowed_extensions = array("php");
