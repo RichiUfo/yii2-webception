@@ -63,12 +63,16 @@ function genLabel($type){
         <div class="col-lg-12">
             <h3><?= $site->name ?></h3>
         </div>
+        <?php
+        $types = ['acceptance', 'functional', 'unit'];
+        foreach($types as $type) :
+        ?>
         <div class="col-lg-4">
             <table class="table table-condensed table-tests">
                     <thead>
                         <tr>
                             <th>
-                            Acceptance
+                            <?= $type 
                             <?php if(!$site->logging['passed']) : ?>
                                 <button type="button" class="btn btn-danger disabled btn-xs">Logging</button>
                             <?php endif; ?>
@@ -76,7 +80,7 @@ function genLabel($type){
                             <th>
                                 <button class="btn btn-default btn-xs pull-right run-site" 
                                 site="site<?= $sitecounter ?>"
-                                type="submit">Run All <span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+                                type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
                             </th>
                         </tr>
                     </thead>
@@ -109,6 +113,7 @@ function genLabel($type){
                     </tbody>
             </table>
         </div>
+        <?php endforeach; ?>
     </div>
     <?php endforeach; ?>
     
