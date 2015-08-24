@@ -84,7 +84,7 @@ function genLabel($type){
                                             type="submit">Ready</button>
                                     <button class="btn btn-default run-test" 
                                             hash="<?= $test->hash ?>"
-                                            type="submit">Run</button>
+                                            type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
                                     <button class="btn btn-default reset-test" 
                                             hash="<?= $test->hash ?>"
                                             type="submit"
