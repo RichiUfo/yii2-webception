@@ -30,10 +30,8 @@ var runTest = function(hash) {
                     $('#'+hash+' .status').addClass('')
             }
             
-            // Show test log in case of failure
-            if(result.state == 'Failed') {
-                $('.test-log.'+hash).html(result.log) 
-            }
+            // Update the test log
+            $('.test-log.'+hash).html(result.log) 
             
             // Update the button
             $('#'+hash+' .run-test').hide()
