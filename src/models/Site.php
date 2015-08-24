@@ -80,7 +80,7 @@ class Site extends \yii\db\ActiveRecord
             $files = new \RecursiveIteratorIterator($directory, \RecursiveIteratorIterator::SELF_FIRST);
             $phpfiles = new \RegexIterator($files, '/^.+\.php$/i', \RecursiveRegexIterator::GET_MATCH);
             
-            foreach ($files as $file) {
+            foreach ($phpfiles as $file) {
                 if (! in_array($file->getFilename(), $config['ignore']) && $file->isFile())
                 {
                     $test = new Test();
@@ -90,27 +90,6 @@ class Site extends \yii\db\ActiveRecord
                 }
             }
         }
-        
-        /*
-        $config = \Yii::$app->controller->module->params;
-        
-        foreach ($config['tests'] as $type => $active) {
-            $files = new \RecursiveIteratorIterator(
-                new \RecursiveDirectoryIterator("{$this->configuration['paths']['tests']}/{$type}/", \FilesystemIterator::SKIP_DOTS),
-                \RecursiveIteratorIterator::SELF_FIRST
-            );
-    
-            foreach ($files as $file) {
-                if (! in_array($file->getFilename(), $config['ignore']) && $file->isFile())
-                {
-                    $test = new Test();
-                    $test->initialize($type, $file);
-                    array_push($this->tests, $test);
-                    unset($test);
-                }
-    
-            }
-        }*/
     }
     
     public function afterFind() {
