@@ -113,8 +113,7 @@ function genLabel($type){
                             </tr>
                             <?php
                             Modal::begin([
-                                'header' => $test->title,
-                                'toggleButton' => ['label' => 'click me'],
+                                'header' => $test->title
                             ]);
                             
                             echo $test->title;
