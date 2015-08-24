@@ -34,7 +34,7 @@ class Module extends \yii\base\Module
 		]);
 		$this->db->open();
 		
-		$this->layout = 'layout/main.php';
+		$this->layout = 'main';
     }
     
     public function init()
