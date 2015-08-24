@@ -53,7 +53,7 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="container">
+    <div class="container" style="margin-top:70px">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
@@ -62,13 +62,13 @@ AppAsset::register($this);
     </div>
 </div>
 
-<footer class="footer">
+<!--footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; My Company <= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><= Yii::powered() ?></p>
     </div>
-</footer>
+</footer-->
 
 <?php $this->endBody() ?>
 </body>
