@@ -88,7 +88,7 @@ function genLabel($type){
                                     <button class="btn btn-default reset-test" 
                                             hash="<?= $test->hash ?>"
                                             type="submit"
-                                            style="display:none"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+                                            style="display:none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                                 </div>
                             </div>
                         </td>
