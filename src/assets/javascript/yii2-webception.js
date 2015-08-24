@@ -96,4 +96,11 @@ $(document).ready(function(){
             resetTest($(obj).attr('hash'))
         })
     })
+    
+    /**
+     * Log Viewer Buttons
+     */
+    $('.view-log').click(function(){
+        var hash = $(this).attr('hash')
+    })
 })

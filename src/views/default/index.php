@@ -111,9 +111,8 @@ function genLabel($type){
                                     </div>
                                 </td>
                             </tr>
-                            <?php Modal::begin(['header' => $test->title]) ?>
+                            <?php Modal::begin(['header' => $test->title, 'toggleButton' => ['label' => 'click me']]) ?>
                             <?= $test->title ?>
-
                             <?php Modal::end() ?>
                             <tr class="test-log <?= $test->hash ?>" style="display:none"> 
                                 <td colspan="2">
