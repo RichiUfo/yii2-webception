@@ -53,54 +53,60 @@ function genLabel($type){
     
     <!-- Check the codeception initialization -->
     <!-- List the available sites and tests for each of them -->
-    <table class="table table-condensed table-tests">
-        <?php 
-        $sitecounter = 0;
-        foreach($sites as $site) : 
-            $sitecounter++;
-        ?>
-            <thead>
-                <tr>
-                    <th><?= $site->name ?> 
-                    <?php if(!$site->logging['passed']) : ?>
-                        <button type="button" class="btn btn-danger disabled btn-xs">Logging</button>
-                    <?php endif; ?>
-                    </th>
-                    <th>
-                        <button class="btn btn-default btn-xs pull-right run-site" 
-                        site="site<?= $sitecounter ?>"
-                        type="submit">Run All <span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="site<?= $sitecounter ?>">
-                <?php foreach($site->tests as $test) : ?>
-                    <tr id="<?= $test->hash ?>">
-                        <td><?= genLabel($test->type) ?> <?= $test->title ?></td>
-                        <td>
-                            <div class="pull-right">
-                                <div class="btn-group btn-group-xs pull-right" role="group">
-                                    <button class="btn btn-primary status disabled" 
-                                            type="submit">Ready</button>
-                                    <button class="btn btn-default run-test" 
-                                            hash="<?= $test->hash ?>"
-                                            type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
-                                    <button class="btn btn-default reset-test" 
-                                            hash="<?= $test->hash ?>"
-                                            type="submit"
-                                            style="display:none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="test-log <?= $test->hash ?>" style="display:none"> 
-                        <td colspan="2">
-                           <pre></pre>
-                        </td>
-                    </tr>
+    <div class="row">
+        <div class="col-lg-4">
+            <table class="table table-condensed table-tests">
+                <?php 
+                $sitecounter = 0;
+                foreach($sites as $site) : 
+                    $sitecounter++;
+                ?>
+                    <thead>
+                        <tr>
+                            <th><?= $site->name ?> 
+                            <?php if(!$site->logging['passed']) : ?>
+                                <button type="button" class="btn btn-danger disabled btn-xs">Logging</button>
+                            <?php endif; ?>
+                            </th>
+                            <th>
+                                <button class="btn btn-default btn-xs pull-right run-site" 
+                                site="site<?= $sitecounter ?>"
+                                type="submit">Run All <span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="site<?= $sitecounter ?>">
+                        <?php foreach($site->tests as $test) : ?>
+                            <tr id="<?= $test->hash ?>">
+                                <td><?= genLabel($test->type) ?> <?= $test->title ?></td>
+                                <td>
+                                    <div class="pull-right">
+                                        <div class="btn-group btn-group-xs pull-right" role="group">
+                                            <button class="btn btn-primary status disabled" 
+                                                    type="submit">Ready</button>
+                                            <button class="btn btn-default run-test" 
+                                                    hash="<?= $test->hash ?>"
+                                                    type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+                                            <button class="btn btn-default reset-test" 
+                                                    hash="<?= $test->hash ?>"
+                                                    type="submit"
+                                                    style="display:none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="test-log <?= $test->hash ?>" style="display:none"> 
+                                <td colspan="2">
+                                   <pre></pre>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
                 <?php endforeach; ?>
-            </tbody>
-        <?php endforeach; ?>
-    </table>
+            </table>
+        </div>
+    </div>
+    
+    
     
 </div>
