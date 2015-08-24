@@ -39,7 +39,7 @@ function genLabel($type){
             
             <div class="btn-group btn-group-xs" role="group" style="margin-left:25px">
                 <button class="btn btn-default reset-all" type="submit">Reset All</button>
-                <button class="btn btn-default run-all" type="submit">Run All</button>
+                <button class="btn btn-default run-all" type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
             </div>
         </div>
     </h1>
@@ -69,7 +69,7 @@ function genLabel($type){
                     <th>
                         <button class="btn btn-default btn-xs pull-right run-site" 
                         site="site<?= $sitecounter ?>"
-                        type="submit">Run All</button>
+                        type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
                     </th>
                 </tr>
             </thead>
