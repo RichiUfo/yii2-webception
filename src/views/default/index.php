@@ -28,7 +28,7 @@ function genLabel($type){
 
 ?>
 
-<div class="container godardth-webception">
+<div class="godardth-webception">
     <h1>
         Webception
         <div class="pull-right">
