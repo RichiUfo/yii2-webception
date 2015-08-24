@@ -85,7 +85,10 @@ function genLabel($type){
                         </tr>
                     </thead>
                     <tbody id="site<?= $sitecounter ?>">
-                        <?php foreach($site->tests as $test) : ?>
+                        <?php 
+                        foreach($site->tests as $test) : 
+                        if ($test->type === $type) :
+                        ?>
                             <tr id="<?= $test->hash ?>">
                                 <td><?= genLabel($test->type) ?> <?= $test->title ?></td>
                                 <td>
@@ -109,7 +112,10 @@ function genLabel($type){
                                    <pre></pre>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php 
+                        endif;
+                        endforeach; 
+                        ?>
                     </tbody>
             </table>
         </div>
