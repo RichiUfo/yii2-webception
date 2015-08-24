@@ -30,7 +30,7 @@ class TestController extends Controller
         ];
     }
     
-    public function getAvailableTests($site) {
+    /*public function getAvailableTests($site) {
 
         if (! isset($this->config['tests']))
             return;
@@ -58,7 +58,7 @@ class TestController extends Controller
                 }
             }
         }
-    }
+    }*/
     
     /*
     * Test Runner

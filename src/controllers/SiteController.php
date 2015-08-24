@@ -36,11 +36,6 @@ class SiteController extends Controller
         return Site::find()->where(1)->all();
     }
     
-
-    
-    public function runAllTests() {
-        // To Be Implemented
-    }
     
     public function checkWriteableLog($site) {
         

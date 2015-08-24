@@ -29,17 +29,16 @@ class DefaultController extends Controller
     /**
 	 * Routed Actions - Views Rendering
 	 */
-    public function actionIndex($start='', $end='') {
+    public function actionIndex() {
         
         $sites = SiteController::getAvailableSites();
         
-        // Test Logging For Each Site
+        // Checking the configuration
         $logging_passed = true;
         foreach ($sites as $site) {
             if (!$site->logging['passed'])
                 $logging_passed = false;
         }
-        
         $checks = [
             'configuration' => CodeceptionController::checkConfiguration(),  
             'executable' => CodeceptionController::checkExecutable(),
