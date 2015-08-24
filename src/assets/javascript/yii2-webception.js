@@ -32,8 +32,7 @@ var runTest = function(hash) {
             
             // Show test log in case of failure
             if(result.state == 'Failed') {
-                $('.test-log.'+hash+' td pre').html(result.log) 
-                $('.test-log.'+hash).show() 
+                $('.test-log.'+hash).html(result.log) 
             }
             
             // Update the button
@@ -51,8 +50,7 @@ var resetTest = function(hash) {
     $('#'+hash+' .status').html('Ready')
     
     // Empty and hide the log
-    $('.test-log.'+hash+' td pre').html('') 
-    $('.test-log.'+hash).hide() 
+    $('.test-log.'+hash).html('') 
     
     // Buttons Reset
     $('#'+hash+' .run-test').show()
@@ -102,6 +100,6 @@ $(document).ready(function(){
      */
     $('.view-log').click(function(){
         var hash = $(this).attr('hash')
-        $('#modal-'+hash).modal('show');
+        $('#modal-'+hash).modal('show')
     })
 })

@@ -113,16 +113,10 @@ function genLabel($type){
                             </tr>
                             <?php Modal::begin([
                                 'id' => 'modal-'.$test->hash,
-                                'header' => $test->title, 
-                                //'toggleButton' => ['label' => 'click me']
+                                'header' => $test->title
                             ]) ?>
-                            <?= $test->title ?>
+                            <pre class="test-log <?= $test->hash ?>"></pre>
                             <?php Modal::end() ?>
-                            <tr class="test-log <?= $test->hash ?>" style="display:none"> 
-                                <td colspan="2">
-                                   <pre></pre>
-                                </td>
-                            </tr>
                         <?php 
                         endif;
                         endforeach; 
