@@ -36,6 +36,7 @@ var runTest = function(hash) {
             // Update the test log
             $('.test-log.'+hash).html(result.log) 
             $('#'+hash+' .run-test').removeClass('disabled')
+            $('.view-log[hash='+hash+']').removeClass('disabled')
             
         }
     })
@@ -49,6 +50,7 @@ var resetTest = function(hash) {
     
     // Empty and hide the log
     $('.test-log.'+hash).html('')
+    $('.view-log[hash='+hash+']').addClass('disabled')
     
 }
 
