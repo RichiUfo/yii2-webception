@@ -3,7 +3,7 @@ var runTest = function(hash) {
     resetTest(hash)
     
     $('#'+hash+' .status').html('Running')
-    $('#'+hash+' .run-test').addClass('disabled')
+    //$('#'+hash+' .run-test').addClass('disabled')
     
     $.ajax({
         type: "GET",
