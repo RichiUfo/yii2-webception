@@ -102,5 +102,6 @@ $(document).ready(function(){
      */
     $('.view-log').click(function(){
         var hash = $(this).attr('hash')
+        $('#modal-'+hash).modal('show');
     })
 })
