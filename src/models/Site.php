@@ -69,32 +69,48 @@ class Site extends \yii\db\ActiveRecord
     
     public function getTests() {
         
-        if (! isset($this->config['tests']))
-            return;
-
-        foreach ($this->config['tests'] as $type => $active) {
-
-            // If the test type has been disabled in the Webception config,
-            //      skip processing the directory read for those tests.
-            if (! $active)
-                break;
-
+        $config = \Yii::$app->controller->module->params;
+        foreach ($config['tests'] as $type => $active) {
+            
+            // Get out of the loop in case the type is deactivated in config
+            if (! $active) break;
+            
+            // Configure the file iterator
             $directory = new \RecursiveDirectoryIterator("{$this->config['paths']['tests']}/{$type}/", \FilesystemIterator::SKIP_DOTS);
             $files = new \RecursiveIteratorIterator($directory, \RecursiveIteratorIterator::SELF_FIRST);
-            //$phpfiles = new \RegexIterator($files, '/^.+\.php$/i', \RecursiveRegexIterator::GET_MATCH);
-
-            // Iterate through all the files, and filter out
-            //      any files that are in the ignore list.
+            $phpfiles = new \RegexIterator($files, '/^.+\.php$/i', \RecursiveRegexIterator::GET_MATCH);
+            
             foreach ($files as $file) {
-                if (! in_array($file->getFilename(), $this->config['ignore']) && $file->isFile()){
-                    // Declare a new test and add it to the list.
+                if (! in_array($file->getFilename(), $config['ignore']) && $file->isFile())
+                {
                     $test = new Test();
-                    $test->init($type, $file);
-                    $this->addTest($test);
+                    $test->initialize($type, $file);
+                    array_push($this->tests, $test);
                     unset($test);
                 }
             }
         }
+        
+        /*
+        $config = \Yii::$app->controller->module->params;
+        
+        foreach ($config['tests'] as $type => $active) {
+            $files = new \RecursiveIteratorIterator(
+                new \RecursiveDirectoryIterator("{$this->configuration['paths']['tests']}/{$type}/", \FilesystemIterator::SKIP_DOTS),
+                \RecursiveIteratorIterator::SELF_FIRST
+            );
+    
+            foreach ($files as $file) {
+                if (! in_array($file->getFilename(), $config['ignore']) && $file->isFile())
+                {
+                    $test = new Test();
+                    $test->initialize($type, $file);
+                    array_push($this->tests, $test);
+                    unset($test);
+                }
+    
+            }
+        }*/
     }
     
     public function afterFind() {
