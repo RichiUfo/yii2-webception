@@ -3,6 +3,7 @@ var runTest = function(hash) {
     resetTest(hash)
     
     $('#'+hash+' .status').html('Running')
+    $('#'+hash+' .run-test').addClass('disabled')
     $('#'+hash+' .run-test').html('<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>')
     
     $.ajax({
@@ -34,6 +35,7 @@ var runTest = function(hash) {
             
             // Update the test log
             $('.test-log.'+hash).html(result.log) 
+            $('#'+hash+' .run-test').removeClass('disabled')
             
         }
     })
