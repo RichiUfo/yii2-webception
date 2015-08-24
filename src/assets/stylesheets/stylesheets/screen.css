@@ -13,11 +13,12 @@
 }
 /* line 18, ../sass/screen.scss */
 .godardth-webception .table-tests th {
+  text-transform: capitalize;
   padding-top: 30px;
   border-top: none;
   border-bottom: 1px solid #F0F0F0;
 }
-/* line 25, ../sass/screen.scss */
+/* line 26, ../sass/screen.scss */
 .godardth-webception .btn.disabled {
   cursor: inherit;
 }
