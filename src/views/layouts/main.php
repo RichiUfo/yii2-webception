@@ -22,7 +22,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<!--div class="wrap"-->
     <!--?php
     NavBar::begin([
         'brandLabel' => 'My Company',
@@ -60,7 +60,7 @@ AppAsset::register($this);
         <!--= Alert::widget() ?-->
         <?= $content ?>
     </div>
-</div>
+<!--/div-->
 
 <!--footer class="footer">
     <div class="container">
