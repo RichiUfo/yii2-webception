@@ -97,7 +97,7 @@ function genLabel($type){
                                         <div class="btn-group btn-group-xs pull-right" role="group">
                                             <button class="btn btn-primary status disabled" 
                                                     type="submit">Ready</button>
-                                            <button class="btn btn-default view-log" 
+                                            <button class="btn btn-default view-log disabled" 
                                                     hash="<?= $test->hash ?>"
                                                     type="submit"><span class="glyphicon glyphicon-console" aria-hidden="true"></span></button>
                                             <button class="btn btn-default run-test" 
