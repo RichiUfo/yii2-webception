@@ -53,17 +53,22 @@ function genLabel($type){
     
     <!-- Check the codeception initialization -->
     <!-- List the available sites and tests for each of them -->
+    
+    <?php 
+        $sitecounter = 0;
+        foreach($sites as $site) : 
+            $sitecounter++;
+    ?>
     <div class="row">
+        <div class="col-lg-12">
+            <h3><?= $site->name ?></h3>
+        </div>
         <div class="col-lg-4">
             <table class="table table-condensed table-tests">
-                <?php 
-                $sitecounter = 0;
-                foreach($sites as $site) : 
-                    $sitecounter++;
-                ?>
                     <thead>
                         <tr>
-                            <th><?= $site->name ?> 
+                            <th>
+                            Acceptance
                             <?php if(!$site->logging['passed']) : ?>
                                 <button type="button" class="btn btn-danger disabled btn-xs">Logging</button>
                             <?php endif; ?>
@@ -102,10 +107,10 @@ function genLabel($type){
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
-                <?php endforeach; ?>
             </table>
         </div>
     </div>
+    <?php endforeach; ?>
     
     
     
