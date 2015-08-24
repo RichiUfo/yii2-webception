@@ -111,15 +111,10 @@ function genLabel($type){
                                     </div>
                                 </td>
                             </tr>
-                            <?php
-                            Modal::begin([
-                                'header' => $test->title
-                            ]);
-                            
-                            echo $test->title;
-                            
-                            Modal::end();
-                            ?>
+                            <?php Modal::begin(['header' => $test->title]) ?>
+                            <?= $test->title ?>
+
+                            <?php Modal::end() ?>
                             <tr class="test-log <?= $test->hash ?>" style="display:none"> 
                                 <td colspan="2">
                                    <pre></pre>
