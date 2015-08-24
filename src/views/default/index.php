@@ -90,7 +90,7 @@ function genLabel($type){
                         if ($test->type === $type) :
                         ?>
                             <tr id="<?= $test->hash ?>">
-                                <td><?= genLabel($test->type) ?> <?= $test->title ?></td>
+                                <td><!--?= genLabel($test->type) ?--><?= $test->title ?></td>
                                 <td>
                                     <div class="pull-right">
                                         <div class="btn-group btn-group-xs pull-right" role="group">
