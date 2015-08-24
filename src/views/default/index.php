@@ -72,7 +72,7 @@ function genLabel($type){
                     <thead>
                         <tr>
                             <th>
-                            <?= $type 
+                            <?= $type ?> 
                             <?php if(!$site->logging['passed']) : ?>
                                 <button type="button" class="btn btn-danger disabled btn-xs">Logging</button>
                             <?php endif; ?>
