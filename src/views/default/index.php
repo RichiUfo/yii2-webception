@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\bootstrap\Modal;
 
 use godardth\yii2webception\assets\Yii2WebceptionAsset;
 Yii2WebceptionAsset::register($this);
@@ -110,6 +111,16 @@ function genLabel($type){
                                     </div>
                                 </td>
                             </tr>
+                            <?php
+                            Modal::begin([
+                                'header' => $test->title,
+                                'toggleButton' => ['label' => 'click me'],
+                            ]);
+                            
+                            echo $test->title;
+                            
+                            Modal::end();
+                            ?>
                             <tr class="test-log <?= $test->hash ?>" style="display:none"> 
                                 <td colspan="2">
                                    <pre></pre>
