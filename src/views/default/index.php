@@ -84,7 +84,7 @@ function genLabel($type){
                             <?php endif; ?>
                             </th>
                             <th>
-                                <button class="btn btn-default btn-xs pull-right run-site" 
+                                <button class="btn btn-default btn-xs pull-right run-type" 
                                 site="site<?= $sitecounter ?>"
                                 type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
                             </th>
@@ -95,7 +95,7 @@ function genLabel($type){
                         foreach($site->tests as $test) : 
                         if ($test->type === $type) :
                         ?>
-                            <tr id="<?= $test->hash ?>">
+                            <tr id="<?= $test->hash ?>" class="<?= $test->type ">
                                 <td><!--?= genLabel($test->type) ?--><?= $test->title ?></td>
                                 <td>
                                     <div class="pull-right">

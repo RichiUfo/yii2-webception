@@ -64,6 +64,13 @@ $(document).ready(function(){
         runTest(hash)
     })
     
+    $('.run-type').click(function(){
+        var site = $(this).attr('site')
+        var type = $(this).attr('type')
+        $('#'+site+' .'+type+' .run-test').each(function(i, obj) {
+            runTest($(obj).attr('hash'))
+        })
+    })
     $('.run-site').click(function(){
         var site = $(this).attr('site')
         $('#'+site+' .run-test').each(function(i, obj) {
