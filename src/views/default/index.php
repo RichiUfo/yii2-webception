@@ -62,7 +62,12 @@ function genLabel($type){
     ?>
     <div class="row">
         <div class="col-lg-12">
-            <h3><?= $site->name ?></h3>
+            <h3>
+                <?= $site->name ?>
+                <button class="btn btn-default btn-xs pull-right run-site" 
+                        site="site<?= $sitecounter ?>"
+                        type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+            </h3>
         </div>
         <?php
         $types = ['acceptance', 'functional', 'unit'];
