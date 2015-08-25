@@ -95,7 +95,7 @@ function genLabel($type){
                         foreach($site->tests as $test) : 
                         if ($test->type === $type) :
                         ?>
-                            <tr id="<?= $test->hash ?>" class="<?= $test->type ">
+                            <tr id="<?= $test->hash ?>" class="<?= $test->type ?>">
                                 <td><!--?= genLabel($test->type) ?--><?= $test->title ?></td>
                                 <td>
                                     <div class="pull-right">
