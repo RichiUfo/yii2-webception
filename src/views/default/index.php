@@ -68,7 +68,7 @@ function genLabel($type){
         foreach($sites as $site) : 
             $sitecounter++;
     ?>
-    <div class="row">
+    <div class="row site">
         <div class="col-lg-12">
             <h3>
                 <span class="test-site-name"><?= $site->name ?></span>
