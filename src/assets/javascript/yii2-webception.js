@@ -111,6 +111,7 @@ $(document).ready(function(){
      */
     $('.btn-view-coverage').click(function(){
         var sitename = $(this).closest('.test-site-name').html()
+        console.log($(this).closest('.test-site-name'))
         window.location.assign('/tests/'+sitename)
     })
     
