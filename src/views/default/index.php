@@ -38,11 +38,13 @@ function genLabel($type){
                 <button type="button" class="btn btn-<?= $checks['logging'] ? 'success' : 'danger' ?> disabled">Writeable</button>
             </div>
             
+            <!-- GLOBAL COVERAGE TO BE IMPLEMENTED LATER --
             <div class="btn-group btn-group-xs" role="group">
                 <button type="button" class="btn btn-default disabled">Coverage</button>
                 <button type="button" class="btn btn-warning disabled">45 %</button>
                 <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
             </div>
+            --> 
             
             <div class="btn-group btn-group-xs" role="group">
                 <button class="btn btn-default reset-all" type="submit">Reset All</button>
@@ -74,8 +76,9 @@ function genLabel($type){
                 <div class="pull-right">
                     <div class="btn-group btn-group-xs coverage-site" role="group">
                         <button type="button" class="btn btn-default disabled">Coverage</button>
-                        <button type="button" class="btn btn-success disabled">80 %</button>
+                        <button type="button" class="btn btn-success disabled">82 %</button>
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-sta" aria-hidden="true"></span></button>
                     </div>
                     
                     <button class="btn btn-default btn-xs run-site" 
