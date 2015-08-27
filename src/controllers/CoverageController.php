@@ -44,7 +44,7 @@ class CoverageController extends Controller
         
         $coverage = new Coverage($site);
         
-        return $coverage->data->coverage;
+        return $coverage->data->coverage[0];
 
     }
 	    
