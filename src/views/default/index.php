@@ -38,7 +38,7 @@ function genLabel($type){
                 <button type="button" class="btn btn-<?= $checks['logging'] ? 'success' : 'danger' ?> disabled">Writeable</button>
             </div>
             
-            <div class="btn-group btn-group-xs" role="group">
+            <div class="btn-group btn-group-xs" role="group" style="margin-left:25px">
                 <button type="button" class="btn btn-default disabled">Coverage</button>
                 <button type="button" class="btn btn-warning disabled">45 %</button>
                 <button type="button" class="btn btn-default disabled"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
