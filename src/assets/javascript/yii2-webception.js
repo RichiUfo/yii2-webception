@@ -111,7 +111,7 @@ $(document).ready(function(){
      */
     $('.btn-view-coverage').click(function(){
         var sitename = $(this).parent('.test-site-name').html()
-        window.location.assign('http://www.google.com')
+        window.location.assign('/tests/'+sitename)
     })
     
 })
