@@ -114,8 +114,6 @@ $(document).ready(function(){
         var spanel = $(this).parent('.site').find('.test-site-name')
         var sitename = $(this).parent('.site').find('.test-site-name').html()
         console.log($(this), parentsite, spanel, sitename)
-        
-        /window.location.assign('/tests/'+sitename)
     })
     
 })
