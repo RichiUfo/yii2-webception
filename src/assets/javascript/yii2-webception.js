@@ -97,7 +97,7 @@ $(document).ready(function(){
     })
     
     /**
-     * Log Viewer Buttons
+     * Test Log Viewer Buttons
      */
     $('.view-log').click(function(){
         if (!$(this).hasClass('disabled')) {
@@ -105,4 +105,13 @@ $(document).ready(function(){
             $('#modal-'+hash).modal('show')
         }
     })
+    
+    /**
+     * Coverage Stats Viewer
+     */
+    $('.btn-view-coverage').click(function(){
+        var sitename = $(this).parent('.test-site-name').html()
+        window.location.assign('http://www.google.com')
+    })
+    
 })
