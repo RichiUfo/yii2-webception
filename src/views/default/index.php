@@ -41,7 +41,7 @@ function genLabel($type){
             <div class="btn-group btn-group-xs" role="group">
                 <button type="button" class="btn btn-default disabled">Coverage</button>
                 <button type="button" class="btn btn-warning disabled">45 %</button>
-                <button type="button" class="btn btn-default disabled"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+                <button type="button" class="btn btn-default disabled"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
             </div>
             
             <div class="btn-group btn-group-xs" role="group" style="margin-left:25px">
