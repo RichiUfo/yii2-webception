@@ -114,4 +114,56 @@ $(document).ready(function(){
         window.location.assign('/tests/'+sitename+'/coverage')
     })
     
+    /**
+     * Coverage Refresh
+     */
+    $('.btn-refresh-coverage').click(function(){
+        
+        // Show test is running status to the user
+        $(this).parent().find('.coverage-value').html('Running')
+        $('#'+hash+' .btn-refresh-coverage').addClass('disabled')
+        $('#'+hash+' .btn-view-coverage').addClass('disabled')
+        
+        // Prepare the request parameters
+        var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase();
+        
+        // Request the update using AJAX
+        $.ajax({
+            type: "GET",
+            url: "testing/test/run-test", 
+            data: { hash: hash },
+            dataType: "json",
+            success: function(result){
+                
+                // Show test status + color the label
+                $('#'+hash+' .status').html(result.state)
+                $('#'+hash+' .status').removeClass('btn-default btn-primary btn-success btn-info btn-warning btn-danger')
+                switch(result.state) {
+                    case 'Failed':
+                        $('#'+hash+' .status').addClass('btn-danger')
+                        break;
+                    case 'Passed':
+                        $('#'+hash+' .status').addClass('btn-success')
+                        break;
+                    case 'Ready':
+                        $('#'+hash+' .status').addClass('btn-primary')
+                        break;
+                    case 'Error':
+                        $('#'+hash+' .status').addClass('btn-warning')
+                        break;
+                    default:
+                        $('#'+hash+' .status').addClass('')
+                }
+                
+                // Update the test log
+                $('.test-log.'+hash).html(result.log) 
+                $('#'+hash+' .run-test').removeClass('disabled')
+                $('.view-log[hash='+hash+']').removeClass('disabled')
+                
+            }
+        })
+        
+        
+    })
+    
 })
