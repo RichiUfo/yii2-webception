@@ -110,8 +110,8 @@ $(document).ready(function(){
      * Coverage Stats Viewer
      */
     $('.btn-view-coverage').click(function(){
-        var sitename = $(this).parents('.site').find('.test-site-name').html()
-        window.location.assign('/tests/'+sitename)
+        var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase();
+        window.location.assign('/tests/'+sitename+'/coverage')
     })
     
 })
