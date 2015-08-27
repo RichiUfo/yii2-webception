@@ -52,6 +52,9 @@ var resetTest = function(hash) {
     $('.test-log.'+hash).html('')
     $('.view-log[hash='+hash+']').addClass('disabled')
     
+    // Reset the button icon
+    $('#'+hash+' .run-test').html('<span class="glyphicon glyphicon-play" aria-hidden="true"></span>')
+    
 }
 
 $(document).ready(function(){
