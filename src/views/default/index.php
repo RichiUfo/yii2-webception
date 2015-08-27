@@ -41,7 +41,7 @@ function genLabel($type){
             <div class="btn-group btn-group-xs" role="group">
                 <button type="button" class="btn btn-default disabled">Coverage</button>
                 <button type="button" class="btn btn-warning disabled">45 %</button>
-                <button type="button" class="btn btn-default disabled"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
             </div>
             
             <div class="btn-group btn-group-xs" role="group">
@@ -70,9 +70,18 @@ function genLabel($type){
         <div class="col-lg-12">
             <h3>
                 <?= $site->name ?>
-                <button class="btn btn-default btn-xs pull-right run-site" 
-                        site="site<?= $sitecounter ?>"
-                        type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+                
+                <div class="pull-right">
+                    <div class="btn-group btn-group-xs coverage-site" role="group">
+                        <button type="button" class="btn btn-default disabled">Coverage</button>
+                        <button type="button" class="btn btn-success disabled">80 %</button>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+                    </div>
+                    
+                    <button class="btn btn-default btn-xs run-site" 
+                            site="site<?= $sitecounter ?>"
+                            type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+                </div>
             </h3>
         </div>
         <?php
