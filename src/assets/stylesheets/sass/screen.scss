@@ -30,14 +30,12 @@
     // Buttons
     .btn.disabled, .btn[disabled] {
         cursor: inherit;
+        pointer-events: none;
         &.btn-default {
             color: #000;
         }
         &.btn-success {
             color: #fff;
-        }
-        &:hover {
-            border: inherit;
         }
     }
     
