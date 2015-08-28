@@ -77,7 +77,7 @@ function genLabel($type){
                         <button type="button" class="btn btn-default" disabled>Coverage</button>
                         <button type="button" class="btn btn-success coverage-value disabled">82 %</button>
                         <button type="button" class="btn btn-default btn-refresh-coverage"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
-                        <button type="button" class="btn btn-default btn-view-coverage disabled"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span></button> 
+                        <button type="button" class="btn btn-default btn-view-coverage" disabled><span class="glyphicon glyphicon-stats" aria-hidden="true"></span></button> 
                     </div>
                     
                     <button class="btn btn-default btn-xs run-site" 
