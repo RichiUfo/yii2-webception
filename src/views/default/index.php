@@ -25,7 +25,6 @@ function genLabel($type){
     }
     return $ret;
 }
-
 ?>
 
 <div class="godardth-webception">

@@ -1,3 +1,4 @@
+
 var runTest = function(hash) {
     
     resetTest(hash)
@@ -56,8 +57,23 @@ var resetTest = function(hash) {
     $('#'+hash+' .run-test').html('<span class="glyphicon glyphicon-play" aria-hidden="true"></span>')
     
 }
+var checkCoverageAvailability = function() {
+    $('.site').each(function(){
+        var sitename = $(this).find('.test-site-name').html().toLowerCase()
+        var url = 'tests/'+sitename+'/coverage.xml'
+        var exists = urlExists(url, function(){
+            
+        })
+    })
+    var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase();
+}
 
 $(document).ready(function(){
+    
+    /**
+     * Init The Page
+     */
+    checkCoverageAvailability()
     
     /**
      * Test Runners
