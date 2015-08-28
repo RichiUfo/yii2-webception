@@ -75,20 +75,33 @@ class TerminalController extends Controller
      * @param  string $filename Name of the Test
      * @return string Full command to execute Codeception with requred parameters.
      */
-    public function getCommandPath($site, $type, $filename)
+    public function getCommandPath($site, $type, $filename, $coverage=false)
     {
         $config = \Yii::$app->controller->module->params;
         
         // Build all the different parameters as part of the console command
-        $params = array(
-            $config['executable'],        // Codeception Executable
-            "run",                              // Command to Codeception
-            "--no-colors",                      // Forcing Codeception to not use colors, if enabled in codeception.yml
-            "--config=\"{$site->config}\"", // Full path & file of Codeception
-            $type,                              // Test Type (Acceptance, Unit, Functional)
-            $filename,                          // Filename of the Codeception test
-            "2>&1"                              // Added to force output of running executable to be streamed out
-        );
+        if($coverage) {
+            $params = array(
+                $config['executable'],                          // Codeception Executable
+                "run",                                          // Command to Codeception
+                "--no-colors",                                  // Forcing Codeception to not use colors, if enabled in codeception.yml
+                "--config=\"{$site->config}\"",                 // Full path & file of Codeception
+                $type,                                          // Test Type (Acceptance, Unit, Functional)
+                "--coverage --coverage-xml --coverage-html",    // COVERAGE
+                "2>&1"                                          // Added to force output of running executable to be streamed out
+            );
+        }
+        else {
+            $params = array(
+                $config['executable'],              // Codeception Executable
+                "run",                              // Command to Codeception
+                "--no-colors",                      // Forcing Codeception to not use colors, if enabled in codeception.yml
+                "--config=\"{$site->config}\"",     // Full path & file of Codeception
+                $type,                              // Test Type (Acceptance, Unit, Functional)
+                $filename,                          // Filename of the Codeception test
+                "2>&1"                              // Added to force output of running executable to be streamed out
+            );
+        }
 
         // Build the command to be run.
         return implode(' ', $params);

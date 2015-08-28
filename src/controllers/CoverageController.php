@@ -39,12 +39,16 @@ class CoverageController extends Controller
     * The route is called via AJAX and the return repsonse is JSON.
     */
     public function actionRunCoverage($site) {
+        // Call the data generation command
+        $command = TerminalController::getCommandPath($site, 'functional', null, true);
+        TerminalController::run_terminal_command($command);
+        
+        // Return the coverage data
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        $coverage = new Coverage($site);
-        return $coverage;
+        return self::actionGetCoverage($site);
     }
     
-    public function actionGetCoverage($site) {
+    public static function actionGetCoverage($site) {
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $coverage = new Coverage($site);
         if(!$coverage->coverageDataExists())
@@ -52,26 +56,5 @@ class CoverageController extends Controller
         return $coverage;
         
     }
-	    
-	/**
-     * Given a site and types, run the Codeception coverage test.
-     *
-     * @param  Test $test Current test to Run.
-     * @return Test $test Updated test with log and result.
-     */
-    /*public function run($site, $type=[])
-    {
-        // Get the full command path to run the test.
-        $command = TerminalController::getCommandPath($site, $test->type, $test->filename);
-
-
-        // Run the helper function (as it's not specific to Codeception)
-        // which returns the result of running the terminal command into an array.
-        $output  = TerminalController::run_terminal_command($command);
-
-        // Add the log to the test which also checks to see if there was a pass/fail.
-        $test->setLog($output);
-
-        return $test;
-    }*/
+	 
 }
