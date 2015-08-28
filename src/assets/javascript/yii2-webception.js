@@ -68,12 +68,12 @@ var checkCoverageAvailability = function() {
             url: url,
             success: function(){
                 // If coverage data exists
-                site.find('.btn-view-coverage').removeClass('disabled')
+                site.find('.btn-view-coverage').attr('disabled', false)
                 site.find('.btn-refresh-coverage').html('<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>')
             },
             error: function() {
                 // If coverage data doesn't exists
-                site.find('.btn-view-coverage').addClass('disabled')
+                site.find('.btn-view-coverage').attr('disabled', true)
                 site.find('.btn-refresh-coverage').html('<span class="glyphicon glyphicon-play" aria-hidden="true"></span>')
             }
         });
