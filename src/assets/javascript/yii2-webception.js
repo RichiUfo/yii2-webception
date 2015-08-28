@@ -78,7 +78,7 @@ var checkCoverageAvailability = function() {
                     data: { site: sitename },
                     dataType: "json",
                     success: function(result){
-                        console.log(result)
+                        site.find('.coverage-value').html(result.coverage_methods)
                     }
                 })
                 
