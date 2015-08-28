@@ -66,12 +66,12 @@ var checkCoverageAvailability = function() {
             url: url,
             success: function(){
                 // If coverage data exists
-                console.log('exists')
+                console.log($(this), 'exists')
                 $('.btn-view-coverage').removeClass('disabled')
             },
             error: function() {
                 // If coverage data doesn't exists
-                console.log('doesnt exists')
+                console.log($(this), 'doesnt exists')
                 $('.btn-view-coverage').addClass('disabled')
             }
         });
