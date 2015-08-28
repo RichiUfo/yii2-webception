@@ -36,6 +36,9 @@
         &.btn-success {
             color: #fff;
         }
+        &:hover {
+            border: inherit;
+        }
     }
     
 }

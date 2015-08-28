@@ -34,3 +34,7 @@
 .godardth-webception .btn.disabled.btn-success, .godardth-webception .btn[disabled].btn-success {
   color: #fff;
 }
+/* line 39, ../sass/screen.scss */
+.godardth-webception .btn.disabled:hover, .godardth-webception .btn[disabled]:hover {
+  border: inherit;
+}
