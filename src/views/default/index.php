@@ -118,7 +118,8 @@ function genLabel($type){
                                 <td>
                                     <div class="pull-right">
                                         <div class="btn-group btn-group-xs pull-right" role="group">
-                                            <button class="btn btn-primary status disabled" 
+                                            <button class="btn btn-primary status" 
+                                                    disabled
                                                     type="submit">Ready</button>
                                             <button class="btn btn-default view-log disabled" 
                                                     hash="<?= $test->hash ?>"
