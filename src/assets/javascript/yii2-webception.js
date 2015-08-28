@@ -58,6 +58,7 @@ var resetTest = function(hash) {
 }
 var checkCoverageAvailability = function() {
     $('.site').each(function(){
+        var site = $(this)
         var sitename = $(this).find('.test-site-name').html().toLowerCase()
         var url = window.location.origin+'/tests/'+sitename+'/coverage.xml'
         console.log(url)
@@ -66,13 +67,13 @@ var checkCoverageAvailability = function() {
             url: url,
             success: function(){
                 // If coverage data exists
-                console.log($(this), 'exists')
-                $('.btn-view-coverage').removeClass('disabled')
+                console.log(site, 'exists')
+                site.find('.btn-view-coverage').removeClass('disabled')
             },
             error: function() {
                 // If coverage data doesn't exists
-                console.log($(this), 'doesnt exists')
-                $('.btn-view-coverage').addClass('disabled')
+                console.log(site, 'doesnt exists')
+                site.find('.btn-view-coverage').addClass('disabled')
             }
         });
     })
