@@ -1,3 +1,7 @@
+var changeButtonColor = function(button, code) {
+    button.removeClass('btn-default btn-primary btn-success btn-info btn-warning btn-danger')
+    button.addClass('btn-'+code)
+}
 var runTest = function(hash) {
     
     resetTest(hash)
@@ -44,8 +48,8 @@ var runTest = function(hash) {
 var resetTest = function(hash) {
     
     // Reset the status label
-    $('#'+hash+' .status').removeClass('btn-default btn-primary btn-success btn-info btn-warning btn-danger')
-    $('#'+hash+' .status').addClass('btn-primary')
+    var button = $('#'+hash+' .status')
+    changeButtonColor(button, 'primary')
     $('#'+hash+' .status').html('Ready')
     
     // Empty and hide the log
@@ -74,15 +78,28 @@ var checkCoverageAvailability = function() {
                 
                 // Case 1 : Date has already been generated
                 if (result !== false) {
+                    
                     site.find('.btn-view-coverage').attr('disabled', false)
                     site.find('.btn-refresh-coverage').html('<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>')
                     site.find('.coverage-value').html(Math.round(result.coverage_methods)+' %')
+                    
+                    //Manage the coverage value <> color
+                    var button = site.find('.coverage-value')
+                    if (result.coverage_methods > 70) { 
+                        changeButtonColor(button, 'success')    
+                    }
+                    else if (result.coverage_methods > 35) {
+                        changeButtonColor(button, 'warning')  
+                    }
+                    else {
+                        changeButtonColor(button, 'danger')  
+                    }
                 }
-                
                 // Case 2 : Coverage report doesn't exist
                 else {
                     site.find('.btn-view-coverage').attr('disabled', true)
                     site.find('.btn-refresh-coverage').html('<span class="glyphicon glyphicon-play" aria-hidden="true"></span>')
+                    changeButtonColor(site.find('.coverage-value'), 'default')
                 }
                 
             }
