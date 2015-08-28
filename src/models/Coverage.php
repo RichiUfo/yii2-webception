@@ -34,7 +34,7 @@ class Coverage extends \yii\base\Model
         
         // Raw values
         foreach($data->project[0]->metrics[0]->attributes() as $a => $b)
-            $this->classes = $; 
+            $this->classes = $b;
         $this->coveredconditionals = $metrics['coveredconditionals'];
         $this->conditionals = $metrics['conditionals'];
         $this->coveredstatements = $metrics['coveredstatements'];
