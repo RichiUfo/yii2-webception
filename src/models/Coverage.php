@@ -12,6 +12,7 @@ class Coverage extends \yii\base\Model
 {
     
     public $site;
+    public $coverage_data_exists = false;
     
     public $classes;
     public $coveredconditionals;
@@ -29,10 +30,11 @@ class Coverage extends \yii\base\Model
     public function __construct($site) {
         
         // Class Properties
-        $this->site = $site;
+        $this->site = Site::findOne(['name' => $site]);
+        
         
         // Parse the previous XML (if any)
-        $url = Url::to('tests/'.$this->site.'/coverage.xml');
+        $url = Url::to('tests/'.$site.'/coverage.xml');
         $data = simplexml_load_file($url);
         $metrics = (array)$data->xpath("/coverage/project/metrics")[0]->attributes();
         

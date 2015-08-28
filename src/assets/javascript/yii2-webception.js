@@ -56,6 +56,9 @@ var resetTest = function(hash) {
     $('#'+hash+' .run-test').html('<span class="glyphicon glyphicon-play" aria-hidden="true"></span>')
     
 }
+var runCoverage = function() {
+    
+}
 var checkCoverageAvailability = function() {
     $('.site').each(function(){
         
@@ -74,7 +77,7 @@ var checkCoverageAvailability = function() {
                 // Load the coverage data
                 $.ajax({
                     type: "GET",
-                    url: "testing/coverage/run-coverage", 
+                    url: "testing/coverage/get-coverage", 
                     data: { site: sitename },
                     dataType: "json",
                     success: function(result){
@@ -162,18 +165,18 @@ $(document).ready(function(){
      */
     $('.btn-refresh-coverage').click(function(){
         
+        // Prepare the request parameters
+        var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase();
+        
         // Show test is running status to the user
         $(this).parent().find('.coverage-value').html('Running')
         $('#'+hash+' .btn-refresh-coverage').attr('disabled', true)
         $('#'+hash+' .btn-view-coverage').attr('disabled', true)
         
-        // Prepare the request parameters
-        var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase();
-        
         // Request the update using AJAX
         $.ajax({
             type: "GET",
-            url: "testing/test/run-test", 
+            url: "testing/coverage/run-test", 
             data: { hash: hash },
             dataType: "json",
             success: function(result){

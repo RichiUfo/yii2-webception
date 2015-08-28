@@ -39,11 +39,15 @@ class CoverageController extends Controller
     * The route is called via AJAX and the return repsonse is JSON.
     */
     public function actionRunCoverage($site) {
-        
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $coverage = new Coverage($site);
         return $coverage;
-
+    }
+    
+    public function actionGetCoverage($site) {
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $coverage = new Coverage($site);
+        return $coverage;
     }
 	    
 	/**
