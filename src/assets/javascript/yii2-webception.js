@@ -56,9 +56,6 @@ var resetTest = function(hash) {
     $('#'+hash+' .run-test').html('<span class="glyphicon glyphicon-play" aria-hidden="true"></span>')
     
 }
-var runCoverage = function() {
-    
-}
 var checkCoverageAvailability = function() {
     $('.site').each(function(){
         

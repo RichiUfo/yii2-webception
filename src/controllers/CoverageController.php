@@ -40,7 +40,8 @@ class CoverageController extends Controller
     */
     public function actionRunCoverage($site) {
         // Call the data generation command
-        $command = TerminalController::getCommandPath($site, 'functional', null, true);
+        $siteObj = Site::findOne(['name' => $site]);
+        $command = TerminalController::getCommandPath($siteObj, 'functional', null, true);
         TerminalController::run_terminal_command($command);
         
         // Return the coverage data
