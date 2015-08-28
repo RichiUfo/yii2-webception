@@ -3,7 +3,7 @@ var runTest = function(hash) {
     resetTest(hash)
     
     $('#'+hash+' .status').html('Running')
-    $('#'+hash+' .run-test').addClass('disabled')
+    $('#'+hash+' .run-test').attr('disabled', true)
     $('#'+hash+' .run-test').html('<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>')
     
     $.ajax({
@@ -35,8 +35,8 @@ var runTest = function(hash) {
             
             // Update the test log
             $('.test-log.'+hash).html(result.log) 
-            $('#'+hash+' .run-test').removeClass('disabled')
-            $('.view-log[hash='+hash+']').removeClass('disabled')
+            $('#'+hash+' .run-test').attr('disabled', false)
+            $('.view-log[hash='+hash+']').attr('disabled', false)
             
         }
     })
@@ -50,7 +50,7 @@ var resetTest = function(hash) {
     
     // Empty and hide the log
     $('.test-log.'+hash).html('')
-    $('.view-log[hash='+hash+']').addClass('disabled')
+    $('.view-log[hash='+hash+']').attr('disabled', true)
     
     // Reset the button icon
     $('#'+hash+' .run-test').html('<span class="glyphicon glyphicon-play" aria-hidden="true"></span>')
@@ -129,7 +129,7 @@ $(document).ready(function(){
      * Test Log Viewer Buttons
      */
     $('.view-log').click(function(){
-        if (!$(this).hasClass('disabled')) {
+        if (!$(this).attr('disabled')) {
             var hash = $(this).attr('hash')
             $('#modal-'+hash).modal('show')
         }
@@ -139,7 +139,7 @@ $(document).ready(function(){
      * Coverage Stats Viewer
      */
     $('.btn-view-coverage').click(function(){
-        if(!$(this).hasClass('disabled')){
+        if(!$(this).attr('disabled')){
             var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase();
             window.location.assign('/tests/'+sitename+'/coverage')
         }
@@ -152,8 +152,8 @@ $(document).ready(function(){
         
         // Show test is running status to the user
         $(this).parent().find('.coverage-value').html('Running')
-        $('#'+hash+' .btn-refresh-coverage').addClass('disabled')
-        $('#'+hash+' .btn-view-coverage').addClass('disabled')
+        $('#'+hash+' .btn-refresh-coverage').attr('disabled', true)
+        $('#'+hash+' .btn-view-coverage').attr('disabled', true)
         
         // Prepare the request parameters
         var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase();
@@ -188,8 +188,8 @@ $(document).ready(function(){
                 
                 // Update the test log
                 $('.test-log.'+hash).html(result.log) 
-                $('#'+hash+' .run-test').removeClass('disabled')
-                $('.view-log[hash='+hash+']').removeClass('disabled')
+                $('#'+hash+' .run-test').attr('disabled', false)
+                $('.view-log[hash='+hash+']').attr('disabled', false)
                 
             }
         })
