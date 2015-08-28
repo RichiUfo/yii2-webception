@@ -58,24 +58,24 @@ var resetTest = function(hash) {
 }
 var checkCoverageAvailability = function() {
     $('.site').each(function(){
+        
         var site = $(this)
         var sitename = $(this).find('.test-site-name').html().toLowerCase()
         var url = window.location.origin+'/tests/'+sitename+'/coverage.xml'
-        console.log(url)
+        
         $.ajax({
             type: 'HEAD',
             url: url,
             success: function(){
                 // If coverage data exists
-                console.log(site, 'exists')
                 site.find('.btn-view-coverage').removeClass('disabled')
             },
             error: function() {
                 // If coverage data doesn't exists
-                console.log(site, 'doesnt exists')
                 site.find('.btn-view-coverage').addClass('disabled')
             }
         });
+        
     })
 }
 
@@ -137,8 +137,10 @@ $(document).ready(function(){
      * Coverage Stats Viewer
      */
     $('.btn-view-coverage').click(function(){
-        var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase();
-        window.location.assign('/tests/'+sitename+'/coverage')
+        if(!$(this).hasClass('disabled')){
+            var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase();
+            window.location.assign('/tests/'+sitename+'/coverage')
+        }
     })
     
     /**
