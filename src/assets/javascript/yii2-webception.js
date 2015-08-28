@@ -70,6 +70,18 @@ var checkCoverageAvailability = function() {
                 // If coverage data exists
                 site.find('.btn-view-coverage').attr('disabled', false)
                 site.find('.btn-refresh-coverage').html('<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>')
+            
+                // Load the coverage data
+                $.ajax({
+                    type: "GET",
+                    url: "testing/coverage/run-coverage", 
+                    data: { site: sitename },
+                    dataType: "json",
+                    success: function(result){
+                        console.log(result)
+                    }
+                })
+                
             },
             error: function() {
                 // If coverage data doesn't exists
