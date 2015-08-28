@@ -1,4 +1,3 @@
-
 var runTest = function(hash) {
     
     resetTest(hash)
@@ -61,11 +60,20 @@ var checkCoverageAvailability = function() {
     $('.site').each(function(){
         var sitename = $(this).find('.test-site-name').html().toLowerCase()
         var url = 'tests/'+sitename+'/coverage.xml'
-        var exists = urlExists(url, function(){
-            
-        })
+        console.log(url)
+        $.ajax({
+            type: 'HEAD',
+            url: url,
+            success: function(){
+                // If coverage data exists
+                $('.btn-view-coverage').removeClass('disabled')
+            },
+            error: function() {
+                // If coverage data doesn't exists
+                $('.btn-view-coverage').addClass('disabled')
+            }
+        });
     })
-    var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase();
 }
 
 $(document).ready(function(){
