@@ -26,3 +26,11 @@
 .godardth-webception .btn.disabled, .godardth-webception .btn[disabled] {
   cursor: inherit;
 }
+/* line 33, ../sass/screen.scss */
+.godardth-webception .btn.disabled.btn-default, .godardth-webception .btn[disabled].btn-default {
+  color: #000;
+}
+/* line 36, ../sass/screen.scss */
+.godardth-webception .btn.disabled.btn-success, .godardth-webception .btn[disabled].btn-success {
+  color: #fff;
+}

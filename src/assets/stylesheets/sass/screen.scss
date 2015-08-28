@@ -30,6 +30,12 @@
     // Buttons
     .btn.disabled, .btn[disabled] {
         cursor: inherit;
+        &.btn-default {
+            color: #000;
+        }
+        &.btn-success {
+            color: #fff;
+        }
     }
     
 }
