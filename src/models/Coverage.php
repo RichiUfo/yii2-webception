@@ -30,15 +30,15 @@ class Coverage extends \yii\base\Model
         // Parse the previous XML (if any)
         $url = Url::to('tests/'.$this->site.'/coverage.xml');
         $data = simplexml_load_file($url);
-        $metrics = $data->xpath("/coverage/project/metrics")[0]->attributes();
+        $this->metrics = $data->xpath("/coverage/project/metrics")[0]->attributes();
         
         // Raw values
-        $this->classes = $metrics['classes'];
-        $this->coveredconditionals = $metrics['coveredconditionals'];
-        $this->conditionals = $metrics['conditionals'];
-        $this->coveredstatements = $metrics['coveredstatements'];
-        $this->statements = $metrics['statements'];
-        $this->coveredmethods = $metrics['coveredmethods'];
+        $this->classes = $this->metrics['classes'];
+        $this->coveredconditionals = $this->metrics['coveredconditionals'];
+        $this->conditionals = $this->metrics['conditionals'];
+        $this->coveredstatements = $this->metrics['coveredstatements'];
+        $this->statements = $this->metrics['statements'];
+        $this->coveredmethods = $this->metrics['coveredmethods'];
         $this->methods = $metrics['methods'];
         
         // Calculations
