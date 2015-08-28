@@ -23,7 +23,7 @@ class Coverage extends \yii\base\Model
         $url = Url::to('tests/'.$this->site.'/coverage.xml');
         $filename = $url;
         $data = simplexml_load_file($url);
-        $this->metrics = $data->xpath("coverage/project/metrics");
+        $this->metrics = $data->xpath("/project/metrics");
     }
     
 }
