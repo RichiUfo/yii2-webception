@@ -39,7 +39,7 @@ class Coverage extends \yii\base\Model
         $this->coveredstatements = $this->metrics['coveredstatements'];
         $this->statements = $this->metrics['statements'];
         $this->coveredmethods = $this->metrics['coveredmethods'];
-        $this->methods = $metrics['methods'];
+        $this->methods = $this->metrics['methods']; 
         
         // Calculations
         
