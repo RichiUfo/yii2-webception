@@ -121,16 +121,13 @@ function genLabel($type){
                                             <button class="btn btn-primary status" 
                                                     disabled
                                                     type="submit">Ready</button>
-                                            <button class="btn btn-default view-log disabled" 
+                                            <button class="btn btn-default view-log"
+                                                    disabled
                                                     hash="<?= $test->hash ?>"
                                                     type="submit"><span class="glyphicon glyphicon-console" aria-hidden="true"></span></button>
                                             <button class="btn btn-default run-test" 
                                                     hash="<?= $test->hash ?>"
                                                     type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
-                                            <button class="btn btn-default reset-test" 
-                                                    hash="<?= $test->hash ?>"
-                                                    type="submit"
-                                                    style="display:none"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                                         </div>
                                     </div>
                                 </td>
