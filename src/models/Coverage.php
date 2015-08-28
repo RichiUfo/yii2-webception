@@ -20,7 +20,7 @@ class Coverage extends \yii\base\Model
         $this->site = $site;
         
         // Parse the previous XML (if any)
-        $url = Url::to('/tests/'.$this->site.'/coverage.xml');
+        $url = Url::to('tests/'.$this->site.'/coverage.xml');
         $data = simplexml_load_file($url);
         $this->metrics = $data->xpath("/coverage/project/metrics");
     }
