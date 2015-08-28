@@ -23,6 +23,6 @@
   margin-left: 25px;
 }
 /* line 31, ../sass/screen.scss */
-.godardth-webception .btn.disabled {
+.godardth-webception .btn.disabled, .godardth-webception .btn[disabled] {
   cursor: inherit;
 }

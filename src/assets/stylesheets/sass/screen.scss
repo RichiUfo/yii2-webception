@@ -28,7 +28,7 @@
     }
     
     // Buttons
-    .btn.disabled {
+    .btn.disabled, .btn[disabled] {
         cursor: inherit;
     }
     
