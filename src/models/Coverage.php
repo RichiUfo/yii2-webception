@@ -12,7 +12,7 @@ class Coverage extends \yii\base\Model
 {
     
     public $site;
-    public $metrics;
+    
     public $classes;
     public $coveredconditionals;
     public $conditionals;
@@ -20,6 +20,10 @@ class Coverage extends \yii\base\Model
     public $statements;
     public $coveredmethods;
     public $methods;
+    
+    public $coverage_lines;
+    public $coverage_methods;
+    public $coverage_class;
 
     
     public function __construct($site) {
@@ -42,7 +46,9 @@ class Coverage extends \yii\base\Model
         $this->methods = $metrics['@attributes']['methods'];
         
         // Calculations
-        
+        $coverage_lines = 0;
+        $coverage_methods = 100 * ($this->coveredmethods / $this->methods);
+        $coverage_class = 00 * ($this->classes);
     }
     
 }
