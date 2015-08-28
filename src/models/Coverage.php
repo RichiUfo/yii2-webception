@@ -33,7 +33,7 @@ class Coverage extends \yii\base\Model
         $metrics = $data->xpath("/coverage/project/metrics")[0]->attributes();
         
         // Raw values
-        $this->classes = $data->xpath("/coverage/project/metrics")->attributes()[0]; 
+        $this->classes = $data->xpath("/coverage/project/metrics")[0]->attributes()[0]; 
         $this->coveredconditionals = $metrics['coveredconditionals'];
         $this->conditionals = $metrics['conditionals'];
         $this->coveredstatements = $metrics['coveredstatements'];
