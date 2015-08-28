@@ -41,10 +41,8 @@ class CoverageController extends Controller
     public function actionRunCoverage($site) {
         
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        
         $coverage = new Coverage($site);
-        var_dump($coverage->data);
-        //return $coverage->data->coverage;
+        return $coverage->metrics;
 
     }
 	    
