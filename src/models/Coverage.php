@@ -53,7 +53,7 @@ class Coverage extends \yii\base\Model
         $this->coverage_class = 0 * ($this->classes);
     }
     
-    private function coverageDataExists() {
+    public function coverageDataExists() {
         $directory = $this->site->configuration['paths']['log'];
         $filename = 'coverage.xml';
         if (file_exists($directory.'/'.$filename))
