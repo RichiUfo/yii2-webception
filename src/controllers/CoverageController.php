@@ -7,6 +7,7 @@ use yii\web\Controller;
 use yii\filters\AccessControl;
 
 use godardth\yii2webception\models\Coverage;
+use godardth\yii2webception\models\Site;
 
 /*
 * TestController
