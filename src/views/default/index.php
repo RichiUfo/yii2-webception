@@ -134,7 +134,7 @@ function genLabel($type){
                             </tr>
                             <?php Modal::begin([
                                 'id' => 'modal-'.$test->hash,
-                                'header' => 'Test Log - '.$test->title,
+                                'header' => $site->name.' - '.$test->type.' - '.$test->title,
                                 'size' => Modal::SIZE_LARGE
                             ]) ?>
                             <pre class="test-log <?= $test->hash ?>"></pre>
