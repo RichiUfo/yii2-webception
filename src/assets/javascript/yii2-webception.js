@@ -177,12 +177,13 @@ $(document).ready(function(){
     $('.btn-refresh-coverage').click(function(){
         
         // Prepare the request parameters
-        var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase();
+        var site = $(this).parents('.site')
+        var sitename = site.find('.test-site-name').html().toLowerCase();
         
         // Show test is running status to the user
-        $(this).parent().find('.coverage-value').html('Running')
-        $(this).parent().find('.btn-refresh-coverage').attr('disabled', true)
-        $(this).parent().find('.btn-view-coverage').attr('disabled', true)
+        site.find('.coverage-value').html('Running')
+        site.find('.btn-refresh-coverage').attr('disabled', true)
+        site.find('.btn-view-coverage').attr('disabled', true)
         
         // Request the update using AJAX
         $.ajax({
@@ -193,8 +194,8 @@ $(document).ready(function(){
             success: function(result){
                 
                 // Disable the running status
-                $(this).parent().find('.btn-refresh-coverage').attr('disabled', false)
-                $(this).parent().find('.btn-view-coverage').attr('disabled', false)
+                site.find('.btn-refresh-coverage').attr('disabled', false)
+                site.find('.btn-view-coverage').attr('disabled', false)
                 
                 // Update the coverage statuses
                 checkCoverageAvailability()
