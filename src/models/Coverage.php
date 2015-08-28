@@ -46,9 +46,9 @@ class Coverage extends \yii\base\Model
         $this->methods = $metrics['@attributes']['methods'];
         
         // Calculations
-        $coverage_lines = 0;
-        $coverage_methods = 100 * ((int)$this->coveredmethods / (int)$this->methods);
-        $coverage_class = 0 * ($this->classes);
+        $coverage_lines = (double)0;
+        $coverage_methods = 100 * ((double)$this->coveredmethods / (double)$this->methods);
+        $coverage_class = 0 * ((double)$this->classes);
     }
     
 }
