@@ -63,36 +63,33 @@ var checkCoverageAvailability = function() {
     $('.site').each(function(){
         
         var site = $(this)
-        var sitename = $(this).find('.test-site-name').html().toLowerCase()
-        var url = window.location.origin+'/tests/'+sitename+'/coverage.xml'
+        var sitename = site.find('.test-site-name').html().toLowerCase()
         
+        // Load the coverage data
         $.ajax({
-            type: 'HEAD',
-            url: url,
-            success: function(){
-                // If coverage data exists
-                site.find('.btn-view-coverage').attr('disabled', false)
-                site.find('.btn-refresh-coverage').html('<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>')
-            
-                // Load the coverage data
-                $.ajax({
-                    type: "GET",
-                    url: "testing/coverage/get-coverage", 
-                    data: { site: sitename },
-                    dataType: "json",
-                    success: function(result){
-                        site.find('.coverage-value').html(Math.round(result.coverage_methods)+' %')
-                    }
-                })
+            type: "GET",
+            url: "testing/coverage/get-coverage", 
+            data: { site: sitename },
+            dataType: "json",
+            success: function(result){
                 
-            },
-            error: function() {
-                // If coverage data doesn't exists
-                site.find('.btn-view-coverage').attr('disabled', true)
-                site.find('.btn-refresh-coverage').html('<span class="glyphicon glyphicon-play" aria-hidden="true"></span>')
+                console.log(sitename, result)
+                
+                // Case 1 : Date has already been generated
+                if (result !== false) {
+                    site.find('.btn-view-coverage').attr('disabled', false)
+                    site.find('.btn-refresh-coverage').html('<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>')
+                    site.find('.coverage-value').html(Math.round(result.coverage_methods)+' %')
+                }
+                
+                // Case 2 : Coverage report doesn't exist
+                else {
+                    site.find('.btn-view-coverage').attr('disabled', true)
+                    site.find('.btn-refresh-coverage').html('<span class="glyphicon glyphicon-play" aria-hidden="true"></span>')
+                }
+                
             }
-        });
-        
+        })
     })
 }
 

@@ -12,7 +12,6 @@ class Coverage extends \yii\base\Model
 {
     
     public $site;
-    public $coverage_data_exists = false;
     
     public $classes;
     public $coveredconditionals;
@@ -31,7 +30,8 @@ class Coverage extends \yii\base\Model
         
         // Class Properties
         $this->site = Site::findOne(['name' => $site]);
-        
+        if(!($this->coverageDataExists()))
+            return;
         
         // Parse the previous XML (if any)
         $url = Url::to('tests/'.$site.'/coverage.xml');
@@ -51,6 +51,14 @@ class Coverage extends \yii\base\Model
         $this->coverage_lines = 0;
         $this->coverage_methods = 100 * ($this->coveredmethods / $this->methods);
         $this->coverage_class = 0 * ($this->classes);
+    }
+    
+    private function coverageDataExists() {
+        $directory = $this->site->configuration['paths']['output'];
+        $filename = 'coverage.xml';
+        if (file_exists($directory.'/'.$filename))
+            return true;
+        return false;
     }
     
 }
