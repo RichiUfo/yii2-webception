@@ -42,7 +42,7 @@ class CoverageController extends Controller
         
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $coverage = new Coverage($site);
-        return $coverage->metrics->attributes();
+        return $coverage->metrics[0]->attributes();
 
     }
 	    
