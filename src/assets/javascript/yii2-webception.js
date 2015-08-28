@@ -187,36 +187,17 @@ $(document).ready(function(){
         // Request the update using AJAX
         $.ajax({
             type: "GET",
-            url: "testing/coverage/run-test", 
-            data: { hash: hash },
+            url: "testing/coverage/run-coverage", 
+            data: { site: sitename },
             dataType: "json",
             success: function(result){
                 
-                // Show test status + color the label
-                $('#'+hash+' .status').html(result.state)
-                $('#'+hash+' .status').removeClass('btn-default btn-primary btn-success btn-info btn-warning btn-danger')
-                switch(result.state) {
-                    case 'Failed':
-                        $('#'+hash+' .status').addClass('btn-danger')
-                        break;
-                    case 'Passed':
-                        $('#'+hash+' .status').addClass('btn-success')
-                        break;
-                    case 'Ready':
-                        $('#'+hash+' .status').addClass('btn-primary')
-                        break;
-                    case 'Error':
-                        $('#'+hash+' .status').addClass('btn-warning')
-                        break;
-                    default:
-                        $('#'+hash+' .status').addClass('')
-                }
+                // Disable the running status
+                $('#'+hash+' .btn-refresh-coverage').attr('disabled', false)
+                $('#'+hash+' .btn-view-coverage').attr('disabled', false)
                 
-                // Update the test log
-                $('.test-log.'+hash).html(result.log) 
-                $('#'+hash+' .run-test').attr('disabled', false)
-                $('.view-log[hash='+hash+']').attr('disabled', false)
-                
+                // Update the coverage statuses
+                checkCoverageAvailability()
             }
         })
         
