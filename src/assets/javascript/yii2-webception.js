@@ -59,7 +59,7 @@ var resetTest = function(hash) {
 var checkCoverageAvailability = function() {
     $('.site').each(function(){
         var sitename = $(this).find('.test-site-name').html().toLowerCase()
-        var url = '/tests/'+sitename+'/coverage.xml'
+        var url = window.location.origin+'/tests/'+sitename+'/coverage.xml'
         console.log(url)
         $.ajax({
             type: 'HEAD',
