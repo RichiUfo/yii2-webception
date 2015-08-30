@@ -54,9 +54,11 @@ class Coverage extends \yii\base\Model
     }
     
     public function coverageDataExists() {
-        $directory = $this->site->configuration['paths']['log'];
+        $base_app = Yii::$app->basePath;
+        $base_module = $this->site->configuration['paths']['base'];
+        $log_directory = $this->site->configuration['paths']['log'];
         $filename = 'coverage.xml';
-        if (file_exists($directory.'/'.$filename))
+        if (file_exists($base_app . '/' . $base_module . '/' . $log_directory . '/' . $filename))
             return true;
         return false;
     }
