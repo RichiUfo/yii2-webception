@@ -34,6 +34,11 @@ class Coverage extends \yii\base\Model
             return;
         
         // Parse the previous XML (if any)
+        $base_app = Yii::$app->basePath;
+        $base_module = $this->site->configuration['paths']['base'];
+        $log_directory = $this->site->configuration['paths']['log'];
+        $filename = 'coverage.xml';
+        $full = $base_app . '/' . $base_module . '/' . $log_directory . '/' . $filename;
         $url = Url::to('tests/'.$site.'/coverage.xml');
         $data = simplexml_load_file($url);
         $metrics = (array)$data->xpath("/coverage/project/metrics")[0]->attributes();
@@ -49,7 +54,7 @@ class Coverage extends \yii\base\Model
         
         // Calculations
         $this->coverage_lines = 0;
-        $this->coverage_methods = 100 * ($this->coveredmethods / $this->methods);
+        $this->coverage_methods = ($this->methods>0)?100 * ($this->coveredmethods / $this->methods):0;
         $this->coverage_class = 0 * ($this->classes);
     }
     
