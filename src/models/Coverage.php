@@ -58,9 +58,10 @@ class Coverage extends \yii\base\Model
         $base_module = $this->site->configuration['paths']['base'];
         $log_directory = $this->site->configuration['paths']['log'];
         $filename = 'coverage.xml';
-        if (file_exists($base_app . '/' . $base_module . '/' . $log_directory . '/' . $filename))
+        $full = $base_app . '/' . $base_module . '/' . $log_directory . '/' . $filename;
+        if (file_exists($full))
             return true;
-        return false;
+        return $full;
     }
     
 }
