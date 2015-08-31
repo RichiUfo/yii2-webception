@@ -82,7 +82,7 @@ class Site extends \yii\db\ActiveRecord
             );
             $phpfiles = new \RegexIterator(
                 new \RecursiveIteratorIterator($directory), 
-                '/^.+\.php$/i',
+                '^.+(Cept|Cest|Test)\.php$',
                 \RegexIterator::MATCH, 
                 \RegexIterator::USE_KEY
             );
