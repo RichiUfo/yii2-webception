@@ -23,7 +23,7 @@ class CodeceptionController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'roles' => ['?'],
+                        'roles' => [''],
                     ],
                 ],
             ],
