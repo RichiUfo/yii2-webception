@@ -18,7 +18,7 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()  {
+    /*public function behaviors()  {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -30,7 +30,7 @@ class SiteController extends Controller
                 ],
             ],
         ];
-    }
+    }*/
     
     public function getAvailableSites() {
         return Site::find()->where(1)->all();

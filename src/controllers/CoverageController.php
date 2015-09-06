@@ -19,7 +19,7 @@ class CoverageController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()  {
+    /*public function behaviors()  {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -31,7 +31,7 @@ class CoverageController extends Controller
                 ],
             ],
         ];
-    }
+    }*/
     
     /*
     * Coverage Runner

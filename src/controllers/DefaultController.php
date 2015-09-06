@@ -12,7 +12,7 @@ class DefaultController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()  {
+    /*public function behaviors()  {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -24,7 +24,7 @@ class DefaultController extends Controller
                 ],
             ],
         ];
-    }
+    }*/
     
     /**
 	 * Routed Actions - Views Rendering

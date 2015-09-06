@@ -16,7 +16,7 @@ class CodeceptionController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()  {
+    /*public function behaviors()  {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -28,7 +28,7 @@ class CodeceptionController extends Controller
                 ],
             ],
         ];
-    }
+    }*/
         
     /**
      * Check that the Codeception executable exists and is runnable.

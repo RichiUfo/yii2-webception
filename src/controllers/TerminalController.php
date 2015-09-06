@@ -16,7 +16,7 @@ class TerminalController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()  {
+    /*public function behaviors()  {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -28,7 +28,7 @@ class TerminalController extends Controller
                 ],
             ],
         ];
-    }
+    }*/
     
     /**
      * Run a terminal command.
