@@ -2,7 +2,11 @@ var changeButtonColor = function(button, code) {
     button.removeClass('btn-default btn-primary btn-success btn-info btn-warning btn-danger')
     button.addClass('btn-'+code)
 }
-var runTest = function(hash) {
+var runTest = function(current, selector) {
+    
+    // Current is the element containing the hash attribute
+    var hash = current.attr("hash")
+    selector = selector || ""
     
     resetTest(hash)
     
@@ -42,6 +46,8 @@ var runTest = function(hash) {
             $('#'+hash+' .run-test').attr('disabled', false)
             $('.view-log[hash='+hash+']').attr('disabled', false)
             
+            // Run test on next item
+            runTest(current.next(selector), selector)
         }
     })
 }
@@ -118,16 +124,15 @@ $(document).ready(function(){
      * Test Runners
      */
     $('.run-test').click(function(){
-        var hash = $(this).attr('hash')
-        runTest(hash)
+        runTest( $(this) )
     })
     
     $('.run-type').click(function(){
         var site = $(this).attr('site')
         var type = $(this).attr('type')
-        $('#'+site+' .'+type+' .run-test').each(function(i, obj) {
-            runTest($(obj).attr('hash'))
-        })
+        var selector = '#'+site+' .'+type+' .run-test';
+        $('#'+site+' .'+type+' .run-test')
+        runTest( $('#'+site+' .'+type+' .run-test'), selector)
     })
     $('.run-site').click(function(){
         var site = $(this).attr('site')
