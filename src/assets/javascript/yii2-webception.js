@@ -133,7 +133,7 @@ $(document).ready(function(){
         var type = $(this).attr('type')
         var selector = '#'+site+' .'+type+' .run-test';
         $('#'+site+' .'+type+' .run-test')
-        runTest( $('#'+site+' .'+type+' .run-test'), selector)
+        runTest( $('#'+site+' .'+type+' .run-test') , selector)
     })
     $('.run-site').click(function(){
         var site = $(this).attr('site')
