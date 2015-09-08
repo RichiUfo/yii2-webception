@@ -48,7 +48,7 @@ var runTest = function(current, selector) {
             
             // Run test on next item
             console.log(current.next(selector), selector, current.next(selector).attr("hash"))
-            runTest(current.next(selector), selector)
+            runTest(current,current.next(selector), selector)
         }
     })
 }
