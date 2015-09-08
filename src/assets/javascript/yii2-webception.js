@@ -3,55 +3,55 @@ var changeButtonColor = function(button, code) {
     button.removeClass('btn-default btn-primary btn-success btn-info btn-warning btn-danger')
     button.addClass('btn-'+code)
 }
-var runTest = function(current, selector) {
+var runTest = function() {
     
-    // Current is the element containing the hash attribute
-    var hash = current.attr("hash")
-    //selector = selector || ""
-    
-    resetTest(hash)
-    
-    $('#'+hash+' .status').html('Running')
-    $('#'+hash+' .run-test').attr('disabled', true)
-    $('#'+hash+' .run-test').html('<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>')
-    
-    $.ajax({
-        type: "GET",
-        url: "testing/test/run-test", 
-        data: { hash: hash },
-        dataType: "json",
-        success: function(result){
-            
-            // Show test status + color the label
-            $('#'+hash+' .status').html(result.state)
-            $('#'+hash+' .status').removeClass('btn-default btn-primary btn-success btn-info btn-warning btn-danger')
-            switch(result.state) {
-                case 'Failed':
-                    $('#'+hash+' .status').addClass('btn-danger')
-                    break;
-                case 'Passed':
-                    $('#'+hash+' .status').addClass('btn-success')
-                    break;
-                case 'Ready':
-                    $('#'+hash+' .status').addClass('btn-primary')
-                    break;
-                case 'Error':
-                    $('#'+hash+' .status').addClass('btn-warning')
-                    break;
-                default:
-                    $('#'+hash+' .status').addClass('')
+    if(testQueue.length > 0) {
+        
+        var hash = testQueue[0].attr("hash")
+        resetTest(hash)
+        
+        $('#'+hash+' .status').html('Running')
+        $('#'+hash+' .run-test').attr('disabled', true)
+        $('#'+hash+' .run-test').html('<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>')
+        
+        $.ajax({
+            type: "GET",
+            url: "testing/test/run-test", 
+            data: { hash: hash },
+            dataType: "json",
+            success: function(result){
+                
+                // Show test status + color the label
+                $('#'+hash+' .status').html(result.state)
+                $('#'+hash+' .status').removeClass('btn-default btn-primary btn-success btn-info btn-warning btn-danger')
+                switch(result.state) {
+                    case 'Failed':
+                        $('#'+hash+' .status').addClass('btn-danger')
+                        break;
+                    case 'Passed':
+                        $('#'+hash+' .status').addClass('btn-success')
+                        break;
+                    case 'Ready':
+                        $('#'+hash+' .status').addClass('btn-primary')
+                        break;
+                    case 'Error':
+                        $('#'+hash+' .status').addClass('btn-warning')
+                        break;
+                    default:
+                        $('#'+hash+' .status').addClass('')
+                }
+                
+                // Update the test log
+                $('.test-log.'+hash).html(result.log) 
+                $('#'+hash+' .run-test').attr('disabled', false)
+                $('.view-log[hash='+hash+']').attr('disabled', false)
+                
+                // Run test on next item
+                testQueue.shift()
+                runTest()
             }
-            
-            // Update the test log
-            $('.test-log.'+hash).html(result.log) 
-            $('#'+hash+' .run-test').attr('disabled', false)
-            $('.view-log[hash='+hash+']').attr('disabled', false)
-            
-            // Run test on next item
-            console.log( 'Current' , current )
-            runTest()
-        }
-    })
+        })
+    }
 }
 var resetTest = function(hash) {
     
@@ -135,7 +135,7 @@ $(document).ready(function(){
         var type = $(this).attr('type')
         testQueue = $('#'+site+' .'+type+' .run-test')
         console.log(testQueue)
-        //runTest( $('#'+site+' .'+type+' .run-test').first() , selector)
+        runTest()
     })
     
     $('.run-site').click(function(){
