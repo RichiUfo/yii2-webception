@@ -47,8 +47,8 @@ var runTest = function(current, selector) {
             $('.view-log[hash='+hash+']').attr('disabled', false)
             
             // Run test on next item
-            console.log(current.next(selector), selector, current.next(selector).attr("hash"))
-            runTest(current,current.next(selector), selector)
+            console.log(current, current.next(selector), selector, current.next(selector).attr("hash"))
+            runTest(current.next(selector), selector)
         }
     })
 }
