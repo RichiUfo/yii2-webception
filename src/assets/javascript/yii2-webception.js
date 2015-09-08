@@ -135,7 +135,7 @@ $(document).ready(function(){
         var type = $(this).attr('type')
         testQueue = $('#'+site+' .'+type+' .run-test')
         console.log(testQueue[0])
-        runTest()
+        //runTest()
     })
     
     $('.run-site').click(function(){
