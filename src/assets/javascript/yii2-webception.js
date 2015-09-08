@@ -142,15 +142,13 @@ $(document).ready(function(){
     
     $('.run-site').click(function(){
         var site = $(this).attr('site')
-        $('#'+site+' .run-test').each(function(i, obj) {
-            runTests($(obj).attr('hash'))
-        })
+        addTests('#'+site+' .run-test')
+        runTests()
     })
     
     $('.run-all').click(function(){
-        $('.run-test').each(function(i, obj) {
-            runTests($(obj).attr('hash'))
-        })
+        addTests('.run-test')
+        runTests()
     })
     
     /**
