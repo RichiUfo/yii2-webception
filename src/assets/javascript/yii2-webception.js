@@ -51,7 +51,7 @@ var runTests = function() {
                 
                 // Run test on next item
                 testQueue.splice(0, 1)
-                runTest()
+                runTests()
             }
         })
     }
