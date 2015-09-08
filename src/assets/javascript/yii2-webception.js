@@ -1,3 +1,4 @@
+var testQueue = []
 var changeButtonColor = function(button, code) {
     button.removeClass('btn-default btn-primary btn-success btn-info btn-warning btn-danger')
     button.addClass('btn-'+code)
@@ -48,8 +49,7 @@ var runTest = function(current, selector) {
             
             // Run test on next item
             console.log( 'Current' , current )
-            console.log( 'Next' , current.next() )
-            runTest(current.next(selector), selector)
+            runTest()
         }
     })
 }
@@ -130,11 +130,12 @@ $(document).ready(function(){
     })
     
     $('.run-type').click(function(){
+        
         var site = $(this).attr('site')
         var type = $(this).attr('type')
-        var selector = '.run-test';
-        $('#'+site+' .'+type+' .run-test')
-        runTest( $('#'+site+' .'+type+' .run-test').first() , selector)
+        testQueue = $('#'+site+' .'+type+' .run-test')
+        console.log(testQueue)
+        //runTest( $('#'+site+' .'+type+' .run-test').first() , selector)
     })
     
     $('.run-site').click(function(){
