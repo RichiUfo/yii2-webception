@@ -7,7 +7,7 @@ var runTest = function() {
     
     if(testQueue.length > 0) {
         
-        var hash = testQueue[0].attr("hash")
+        var hash = $(testQueue[0]).attr("hash")
         resetTest(hash)
         
         $('#'+hash+' .status').html('Running')
@@ -134,8 +134,7 @@ $(document).ready(function(){
         var site = $(this).attr('site')
         var type = $(this).attr('type')
         testQueue = $('#'+site+' .'+type+' .run-test')
-        console.log($(testQueue[0]).attr('hash'))
-        //runTest()
+        runTest()
     })
     
     $('.run-site').click(function(){
