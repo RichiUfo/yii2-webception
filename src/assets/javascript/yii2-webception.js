@@ -48,7 +48,7 @@ var runTest = function(current, selector) {
             
             // Run test on next item
             console.log( 'Current' , current )
-            console.log( 'Next' , current.next(selector) )
+            console.log( 'Next' , current.next() )
             runTest(current.next(selector), selector)
         }
     })
