@@ -48,7 +48,7 @@ var runTest = function(current, selector) {
             
             // Run test on next item
             console.log(current, current.next('.run-test'), selector, current.next('.run-test').attr("hash"))
-            runTest(current.next('.run-test'), selector)
+            runTest(current.next(selector), selector)
         }
     })
 }
@@ -133,8 +133,9 @@ $(document).ready(function(){
         var type = $(this).attr('type')
         var selector = '.run-test';
         $('#'+site+' .'+type+' .run-test')
-        runTest( $('#'+site+' .'+type+' .run-test') , selector)
+        runTest( $('#'+site+' .'+type+' .run-test').first() , selector)
     })
+    
     $('.run-site').click(function(){
         var site = $(this).attr('site')
         $('#'+site+' .run-test').each(function(i, obj) {
