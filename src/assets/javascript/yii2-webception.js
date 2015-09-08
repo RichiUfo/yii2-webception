@@ -131,7 +131,7 @@ $(document).ready(function(){
     $('.run-type').click(function(){
         var site = $(this).attr('site')
         var type = $(this).attr('type')
-        var selector = '#'+site+' .'+type+' .run-test';
+        var selector = '.run-test';
         $('#'+site+' .'+type+' .run-test')
         runTest( $('#'+site+' .'+type+' .run-test') , selector)
     })
