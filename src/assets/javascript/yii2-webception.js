@@ -3,7 +3,10 @@ var changeButtonColor = function(button, code) {
     button.removeClass('btn-default btn-primary btn-success btn-info btn-warning btn-danger')
     button.addClass('btn-'+code)
 }
-var runTest = function() {
+var addTests = function(selector) {
+    testQueue = $(selector)
+}
+var runTests = function() {
     
     if(testQueue.length > 0) {
         
@@ -126,27 +129,27 @@ $(document).ready(function(){
      * Test Runners
      */
     $('.run-test').click(function(){
-        runTest( $(this) )
+        addTests(this)
+        runTests()
     })
     
     $('.run-type').click(function(){
-        
         var site = $(this).attr('site')
         var type = $(this).attr('type')
-        testQueue = $('#'+site+' .'+type+' .run-test')
-        runTest()
+        addTests('#'+site+' .'+type+' .run-test')
+        runTests()
     })
     
     $('.run-site').click(function(){
         var site = $(this).attr('site')
         $('#'+site+' .run-test').each(function(i, obj) {
-            runTest($(obj).attr('hash'))
+            runTests($(obj).attr('hash'))
         })
     })
     
     $('.run-all').click(function(){
         $('.run-test').each(function(i, obj) {
-            runTest($(obj).attr('hash'))
+            runTests($(obj).attr('hash'))
         })
     })
     
