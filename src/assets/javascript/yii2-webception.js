@@ -47,7 +47,7 @@ var runTest = function() {
                 $('.view-log[hash='+hash+']').attr('disabled', false)
                 
                 // Run test on next item
-                testQueue.shift()
+                testQueue.splice(0, 1)
                 runTest()
             }
         })
