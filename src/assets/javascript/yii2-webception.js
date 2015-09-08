@@ -6,7 +6,7 @@ var runTest = function(current, selector) {
     
     // Current is the element containing the hash attribute
     var hash = current.attr("hash")
-    selector = selector || ""
+    //selector = selector || ""
     
     resetTest(hash)
     
