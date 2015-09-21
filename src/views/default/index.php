@@ -29,7 +29,7 @@ function genLabel($type){
 
 <div class="godardth-webception">
     <h1>
-        Software Testing Interfacr
+        Software Testing Interface
         <div class="pull-right">
             <div class="btn-group btn-group-xs" role="group">
                 <button type="button" class="btn btn-<?= $checks['configuration'] ? 'success' : 'danger' ?>" disabled>Configuration</button>
