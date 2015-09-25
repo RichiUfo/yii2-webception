@@ -40,7 +40,7 @@ function genLabel($type){
             <!-- GLOBAL COVERAGE TO BE IMPLEMENTED LATER --
             <div class="btn-group btn-group-xs" role="group">
                 <button type="button" class="btn btn-default disabled">Coverage</button>
-                <button type="button" class="btn btn-warning disabled">45 %</button>
+                <button type="button" class="btn btn-warning disabled">45 %</butaton>
                 <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
             </div>
             --> 
@@ -83,6 +83,11 @@ function genLabel($type){
                     <button class="btn btn-default btn-xs run-site" 
                             site="site<?= $sitecounter ?>"
                             type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+                            
+                    <button class="btn btn-default btn-xs btn-view-output" type="submit">
+                        <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Output
+                    </button>
+                    
                 </div>
             </h3>
         </div>

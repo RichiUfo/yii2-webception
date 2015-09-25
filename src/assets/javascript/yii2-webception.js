@@ -175,9 +175,17 @@ $(document).ready(function(){
      */
     $('.btn-view-coverage').click(function(){
         if(!$(this).attr('disabled')){
-            var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase();
-            window.location.assign('/tests/'+sitename+'/coverage')
+            var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase()
+            window.location.assign('/tests/'+sitename+'/_output/coverage')
         }
+    })
+    
+    /**
+     * HTML Output Viewer
+     */
+    $('.btn-view-output').click(function(){
+        var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase()
+        window.location.assign('/tests/'+sitename+'/_output')
     })
     
     /**
