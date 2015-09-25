@@ -185,7 +185,7 @@ $(document).ready(function(){
      */
     $('.btn-view-output').click(function(){
         var sitename = $(this).parents('.site').find('.test-site-name').html().toLowerCase()
-        window.location.assign('/tests/'+sitename+'/_output')
+        window.location.assign('/tests/'+sitename)
     })
     
     /**
