@@ -35,3 +35,7 @@
 .godardth-webception .btn.disabled.btn-success, .godardth-webception .btn[disabled].btn-success {
   color: #fff;
 }
+/* line 43, ../sass/screen.scss */
+.godardth-webception .modal-dialog {
+  width: 90%;
+}
