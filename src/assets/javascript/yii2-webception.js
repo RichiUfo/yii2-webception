@@ -216,7 +216,8 @@ $(document).ready(function(){
                 
                 // Update the coverage statuses
                 checkCoverageAvailability()
-            }
+            },
+            timeout: 300000
         })
         
         
