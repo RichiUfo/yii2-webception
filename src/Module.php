@@ -22,9 +22,9 @@ class Module extends \yii\base\Module
     {
         parent::__construct($id, $parent, $config);
         
-        $this->db_name = 'yii2_webception';
-        $this->db_username = 'fullplanner2';
-        $this->db_password = 'fxUYjM7U7Ua5bDRb';
+        $this->db_name = 'fullplanner_test_webception';
+        $this->db_username = 'fullplanner';
+        $this->db_password = 'NbDC96SH3JvTHMpE';
 		
 		// Open the database connection for the module
 		$this->db = new \yii\db\Connection([
